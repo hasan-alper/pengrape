@@ -16,6 +16,10 @@ app.get("/utilities/random-number", (req, res) => {
 	res.render("utilities/randomNumber");
 });
 
+app.get("/utilities/random-color", (req, res) => {
+	res.render("utilities/randomColor");
+});
+
 app.listen(3000, (req, res) => {
 	console.log("LISTENING ON PORT 3000!");
 });
