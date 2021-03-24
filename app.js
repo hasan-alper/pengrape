@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
 	res.render("home");
 });
 
+app.get("/utilities/random-number", (req, res) => {
+	res.render("utilities/randomNumber");
+});
+
 app.listen(3000, (req, res) => {
 	console.log("LISTENING ON PORT 3000!");
 });
