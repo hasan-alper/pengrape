@@ -1,9 +1,23 @@
 const random = {
 	number: (opts) => {
-		// default required
-		// odd even option
-		const { min, max } = opts;
-		return Math.floor(Math.random() * (max - min + 1)) + min;
+		//cant use decimal values for input min and max
+		//generate x numbers
+		//sort the results ascend/descend/none
+		//allow duplication in results true/false
+		let { min, max, type, precision } = opts;
+		min = min || 0;
+		max = max || 100;
+		type = type || "integer";
+		precision = precision || 4;
+
+		if (type === "integer") return Math.floor(Math.random() * (max - min + 1)) + min;
+		else if (type === "decimal") {
+			let num = `${Math.floor(Math.random() * (max - min)) + min}.`;
+			for (let i = 0; i < precision; i++) {
+				num += Math.floor(Math.random() * 10).toString();
+			}
+			return num;
+		} else return "ERROR";
 	},
 	color: (opts) => {
 		// opacitiy toggle option
