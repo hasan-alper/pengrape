@@ -54,8 +54,8 @@ const random = {
 
 			s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
 
-			s = +(s * 100).toFixed(1);
-			l = +(l * 100).toFixed(1);
+			s = Math.round(+(s * 100).toFixed(1));
+			l = Math.round(+(l * 100).toFixed(1));
 
 			return "hsl(" + h + ", " + s + "%, " + l + "%)";
 		};
@@ -63,10 +63,12 @@ const random = {
 		const rgb = `rgb(${r}, ${g}, ${b})`;
 		const hex = rgbToHex(r, g, b);
 		const hsl = rgbToHsl(r, g, b);
+		const all = `${hex};${rgb};${hsl}`.split(";");
 
 		if (type === "hex") return hex;
 		else if (type === "rgb") return rgb;
 		else if (type === "hsl") return hsl;
+		else if (type === "all") return all;
 		else return "ERROR";
 	},
 };
