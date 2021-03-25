@@ -4,7 +4,7 @@ const random = {
 		//generate x numbers
 		//sort the results ascend/descend/none
 		//allow duplication in results true/false
-		let { min, max, type, precision } = opts;
+		let { min, max, type, precision } = opts; //default
 		min = min || 0;
 		max = max || 100;
 		type = type || "integer";
@@ -21,7 +21,7 @@ const random = {
 	},
 	color: (opts) => {
 		// opacitiy toggle option
-		const { type } = opts;
+		const { type } = opts; // default
 		const r = random.number({ min: 0, max: 255 });
 		const g = random.number({ min: 0, max: 255 });
 		const b = random.number({ min: 0, max: 255 });
@@ -70,6 +70,33 @@ const random = {
 		else if (type === "hsl") return hsl;
 		else if (type === "all") return all;
 		else return "ERROR";
+	},
+	password: (opts) => {
+		let { lowercase, uppercase, number, symbol, length } = opts || { lowercase: true, uppercase: true, number: true, symbol: true, length: 16 };
+
+		if (lowercase !== false) lowercase = true;
+		if (uppercase !== false) uppercase = true;
+		if (number !== false) number = true;
+		if (symbol !== false) symbol = true;
+		length = length || 16;
+
+		const lowercaseLetters = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
+		const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		const numbers = "0123456789012345678901234567890123456789";
+		const symbols = "~!@#$%&*()_-+=[]{}|<,>.?/";
+
+		let allCharacters = "";
+		if (lowercase) allCharacters += lowercaseLetters;
+		if (uppercase) allCharacters += uppercaseLetters;
+		if (number) allCharacters += numbers;
+		if (symbol) allCharacters += symbols;
+		if (!allCharacters) return "You must select at least one character set";
+
+		let password = "";
+		for (let i = 0; i < length; i++) {
+			password += allCharacters[random.number({ min: 0, max: allCharacters.length - 1 })];
+		}
+		return password;
 	},
 };
 
