@@ -7,14 +7,15 @@
 		<title>Random Color</title>
 	</head>
 	<body>
-		<input type="radio" id="hex" name="color" value="hex" checked />
+		<input type="radio" id="hex" name="format" value="hex" checked />
 		<label for="hex">HEX</label>
-		<input type="radio" id="rgb" name="color" value="rgb" />
+		<input type="radio" id="rgb" name="format" value="rgb" />
 		<label for="rgb">RGB</label>
-		<input type="radio" id="hsl" name="color" value="hsl" />
+		<input type="radio" id="hsl" name="format" value="hsl" />
 		<label for="hsl">HSL</label>
-		<p id="output">Click generate to create a color code.</p>
+		<p id="output">Click generate to create a color code</p>
 		<button id="button">Generate</button>
+		<button id="copy-button">Copy</button>
 		<a href="/">Home</a>
 	</body>
 	<script type="module" src="/static/javascripts/randomColor.js"></script>

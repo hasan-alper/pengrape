@@ -5,7 +5,8 @@ const output = document.querySelector("#output");
 const hexButton = document.querySelector("#hex");
 const rgbButton = document.querySelector("#rgb");
 const hslButton = document.querySelector("#hsl");
-const colorOpts = document.querySelectorAll('input[name="color"]');
+const colorOpts = document.querySelectorAll('input[name="format"]');
+const copyButton = document.querySelector("#copy-button");
 
 button.addEventListener("click", () => {
 	let index;
@@ -15,7 +16,7 @@ button.addEventListener("click", () => {
 		}
 	});
 
-	const colorCodes = random.color({ type: "all" });
+	const colorCodes = random.color({ format: "all" });
 	output.innerHTML = colorCodes[index];
 	output.style.backgroundColor = colorCodes[index];
 
@@ -33,4 +34,8 @@ button.addEventListener("click", () => {
 		output.innerHTML = colorCodes[2];
 		output.style.backgroundColor = colorCodes[2];
 	});
+});
+
+copyButton.addEventListener("click", () => {
+	window.navigator.clipboard.writeText(output.innerText);
 });

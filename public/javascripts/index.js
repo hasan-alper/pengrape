@@ -4,9 +4,9 @@ const random = {
 		//generate x numbers
 		//sort the results ascend/descend/none
 		//allow duplication in results true/false
-		let { min, max, type, precision } = opts; //default
+		let { min, max, type, precision } = opts || { min: 0, max: 20, type: "integer", precision: 4 };
 		min = min || 0;
-		max = max || 100;
+		max = max || 20;
 		type = type || "integer";
 		precision = precision || 4;
 
@@ -21,7 +21,8 @@ const random = {
 	},
 	color: (opts) => {
 		// opacitiy toggle option
-		const { type } = opts; // default
+		let { format } = opts || { format: "rgb" };
+		format = format || "rgb";
 		const r = random.number({ min: 0, max: 255 });
 		const g = random.number({ min: 0, max: 255 });
 		const b = random.number({ min: 0, max: 255 });
@@ -65,10 +66,10 @@ const random = {
 		const hsl = rgbToHsl(r, g, b);
 		const all = `${hex};${rgb};${hsl}`.split(";");
 
-		if (type === "hex") return hex;
-		else if (type === "rgb") return rgb;
-		else if (type === "hsl") return hsl;
-		else if (type === "all") return all;
+		if (format === "hex") return hex;
+		else if (format === "rgb") return rgb;
+		else if (format === "hsl") return hsl;
+		else if (format === "all") return all;
 		else return "ERROR";
 	},
 	password: (opts) => {
