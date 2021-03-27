@@ -7,9 +7,11 @@ const rgbButton = document.querySelector("#rgb");
 const hslButton = document.querySelector("#hsl");
 const colorOpts = document.querySelectorAll('input[name="format"]');
 const copyButton = document.querySelector("#copy-button");
+const undoButton = document.querySelector("#undo-button");
+let index;
+let history = [];
 
 button.addEventListener("click", () => {
-	let index;
 	colorOpts.forEach((colorOpt, i) => {
 		if (colorOpt.checked) {
 			index = i;
@@ -20,22 +22,37 @@ button.addEventListener("click", () => {
 	output.innerHTML = colorCodes[index];
 	output.style.backgroundColor = colorCodes[index];
 
+	history.push(colorCodes);
+
 	hexButton.addEventListener("click", () => {
-		output.innerHTML = colorCodes[0];
-		output.style.backgroundColor = colorCodes[0];
+		output.innerHTML = history[history.length - 1][0];
+		output.style.backgroundColor = history[history.length - 1][0];
 	});
 
 	rgbButton.addEventListener("click", () => {
-		output.innerHTML = colorCodes[1];
-		output.style.backgroundColor = colorCodes[1];
+		output.innerHTML = history[history.length - 1][1];
+		output.style.backgroundColor = history[history.length - 1][1];
 	});
 
 	hslButton.addEventListener("click", () => {
-		output.innerHTML = colorCodes[2];
-		output.style.backgroundColor = colorCodes[2];
+		output.innerHTML = history[history.length - 1][2];
+		output.style.backgroundColor = history[history.length - 1][2];
 	});
 });
 
 copyButton.addEventListener("click", () => {
 	window.navigator.clipboard.writeText(output.innerText);
+});
+
+undoButton.addEventListener("click", () => {
+	if (history.length > 1) {
+		history.pop();
+	}
+	colorOpts.forEach((colorOpt, i) => {
+		if (colorOpt.checked) {
+			output.innerHTML = history[history.length - 1][i];
+			output.style.backgroundColor = history[history.length - 1][i];
+			index = i;
+		}
+	});
 });
