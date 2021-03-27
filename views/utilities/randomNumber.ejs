@@ -1,16 +1,151 @@
 <% layout("layouts/boilerplate") %>
-<label for="min-input">min:</label>
-<input type="number" id="min-input" value="0" />
-<label for="max-label">max:</label>
-<input type="number" id="max-input" value="20" /><br />
-<input type="radio" id="integer" name="type" value="integer" checked />
-<label for="integer">Integer</label>
-<input type="radio" id="decimal" name="type" value="decimal" />
-<label for="decimal">Decimal</label>
-<label for="precision">Precision</label>
-<input type="number" id="precision" value="4" />
+<div class="d-flex flex-column text-center border mb-5">
+	<div style="height: 15vh" class="d-flex border justify-content-between align-items-center border-success p-3">
+		<a href="/" class="link-secondary">Back</a>
+		<h1>Random Number</h1>
+		<span style="opacity: 0; cursor: default">Back</span>
+	</div>
+	<div style="min-height: 15vh" class="d-flex border border-warning justify-content-center align-items-center p-3">
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cumque dicta necessitatibus ex distinctio suscipit.</p>
+	</div>
+	<div class="d-flex justify-content-center align-items-center border border-primary">
+		<button id="button" class="btn btn-primary m-1">Generate</button>
+	</div>
+	<div class="d-flex justify-content-center align-items-center border border-dark">
+		<h3 class="text-secondary mx-3 my-1">Result</h3>
+		<button id="copy-button" class="btn btn-secondary mx-3 my-1 btn-sm ms-auto">Copy</button>
+	</div>
+	<div style="min-height: 30vh" class="d-flex justify-content-center align-items-center border border-danger">
+		<span class="fs-3 mx-3" style="word-break: break-all" id="output">0</span>
+	</div>
+	<div class="d-flex justify-content-center align-items-center border border-dark">
+		<h3 class="text-secondary mx-3 my-1 me-auto">Options</h3>
+	</div>
+	<div style="min-height: 30vh" class="d-flex flex-column justify-content-center border border-info p-3">
+		<!-- <form>
+			<div class="row">
+				<div class="col-2">
+					<label for="min-input" class="form-label">Min</label>
+				</div>
+				<div class="col-2">
+					<label for="max-input" class="form-label">Max</label>
+				</div>
+				<div class="col-2 offset-2">
+					<label for="precision" class="form-label">Precision</label>
+				</div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-2">
+					<input type="number" class="form-control" id="min-input" value="0" autocomplete="off" />
+				</div>
+				<div class="col-2">
+					<input type="number" class="form-control" id="max-input" value="20" autocomplete="off" />
+				</div>
+				<div class="col-2 d-grid gap-2">
+					<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" autocomplete="off" />
+					<label for="decimal" class="btn btn-outline-secondary">Decimal</label>
+				</div>
+				<div class="col-2">
+					<input type="number" class="form-control" id="precision" value="4" autocomplete="off" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-2 offset-4 d-grid gap-2">
+					<input type="radio" class="btn-check" id="integer" name="type" value="integer" checked autocomplete="off" />
+					<label for="integer" class="btn btn-outline-secondary">Integer</label>
+				</div>
+			</div>
+		</form>
 
-<p id="output">0</p>
-<button id="button">Generate</button>
-<button id="copy-button">Copy</button>
-<a href="/">Home</a>
+		<form>
+			<div class="row">
+				<div class="col-6">
+					<div class="row">
+						<div class="col-2">
+							<label for="min-input" class="form-label">Min</label>
+						</div>
+						<div class="col-2">
+							<label for="max-input" class="form-label">Max</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2">
+						<input type="number" class="form-control" id="min-input" value="0" autocomplete="off" />
+					</div>
+					<div class="col-2">
+						<input type="number" class="form-control" id="max-input" value="20" autocomplete="off" />
+					</div>
+				</div>
+
+				<div class="col-6">
+					<div class="row">
+						<div class="col-2 offset-2">
+							<label for="precision" class="form-label">Precision</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2 d-grid gap-2 mb-2">
+						<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" autocomplete="off" />
+						<label for="decimal" class="btn btn-outline-secondary">Decimal</label>
+					</div>
+					<div class="col-2">
+						<input type="number" class="form-control" id="precision" value="4" autocomplete="off" />
+					</div>
+					<div class="row">
+						<div class="col-2 d-grid gap-2">
+							<input type="radio" class="btn-check" id="integer" name="type" value="integer" checked autocomplete="off" />
+							<label for="integer" class="btn btn-outline-secondary">Integer</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form> -->
+
+		<form>
+			<div class="row">
+				<div class="col-12 col-md-6 mb-3">
+					<div class="row">
+						<div class="col-6">
+							<label for="min-input" class="form-label">Min</label>
+						</div>
+						<div class="col-6">
+							<label for="max-input" class="form-label">Max</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<input type="number" class="form-control" id="min-input" value="0" autocomplete="off" />
+						</div>
+						<div class="col-6">
+							<input type="number" class="form-control" id="max-input" value="20" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="row">
+						<div class="col-8 col-md-8 offset-4">
+							<label for="precision" class="form-label">Precision</label>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-4 d-grid gap-2">
+							<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" autocomplete="off" />
+							<label for="decimal" class="btn btn-outline-secondary">Decimal</label>
+						</div>
+						<div class="col-8 col-md-8">
+							<input type="number" class="form-control" id="precision" value="4" autocomplete="off" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4 d-grid gap-2">
+							<input type="radio" class="btn-check" id="integer" name="type" value="integer" checked autocomplete="off" />
+							<label for="integer" class="btn btn-outline-secondary">Integer</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
