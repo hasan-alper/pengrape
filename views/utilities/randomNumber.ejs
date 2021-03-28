@@ -22,87 +22,6 @@
 		<h3 class="text-secondary mx-3 my-1 me-auto">Options</h3>
 	</div>
 	<div style="min-height: 30vh" class="d-flex flex-column justify-content-center border border-info p-3">
-		<!-- <form>
-			<div class="row">
-				<div class="col-2">
-					<label for="min-input" class="form-label">Min</label>
-				</div>
-				<div class="col-2">
-					<label for="max-input" class="form-label">Max</label>
-				</div>
-				<div class="col-2 offset-2">
-					<label for="precision" class="form-label">Precision</label>
-				</div>
-			</div>
-			<div class="row mb-3">
-				<div class="col-2">
-					<input type="number" class="form-control" id="min-input" value="0" autocomplete="off" />
-				</div>
-				<div class="col-2">
-					<input type="number" class="form-control" id="max-input" value="20" autocomplete="off" />
-				</div>
-				<div class="col-2 d-grid gap-2">
-					<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" autocomplete="off" />
-					<label for="decimal" class="btn btn-outline-secondary">Decimal</label>
-				</div>
-				<div class="col-2">
-					<input type="number" class="form-control" id="precision" value="4" autocomplete="off" />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-2 offset-4 d-grid gap-2">
-					<input type="radio" class="btn-check" id="integer" name="type" value="integer" checked autocomplete="off" />
-					<label for="integer" class="btn btn-outline-secondary">Integer</label>
-				</div>
-			</div>
-		</form>
-
-		<form>
-			<div class="row">
-				<div class="col-6">
-					<div class="row">
-						<div class="col-2">
-							<label for="min-input" class="form-label">Min</label>
-						</div>
-						<div class="col-2">
-							<label for="max-input" class="form-label">Max</label>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-2">
-						<input type="number" class="form-control" id="min-input" value="0" autocomplete="off" />
-					</div>
-					<div class="col-2">
-						<input type="number" class="form-control" id="max-input" value="20" autocomplete="off" />
-					</div>
-				</div>
-
-				<div class="col-6">
-					<div class="row">
-						<div class="col-2 offset-2">
-							<label for="precision" class="form-label">Precision</label>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-2 d-grid gap-2 mb-2">
-						<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" autocomplete="off" />
-						<label for="decimal" class="btn btn-outline-secondary">Decimal</label>
-					</div>
-					<div class="col-2">
-						<input type="number" class="form-control" id="precision" value="4" autocomplete="off" />
-					</div>
-					<div class="row">
-						<div class="col-2 d-grid gap-2">
-							<input type="radio" class="btn-check" id="integer" name="type" value="integer" checked autocomplete="off" />
-							<label for="integer" class="btn btn-outline-secondary">Integer</label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form> -->
-
 		<form>
 			<div class="row">
 				<div class="col-12 col-md-6 mb-3">
@@ -142,6 +61,18 @@
 						<div class="col-4 d-grid gap-2">
 							<input type="radio" class="btn-check" id="integer" name="type" value="integer" checked autocomplete="off" />
 							<label for="integer" class="btn btn-outline-secondary">Integer</label>
+						</div>
+						<div class="col-2 d-grid gap-2">
+							<input type="radio" class="btn-check" id="none" name="parity" value="" checked autocomplete="off" />
+							<label for="none" class="btn btn-outline-danger">X</label>
+						</div>
+						<div class="col-3 d-grid gap-2">
+							<input type="radio" class="btn-check" id="odd" name="parity" value="odd" autocomplete="off" />
+							<label for="odd" class="btn btn-outline-secondary">Odd</label>
+						</div>
+						<div class="col-3 d-grid gap-2">
+							<input type="radio" class="btn-check" id="even" name="parity" value="even" autocomplete="off" />
+							<label for="even" class="btn btn-outline-secondary">Even</label>
 						</div>
 					</div>
 				</div>

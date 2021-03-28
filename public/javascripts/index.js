@@ -4,14 +4,22 @@ const random = {
 		//generate x numbers
 		//sort the results ascend/descend/none
 		//allow duplication in results true/false
-		let { min, max, type, precision } = opts || { min: 0, max: 20, type: "integer", precision: 4 };
+		let { min, max, type, precision, parity } = opts || { min: 0, max: 20, type: "integer", precision: 4 };
 		min = min || 0;
 		max = max || 20;
 		type = type || "integer";
 		precision = precision || 4;
 
-		if (type === "integer") return Math.floor(Math.random() * (max - min + 1)) + min;
-		else if (type === "decimal") {
+		if (type === "integer") {
+			let num = Math.floor(Math.random() * (max - min + 1)) + min;
+			if (parity === "odd") {
+				return num % 2 === 0 ? random.number({ min, max, parity: "odd" }) : num;
+			} else if (parity === "even") {
+				return num % 2 === 0 ? num : random.number({ min, max, parity: "even" });
+			} else if (!parity) {
+				return num;
+			} else return "ERROR";
+		} else if (type === "decimal") {
 			let num = `${Math.floor(Math.random() * (max - min)) + min}.`;
 			for (let i = 0; i < precision; i++) {
 				num += Math.floor(Math.random() * 10).toString();
