@@ -9,6 +9,7 @@ const colorOpts = document.querySelectorAll('input[name="format"]');
 const copyButton = document.querySelector("#copy-button");
 const undoButton = document.querySelector("#undo-button");
 let index;
+
 let history = [];
 
 button.addEventListener("click", () => {
@@ -19,6 +20,15 @@ button.addEventListener("click", () => {
 	});
 
 	const colorCodes = random.color({ format: "all" });
+
+	let lightness = colorCodes[2].split(",")[2].slice(1, -2);
+
+	if (lightness > 35) lightness = "black";
+	else lightness = "white";
+
+	colorCodes.push(lightness);
+
+	output.style.color = colorCodes[3];
 	output.innerHTML = colorCodes[index];
 	output.style.backgroundColor = colorCodes[index];
 
@@ -50,6 +60,7 @@ undoButton.addEventListener("click", () => {
 	}
 	colorOpts.forEach((colorOpt, i) => {
 		if (colorOpt.checked) {
+			output.style.color = history[history.length - 1][3];
 			output.innerHTML = history[history.length - 1][i];
 			output.style.backgroundColor = history[history.length - 1][i];
 			index = i;
