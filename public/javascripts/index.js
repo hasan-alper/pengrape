@@ -1,9 +1,6 @@
 const random = {
 	number: (opts) => {
 		//cant use decimal values for input min and max
-		//generate x numbers
-		//sort the results ascend/descend/none
-		//allow duplication in results true/false
 		let { min, max, type, precision, parity } = opts || { min: 0, max: 20, type: "integer", precision: 4 };
 		min = min || 0;
 		max = max || 20;
@@ -106,6 +103,32 @@ const random = {
 			password += allCharacters[random.number({ min: 0, max: allCharacters.length - 1 })];
 		}
 		return password;
+	},
+	spinner: (opts) => {
+		let { entries, returnData, returnDeg } = opts;
+		let allLuckyData = [];
+		let allData = [];
+		let luckyEntry;
+
+		const deg = random.number({ min: 0, max: 359 });
+
+		entries.forEach((entry, i) => {
+			const max = Math.floor((360 / entries.length) * (i + 1));
+			const min = Math.floor(max - 360 / entries.length);
+			const data = max - min;
+			const obj = { entry, min, max, data };
+			if (obj.min < deg && max > deg) {
+				luckyEntry = obj;
+			}
+			allData.push(data);
+		});
+		if (returnData === true) return allData;
+		if (returnDeg === true) {
+			allLuckyData.push(luckyEntry);
+			allLuckyData.push(deg);
+			return allLuckyData;
+		}
+		return luckyEntry;
 	},
 };
 

@@ -27,6 +27,10 @@ app.get("/utilities/random-password", (req, res) => {
 	res.render("utilities/randomPassword", { title: "Random Password", scriptRoute: "randomPassword" });
 });
 
+app.get("/utilities/spinner", (req, res) => {
+	res.render("utilities/spinner", { title: "Spinner", scriptRoute: "spinner" });
+});
+
 app.listen(3000, (req, res) => {
 	console.log("LISTENING ON PORT 3000!");
 });
