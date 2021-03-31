@@ -130,6 +130,31 @@ const random = {
 		}
 		return luckyEntry;
 	},
+	dice: (opts) => {
+		let { notation, returnTotal } = opts;
+		const splits = notation.split("d");
+		const amounts = parseInt(splits[0] || 1);
+		const sides = parseInt(splits[1] || 6);
+		let total = 0;
+		let results = [];
+
+		for (let i = 0; i < amounts; i++) {
+			const result = random.number({ min: 1, max: sides });
+			total += result;
+			results.push(result);
+		}
+
+		if (returnTotal === true) {
+			let arr = [];
+			arr.push(results);
+			arr.push(total);
+			return arr;
+		} else if (returnTotal !== true) {
+			return [results];
+		} else {
+			return "ERROR";
+		}
+	},
 };
 
 export { random };
