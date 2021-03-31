@@ -1,11 +1,18 @@
 const random = {
 	number: (opts) => {
-		//cant use decimal values for input min and max
 		let { min, max, type, precision, parity } = opts || { min: 0, max: 20, type: "integer", precision: 4 };
-		min = min || 0;
-		max = max || 20;
+		min = Math.floor(min) || 0;
+		max === undefined ? (max = 20) : (max = Math.floor(max));
 		type = type || "integer";
 		precision = precision || 4;
+
+		if (min > max) {
+			min = min + max;
+			max = min - max;
+			min = min - max;
+		}
+
+		if (min === max) return "The lower limit value needs to be smaller than the upper limit value.";
 
 		if (type === "integer") {
 			let num = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -78,12 +85,12 @@ const random = {
 		else return "ERROR";
 	},
 	password: (opts) => {
-		let { lowercase, uppercase, number, symbol, length } = opts || { lowercase: true, uppercase: true, number: true, symbol: true, length: 16 };
+		let { lowercase, uppercase, number, symbol, length } = opts || { lowercase: true, uppercase: true, number: true, symbol: false, length: 16 };
 
 		if (lowercase !== false) lowercase = true;
 		if (uppercase !== false) uppercase = true;
 		if (number !== false) number = true;
-		if (symbol !== false) symbol = true;
+		if (symbol !== false) symbol = false;
 		length = length || 16;
 
 		const lowercaseLetters = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";

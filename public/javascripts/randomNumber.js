@@ -21,9 +21,19 @@ button.addEventListener("click", () => {
 			break;
 		}
 	}
-	const minInput = parseInt(document.querySelector("#min-input").value);
-	const maxInput = parseInt(document.querySelector("#max-input").value);
+	let minInput = parseInt(document.querySelector("#min-input").value);
+	let maxInput = parseInt(document.querySelector("#max-input").value);
 	const precision = parseInt(document.querySelector("#precision").value);
+
+	if (minInput > maxInput) {
+		maxInput = maxInput + minInput;
+		minInput = maxInput - minInput;
+		maxInput = maxInput - minInput;
+	}
+
+	document.querySelector("#min-input").value = minInput;
+	document.querySelector("#max-input").value = maxInput;
+
 	output.innerHTML = random.number({ min: minInput, max: maxInput, type: selectedType, precision: precision, parity: selectedParity });
 });
 
