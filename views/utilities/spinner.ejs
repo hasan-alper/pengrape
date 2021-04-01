@@ -2,16 +2,39 @@
 
 <% layout("layouts/boilerplate") %>
 
-<h1>spinner</h1>
+<div class="d-flex flex-column text-center border mb-5">
+	<div style="height: 15vh" class="d-flex border justify-content-between align-items-center border-success p-3">
+		<a href="/" class="link-secondary">Back</a>
+		<h1>Spinner</h1>
+		<span style="opacity: 0; cursor: default">Back</span>
+	</div>
+	<div style="min-height: 15vh" class="d-flex border border-warning justify-content-center align-items-center p-3">
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cumque dicta necessitatibus ex distinctio suscipit.</p>
+	</div>
+	<div class="d-flex justify-content-center align-items-center border border-primary">
+		<button id="button" class="btn btn-primary m-1">Spin</button>
+	</div>
+	<div class="d-flex justify-content-center align-items-center border border-dark">
+		<h3 class="text-secondary mx-3 my-1 me-auto">Result</h3>
+	</div>
+	<div class="d-flex flex-column justify-content-center align-items-center border border-danger">
+		<div style="min-height: 5vh" class="d-flex justify-content-center align-items-center"><p id="output">-</p></div>
+		<div class="mb-3 d-flex justify-content-center align-items-center">
+			<canvas style="height: 45vh; width: 45vh" id="chart"></canvas>
+		</div>
+	</div>
+	<div class="d-flex justify-content-center align-items-center border border-dark">
+		<h3 class="text-secondary mx-3 my-1 me-auto">Options</h3>
+	</div>
+	<div style="min-height: 20vh" class="d-flex flex-column align-items-start border border-info p-3">
+		<form>
+			<div class="mb-3 d-flex">
+				<input type="text" class="form-control m" id="input" autocomplete="off" />
+				<input type="button" class="btn-check" id="add" autocomplete="off" />
+				<label for="add" class="btn btn-outline-secondary">+</label>
+			</div>
 
-<a href="/">Back</a>
-<canvas id="chart" width="400" height="400"></canvas>
-<input type="button" value="Spin" id="button" />
-<p id="output">-</p>
-
-<div>
-	<input type="text" id="input" />
-	<input type="button" id="add" value="+" />
+			<div class="d-flex mb-1" id="chart-legends"></div>
+		</form>
+	</div>
 </div>
-
-<div id="entry-div"></div>
