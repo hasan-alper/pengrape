@@ -35,6 +35,10 @@ app.get("/utilities/dice-roller", (req, res) => {
 	res.render("utilities/diceRoller", { title: "Dice Roller", scriptRoute: "diceRoller" });
 });
 
+app.get("/utilities/random-text", (req, res) => {
+	res.render("utilities/randomText", { title: "Random Text", scriptRoute: "randomText" });
+});
+
 app.listen(3000, (req, res) => {
 	console.log("LISTENING ON PORT 3000!");
 });
