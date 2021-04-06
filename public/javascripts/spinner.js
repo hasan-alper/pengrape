@@ -9,6 +9,8 @@ let entries = [];
 let myData;
 let spinCount = 0;
 
+button.disabled = true;
+
 const spin = () => {
 	window.chart.options.rotation = -90 * (Math.PI / 180);
 	window.chart.update();
@@ -20,7 +22,24 @@ const spin = () => {
 	window.chart.options.rotation = Math.PI * -0.5 - (deg / 180) * Math.PI - Math.PI * 12 * spinCount;
 	window.chart.options.animation.duration = 8000;
 	window.chart.update();
-	setTimeout(() => (output.innerHTML = luckyEntry.entry), 7000);
+
+	button.disabled = true;
+	add.disabled = true;
+	input.disabled = true;
+	input.value = "";
+	document.querySelectorAll(".delete-button").forEach((item) => {
+		item.disabled = true;
+	});
+
+	setTimeout(() => {
+		output.innerHTML = luckyEntry.entry;
+		button.disabled = false;
+		add.disabled = false;
+		input.disabled = false;
+		document.querySelectorAll(".delete-button").forEach((item) => {
+			item.disabled = false;
+		});
+	}, 7000);
 };
 
 const deleteEntryItem = (i) => {
@@ -36,20 +55,19 @@ const updateData = () => {
 	chartLegends.innerHTML = window.chart.generateLegend();
 	bindChartEvents();
 	window.chart.update();
+	entries[0] ? (button.disabled = false) : (button.disabled = true);
+	output.innerHTML = "-";
 };
 
 const addEntryItem = () => {
-	entries.push(input.value);
-
-	myData = random.spinner({ entries, returnData: true });
-
-	updateData();
-
-	document.querySelectorAll(".delete-button").forEach((item, i) => {
-		item.addEventListener("click", () => {});
-	});
-
-	input.value = "";
+	if (input.value) {
+		entries.push(input.value);
+		myData = random.spinner({ entries, returnData: true });
+		updateData();
+		input.value = "";
+	} else {
+		return;
+	}
 };
 
 add.addEventListener("click", addEntryItem);
