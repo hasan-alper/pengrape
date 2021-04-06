@@ -10,6 +10,7 @@ const syllableButton = document.querySelector("#syllable");
 const wordButton = document.querySelector("#word");
 const sentenceButton = document.querySelector("#sentence");
 const paragraphButton = document.querySelector("#paragraph");
+const copyButton = document.querySelector("#copy-button");
 let selected;
 
 letterButton.addEventListener("click", () => {
@@ -30,6 +31,10 @@ sentenceButton.addEventListener("click", () => {
 
 paragraphButton.addEventListener("click", () => {
 	unitOutput.innerHTML = "sentences";
+});
+
+copyButton.addEventListener("click", () => {
+	window.navigator.clipboard.writeText(output.innerText);
 });
 
 button.addEventListener("click", () => {
