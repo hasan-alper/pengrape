@@ -3,12 +3,12 @@ $secondary: #ff9d8d;
 $dark: #808080;
 $darker: #404040;
 
-$font-size: 18px;
+$font-size: 16px;
 $font-family: "Poppins", sans-serif;
 $box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 //INPUTS
-$input-padding-y: 9.5px;
+$input-padding-y: 8.5px;
 $input-padding-x: 20px;
 $input-font-family: $font-family;
 $input-font-size: $font-size;
@@ -22,7 +22,7 @@ $input-focus-box-shadow: none;
 //LABELS
 
 $form-label-margin-bottom: 0;
-$form-label-font-size: 18;
+$form-label-font-size: $font-size;
 $form-label-font-style: null;
 $form-label-font-weight: 400;
 $form-label-color: $dark;
@@ -43,8 +43,8 @@ $form-label-color: $dark;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 50px;
-	width: 100px;
+	height: 45px;
+	width: 90px;
 	border-radius: 30px;
 	border-width: 2px;
 	transition: ease 0.2s;
@@ -78,8 +78,8 @@ $form-label-color: $dark;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 50px;
-	width: 80px;
+	height: 45px;
+	width: 70px;
 	border-radius: 30px;
 	border-width: 2px;
 	transition: ease 0.2s;
@@ -111,8 +111,8 @@ $form-label-color: $dark;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 60px;
-	width: 120px;
+	height: 50px;
+	width: 100px;
 	border-radius: 30px;
 	border-width: 2px;
 	transition: ease 0.1s;
@@ -148,8 +148,8 @@ $form-label-color: $dark;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 50px;
-	width: 100px;
+	height: 45px;
+	width: 90px;
 	border-radius: 30px;
 	border-width: 2px;
 	transition: ease 0.1s;
@@ -177,8 +177,6 @@ $form-label-color: $dark;
 }
 
 .btn-sm {
-	height: 50px;
-	width: 50px;
+	height: 45px;
+	width: 45px;
 }
-
-// INPUTS
