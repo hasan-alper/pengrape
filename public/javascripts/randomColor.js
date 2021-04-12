@@ -8,6 +8,7 @@ const hslButton = document.querySelector("#hsl");
 const colorOpts = document.querySelectorAll('input[name="format"]');
 const copyButton = document.querySelector("#copy-button");
 const undoButton = document.querySelector("#undo-button");
+const resultsSection = document.querySelector("#results-div");
 let index;
 
 let history = [];
@@ -30,23 +31,23 @@ button.addEventListener("click", () => {
 
 	output.style.color = colorCodes[3];
 	output.innerHTML = colorCodes[index];
-	output.style.backgroundColor = colorCodes[index];
+	resultsSection.style.backgroundColor = colorCodes[index];
 
 	history.push(colorCodes);
 
 	hexButton.addEventListener("click", () => {
 		output.innerHTML = history[history.length - 1][0];
-		output.style.backgroundColor = history[history.length - 1][0];
+		resultsSection.style.backgroundColor = history[history.length - 1][0];
 	});
 
 	rgbButton.addEventListener("click", () => {
 		output.innerHTML = history[history.length - 1][1];
-		output.style.backgroundColor = history[history.length - 1][1];
+		resultsSection.style.backgroundColor = history[history.length - 1][1];
 	});
 
 	hslButton.addEventListener("click", () => {
 		output.innerHTML = history[history.length - 1][2];
-		output.style.backgroundColor = history[history.length - 1][2];
+		resultsSection.style.backgroundColor = history[history.length - 1][2];
 	});
 });
 
@@ -62,7 +63,7 @@ undoButton.addEventListener("click", () => {
 		if (colorOpt.checked) {
 			output.style.color = history[history.length - 1][3];
 			output.innerHTML = history[history.length - 1][i];
-			output.style.backgroundColor = history[history.length - 1][i];
+			resultsSection.style.backgroundColor = history[history.length - 1][i];
 			index = i;
 		}
 	});
