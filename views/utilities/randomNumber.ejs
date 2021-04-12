@@ -1,82 +1,70 @@
 <% layout("layouts/boilerplate") %>
-<div class="d-flex flex-column text-center border mb-5">
-	<div style="height: 15vh" class="d-flex border justify-content-between align-items-center border-success p-3">
-		<a href="/" class="link-secondary">Back</a>
-		<h1>Random Number</h1>
-		<span style="opacity: 0; cursor: default">Back</span>
+
+<nav id="navbar">
+	<a href="/" id="pengrape">pengrape</a>
+	<span id="title">Random Number</span>
+	<a id="pengrape-fake">pengrape</a>
+</nav>
+
+<section id="results-section">
+	<div id="results-div">
+		<div id="results-buttons">
+			<button id="copy-button-fake" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
+			<input type="button" id="button" class="btn btn-primary" value="Generate" />
+			<button id="copy-button" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
+		</div>
+		<div id="results-output">
+			<span id="output">0</span>
+		</div>
 	</div>
-	<div style="min-height: 15vh" class="d-flex border border-warning justify-content-center align-items-center p-3">
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cumque dicta necessitatibus ex distinctio suscipit.</p>
+</section>
+
+<section id="options-section">
+	<div id="option-1">
+		<div id="option-1-div">
+			<div id="min-input-option">
+				<label for="min-input" class="form-label" id="min-input-label">Min</label>
+				<input type="number" class="form-control" id="min-input" value="0" />
+			</div>
+			<div id="max-input-option">
+				<label for="max-input" class="form-label" id="max-input-label">Max</label>
+				<input type="number" class="form-control" id="max-input" value="20" />
+			</div>
+		</div>
 	</div>
-	<div class="d-flex justify-content-center align-items-center border border-primary">
-		<button id="button" class="btn btn-primary m-1">Generate</button>
-	</div>
-	<div class="d-flex justify-content-center align-items-center border border-dark">
-		<h3 class="text-secondary mx-3 my-1">Result</h3>
-		<button id="copy-button" class="btn btn-secondary mx-3 my-1 btn-sm ms-auto">Copy</button>
-	</div>
-	<div style="min-height: 30vh" class="d-flex justify-content-center align-items-center border border-danger">
-		<span class="fs-3 mx-3" style="word-break: break-all" id="output">0</span>
-	</div>
-	<div class="d-flex justify-content-center align-items-center border border-dark">
-		<h3 class="text-secondary mx-3 my-1 me-auto">Options</h3>
-	</div>
-	<div style="min-height: 30vh" class="d-flex flex-column justify-content-center border border-info p-3">
-		<form>
-			<div class="row">
-				<div class="col-12 col-md-6 mb-3">
-					<div class="row">
-						<div class="col-6">
-							<label for="min-input" class="form-label">Min</label>
-						</div>
-						<div class="col-6">
-							<label for="max-input" class="form-label">Max</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-6">
-							<input type="number" class="form-control" id="min-input" value="0" autocomplete="off" />
-						</div>
-						<div class="col-6">
-							<input type="number" class="form-control" id="max-input" value="20" autocomplete="off" />
-						</div>
-					</div>
+	<div id="option-2">
+		<div id="option-2-div">
+			<div id="row1">
+				<input type="radio" class="btn-check" id="integer" name="type" value="integer" checked />
+				<label for="integer" class="btn btn-outline-primary">Integer</label>
+			</div>
+			<div id="row2">
+				<div id="none-button">
+					<input type="radio" class="btn-check" id="none" name="parity" value="" checked />
+					<label for="none" class="btn btn-outline-secondary btn-sm"><i class="fas fa-times"></i></label>
 				</div>
-				<div class="col-12 col-md-6">
-					<div class="row">
-						<div class="col-8 col-md-8 offset-4">
-							<label for="precision" class="form-label">Precision</label>
-						</div>
-					</div>
-					<div class="row mb-3">
-						<div class="col-4 d-grid gap-2">
-							<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" autocomplete="off" />
-							<label for="decimal" class="btn btn-outline-secondary">Decimal</label>
-						</div>
-						<div class="col-8 col-md-8">
-							<input type="number" class="form-control" id="precision" value="4" autocomplete="off" />
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-4 d-grid gap-2">
-							<input type="radio" class="btn-check" id="integer" name="type" value="integer" checked autocomplete="off" />
-							<label for="integer" class="btn btn-outline-secondary">Integer</label>
-						</div>
-						<div class="col-2 d-grid gap-2">
-							<input type="radio" class="btn-check" id="none" name="parity" value="" checked autocomplete="off" />
-							<label for="none" class="btn btn-outline-danger">X</label>
-						</div>
-						<div class="col-3 d-grid gap-2">
-							<input type="radio" class="btn-check" id="odd" name="parity" value="odd" autocomplete="off" />
-							<label for="odd" class="btn btn-outline-secondary">Odd</label>
-						</div>
-						<div class="col-3 d-grid gap-2">
-							<input type="radio" class="btn-check" id="even" name="parity" value="even" autocomplete="off" />
-							<label for="even" class="btn btn-outline-secondary">Even</label>
-						</div>
-					</div>
+				<div id="odd-button">
+					<input type="radio" class="btn-check" id="odd" name="parity" value="odd" />
+					<label for="odd" class="btn btn-outline-secondary">Odd</label>
+				</div>
+
+				<div id="even-button">
+					<input type="radio" class="btn-check" id="even" name="parity" value="even" />
+					<label for="even" class="btn btn-outline-secondary">Even</label>
 				</div>
 			</div>
-		</form>
+			<div id="row3">
+				<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" />
+				<label for="decimal" class="btn btn-outline-primary">Decimal</label>
+			</div>
+			<div id="row4">
+				<label for="precision" class="form-label">Precision</label>
+			</div>
+
+			<div id="row5">
+				<input type="number" id="precision" class="form-control" value="4" />
+				<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" />
+			</div>
+		</div>
 	</div>
-</div>
+</section>

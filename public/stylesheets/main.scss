@@ -1,0 +1,184 @@
+$primary: #e87477;
+$secondary: #ff9d8d;
+$dark: #808080;
+$darker: #404040;
+
+$font-size: 18px;
+$font-family: "Poppins", sans-serif;
+$box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+//INPUTS
+$input-padding-y: 9.5px;
+$input-padding-x: 20px;
+$input-font-family: $font-family;
+$input-font-size: $font-size;
+$input-color: $darker;
+$input-border-color: $dark;
+$input-border-width: 2px;
+$input-border-radius: 30px;
+$input-focus-border-color: $dark;
+$input-focus-box-shadow: none;
+
+//LABELS
+
+$form-label-margin-bottom: 0;
+$form-label-font-size: 18;
+$form-label-font-style: null;
+$form-label-font-weight: 400;
+$form-label-color: $dark;
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+// BUTTONS
+.btn-outline-primary {
+	color: $primary;
+	background-color: white;
+	font-size: $font-size;
+	font-family: $font-family;
+	box-shadow: $box-shadow;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 100px;
+	border-radius: 30px;
+	border-width: 2px;
+	transition: ease 0.2s;
+	&:hover {
+		color: white;
+		background-color: $primary;
+	}
+	.btn-check:checked + &,
+	.btn-check:active + &,
+	&:active,
+	&.active,
+	&.dropdown-toggle.show {
+		color: white;
+		background-color: $primary;
+		box-shadow: none;
+		transform: translateY(1px);
+		transition: ease 0.2s;
+	}
+	.btn-check:focus + &,
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+.btn-outline-secondary {
+	color: $secondary;
+	background-color: white;
+	font-size: $font-size;
+	font-family: $font-family;
+	box-shadow: $box-shadow;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 80px;
+	border-radius: 30px;
+	border-width: 2px;
+	transition: ease 0.2s;
+	&:hover {
+		color: white;
+		background-color: $secondary;
+	}
+	.btn-check:checked + &,
+	.btn-check:active + &,
+	&:active {
+		color: white;
+		background-color: $secondary;
+		box-shadow: none;
+		transform: translateY(1px);
+		transition: ease 0.2s;
+	}
+	.btn-check:focus + &,
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+.btn-primary {
+	color: white;
+	background-color: $primary;
+	font-size: $font-size;
+	font-family: $font-family;
+	box-shadow: $box-shadow;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	width: 120px;
+	border-radius: 30px;
+	border-width: 2px;
+	transition: ease 0.1s;
+	&:hover {
+		color: white;
+		background-color: $primary;
+	}
+	.btn-check:checked + &,
+	.btn-check:active + &,
+	&:active,
+	&.active,
+	&.dropdown-toggle.show {
+		color: white;
+		background-color: $primary;
+		box-shadow: none;
+		transform: translateY(1px);
+		transition: ease 0.1s;
+	}
+	.btn-check:focus + &,
+	&:focus {
+		box-shadow: $box-shadow;
+		color: white;
+		background-color: $primary;
+	}
+}
+
+.btn-secondary {
+	color: white;
+	background-color: $secondary;
+	font-size: $font-size;
+	font-family: $font-family;
+	box-shadow: $box-shadow;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 100px;
+	border-radius: 30px;
+	border-width: 2px;
+	transition: ease 0.1s;
+	&:hover {
+		color: white;
+		background-color: $secondary;
+	}
+	.btn-check:checked + &,
+	.btn-check:active + &,
+	&:active,
+	&.active,
+	&.dropdown-toggle.show {
+		color: white;
+		background-color: $secondary;
+		box-shadow: none;
+		transform: translateY(1px);
+		transition: ease 0.1s;
+	}
+	.btn-check:focus + &,
+	&:focus {
+		box-shadow: $box-shadow;
+		color: white;
+		background-color: $secondary;
+	}
+}
+
+.btn-sm {
+	height: 50px;
+	width: 50px;
+}
+
+// INPUTS

@@ -9,6 +9,7 @@
   "author": "Hasan Alper Aydın",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.0.0-beta3",
     "ejs": "^3.1.6",
     "ejs-mate": "^3.0.0",
     "express": "^4.17.1"
