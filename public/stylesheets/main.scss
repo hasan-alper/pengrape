@@ -33,7 +33,6 @@ $form-label-color: $dark;
 
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
-// BUTTONS
 .btn-outline-primary {
 	color: $primary;
 	background-color: white;
@@ -179,4 +178,9 @@ $form-label-color: $dark;
 .btn-sm {
 	height: 45px;
 	width: 45px;
+}
+
+.btn-lg {
+	height: 45px;
+	width: 250px;
 }

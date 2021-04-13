@@ -89,13 +89,13 @@ const random = {
 		if (lowercase !== false) lowercase = true;
 		if (uppercase !== false) uppercase = true;
 		if (number !== false) number = true;
-		if (symbol !== false) symbol = false;
+		if (symbol !== true) symbol = false;
 		length = length || 16;
 
 		const lowercaseLetters = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
 		const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		const numbers = "0123456789012345678901234567890123456789";
-		const symbols = "~!@#$%&*()_-+=[]{}|<,>.?/";
+		const symbols = "~!@#$%&*()_-+=[]{}|,.?/";
 
 		let allCharacters = "";
 		if (lowercase) allCharacters += lowercaseLetters;
