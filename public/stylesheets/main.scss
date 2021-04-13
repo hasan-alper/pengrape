@@ -101,6 +101,43 @@ $form-label-color: $dark;
 	}
 }
 
+.btn-outline-dark {
+	color: $dark;
+	background-color: white;
+	font-size: $font-size;
+	font-family: $font-family;
+	box-shadow: $box-shadow;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 100px;
+	border-radius: 30px;
+	border-width: 2px;
+	transition: ease 0.1s;
+	&:hover {
+		color: $dark;
+		background-color: white;
+	}
+	.btn-check:checked + &,
+	.btn-check:active + &,
+	&:active,
+	&.active,
+	&.dropdown-toggle.show {
+		color: $dark;
+		background-color: white;
+		box-shadow: none;
+		transform: translateY(1px);
+		transition: ease 0.1s;
+	}
+	.btn-check:focus + &,
+	&:focus {
+		box-shadow: $box-shadow;
+		color: $dark;
+		background-color: white;
+	}
+}
+
 .btn-primary {
 	color: white;
 	background-color: $primary;

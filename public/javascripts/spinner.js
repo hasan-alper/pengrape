@@ -84,8 +84,8 @@ window.chart = new Chart(ctx, {
 		datasets: [
 			{
 				data: [],
-				backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 206, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(255, 159, 64, 0.2)"],
-				borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)", "rgba(255, 206, 86, 1)", "rgba(75, 192, 192, 1)", "rgba(153, 102, 255, 1)", "rgba(255, 159, 64, 1)"],
+				backgroundColor: ["#FFC1C1", "#C6FFC1", "#C1E5FF", "#FFFDC1", "#FFC1FD", "#FFDFC1"],
+				borderColor: "#808080",
 			},
 		],
 	},
@@ -105,25 +105,22 @@ window.chart = new Chart(ctx, {
 				return data.datasets[0].data
 					.map(
 						(_, i) =>
-							`<li>
+							`
 					  		<div id="legend-${i}-item" class="legend-item">
-							<span style="background-color:
-						  	${data.datasets[0].backgroundColor[i]}">
-						  	&nbsp;&nbsp;&nbsp;&nbsp;
-							</span>
-							${data.labels[i] && `<span>&nbsp;&nbsp;${data.labels[i]}</span>`}
-							<input type="button" class="delete-button" value="x"/>
+							<span style="background-color:${data.datasets[0].backgroundColor[i]}" class="item-label"></span>
+							${data.labels[i] && `<span class="item-title">${data.labels[i]}<a class="delete-button"><i class="fas fa-times"></i></a></span>`}
 					 		 </div>
-				 			 </li>`
+				 			`
 					)
 					.join("");
 			};
 			return `
-			<ul class="chartjs-legend">
 			  ${renderLabels(chart)}
-			</ul>`;
+			`;
 		},
-		responsive: false,
+
+		aspectRatio: 1,
+		events: [],
 	},
 });
 

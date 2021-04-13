@@ -2,39 +2,39 @@
 
 <% layout("layouts/boilerplate") %>
 
-<div class="d-flex flex-column text-center border mb-5">
-	<div style="height: 15vh" class="d-flex border justify-content-between align-items-center border-success p-3">
-		<a href="/" class="link-secondary">Back</a>
-		<h1>Spinner</h1>
-		<span style="opacity: 0; cursor: default">Back</span>
-	</div>
-	<div style="min-height: 15vh" class="d-flex border border-warning justify-content-center align-items-center p-3">
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cumque dicta necessitatibus ex distinctio suscipit.</p>
-	</div>
-	<div class="d-flex justify-content-center align-items-center border border-primary">
-		<button id="button" class="btn btn-primary m-1">Spin</button>
-	</div>
-	<div class="d-flex justify-content-center align-items-center border border-dark">
-		<h3 class="text-secondary mx-3 my-1 me-auto">Result</h3>
-	</div>
-	<div class="d-flex flex-column justify-content-center align-items-center border border-danger">
-		<div style="min-height: 5vh" class="d-flex justify-content-center align-items-center"><p id="output">-</p></div>
-		<div class="mb-3 d-flex justify-content-center align-items-center">
-			<canvas style="height: 45vh; width: 45vh" id="chart"></canvas>
+<nav id="navbar">
+	<a href="/" id="pengrape">pengrape</a>
+	<span id="title">Spinner</span>
+	<a id="pengrape-fake">pengrape</a>
+</nav>
+
+<section id="results-section">
+	<div id="results-div">
+		<div id="results-buttons">
+			<input type="button" id="button" class="btn btn-primary" value="Spin" />
+		</div>
+		<div id="results-output">
+			<div id="output"></div>
+			<div id="chart-container">
+				<canvas id="chart"></canvas>
+			</div>
 		</div>
 	</div>
-	<div class="d-flex justify-content-center align-items-center border border-dark">
-		<h3 class="text-secondary mx-3 my-1 me-auto">Options</h3>
-	</div>
-	<div style="min-height: 20vh" class="d-flex flex-column align-items-start border border-info p-3">
-		<form>
-			<div class="mb-3 d-flex">
-				<input type="text" class="form-control m" id="input" autocomplete="off" />
-				<input type="button" class="btn-check" id="add" autocomplete="off" />
-				<label for="add" class="btn btn-outline-secondary">+</label>
-			</div>
+</section>
 
-			<div class="d-flex mb-1" id="chart-legends"></div>
-		</form>
+<section id="options-section">
+	<div id="option-1">
+		<div id="row1">
+			<label for="add" class="form-label">Entries</label>
+		</div>
+
+		<div id="row2">
+			<input type="text" class="form-control" id="input" autocomplete="off" />
+			<button id="add" class="btn btn-outline-dark btn-sm"><i class="fas fa-plus"></i></button>
+		</div>
+
+		<div id="row3">
+			<div id="chart-legends"></div>
+		</div>
 	</div>
-</div>
+</section>
