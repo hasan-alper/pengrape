@@ -1,70 +1,47 @@
 <% layout("layouts/boilerplate") %>
-<div class="d-flex flex-column text-center border">
-	<div style="height: 20vh" class="d-flex border justify-content-center align-items-center border-success">
-		<h1 class="">Pengrape</h1>
-	</div>
-	<div style="min-height: 30vh" class="d-flex border border-warning justify-content-center align-items-center p-3">
-		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cumque dicta necessitatibus ex distinctio suscipit. Corrupti veritatis ad quam voluptatem, voluptate reiciendis unde, illum repellat ducimus quas dicta libero
-			ex.
-		</p>
-	</div>
-	<div class="border border-danger">
-		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mt-2 mb-4 mx-3">
-			<div class="col d-flex justify-content-center">
-				<div class="card shadow" style="width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Random Number</h5>
-						<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In officiis quae quidem ut voluptatibus! Ipsa molestiae dolorem soluta sed.</p>
-						<a href="/utilities/random-number" class="btn btn-primary">Visit</a>
-					</div>
-				</div>
-			</div>
-			<div class="col d-flex justify-content-center">
-				<div class="card shadow" style="width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Random Color</h5>
-						<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In officiis quae quidem ut voluptatibus! Ipsa molestiae dolorem soluta sed.</p>
-						<a href="/utilities/random-color" class="btn btn-primary">Visit</a>
-					</div>
-				</div>
-			</div>
-			<div class="col d-flex justify-content-center">
-				<div class="card shadow" style="width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Random Password</h5>
-						<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In officiis quae quidem ut voluptatibus! Ipsa molestiae dolorem soluta sed.</p>
-						<a href="/utilities/random-password" class="btn btn-primary">Visit</a>
-					</div>
-				</div>
-			</div>
-			<div class="col d-flex justify-content-center">
-				<div class="card shadow" style="width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Spinner</h5>
-						<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In officiis quae quidem ut voluptatibus! Ipsa molestiae dolorem soluta sed.</p>
-						<a href="/utilities/spinner" class="btn btn-primary">Visit</a>
-					</div>
-				</div>
-			</div>
-			<div class="col d-flex justify-content-center">
-				<div class="card shadow" style="width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Dice Roller</h5>
-						<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In officiis quae quidem ut voluptatibus! Ipsa molestiae dolorem soluta sed.</p>
-						<a href="/utilities/dice-roller" class="btn btn-primary">Visit</a>
-					</div>
-				</div>
-			</div>
-			<div class="col d-flex justify-content-center">
-				<div class="card shadow" style="width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Random Text</h5>
-						<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In officiis quae quidem ut voluptatibus! Ipsa molestiae dolorem soluta sed.</p>
-						<a href="/utilities/random-text" class="btn btn-primary">Visit</a>
-					</div>
-				</div>
-			</div>
+
+<div id="pengrape">pengrape</div>
+
+<p id="description">
+	Pengrape is a website to generate anything random. It has a good number of utilities which has been designed to be lightweight, fast and easy to use. It is also a utility library to provide developers anything random. See the
+	<a class="link" href="#">full docs</a> for details on installation and usage.
+</p>
+
+<div id="cards">
+	<a class="link-2" href="/utilities/random-number">
+		<div class="card-body">
+			<h1 class="card-title">Random Number</h1>
+			<p class="card-text">Generate random number between the two numbers that you chose.</p>
 		</div>
-	</div>
+	</a>
+	<a class="link-2" href="/utilities/random-color">
+		<div class="card-body">
+			<h1 class="card-title">Random Color</h1>
+			<p class="card-text">Generate HEX, RGB or HSL color code.</p>
+		</div>
+	</a>
+	<a class="link-2" href="/utilities/random-password">
+		<div class="card-body">
+			<h1 class="card-title">Random Password</h1>
+			<p class="card-text">Generate secure passwords based on guidelines that you set.</p>
+		</div>
+	</a>
+	<a class="link-2" href="/utilities/spinner">
+		<div class="card-body">
+			<h1 class="card-title">Spinner</h1>
+			<p class="card-text">Enter names and spin the wheel to pick a random winner.</p>
+		</div>
+	</a>
+	<a class="link-2" href="/utilities/dice-roller">
+		<div class="card-body">
+			<h1 class="card-title">Dice Roller</h1>
+			<p class="card-text">Roll virtual dice.</p>
+		</div>
+	</a>
+	<a class="link-2" href="/utilities/random-text">
+		<div class="card-body">
+			<h1 class="card-title">Random Text</h1>
+			<p class="card-text">Get a random letter, syllable, word, sentence or paragraph.</p>
+		</div>
+	</a>
 </div>

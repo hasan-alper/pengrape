@@ -1,0 +1,130 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	padding: var(--spacing-medium) var(--spacing-large) var(--spacing-large);
+	font-size: var(--font-size-medium);
+	font-family: var(--font-family);
+	max-width: 1440px;
+	margin: auto;
+}
+
+#pengrape {
+	font-size: 64px;
+	font-family: var(--font-family-special);
+	background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: flex;
+	align-items: center;
+	padding: var(--spacing-large) var(--spacing-medium);
+}
+
+#description {
+	font-size: var(--font-size-large);
+	color: var(--darker-color);
+	width: 70%;
+	padding: var(--spacing-large) var(--spacing-medium);
+	line-height: 40px;
+	font-weight: 300;
+}
+
+.link {
+	text-decoration: none;
+	color: var(--primary-color);
+	font-weight: 400;
+}
+
+.link-2 {
+	display: flex;
+	text-decoration: none;
+	color: var(--darker-color);
+	border-radius: var(--border-radius);
+	width: 250px;
+	height: 350px;
+}
+
+.link-2:hover {
+	color: var(--darker-color);
+}
+
+#cards {
+	padding: var(--spacing-large) var(--spacing-medium) 0px var(--spacing-medium);
+	display: grid;
+	grid-gap: var(--spacing-large);
+	grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+	justify-content: start;
+}
+
+.card-title {
+	font-size: var(--font-size-large);
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	height: 80px;
+	margin-bottom: var(--font-size-large);
+}
+
+.card-text {
+	height: 150px;
+	color: var(--dark-color);
+	font-weight: 300;
+}
+
+.card-body {
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow);
+	padding: var(--spacing-large) var(--spacing-medium);
+}
+
+@media only screen and (max-width: 960px) {
+	#pengrape {
+		padding: var(--font-size-medium);
+	}
+
+	#description {
+		width: 100%;
+		line-height: normal;
+		padding: var(--font-size-medium);
+	}
+	#cards {
+		justify-content: center;
+	}
+}
+
+@media only screen and (max-width: 659px) {
+	#pengrape {
+		font-size: var(--font-size-huge);
+	}
+	#description {
+		font-size: var(--font-size-medium);
+		margin-bottom: var(--font-size-medium);
+	}
+
+	#cards {
+		padding-top: 0;
+	}
+
+	.link-2 {
+		height: 160px;
+	}
+
+	.card-title {
+		margin: 0;
+	}
+
+	.card-text {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 330px) {
+	body {
+		display: none;
+	}
+}
