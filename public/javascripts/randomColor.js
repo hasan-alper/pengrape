@@ -24,7 +24,7 @@ button.addEventListener("click", () => {
 
 	let lightness = colorCodes[2].split(",")[2].slice(1, -2);
 
-	if (lightness > 35) lightness = "black";
+	if (lightness > 45) lightness = "black";
 	else lightness = "white";
 
 	colorCodes.push(lightness);
@@ -49,6 +49,12 @@ button.addEventListener("click", () => {
 		output.innerHTML = history[history.length - 1][2];
 		resultsSection.style.backgroundColor = history[history.length - 1][2];
 	});
+
+	if (history.length === 1) {
+		undoButton.disabled = true;
+	} else {
+		undoButton.disabled = false;
+	}
 });
 
 copyButton.addEventListener("click", () => {
@@ -67,4 +73,8 @@ undoButton.addEventListener("click", () => {
 			index = i;
 		}
 	});
+
+	if (history.length === 1) {
+		undoButton.disabled = true;
+	}
 });

@@ -1,46 +1,4 @@
 <% layout("layouts/boilerplate") %>
-<!-- <div class="d-flex flex-column text-center border mb-5">
-	<div style="height: 15vh" class="d-flex border justify-content-between align-items-center border-success p-3">
-		<a href="/" class="link-secondary">Back</a>
-		<h1>Random Color</h1>
-		<span style="opacity: 0; cursor: default">Back</span>
-	</div>
-	<div style="min-height: 15vh" class="d-flex border border-warning justify-content-center align-items-center p-3">
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cumque dicta necessitatibus ex distinctio suscipit.</p>
-	</div>
-	<div class="d-flex justify-content-center align-items-center border border-primary">
-		<button id="button" class="btn btn-primary m-1">Generate</button>
-	</div>
-	<div class="d-flex justify-content-center align-items-center border border-dark">
-		<h3 class="text-secondary mx-3 my-1 me-auto">Result</h3>
-		<button id="undo-button" class="btn btn-secondary mx-3 my-1 btn-sm">Undo</button>
-		<button id="copy-button" class="btn btn-secondary me-3 my-1 btn-sm">Copy</button>
-	</div>
-	<div style="min-height: 30vh" class="d-flex justify-content-center align-items-center border border-danger">
-		<span class="fs-3 mx-3" style="word-break: break-all" id="output"></span>
-	</div>
-	<div class="d-flex justify-content-center align-items-center border border-dark">
-		<h3 class="text-secondary mx-3 my-1 me-auto">Options</h3>
-	</div>
-	<div style="min-height: 20vh" class="d-flex flex-column justify-content-center border border-info p-3">
-		<form>
-			<div class="row d-flex justify-content-center flex-wrap">
-				<div class="col-6 col-sm-2 d-grid gap-2 m-2">
-					<input type="radio" class="btn-check" id="hex" name="format" value="hex" checked />
-					<label for="hex" class="btn btn-outline-secondary">HEX</label>
-				</div>
-				<div class="col-6 col-sm-2 d-grid gap-2 m-2">
-					<input type="radio" class="btn-check" id="rgb" name="format" value="rgb" />
-					<label for="rgb" class="btn btn-outline-secondary">RGB</label>
-				</div>
-				<div class="col-6 col-sm-2 d-grid gap-2 m-2">
-					<input type="radio" class="btn-check" id="hsl" name="format" value="hsl" />
-					<label for="hsl" class="btn btn-outline-secondary">HSL</label>
-				</div>
-			</div>
-		</form>
-	</div>
-</div> -->
 
 <nav id="navbar">
 	<a href="/" id="pengrape">pengrape</a>
@@ -54,7 +12,7 @@
 			<button id="copy-button-fake" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
 			<button id="undo-button-fake" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
 			<input type="button" id="button" class="btn btn-primary" value="Generate" />
-			<button id="undo-button" class="btn btn-secondary btn-sm"><i class="fas fa-undo"></i></button>
+			<button id="undo-button" class="btn btn-secondary btn-sm" disabled><i class="fas fa-undo"></i></button>
 			<button id="copy-button" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
 		</div>
 		<div id="results-output">
