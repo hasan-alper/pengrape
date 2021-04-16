@@ -5,16 +5,16 @@ const output = document.querySelector("#output");
 const input = document.querySelector("#input");
 const add = document.querySelector("#add");
 const chartLegends = document.getElementById("chart-legends");
-let entries = [];
+let entries = ["Cherry", "Apple", "Grape"];
 let myData;
 let spinCount = 0;
 
-button.disabled = true;
+output.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
 
 const spin = () => {
 	window.chart.options.rotation = -90 * (Math.PI / 180);
 	window.chart.update();
-	output.innerHTML = "-";
+	output.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
 	let luckyEntry = random.spinner({ entries, returnDeg: true });
 	const deg = luckyEntry.pop();
 	[luckyEntry] = luckyEntry;
@@ -28,7 +28,7 @@ const spin = () => {
 	input.disabled = true;
 	input.value = "";
 	document.querySelectorAll(".delete-button").forEach((item) => {
-		item.disabled = true;
+		item.classList.add("disabled");
 	});
 
 	setTimeout(() => {
@@ -37,7 +37,7 @@ const spin = () => {
 		add.disabled = false;
 		input.disabled = false;
 		document.querySelectorAll(".delete-button").forEach((item) => {
-			item.disabled = false;
+			item.classList.remove("disabled");
 		});
 	}, 7000);
 };
@@ -55,8 +55,15 @@ const updateData = () => {
 	chartLegends.innerHTML = window.chart.generateLegend();
 	bindChartEvents();
 	window.chart.update();
-	entries[0] ? (button.disabled = false) : (button.disabled = true);
-	output.innerHTML = "-";
+	if (entries[0]) {
+		button.disabled = false;
+		output.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
+	} else {
+		button.disabled = true;
+		output.innerHTML = "";
+		window.chart.options.rotation = -90 * (Math.PI / 180);
+		spinCount = 0;
+	}
 };
 
 const addEntryItem = () => {
@@ -80,10 +87,10 @@ window.chart = new Chart(ctx, {
 	type: "pie",
 
 	data: {
-		labels: [],
+		labels: ["Cherry", "Apple", "Grape"],
 		datasets: [
 			{
-				data: [],
+				data: [120, 120, 120],
 				backgroundColor: ["#FFC1C1", "#C6FFC1", "#C1E5FF", "#FFFDC1", "#FFC1FD", "#FFDFC1"],
 				borderColor: "#808080",
 			},
@@ -108,7 +115,7 @@ window.chart = new Chart(ctx, {
 							`
 					  		<div id="legend-${i}-item" class="legend-item">
 							<span style="background-color:${data.datasets[0].backgroundColor[i]}" class="item-label"></span>
-							${data.labels[i] && `<span class="item-title">${data.labels[i]}<a class="delete-button"><i class="fas fa-times"></i></a></span>`}
+							${data.labels[i] && `<span class="item-title">${data.labels[i]}<span class="delete-button"><i class="fas fa-times"></i></span></span>`}
 					 		 </div>
 				 			`
 					)
@@ -134,3 +141,6 @@ const bindChartEvents = () => {
 
 	window.chart.update();
 };
+
+chartLegends.innerHTML = window.chart.generateLegend();
+bindChartEvents();

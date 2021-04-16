@@ -61,6 +61,10 @@ body {
 	padding: var(--spacing-medium);
 }
 
+#arrow {
+	color: var(--dark-color);
+}
+
 #results-output {
 	display: flex;
 	flex-direction: column;
@@ -156,6 +160,19 @@ body {
 .delete-button:hover {
 	color: var(--darker-color);
 	cursor: pointer;
+}
+
+.disabled {
+	color: var(--dark-color);
+	opacity: 60%;
+	pointer-events: none;
+}
+
+.disabled:hover {
+	color: var(--darker-color);
+	opacity: 60%;
+	cursor: default;
+	pointer-events: none;
 }
 
 @media only screen and (max-width: 990px) {
