@@ -15,7 +15,11 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 app.use("/utilities", utilitiesRoute);
 
 app.get("/", (req, res) => {
-	res.render("home", { title: "Home", scriptRoute: "home" });
+	res.render("home", { title: "Home - Pengrape", scriptRoute: "home" });
+});
+
+app.get("/docs", (req, res) => {
+	res.render("docs", { title: "Docs - Pengrape", scriptRoute: "docs" });
 });
 
 app.listen(3000, (req, res) => {
