@@ -1,17 +1,29 @@
 {
-  "name": "pengrape",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Hasan Alper Aydın",
-  "license": "ISC",
-  "dependencies": {
-    "bootstrap": "^5.0.0-beta3",
-    "ejs": "^3.1.6",
-    "ejs-mate": "^3.0.0",
-    "express": "^4.17.1"
-  }
+	"name": "pengrape-website",
+	"version": "1.0.0",
+	"description": "Pengrape is a website to generate anything random. It has a good number of utilities which has been designed to be lightweight, fast and easy to use.",
+	"main": "app.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hasan-alper/pengrape.git"
+	},
+	"scripts": {
+		"build-home": "browserify ./public/javascripts/home.js > ./public/dist/homeBundle.js",
+		"build-number": "browserify ./public/javascripts/randomNumber.js > ./public/dist/randomNumberBundle.js",
+		"build-color": "browserify ./public/javascripts/randomColor.js > ./public/dist/randomColorBundle.js",
+		"build-password": "browserify ./public/javascripts/randomPassword.js > ./public/dist/randomPasswordBundle.js",
+		"build-spinner": "browserify ./public/javascripts/spinner.js > ./public/dist/spinnerBundle.js",
+		"build-dice": "browserify ./public/javascripts/diceRoller.js > ./public/dist/diceRollerBundle.js",
+		"build-text": "browserify ./public/javascripts/randomText.js > ./public/dist/randomTextBundle.js",
+		"build": "npm run build-home & npm run build-number & npm run build-color & npm run build-password & npm run build-spinner & npm run build-dice & npm run build-text"
+	},
+	"author": "Hasan Alper Aydın",
+	"license": "MIT",
+	"dependencies": {
+		"bootstrap": "^5.0.0-beta3",
+		"ejs": "^3.1.6",
+		"ejs-mate": "^3.0.0",
+		"express": "^4.17.1",
+		"pengrape": "^1.0.1"
+	}
 }

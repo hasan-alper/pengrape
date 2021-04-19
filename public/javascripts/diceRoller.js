@@ -1,4 +1,4 @@
-import { random } from "/static/javascripts/index.js";
+const random = require("pengrape");
 
 const output = document.querySelector("#output");
 const totalOutput = document.querySelector("#total-output");
@@ -36,8 +36,8 @@ decreaseSide.addEventListener("click", () => {
 
 button.addEventListener("click", () => {
 	deleteResults();
-	const results = random.dice({ notation: `${amountValue}d${sideValue}`, returnTotal: totalButton.checked ? true : false });
-	showResults(results[0], results[1]);
+	const output = random.dice({ notation: `${amountValue}d${sideValue}` });
+	showResults(output.results, output.total);
 });
 
 const showResults = (results, total) => {
@@ -46,7 +46,7 @@ const showResults = (results, total) => {
 		resultDiv.className = "col";
 		resultDiv.innerHTML = result;
 		output.appendChild(resultDiv);
-		totalOutput.innerHTML = total || "-";
+		totalButton.checked ? (totalOutput.innerHTML = total) : (totalOutput.innerHTML = "");
 	}
 };
 

@@ -1,4 +1,4 @@
-import { random } from "/static/javascripts/index.js";
+const random = require("pengrape");
 
 const button = document.querySelector("#button");
 const output = document.querySelector("#output");
@@ -37,16 +37,10 @@ letterButton.addEventListener("click", () => {
 });
 
 syllableButton.addEventListener("click", () => {
-	unitOutput.innerHTML = "letters";
-	lengthInput.disabled = false;
-	if (lengthInput.value > 4 || lengthInput.value < 2) {
-		if (lengthInput.value) {
-			lengthInput.value = 4;
-			button.disabled = false;
-		}
-	} else {
-		button.disabled = false;
-	}
+	unitOutput.innerHTML = "";
+	lengthInput.disabled = true;
+	button.disabled = false;
+	lengthInput.value = "";
 });
 
 wordButton.addEventListener("click", () => {

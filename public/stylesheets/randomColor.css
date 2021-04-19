@@ -180,9 +180,3 @@ body {
 		padding: var(--spacing-large) var(--spacing-medium);
 	}
 }
-
-@media only screen and (max-width: 310px) {
-	body {
-		display: none;
-	}
-}

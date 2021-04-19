@@ -1,4 +1,4 @@
-import { random } from "/static/javascripts/index.js";
+const random = require("pengrape");
 
 const button = document.querySelector("#button");
 const output = document.querySelector("#output");
@@ -6,7 +6,7 @@ const input = document.querySelector("#input");
 const add = document.querySelector("#add");
 const chartLegends = document.getElementById("chart-legends");
 let entries = ["Cherry", "Apple", "Grape"];
-let myData;
+let myData = [];
 let spinCount = 0;
 
 output.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
@@ -15,9 +15,8 @@ const spin = () => {
 	window.chart.options.rotation = -90 * (Math.PI / 180);
 	window.chart.update();
 	output.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
-	let luckyEntry = random.spinner({ entries, returnDeg: true });
-	const deg = luckyEntry.pop();
-	[luckyEntry] = luckyEntry;
+	let luckyEntry = random.spinner({ entries });
+	const deg = luckyEntry.deg;
 	spinCount += 1;
 	window.chart.options.rotation = Math.PI * -0.5 - (deg / 180) * Math.PI - Math.PI * 12 * spinCount;
 	window.chart.options.animation.duration = 8000;
@@ -43,8 +42,12 @@ const spin = () => {
 };
 
 const deleteEntryItem = (i) => {
+	myData = [];
 	entries.splice(i, 1);
-	myData = random.spinner({ entries, returnData: true });
+	let singleData = random.spinner({ entries }).data;
+	for (let entry of entries) {
+		myData.push(singleData);
+	}
 	updateData();
 };
 
@@ -67,9 +70,14 @@ const updateData = () => {
 };
 
 const addEntryItem = () => {
+	myData = [];
 	if (input.value) {
 		entries.push(input.value);
-		myData = random.spinner({ entries, returnData: true });
+		let singleData = random.spinner({ entries }).data;
+		for (let entry of entries) {
+			myData.push(singleData);
+		}
+
 		updateData();
 		input.value = "";
 	} else {

@@ -1,4 +1,4 @@
-import { random } from "/static/javascripts/index.js";
+const random = require("pengrape");
 
 const button = document.querySelector("#button");
 const output = document.querySelector("#output");
