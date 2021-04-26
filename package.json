@@ -8,15 +8,7 @@
 		"url": "https://github.com/hasan-alper/pengrape.git"
 	},
 	"scripts": {
-		"build-home": "browserify ./public/javascripts/home.js > ./public/dist/homeBundle.js",
-		"build-docs": "browserify ./public/javascripts/docs.js > ./public/dist/docsBundle.js",
-		"build-number": "browserify ./public/javascripts/randomNumber.js > ./public/dist/randomNumberBundle.js",
-		"build-color": "browserify ./public/javascripts/randomColor.js > ./public/dist/randomColorBundle.js",
-		"build-password": "browserify ./public/javascripts/randomPassword.js > ./public/dist/randomPasswordBundle.js",
-		"build-spinner": "browserify ./public/javascripts/spinner.js > ./public/dist/spinnerBundle.js",
-		"build-dice": "browserify ./public/javascripts/diceRoller.js > ./public/dist/diceRollerBundle.js",
-		"build-text": "browserify ./public/javascripts/randomText.js > ./public/dist/randomTextBundle.js",
-		"build": "npm run build-home & npm run build-docs & npm run build-number & npm run build-color & npm run build-password & npm run build-spinner & npm run build-dice & npm run build-text"
+		"start": "webpack"
 	},
 	"author": "Hasan Alper Aydın",
 	"license": "MIT",
@@ -25,6 +17,8 @@
 		"ejs": "^3.1.6",
 		"ejs-mate": "^3.0.0",
 		"express": "^4.17.1",
-		"pengrape": "^1.0.1"
+		"pengrape": "^1.0.2",
+		"webpack": "^5.35.1",
+		"webpack-cli": "^4.6.0"
 	}
 }
