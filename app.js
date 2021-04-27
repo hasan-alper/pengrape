@@ -3,6 +3,8 @@ const ejsMate = require("ejs-mate");
 const path = require("path");
 const utilitiesRoute = require("./routes/utilities");
 
+const port = process.env.PORT || 3000;
+
 const app = express();
 
 app.engine("ejs", ejsMate);
@@ -22,6 +24,6 @@ app.get("/docs", (req, res) => {
 	res.render("docs", { title: "Docs - Pengrape", scriptRoute: "docs" });
 });
 
-app.listen(3000, (req, res) => {
-	console.log("LISTENING ON PORT 3000!");
+app.listen(port, (req, res) => {
+	console.log(`LISTENING ON PORT ${port}!`);
 });

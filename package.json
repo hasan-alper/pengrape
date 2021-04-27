@@ -8,7 +8,8 @@
 		"url": "https://github.com/hasan-alper/pengrape.git"
 	},
 	"scripts": {
-		"start": "webpack"
+		"start": "node app",
+		"build": "webpack"
 	},
 	"author": "Hasan Alper Aydın",
 	"license": "MIT",
