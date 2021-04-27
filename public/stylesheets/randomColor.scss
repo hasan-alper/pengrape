@@ -1,18 +1,14 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+@import "./main";
 
 body {
-	padding: var(--spacing-medium) var(--spacing-large) var(--spacing-large);
-	font-size: var(--font-size-medium);
-	font-family: var(--font-family);
+	padding: $spacing-medium $spacing-large $spacing-large;
+	font-size: $font-size-medium;
+	font-family: $font-family;
 	display: grid;
-	grid-template-columns: var(--first-column) var(--second-column);
-	grid-template-rows: var(--first-row) var(--second-row);
+	grid-template-columns: $first-column $second-column;
+	grid-template-rows: $first-row $second-row;
 	grid-template-areas: "navbar navbar" "results options";
-	gap: var(--spacing-large);
+	gap: $spacing-large;
 	max-width: 1440px;
 	margin: auto;
 }
@@ -26,13 +22,13 @@ body {
 
 #pengrape,
 #pengrape-fake {
-	font-size: var(--font-size-large);
-	font-family: var(--font-family-special);
-	background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+	font-size: $font-size-large;
+	font-family: $font-family-special;
+	background-image: linear-gradient(to right, $primary-color, $secondary-color);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	padding: 0px var(--spacing-large);
+	padding: 0px $spacing-large;
 }
 
 #pengrape-fake {
@@ -41,8 +37,8 @@ body {
 }
 
 #title {
-	font-size: var(--font-size-large);
-	padding: 0px var(--spacing-large);
+	font-size: $font-size-large;
+	padding: 0px $spacing-large;
 }
 
 #results-section {
@@ -50,25 +46,25 @@ body {
 }
 
 #results-div {
-	border-radius: var(--border-radius);
-	box-shadow: var(--box-shadow);
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
 }
 
 #results-buttons {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: var(--spacing-medium);
+	padding: $spacing-medium;
 }
 
 #undo-button {
-	margin: 0px var(--spacing-medium) 0px auto;
+	margin: 0px $spacing-medium 0px auto;
 }
 
 #undo-button-fake {
 	opacity: 0;
 	cursor: default;
-	margin: 0px auto 0px var(--spacing-medium);
+	margin: 0px auto 0px $spacing-medium;
 }
 
 #copy-button-fake {
@@ -80,13 +76,13 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0px var(--spacing-medium) var(--spacing-medium);
-	min-height: var(--results-output-min-height-large);
+	padding: 0px $spacing-medium $spacing-medium;
+	min-height: $results-output-min-height-large;
 }
 
 #output {
-	color: var(--darker-color);
-	font-size: var(--font-size-huge);
+	color: $darker-color;
+	font-size: $font-size-huge;
 }
 
 #options-section {
@@ -94,24 +90,24 @@ body {
 }
 
 #option-1 {
-	border-radius: var(--border-radius);
-	box-shadow: var(--box-shadow);
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
 }
 
 #option-1-div {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: var(--spacing-large);
+	padding: $spacing-large;
 }
 
 @media only screen and (max-width: 960px) {
 	body {
-		padding: var(--spacing-medium);
-		grid-template-columns: var(--first-column);
-		grid-template-rows: var(--first-row) var(--second-row);
+		padding: $spacing-medium;
+		grid-template-columns: $first-column;
+		grid-template-rows: $first-row $second-row;
 		grid-template-areas: "navbar" "results" "options";
-		gap: var(--spacing-medium);
+		gap: $spacing-medium;
 	}
 
 	#pengrape-fake {
@@ -119,7 +115,7 @@ body {
 	}
 
 	#results-output {
-		min-height: var(--results-output-min-height-medium);
+		min-height: $results-output-min-height-medium;
 	}
 
 	#option-1 {
@@ -135,20 +131,20 @@ body {
 
 @media only screen and (max-width: 600px) {
 	#pengrape {
-		padding: 0px var(--spacing-tiny) 0px;
+		padding: 0px $spacing-tiny 0px;
 	}
 
 	#title {
-		font-size: var(--font-size-medium);
-		padding: 0px var(--spacing-tiny) 0px;
+		font-size: $font-size-medium;
+		padding: 0px $spacing-tiny 0px;
 	}
 
 	#results-output {
-		min-height: var(--results-output-min-height-small);
+		min-height: $results-output-min-height-small;
 	}
 
 	#output {
-		font-size: var(--font-size-large);
+		font-size: $font-size-large;
 	}
 
 	#copy-button-fake {
@@ -177,6 +173,6 @@ body {
 		width: 270px;
 		display: flex;
 		justify-content: space-between;
-		padding: var(--spacing-large) var(--spacing-medium);
+		padding: $spacing-large $spacing-medium;
 	}
 }

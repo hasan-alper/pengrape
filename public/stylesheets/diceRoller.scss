@@ -1,18 +1,14 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+@import "./main";
 
 body {
-	padding: var(--spacing-medium) var(--spacing-large) var(--spacing-large);
-	font-size: var(--font-size-medium);
-	font-family: var(--font-family);
+	padding: $spacing-medium $spacing-large $spacing-large;
+	font-size: $font-size-medium;
+	font-family: $font-family;
 	display: grid;
-	grid-template-columns: var(--first-column) var(--second-column);
-	grid-template-rows: var(--first-row) var(--second-row);
+	grid-template-columns: $first-column $second-column;
+	grid-template-rows: $first-row $second-row;
 	grid-template-areas: "navbar navbar" "results options";
-	gap: var(--spacing-large);
+	gap: $spacing-large;
 	max-width: 1440px;
 	margin: auto;
 }
@@ -26,13 +22,13 @@ body {
 
 #pengrape,
 #pengrape-fake {
-	font-size: var(--font-size-large);
-	font-family: var(--font-family-special);
-	background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+	font-size: $font-size-large;
+	font-family: $font-family-special;
+	background-image: linear-gradient(to right, $primary-color, $secondary-color);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	padding: 0px var(--spacing-large);
+	padding: 0px $spacing-large;
 }
 
 #pengrape-fake {
@@ -41,8 +37,8 @@ body {
 }
 
 #title {
-	font-size: var(--font-size-large);
-	padding: 0px var(--spacing-large);
+	font-size: $font-size-large;
+	padding: 0px $spacing-large;
 }
 
 #results-section {
@@ -50,15 +46,15 @@ body {
 }
 
 #results-div {
-	border-radius: var(--border-radius);
-	box-shadow: var(--box-shadow);
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
 }
 
 #results-buttons {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: var(--spacing-medium);
+	padding: $spacing-medium;
 }
 
 #results-output {
@@ -66,27 +62,27 @@ body {
 	flex-direction: column;
 	justify-content: start;
 	align-items: stretch;
-	padding: 0px var(--spacing-medium) var(--spacing-medium);
-	min-height: var(--results-output-min-height-large);
+	padding: 0px $spacing-medium $spacing-medium;
+	min-height: $results-output-min-height-large;
 	word-break: break-all;
 }
 #total-output {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: var(--darker-color);
-	font-size: var(--font-size-xlarge);
+	color: $darker-color;
+	font-size: $font-size-xlarge;
 	height: 50px;
 }
 
 #output {
 	display: grid;
-	grid-gap: var(--spacing-medium);
+	grid-gap: $spacing-medium;
 	grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
 	justify-content: center;
-	color: var(--dark-color);
-	font-size: var(--font-size-xlarge);
-	padding: var(--spacing-medium) 0px;
+	color: $dark-color;
+	font-size: $font-size-xlarge;
+	padding: $spacing-medium 0px;
 }
 
 .col {
@@ -99,25 +95,25 @@ body {
 }
 
 #option-1 {
-	border-radius: var(--border-radius);
-	box-shadow: var(--box-shadow);
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
 }
 
 #row1 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: var(--spacing-large) var(--spacing-large) var(--spacing-small);
+	padding: $spacing-large $spacing-large $spacing-small;
 }
 
 #row2 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 0px var(--spacing-large);
-	font-size: var(--font-size-xlarge);
-	border: 2px solid var(--dark-color);
-	border-radius: var(--border-radius);
+	margin: 0px $spacing-large;
+	font-size: $font-size-xlarge;
+	border: 2px solid $dark-color;
+	border-radius: $border-radius;
 }
 
 #amount-output,
@@ -142,23 +138,23 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: var(--spacing-small) var(--spacing-large) var(--spacing-small);
+	padding: $spacing-small $spacing-large $spacing-small;
 }
 
 #row4 {
 	display: flex;
 	justify-content: left;
 	align-items: center;
-	padding: var(--spacing-small) var(--spacing-large) var(--spacing-large);
+	padding: $spacing-small $spacing-large $spacing-large;
 }
 
 @media only screen and (max-width: 960px) {
 	body {
-		padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-medium);
-		grid-template-columns: var(--first-column);
-		grid-template-rows: var(--first-row) var(--second-row);
+		padding: $spacing-medium $spacing-medium $spacing-medium;
+		grid-template-columns: $first-column;
+		grid-template-rows: $first-row $second-row;
 		grid-template-areas: "navbar" "results" "options";
-		gap: var(--spacing-medium);
+		gap: $spacing-medium;
 	}
 
 	#pengrape-fake {
@@ -166,7 +162,7 @@ body {
 	}
 
 	#results-output {
-		min-height: var(--results-output-min-height-medium);
+		min-height: $results-output-min-height-medium;
 	}
 	#option-1 {
 		display: flex;
@@ -176,7 +172,7 @@ body {
 	}
 
 	#row1 {
-		padding: var(--spacing-medium) 0px var(--spacing-medium);
+		padding: $spacing-medium 0px $spacing-medium;
 		width: 250px;
 	}
 
@@ -185,31 +181,31 @@ body {
 		width: 250px;
 	}
 	#row3 {
-		padding: var(--spacing-medium) 0px var(--spacing-small);
+		padding: $spacing-medium 0px $spacing-small;
 		width: 250px;
 	}
 
 	#row4 {
-		padding: var(--spacing-small) 0px var(--spacing-medium);
+		padding: $spacing-small 0px $spacing-medium;
 		width: 250px;
 	}
 }
 
 @media only screen and (max-width: 600px) {
 	#pengrape {
-		padding: 0px var(--spacing-tiny) 0px;
+		padding: 0px $spacing-tiny 0px;
 	}
 
 	#title {
-		font-size: var(--font-size-medium);
-		padding: 0px var(--spacing-tiny) 0px;
+		font-size: $font-size-medium;
+		padding: 0px $spacing-tiny 0px;
 	}
 
 	#results-output {
-		min-height: var(--results-output-min-height-small);
+		min-height: $results-output-min-height-small;
 	}
 	#output {
-		font-size: var(--font-size-large);
+		font-size: $font-size-large;
 	}
 
 	#copy-button-fake {
@@ -222,7 +218,7 @@ body {
 
 	#total-output {
 		justify-content: start;
-		padding-left: var(--spacing-small);
+		padding-left: $spacing-small;
 	}
 
 	#output {

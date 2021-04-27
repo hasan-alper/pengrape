@@ -1,0 +1,254 @@
+@import "./main";
+
+body {
+	padding: $spacing-medium $spacing-large $spacing-large;
+	font-size: $font-size-medium;
+	font-family: $font-family;
+	display: grid;
+	grid-template-columns: $first-column $second-column;
+	grid-template-rows: $first-row $second-row;
+	grid-template-areas: "navbar navbar" "results options";
+	gap: $spacing-large;
+	max-width: 1440px;
+	margin: auto;
+}
+
+#navbar {
+	grid-area: navbar;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#pengrape,
+#pengrape-fake {
+	font-size: $font-size-large;
+	font-family: $font-family-special;
+	background-image: linear-gradient(to right, $primary-color, $secondary-color);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	padding: 0px $spacing-large;
+}
+
+#pengrape-fake {
+	opacity: 0;
+	cursor: default;
+}
+
+#title {
+	font-size: $font-size-large;
+	padding: 0px $spacing-large;
+}
+
+#results-section {
+	grid-area: results;
+}
+
+#results-div {
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+}
+
+#results-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: $spacing-medium;
+}
+
+#copy-button-fake {
+	opacity: 0;
+	cursor: default;
+}
+
+#results-output {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0px $spacing-medium $spacing-medium;
+	min-height: $results-output-min-height-large;
+	word-break: break-all;
+}
+
+#output {
+	color: $darker-color;
+	font-size: $font-size-huge;
+}
+
+#options-section {
+	grid-area: options;
+}
+
+#option-1 {
+	margin-bottom: $spacing-large;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+}
+
+#min-input-option {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: $spacing-large $spacing-large $spacing-medium;
+}
+
+#min-input-label {
+	width: 60px;
+}
+
+#max-input-option {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: $spacing-medium $spacing-large $spacing-large;
+}
+
+#max-input-label {
+	width: 60px;
+}
+
+#option-2 {
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+}
+
+#row1 {
+	padding: $spacing-large $spacing-large $spacing-small;
+}
+
+#row2 {
+	display: flex;
+	justify-content: space-between;
+	padding: $spacing-small $spacing-large $spacing-medium;
+}
+
+#row3 {
+	padding: $spacing-medium $spacing-large $spacing-tiny;
+}
+
+#row4 {
+	display: flex;
+	align-items: center;
+	padding: $spacing-tiny $spacing-large $spacing-tiny;
+}
+
+#row5 {
+	padding: $spacing-tiny $spacing-large $spacing-large;
+}
+
+@media only screen and (max-width: 960px) {
+	body {
+		padding: $spacing-medium $spacing-medium $spacing-medium;
+		grid-template-columns: $first-column;
+		grid-template-rows: $first-row $second-row;
+		grid-template-areas: "navbar" "results" "options";
+		gap: $spacing-medium;
+	}
+
+	#pengrape-fake {
+		display: none;
+	}
+
+	#results-output {
+		min-height: $results-output-min-height-medium;
+	}
+
+	#options-section {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+
+	#option-1 {
+		width: 48.5%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#option-1-div {
+		width: 270px;
+	}
+
+	#option-2 {
+		width: 48.5%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#option-2-div {
+		width: 270px;
+	}
+
+	#min-input-option {
+		padding: $spacing-medium $spacing-medium $spacing-small;
+	}
+
+	#max-input-option {
+		padding: $spacing-small $spacing-medium $spacing-medium;
+	}
+
+	#row1 {
+		padding: $spacing-medium $spacing-medium $spacing-small;
+	}
+
+	#row2 {
+		display: flex;
+		justify-content: space-between;
+		padding: $spacing-small $spacing-medium $spacing-medium;
+	}
+
+	#row3 {
+		padding: $spacing-medium $spacing-medium $spacing-tiny;
+	}
+
+	#row4 {
+		display: flex;
+		align-items: center;
+		padding: $spacing-tiny $spacing-medium $spacing-tiny;
+	}
+
+	#row5 {
+		padding: $spacing-tiny $spacing-medium $spacing-medium;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	#pengrape {
+		padding: 0px $spacing-tiny 0px;
+	}
+
+	#title {
+		font-size: $font-size-medium;
+		padding: 0px $spacing-tiny 0px;
+	}
+
+	#results-output {
+		min-height: $results-output-min-height-small;
+	}
+
+	#copy-button-fake {
+		display: none;
+	}
+
+	#results-output {
+		justify-content: start;
+	}
+
+	#options-section {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	#option-1 {
+		width: 100%;
+		margin-bottom: $spacing-medium;
+	}
+
+	#option-2 {
+		width: 100%;
+	}
+}

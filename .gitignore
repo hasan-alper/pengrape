@@ -1,5 +1,3 @@
 node_modules
 .DS_Store
-public/stylesheets/main.css
-public/stylesheets/main.css.map
 public/dist

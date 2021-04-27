@@ -1,22 +1,22 @@
+@import "./variables";
+
 $primary: #e87477;
 $secondary: #ff9d8d;
 $dark: #808080;
 $darker: #404040;
 
 $font-size: 16px;
-$font-family: "Poppins", sans-serif;
-$box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 //INPUTS
 $input-padding-y: 8.5px;
 $input-padding-x: 20px;
 $input-font-family: $font-family;
 $input-font-size: $font-size;
-$input-color: $darker;
-$input-border-color: $dark;
+$input-color: $darker-color;
+$input-border-color: $dark-color;
 $input-border-width: 2px;
 $input-border-radius: 30px;
-$input-focus-border-color: $dark;
+$input-focus-border-color: $dark-color;
 $input-focus-box-shadow: none;
 
 //LABELS
@@ -25,15 +25,9 @@ $form-label-margin-bottom: 0;
 $form-label-font-size: $font-size;
 $form-label-font-style: null;
 $form-label-font-weight: 400;
-$form-label-color: $dark;
+$form-label-color: $dark-color;
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
 .btn-outline-primary {
 	color: $primary;

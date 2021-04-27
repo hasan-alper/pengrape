@@ -1,0 +1,92 @@
+@import "./main";
+
+body {
+	padding: $spacing-medium $spacing-large $spacing-large;
+	font-size: $font-size-medium;
+	font-family: $font-family;
+	display: grid;
+	grid-template-columns: $first-column;
+	grid-template-rows: $first-row $second-row;
+	grid-template-areas: "navbar navbar" "docs docs";
+	max-width: 1440px;
+	margin: auto;
+	user-select: auto;
+	color: $darker-color;
+}
+
+#navbar {
+	grid-area: navbar;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#pengrape,
+#pengrape-fake {
+	font-size: $font-size-large;
+	font-family: $font-family-special;
+	background-image: linear-gradient(to right, $primary-color, $secondary-color);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	padding: 0px $spacing-large;
+}
+
+#pengrape-fake {
+	opacity: 0;
+	cursor: default;
+}
+
+#title {
+	font-size: $font-size-large;
+	padding: 0px $spacing-large;
+}
+
+#docs {
+	grid-area: docs;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+	padding: $spacing-large;
+	margin-top: $spacing-medium;
+}
+
+.method-section {
+	padding: $spacing-medium 0px;
+}
+
+code {
+	display: block;
+	color: $darker-color;
+	padding: 10px;
+}
+
+.code {
+	padding: 10px;
+	background-color: #faf8f6;
+}
+
+h4 {
+	font-weight: 300;
+	color: $dark-color;
+	padding-top: $spacing-medium;
+}
+
+a {
+	text-decoration: none;
+}
+
+.keyword {
+	color: $primary-color;
+}
+
+.method {
+	color: #6f42c1;
+}
+
+.parameter {
+	color: #005cc5;
+}
+
+.comment {
+	color: $dark-color;
+}

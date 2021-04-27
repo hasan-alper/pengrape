@@ -1,3 +1,5 @@
+require("../stylesheets/diceRoller.scss");
+
 const random = require("pengrape");
 
 const output = document.querySelector("#output");

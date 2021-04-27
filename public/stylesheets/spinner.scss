@@ -1,18 +1,14 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+@import "./main";
 
 body {
-	padding: var(--spacing-medium) var(--spacing-large) var(--spacing-large);
-	font-size: var(--font-size-medium);
-	font-family: var(--font-family);
+	padding: $spacing-medium $spacing-large $spacing-large;
+	font-size: $font-size-medium;
+	font-family: $font-family;
 	display: grid;
-	grid-template-columns: var(--first-column) var(--second-column);
-	grid-template-rows: var(--first-row) var(--second-row);
+	grid-template-columns: $first-column $second-column;
+	grid-template-rows: $first-row $second-row;
 	grid-template-areas: "navbar navbar" "results options";
-	gap: var(--spacing-large);
+	gap: $spacing-large;
 	max-width: 1440px;
 	margin: auto;
 }
@@ -26,13 +22,13 @@ body {
 
 #pengrape,
 #pengrape-fake {
-	font-size: var(--font-size-large);
-	font-family: var(--font-family-special);
-	background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+	font-size: $font-size-large;
+	font-family: $font-family-special;
+	background-image: linear-gradient(to right, $primary-color, $secondary-color);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	padding: 0px var(--spacing-large);
+	padding: 0px $spacing-large;
 }
 
 #pengrape-fake {
@@ -41,8 +37,8 @@ body {
 }
 
 #title {
-	font-size: var(--font-size-large);
-	padding: 0px var(--spacing-large);
+	font-size: $font-size-large;
+	padding: 0px $spacing-large;
 }
 
 #results-section {
@@ -50,19 +46,19 @@ body {
 }
 
 #results-div {
-	border-radius: var(--border-radius);
-	box-shadow: var(--box-shadow);
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
 }
 
 #results-buttons {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: var(--spacing-medium);
+	padding: $spacing-medium;
 }
 
 #arrow {
-	color: var(--dark-color);
+	color: $dark-color;
 }
 
 #results-output {
@@ -70,8 +66,8 @@ body {
 	flex-direction: column;
 	justify-content: start;
 	align-items: center;
-	padding: 0px var(--spacing-medium) var(--spacing-medium);
-	min-height: var(--results-output-min-height-xlarge);
+	padding: 0px $spacing-medium $spacing-medium;
+	min-height: $results-output-min-height-xlarge;
 }
 
 #chart-container {
@@ -83,8 +79,8 @@ body {
 }
 
 #output {
-	color: var(--darker-color);
-	font-size: var(--font-size-xlarge);
+	color: $darker-color;
+	font-size: $font-size-xlarge;
 }
 
 #options-section {
@@ -92,30 +88,30 @@ body {
 }
 
 #option-1 {
-	margin-bottom: var(--spacing-large);
-	border-radius: var(--border-radius);
-	box-shadow: var(--box-shadow);
+	margin-bottom: $spacing-large;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
 }
 
 #row1 {
-	padding: var(--spacing-large) var(--spacing-large) var(--spacing-tiny);
+	padding: $spacing-large $spacing-large $spacing-tiny;
 }
 
 #row2 {
 	display: flex;
 	justify-content: space-between;
-	padding: var(--spacing-tiny) var(--spacing-large) var(--spacing-small);
+	padding: $spacing-tiny $spacing-large $spacing-small;
 }
 
 #input {
-	margin-right: var(--spacing-small);
+	margin-right: $spacing-small;
 }
 #add {
-	padding: var(--spacing-medium);
+	padding: $spacing-medium;
 }
 
 #row3 {
-	padding: var(--spacing-tiny) var(--spacing-large) var(--spacing-large);
+	padding: $spacing-tiny $spacing-large $spacing-large;
 }
 
 #chart-legends {
@@ -129,19 +125,19 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: var(--spacing-tiny) 0px;
+	padding: $spacing-tiny 0px;
 }
 
 .item-label {
 	width: 45px;
 	height: 45px;
 	border-radius: 50%;
-	border: 2px var(--dark-color) solid;
+	border: 2px $dark-color solid;
 	margin-right: 10px;
 }
 
 .item-title {
-	border: 2px var(--dark-color) solid;
+	border: 2px $dark-color solid;
 	border-radius: 40px;
 	display: flex;
 	justify-content: space-between;
@@ -149,40 +145,39 @@ body {
 	width: 195px;
 	height: 45px;
 	padding: 0px 20px;
-	color: var(--dark-color);
+	color: $dark-color;
 }
 
 .delete-button {
-	color: var(--dark-color);
+	color: $dark-color;
 	text-decoration: none;
 }
 
 .delete-button:hover {
-	color: var(--darker-color);
+	color: $darker-color;
 	cursor: pointer;
 }
 
 .disabled {
-	color: var(--dark-color);
-	opacity: 60%;
+	color: $dark-color;
+	opacity: 0.6;
 	pointer-events: none;
 }
 
 .disabled:hover {
-	color: var(--darker-color);
-	opacity: 60%;
+	opacity: 0.6;
 	cursor: default;
 	pointer-events: none;
 }
 
 @media only screen and (max-width: 990px) {
 	body {
-		padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-medium);
-		gap: var(--spacing-medium);
+		padding: $spacing-medium $spacing-medium $spacing-medium;
+		gap: $spacing-medium;
 	}
 
 	#results-output {
-		min-height: var(--results-output-min-height-xlarge);
+		min-height: $results-output-min-height-xlarge;
 	}
 
 	#chart-container {
@@ -193,8 +188,8 @@ body {
 
 @media only screen and (max-width: 830px) {
 	body {
-		padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-medium);
-		gap: var(--spacing-medium);
+		padding: $spacing-medium $spacing-medium $spacing-medium;
+		gap: $spacing-medium;
 	}
 
 	#pengrape-fake {
@@ -202,7 +197,7 @@ body {
 	}
 
 	#results-output {
-		min-height: var(--results-output-min-height-large);
+		min-height: $results-output-min-height-large;
 	}
 
 	#options-section {
@@ -219,27 +214,27 @@ body {
 
 @media only screen and (max-width: 730px) {
 	body {
-		padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-medium);
-		grid-template-columns: var(--first-column);
-		grid-template-rows: var(--first-row) var(--second-row);
+		padding: $spacing-medium $spacing-medium $spacing-medium;
+		grid-template-columns: $first-column;
+		grid-template-rows: $first-row $second-row;
 		grid-template-areas: "navbar" "results" "options";
-		gap: var(--spacing-medium);
+		gap: $spacing-medium;
 	}
 	#pengrape {
-		padding: 0px var(--spacing-tiny) 0px;
+		padding: 0px $spacing-tiny 0px;
 	}
 
 	#title {
-		font-size: var(--font-size-medium);
-		padding: 0px var(--spacing-tiny) 0px;
+		font-size: $font-size-medium;
+		padding: 0px $spacing-tiny 0px;
 	}
 
 	#results-output {
-		min-height: var(--results-output-min-height-small);
-		padding: 0px var(--spacing-small) var(--spacing-medium);
+		min-height: $results-output-min-height-small;
+		padding: 0px $spacing-small $spacing-medium;
 	}
 	#output {
-		font-size: var(--font-size-large);
+		font-size: $font-size-large;
 	}
 
 	#option-1 {

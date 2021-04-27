@@ -1,3 +1,5 @@
+require("../stylesheets/randomText.scss");
+
 const random = require("pengrape");
 
 const button = document.querySelector("#button");

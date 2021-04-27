@@ -2,7 +2,7 @@
 	"name": "pengrape-website",
 	"version": "1.0.0",
 	"description": "Pengrape is a website to generate anything random. It has a good number of utilities which has been designed to be lightweight, fast and easy to use.",
-	"main": "app.js",
+	"private": true,
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/hasan-alper/pengrape.git"
@@ -14,10 +14,16 @@
 	"license": "MIT",
 	"dependencies": {
 		"bootstrap": "^5.0.0-beta3",
+		"css-loader": "^5.2.4",
 		"ejs": "^3.1.6",
 		"ejs-mate": "^3.0.0",
 		"express": "^4.17.1",
+		"mini-css-extract-plugin": "^1.5.0",
+		"node-sass": "^5.0.0",
+		"optimize-css-assets-webpack-plugin": "^5.0.4",
 		"pengrape": "^1.0.2",
+		"sass-loader": "^11.0.1",
+		"style-loader": "^2.0.0",
 		"webpack": "^5.35.1",
 		"webpack-cli": "^4.6.0"
 	}

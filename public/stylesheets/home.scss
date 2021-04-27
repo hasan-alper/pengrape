@@ -1,0 +1,120 @@
+@import "./main";
+
+body {
+	padding: $spacing-medium $spacing-large $spacing-large;
+	font-size: $font-size-medium;
+	font-family: $font-family;
+	max-width: 1440px;
+	margin: auto;
+}
+
+#pengrape {
+	font-size: 64px;
+	font-family: $font-family-special;
+	background-image: linear-gradient(to right, $primary-color, $secondary-color);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: flex;
+	align-items: center;
+	padding: $spacing-large $spacing-medium;
+}
+
+#description {
+	font-size: $font-size-large;
+	color: $darker-color;
+	width: 70%;
+	padding: $spacing-large $spacing-medium;
+	line-height: 40px;
+	font-weight: 300;
+}
+
+.link {
+	text-decoration: none;
+	color: $primary-color;
+	font-weight: 400;
+}
+
+.link-2 {
+	display: flex;
+	text-decoration: none;
+	color: $darker-color;
+	border-radius: $border-radius;
+	width: 250px;
+	height: 350px;
+}
+
+.link-2:hover {
+	color: $darker-color;
+}
+
+#cards {
+	padding: $spacing-large $spacing-medium 0px $spacing-medium;
+	display: grid;
+	grid-gap: $spacing-large;
+	grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+	justify-content: start;
+}
+
+.card-title {
+	font-size: $font-size-large;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	height: 80px;
+	margin-bottom: $font-size-large;
+}
+
+.card-text {
+	height: 150px;
+	color: $dark-color;
+	font-weight: 300;
+}
+
+.card-body {
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+	padding: $spacing-large $spacing-medium;
+}
+
+@media only screen and (max-width: 960px) {
+	#pengrape {
+		padding: $font-size-medium;
+	}
+
+	#description {
+		width: 100%;
+		line-height: normal;
+		padding: $font-size-medium;
+	}
+	#cards {
+		justify-content: center;
+	}
+}
+
+@media only screen and (max-width: 659px) {
+	#pengrape {
+		font-size: $font-size-huge;
+	}
+	#description {
+		font-size: $font-size-medium;
+		margin-bottom: $font-size-medium;
+	}
+
+	#cards {
+		padding-top: 0;
+	}
+
+	.link-2 {
+		height: 160px;
+	}
+
+	.card-title {
+		margin: 0;
+	}
+
+	.card-text {
+		display: none;
+	}
+}
