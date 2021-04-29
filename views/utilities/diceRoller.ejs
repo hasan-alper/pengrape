@@ -1,9 +1,9 @@
 <% layout("layouts/boilerplate") %>
 
 <nav id="navbar">
-	<a href="/" id="pengrape">pengrape</a>
+	<a href="/" class="logo">pengrape</a>
 	<span id="title">Dice Roller</span>
-	<a id="pengrape-fake">pengrape</a>
+	<a class="logo fake">pengrape</a>
 </nav>
 
 <section id="results-section">
@@ -20,20 +20,20 @@
 
 <section id="options-section">
 	<div id="option-1">
-		<div id="row1">
+		<div class="row" id="row1">
 			<button class="btn btn-outline-dark" id="increase-amount"><i class="fas fa-chevron-up"></i></button>
 			<button class="btn btn-outline-dark" id="increase-side"><i class="fas fa-chevron-up"></i></button>
 		</div>
-		<div id="row2">
+		<div class="row" id="row2">
 			<span id="amount-output">1</span>
 			<span id="d-span">d</span>
 			<span id="side-output">6</span>
 		</div>
-		<div id="row3">
+		<div class="row" id="row3">
 			<button class="btn btn-outline-dark" id="decrease-amount"><i class="fas fa-chevron-down"></i></button>
 			<button class="btn btn-outline-dark" id="decrease-side"><i class="fas fa-chevron-down"></i></button>
 		</div>
-		<div id="row4">
+		<div class="row" id="row4">
 			<input type="checkbox" id="total-button" class="btn-check" />
 			<label class="btn btn-outline-secondary btn-md" for="total-button">Total</label>
 		</div>

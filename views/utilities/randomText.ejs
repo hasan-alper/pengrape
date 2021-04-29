@@ -1,15 +1,15 @@
 <% layout("layouts/boilerplate") %>
 
 <nav id="navbar">
-	<a href="/" id="pengrape">pengrape</a>
+	<a href="/" class="logo">pengrape</a>
 	<span id="title">Random Text</span>
-	<a id="pengrape-fake">pengrape</a>
+	<a class="logo fake">pengrape</a>
 </nav>
 
 <section id="results-section">
 	<div id="results-div">
 		<div id="results-buttons">
-			<button id="copy-button-fake" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
+			<button class="btn btn-secondary btn-sm fake"><i class="far fa-copy"></i></button>
 			<input type="button" id="button" class="btn btn-primary" value="Generate" />
 			<button id="copy-button" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
 		</div>
@@ -21,36 +21,38 @@
 
 <section id="options-section">
 	<div id="option-1">
-		<div id="row1">
-			<label for="length-input" class="form-label">Length</label>
-		</div>
-		<div id="row2">
-			<input type="number" id="length-input" class="form-control" />
-			<span id="unit-output">words</span>
+		<div id="option-1-div">
+			<div class="row" id="row1">
+				<label for="length-input" class="form-label">Length</label>
+			</div>
+			<div class="row" id="row2">
+				<input type="number" id="length-input" class="form-control" />
+				<span id="unit-output">words</span>
+			</div>
 		</div>
 	</div>
 	<div id="option-2">
 		<div id="option-2-div">
-			<div id="row3">
+			<div class="row" id="row3">
 				<label class="form-label">Type</label>
 			</div>
-			<div id="row4">
+			<div class="row" id="row4">
 				<input type="radio" class="btn-check" id="letter" name="type" />
 				<label for="letter" class="btn btn-outline-primary btn-lg">Letter</label>
 			</div>
-			<div id="row5">
+			<div class="row" id="row5">
 				<input type="radio" class="btn-check" id="syllable" name="type" />
 				<label for="syllable" class="btn btn-outline-primary btn-lg">Syllable</label>
 			</div>
-			<div id="row6">
+			<div class="row" id="row6">
 				<input type="radio" class="btn-check" id="word" name="type" />
 				<label for="word" class="btn btn-outline-primary btn-lg">Word</label>
 			</div>
-			<div id="row7">
+			<div class="row" id="row7">
 				<input type="radio" class="btn-check" id="sentence" name="type" checked />
 				<label for="sentence" class="btn btn-outline-primary btn-lg">Sentence</label>
 			</div>
-			<div id="row8">
+			<div class="row" id="row8">
 				<input type="radio" class="btn-check" id="paragraph" name="type" />
 				<label for="paragraph" class="btn btn-outline-primary btn-lg">Paragraph</label>
 			</div>

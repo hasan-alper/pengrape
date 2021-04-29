@@ -1,44 +1,11 @@
 @import "./main";
 
 body {
-	padding: $spacing-medium $spacing-large $spacing-large;
-	font-size: $font-size-medium;
-	font-family: $font-family;
 	display: grid;
-	grid-template-columns: $first-column $second-column;
-	grid-template-rows: $first-row $second-row;
+	grid-template-columns: auto 300px;
+	grid-template-rows: 60px auto;
 	grid-template-areas: "navbar navbar" "results options";
-	gap: $spacing-large;
-	max-width: 1440px;
-	margin: auto;
-}
-
-#navbar {
-	grid-area: navbar;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-#pengrape,
-#pengrape-fake {
-	font-size: $font-size-large;
-	font-family: $font-family-special;
-	background-image: linear-gradient(to right, $primary-color, $secondary-color);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	padding: 0px $spacing-large;
-}
-
-#pengrape-fake {
-	opacity: 0;
-	cursor: default;
-}
-
-#title {
-	font-size: $font-size-large;
-	padding: 0px $spacing-large;
+	gap: 1.5rem;
 }
 
 #results-section {
@@ -54,35 +21,28 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: $spacing-medium;
+	padding: 1rem;
 }
 
 #undo-button {
-	margin: 0px $spacing-medium 0px auto;
+	margin: 0 1rem 0px auto;
 }
 
-#undo-button-fake {
-	opacity: 0;
-	cursor: default;
-	margin: 0px auto 0px $spacing-medium;
-}
-
-#copy-button-fake {
-	opacity: 0;
-	cursor: default;
+#button {
+	margin-left: auto;
 }
 
 #results-output {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0px $spacing-medium $spacing-medium;
-	min-height: $results-output-min-height-large;
+	padding: 0 1rem 1rem;
+	min-height: 400px;
 }
 
 #output {
 	color: $darker-color;
-	font-size: $font-size-huge;
+	font-size: 2.5rem;
 }
 
 #options-section {
@@ -92,36 +52,28 @@ body {
 #option-1 {
 	border-radius: $border-radius;
 	box-shadow: $box-shadow;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #option-1-div {
+	width: 300px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: $spacing-large;
+	padding: 2em;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 800px) {
 	body {
-		padding: $spacing-medium;
-		grid-template-columns: $first-column;
-		grid-template-rows: $first-row $second-row;
+		grid-template-columns: auto;
+		grid-template-rows: 60px auto;
 		grid-template-areas: "navbar" "results" "options";
-		gap: $spacing-medium;
-	}
-
-	#pengrape-fake {
-		display: none;
 	}
 
 	#results-output {
-		min-height: $results-output-min-height-medium;
-	}
-
-	#option-1 {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		min-height: 300px;
 	}
 
 	#option-1-div {
@@ -130,49 +82,35 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-	#pengrape {
-		padding: 0px $spacing-tiny 0px;
+	.logo {
+		padding: 0 0.5rem 0px;
+	}
+	.fake {
+		display: none;
 	}
 
 	#title {
-		font-size: $font-size-medium;
-		padding: 0px $spacing-tiny 0px;
+		font-size: 1rem;
+		padding: 0 0.5rem 0;
+	}
+
+	#button {
+		margin: 0;
 	}
 
 	#results-output {
-		min-height: $results-output-min-height-small;
+		min-height: 200px;
 	}
 
 	#output {
-		font-size: $font-size-large;
-	}
-
-	#copy-button-fake {
-		display: none;
-	}
-
-	#undo-button-fake {
-		display: none;
+		font-size: 1.5rem;
 	}
 
 	#results-output {
 		justify-content: start;
 	}
 
-	#options-section {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	#option-1 {
-		width: 100%;
-	}
-
 	#option-1-div {
-		width: 270px;
-		display: flex;
-		justify-content: space-between;
-		padding: $spacing-large $spacing-medium;
+		width: 300px;
 	}
 }

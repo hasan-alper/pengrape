@@ -1,38 +1,13 @@
-/*COLORS*/
 $primary-color: #e87477;
 $secondary-color: #ff9d8d;
 $dark-color: #808080;
 $darker-color: #404040;
 
-/*FONTS*/
 $font-family: "Poppins", sans-serif;
 $font-family-special: "Lobster", sans-serif;
-$font-size-huge: 48px;
-$font-size-xlarge: 36px;
-$font-size-large: 24px;
-$font-size-medium: 18px;
 
-/*SPACINGS*/
-$spacing-large: 40px;
-$spacing-medium: 20px;
-$spacing-small: 10px;
-$spacing-tiny: 5px;
-
-/*GRID*/
-$first-column: auto;
-$second-column: 330px;
-$first-row: 60px;
-$second-row: auto;
-
-/*CONTENT*/
 $border-radius: 30px;
 $box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-/*SIZING*/
-$results-output-min-height-xlarge: 574px;
-$results-output-min-height-large: 400px;
-$results-output-min-height-medium: 300px;
-$results-output-min-height-small: 200px;
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 

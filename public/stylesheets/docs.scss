@@ -1,12 +1,12 @@
 @import "./main";
 
 body {
-	padding: $spacing-medium $spacing-large $spacing-large;
-	font-size: $font-size-medium;
+	padding: 1rem 2rem 2rem;
+	font-size: 16px;
 	font-family: $font-family;
 	display: grid;
-	grid-template-columns: $first-column;
-	grid-template-rows: $first-row $second-row;
+	grid-template-columns: auto;
+	grid-template-rows: 60px auto;
 	grid-template-areas: "navbar navbar" "docs docs";
 	max-width: 1440px;
 	margin: auto;
@@ -23,13 +23,13 @@ body {
 
 #pengrape,
 #pengrape-fake {
-	font-size: $font-size-large;
+	font-size: 1.5rem;
 	font-family: $font-family-special;
 	background-image: linear-gradient(to right, $primary-color, $secondary-color);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	padding: 0px $spacing-large;
+	padding: 02rem;
 }
 
 #pengrape-fake {
@@ -38,20 +38,20 @@ body {
 }
 
 #title {
-	font-size: $font-size-large;
-	padding: 0px $spacing-large;
+	font-size: 1.5rem;
+	padding: 0 2rem;
 }
 
 #docs {
 	grid-area: docs;
 	border-radius: $border-radius;
 	box-shadow: $box-shadow;
-	padding: $spacing-large;
-	margin-top: $spacing-medium;
+	padding: 2rem;
+	margin-top: 1rem;
 }
 
 .method-section {
-	padding: $spacing-medium 0px;
+	padding: 1rem 0px;
 }
 
 code {
@@ -68,7 +68,7 @@ code {
 h4 {
 	font-weight: 300;
 	color: $dark-color;
-	padding-top: $spacing-medium;
+	padding-top: 1rem;
 }
 
 a {

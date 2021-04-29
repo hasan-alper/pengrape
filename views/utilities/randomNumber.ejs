@@ -1,15 +1,15 @@
 <% layout("layouts/boilerplate") %>
 
 <nav id="navbar">
-	<a href="/" id="pengrape">pengrape</a>
+	<a href="/" class="logo">pengrape</a>
 	<span id="title">Random Number</span>
-	<a id="pengrape-fake">pengrape</a>
+	<a class="logo fake">pengrape</a>
 </nav>
 
 <section id="results-section">
 	<div id="results-div">
 		<div id="results-buttons">
-			<button id="copy-button-fake" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
+			<button class="btn btn-secondary btn-sm fake"><i class="far fa-copy"></i></button>
 			<input type="button" id="button" class="btn btn-primary" value="Generate" />
 			<button id="copy-button" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
 		</div>
@@ -23,22 +23,22 @@
 	<div id="option-1">
 		<div id="option-1-div">
 			<div id="min-input-option">
-				<label for="min-input" class="form-label" id="min-input-label">Min</label>
+				<label for="min-input" class="form-label label">Min</label>
 				<input type="number" class="form-control" id="min-input" value="0" />
 			</div>
 			<div id="max-input-option">
-				<label for="max-input" class="form-label" id="max-input-label">Max</label>
+				<label for="max-input" class="form-label label">Max</label>
 				<input type="number" class="form-control" id="max-input" value="20" />
 			</div>
 		</div>
 	</div>
 	<div id="option-2">
 		<div id="option-2-div">
-			<div id="row1">
+			<div class="row" id="row1">
 				<input type="radio" class="btn-check" id="integer" name="type" value="integer" checked />
 				<label for="integer" class="btn btn-outline-primary">Integer</label>
 			</div>
-			<div id="row2">
+			<div class="row" id="row2">
 				<div id="none-button">
 					<input type="radio" class="btn-check" id="none" name="parity" value="none" checked />
 					<label for="none" class="btn btn-outline-secondary btn-sm"><i class="fas fa-times"></i></label>
@@ -53,15 +53,15 @@
 					<label for="even" class="btn btn-outline-secondary">Even</label>
 				</div>
 			</div>
-			<div id="row3">
+			<div class="row" id="row3">
 				<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" />
 				<label for="decimal" class="btn btn-outline-primary">Decimal</label>
 			</div>
-			<div id="row4">
+			<div class="row" id="row4">
 				<label for="precision" class="form-label">Precision</label>
 			</div>
 
-			<div id="row5">
+			<div class="row" id="row5">
 				<input type="number" id="precision" class="form-control" value="4" disabled />
 				<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" />
 			</div>

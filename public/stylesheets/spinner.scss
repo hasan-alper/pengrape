@@ -1,44 +1,11 @@
 @import "./main";
 
 body {
-	padding: $spacing-medium $spacing-large $spacing-large;
-	font-size: $font-size-medium;
-	font-family: $font-family;
 	display: grid;
-	grid-template-columns: $first-column $second-column;
-	grid-template-rows: $first-row $second-row;
+	grid-template-columns: auto 300px;
+	grid-template-rows: 60px auto;
 	grid-template-areas: "navbar navbar" "results options";
-	gap: $spacing-large;
-	max-width: 1440px;
-	margin: auto;
-}
-
-#navbar {
-	grid-area: navbar;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-#pengrape,
-#pengrape-fake {
-	font-size: $font-size-large;
-	font-family: $font-family-special;
-	background-image: linear-gradient(to right, $primary-color, $secondary-color);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	padding: 0px $spacing-large;
-}
-
-#pengrape-fake {
-	opacity: 0;
-	cursor: default;
-}
-
-#title {
-	font-size: $font-size-large;
-	padding: 0px $spacing-large;
+	gap: 1.5rem;
 }
 
 #results-section {
@@ -54,7 +21,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: $spacing-medium;
+	padding: 1rem;
 }
 
 #arrow {
@@ -64,23 +31,18 @@ body {
 #results-output {
 	display: flex;
 	flex-direction: column;
-	justify-content: start;
+	justify-content: center;
 	align-items: center;
-	padding: 0px $spacing-medium $spacing-medium;
-	min-height: $results-output-min-height-xlarge;
+	padding: 0 1rem 2rem;
 }
 
 #chart-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 500px;
-	height: 500px;
+	width: 60%;
 }
 
 #output {
 	color: $darker-color;
-	font-size: $font-size-xlarge;
+	font-size: 2rem;
 }
 
 #options-section {
@@ -88,30 +50,31 @@ body {
 }
 
 #option-1 {
-	margin-bottom: $spacing-large;
+	margin-bottom: 1.5rem;
 	border-radius: $border-radius;
 	box-shadow: $box-shadow;
 }
 
-#row1 {
-	padding: $spacing-large $spacing-large $spacing-tiny;
+.row:first-child {
+	padding: 2rem 2rem 0.5rem;
 }
 
-#row2 {
+.row {
+	padding: 0.5rem 2rem 0.5rem;
 	display: flex;
 	justify-content: space-between;
-	padding: $spacing-tiny $spacing-large $spacing-small;
+}
+
+.row:last-child {
+	padding: 0.5rem 2rem 2rem;
 }
 
 #input {
-	margin-right: $spacing-small;
-}
-#add {
-	padding: $spacing-medium;
+	margin-right: 0.5rem;
 }
 
-#row3 {
-	padding: $spacing-tiny $spacing-large $spacing-large;
+#add {
+	padding: 1rem;
 }
 
 #chart-legends {
@@ -125,7 +88,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: $spacing-tiny 0px;
+	padding: 0.5rem 0;
 }
 
 .item-label {
@@ -133,18 +96,18 @@ body {
 	height: 45px;
 	border-radius: 50%;
 	border: 2px $dark-color solid;
-	margin-right: 10px;
+	margin-right: 0.5rem;
 }
 
 .item-title {
 	border: 2px $dark-color solid;
-	border-radius: 40px;
+	border-radius: $border-radius;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 195px;
+	width: 183px;
 	height: 45px;
-	padding: 0px 20px;
+	padding: 0 1rem;
 	color: $dark-color;
 }
 
@@ -170,71 +133,11 @@ body {
 	pointer-events: none;
 }
 
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 800px) {
 	body {
-		padding: $spacing-medium $spacing-medium $spacing-medium;
-		gap: $spacing-medium;
-	}
-
-	#results-output {
-		min-height: $results-output-min-height-xlarge;
-	}
-
-	#chart-container {
-		width: 400px;
-		height: 400px;
-	}
-}
-
-@media only screen and (max-width: 830px) {
-	body {
-		padding: $spacing-medium $spacing-medium $spacing-medium;
-		gap: $spacing-medium;
-	}
-
-	#pengrape-fake {
-		display: none;
-	}
-
-	#results-output {
-		min-height: $results-output-min-height-large;
-	}
-
-	#options-section {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-	}
-
-	#chart-container {
-		width: 300px;
-		height: 300px;
-	}
-}
-
-@media only screen and (max-width: 730px) {
-	body {
-		padding: $spacing-medium $spacing-medium $spacing-medium;
-		grid-template-columns: $first-column;
-		grid-template-rows: $first-row $second-row;
+		grid-template-columns: auto;
+		grid-template-rows: 60px auto;
 		grid-template-areas: "navbar" "results" "options";
-		gap: $spacing-medium;
-	}
-	#pengrape {
-		padding: 0px $spacing-tiny 0px;
-	}
-
-	#title {
-		font-size: $font-size-medium;
-		padding: 0px $spacing-tiny 0px;
-	}
-
-	#results-output {
-		min-height: $results-output-min-height-small;
-		padding: 0px $spacing-small $spacing-medium;
-	}
-	#output {
-		font-size: $font-size-large;
 	}
 
 	#option-1 {
@@ -246,18 +149,26 @@ body {
 		align-items: center;
 	}
 
-	#row1 {
-		width: 290px;
-		padding: 20px 20px 5px;
+	.row {
+		width: 300px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.logo {
+		padding: 0 0.5rem 0px;
+	}
+	.fake {
+		display: none;
 	}
 
-	#row2 {
-		width: 290px;
-		padding: 5px 20px 10px;
+	#output {
+		color: $darker-color;
+		font-size: 1.5rem;
 	}
 
-	#row3 {
-		width: 290px;
-		padding: 5px 20px 20px;
+	#title {
+		font-size: 1rem;
+		padding: 0 0.5rem 0;
 	}
 }

@@ -27,7 +27,12 @@ $form-label-font-style: null;
 $form-label-font-weight: 400;
 $form-label-color: $dark-color;
 
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/card";
 
 .btn-outline-primary {
 	color: $primary;
@@ -220,5 +225,5 @@ $form-label-color: $dark-color;
 
 .btn-lg {
 	height: 45px;
-	width: 250px;
+	width: 266px;
 }
