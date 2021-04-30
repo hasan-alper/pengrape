@@ -1,53 +1,20 @@
 @import "./main";
 
 body {
-	padding: 1rem 2rem 2rem;
-	font-size: 16px;
-	font-family: $font-family;
 	display: grid;
 	grid-template-columns: auto;
 	grid-template-rows: 60px auto;
 	grid-template-areas: "navbar navbar" "docs docs";
-	max-width: 1440px;
-	margin: auto;
+	gap: 1.5rem;
 	user-select: auto;
 	color: $darker-color;
-}
-
-#navbar {
-	grid-area: navbar;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-#pengrape,
-#pengrape-fake {
-	font-size: 1.5rem;
-	font-family: $font-family-special;
-	background-image: linear-gradient(to right, $primary-color, $secondary-color);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	padding: 02rem;
-}
-
-#pengrape-fake {
-	opacity: 0;
-	cursor: default;
-}
-
-#title {
-	font-size: 1.5rem;
-	padding: 0 2rem;
 }
 
 #docs {
 	grid-area: docs;
 	border-radius: $border-radius;
 	box-shadow: $box-shadow;
-	padding: 2rem;
-	margin-top: 1rem;
+	padding: 1.5rem;
 }
 
 .method-section {
@@ -55,14 +22,28 @@ body {
 }
 
 code {
-	display: block;
 	color: $darker-color;
-	padding: 10px;
+	padding: 0.5rem;
+	width: 41px;
 }
 
 .code {
-	padding: 10px;
-	background-color: #faf8f6;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	white-space: nowrap;
+	padding: 0.5rem;
+	background-color: #f4f4f4;
+	border-left: rgba($color: $primary-color, $alpha: 0.6) 3px solid;
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+h3,
+h4 {
+	padding: 0.5rem 0;
 }
 
 h4 {
@@ -89,4 +70,22 @@ a {
 
 .comment {
 	color: $dark-color;
+}
+
+@media only screen and (max-width: 600px) {
+	.logo {
+		padding: 0 0.5rem 0px;
+	}
+	.fake {
+		display: none;
+	}
+
+	.code {
+		padding-left: 0;
+	}
+
+	#title {
+		font-size: 1rem;
+		padding: 0 0.5rem 0;
+	}
 }
