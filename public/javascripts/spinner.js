@@ -7,11 +7,20 @@ const output = document.querySelector("#output");
 const input = document.querySelector("#input");
 const add = document.querySelector("#add");
 const chartLegends = document.getElementById("chart-legends");
+const spinnerColors = ["#FFC1C1", "#C6FFC1", "#C1E5FF", "#FFFDC1", "#FFC1FD", "#FFDFC1"];
 let entries = ["Cherry", "Apple", "Grape"];
 let myData = [];
 let spinCount = 0;
 
 output.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
+
+const allSpinnerColors = () => {
+	let arr = spinnerColors;
+	for (let i = 0; i < 10; i++) {
+		arr = [...arr, ...spinnerColors];
+	}
+	return arr;
+};
 
 const spin = () => {
 	window.chart.options.rotation = -90 * (Math.PI / 180);
@@ -101,7 +110,7 @@ window.chart = new Chart(ctx, {
 		datasets: [
 			{
 				data: [120, 120, 120],
-				backgroundColor: ["#FFC1C1", "#C6FFC1", "#C1E5FF", "#FFFDC1", "#FFC1FD", "#FFDFC1"],
+				backgroundColor: allSpinnerColors(),
 				borderColor: "#808080",
 			},
 		],
