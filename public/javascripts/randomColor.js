@@ -16,9 +16,14 @@ const rangeOutputs = document.querySelectorAll(".range-output");
 const range1 = document.querySelector("#range1");
 const range2 = document.querySelector("#range2");
 const range3 = document.querySelector("#range3");
+const lockButton1 = document.querySelector("#lock-button-1");
+const lockButton2 = document.querySelector("#lock-button-2");
+const lockButton3 = document.querySelector("#lock-button-3");
 
 let index;
 let history = [];
+const formats = ["hex", "rgb", "hsl"];
+const lockedValues = [null, null, null];
 const rgbLabels = ["Red:", "Green:", "Blue:"];
 const hslLabels = ["Hue:", "Saturation:", "Lightness:"];
 
@@ -29,7 +34,38 @@ button.addEventListener("click", () => {
 		}
 	});
 
-	let colorCodes = random.color({ format: "all", syntax: "all", values: ["rgb", null, null, null] });
+	if (lockButton1.checked) {
+		if (index === 0) {
+			let result = Math.abs(range1.value).toString(16);
+			if (result.length < 2) result = "0" + result;
+			lockedValues[0] = result;
+		} else lockedValues[0] = range1.value;
+	} else {
+		lockedValues[0] = null;
+	}
+
+	if (lockButton2.checked) {
+		if (index === 0) {
+			let result = Math.abs(range2.value).toString(16);
+			if (result.length < 2) result = "0" + result;
+			lockedValues[1] = result;
+		} else lockedValues[1] = range2.value;
+	} else {
+		lockedValues[1] = null;
+	}
+
+	if (lockButton3.checked) {
+		if (index === 0) {
+			let result = Math.abs(range3.value).toString(16);
+			if (result.length < 2) result = "0" + result;
+			lockedValues[2] = result;
+		} else lockedValues[2] = range3.value;
+	} else {
+		lockedValues[2] = null;
+	}
+
+	let colorCodes = random.color({ format: "all", syntax: "all", values: [formats[index], ...lockedValues] });
+	console.log(formats[index]);
 	const colorCodesList = colorCodes.list;
 	colorCodes = colorCodes.normal;
 
@@ -195,4 +231,16 @@ range3.addEventListener("input", () => {
 		if (result.length < 2) result = "0" + result;
 		rangeOutputs[2].innerHTML = result;
 	} else rangeOutputs[2].innerHTML = range3.value;
+});
+
+lockButton1.addEventListener("click", () => {
+	lockButton1.checked ? (range1.disabled = true) : (range1.disabled = false);
+});
+
+lockButton2.addEventListener("click", () => {
+	lockButton2.checked ? (range2.disabled = true) : (range2.disabled = false);
+});
+
+lockButton3.addEventListener("click", () => {
+	lockButton3.checked ? (range3.disabled = true) : (range3.disabled = false);
 });
