@@ -63,11 +63,22 @@
 		<h4>Examples</h4>
 		<div class="code">
 			<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb' }); <span class="comment">=> rgb(124, 97, 124)</span></code>
+			<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">syntax:</span> 'list' }); <span class="comment">=> [ 46, 106, 45 ]</span></code>
+			<code
+				>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">values:</span> [ <span class="parameter">null</span>, <span class="parameter">null</span>, '77' ] });
+				<span class="comment">=> rgb(23, 148, 77)</span></code
+			>
 			<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'all' }); <span class="comment">=> [ '#bee82c', 'rgb(190, 232, 44)', 'hsl(73, 80%, 54%)' ]</span></code>
+			<code
+				>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'all', <span class="parameter">values:</span> [ 'hex', <span class="parameter">null</span>, 'b3',<span class="parameter"> null</span> ] });
+				<span class="comment">=> [ '#c6b3f9' , 'rgb(198, 179, 249)', 'hsl(256, 85, 84)' ]</span></code
+			>
 		</div>
 		<h4>Options</h4>
 		<div class="code">
 			<code>format: <span class="comment">Sets format of the color code. It can be 'hex', 'rgb', 'hsl' or 'all'. Default is 'hex'.</span></code>
+			<code>syntax: <span class="comment">Sets syntax of the color code. It can be 'normal', 'list' or 'all'. Default is 'normal'.</span></code>
+			<code>values: <span class="comment">Sets fixed color values. It must be an array containing three or four values. Default is [null, null, null]. </span></code>
 		</div>
 	</div>
 
