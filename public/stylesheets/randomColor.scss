@@ -55,6 +55,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 1.5rem;
 }
 
 #option-1-div {
@@ -63,6 +64,53 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	padding: 2em;
+}
+
+#option-2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+}
+
+#option-2-div {
+	width: 330px;
+}
+
+.row:first-child {
+	padding: 2rem 2rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.row {
+	padding: 0 2rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.row:last-child {
+	padding: 0 2rem 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.range-label {
+	width: 130px;
+}
+
+.range-output {
+	width: 37px;
+	margin-right: auto;
+	text-align: right;
+}
+
+.form-range {
+	width: 167px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -76,8 +124,8 @@ body {
 		min-height: 300px;
 	}
 
-	#option-1-div {
-		width: 330px;
+	#option-2-div {
+		width: 300px;
 	}
 }
 
@@ -108,9 +156,5 @@ body {
 
 	#results-output {
 		justify-content: start;
-	}
-
-	#option-1-div {
-		width: 300px;
 	}
 }

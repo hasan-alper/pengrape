@@ -20,12 +20,16 @@ $input-focus-border-color: $dark-color;
 $input-focus-box-shadow: none;
 
 //LABELS
-
 $form-label-margin-bottom: 0;
 $form-label-font-size: $font-size;
 $form-label-font-style: null;
 $form-label-font-weight: 400;
 $form-label-color: $dark-color;
+
+// RANGE
+$form-range-thumb-width: 1.1rem;
+$form-range-thumb-height: $form-range-thumb-width;
+$form-range-thumb-bg: $secondary;
 
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/mixins";
@@ -92,6 +96,42 @@ $form-label-color: $dark-color;
 	&:active {
 		color: white;
 		background-color: $secondary;
+		box-shadow: none;
+		transform: translateY(1px);
+		transition: ease 0.2s;
+	}
+	.btn-check:focus + &,
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+.btn-outline-light {
+	color: $dark;
+	background-color: white;
+	font-size: $font-size;
+	font-family: $font-family;
+	box-shadow: $box-shadow;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 45px;
+	width: 70px;
+	border-radius: 30px;
+	border-width: 2px;
+	border-color: $dark;
+	transition: ease 0.2s;
+	&:hover {
+		color: white;
+		border-color: $dark;
+		background-color: $dark;
+	}
+	.btn-check:checked + &,
+	.btn-check:active + &,
+	&:active {
+		color: white;
+		background-color: $dark;
+		border-color: $dark;
 		box-shadow: none;
 		transform: translateY(1px);
 		transition: ease 0.2s;
