@@ -23,7 +23,7 @@
 		"mini-css-extract-plugin": "^1.6.0",
 		"node-sass": "^5.0.0",
 		"optimize-css-assets-webpack-plugin": "^6.0.0",
-		"pengrape": "^1.1.4",
+		"pengrape": "^1.1.11",
 		"sass-loader": "^11.1.1",
 		"style-loader": "^2.0.0",
 		"webpack": "^5.38.1",

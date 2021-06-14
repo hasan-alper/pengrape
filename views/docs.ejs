@@ -118,24 +118,31 @@
 		<h3>Spinner</h3>
 
 		<div class="code">
-			<code><span class="keyword">const</span> spinner = random.<span class="method">spinner</span>(); </code>
-			<code>console.<span class="method">log</span>(spinner); </code>
-			<code><span class="comment">=> { entry: 'Grape', min: 240, max: 360, deg: 336, data: 120, isWinner: true }</span></code>
+			<code><span class="keyword">const</span> spinner = random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Cherry', 'Apple', 'Grape' ] }); </code>
+			<code>console.<span class="method">log</span>(spinner); <span class="comment">=> Grape</span></code>
 		</div>
 		<h4>Examples</h4>
 		<div class="code">
-			<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ] }); </code>
+			<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], <span class="parameter">returnDetails: true</span> }); </code>
 			<code><span class="comment">=> { entry: 'St. Bernard', min: 180, max: 270, deg: 237, data: 90, isWinner: true }</span></code>
-			<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Pizza', 'Lasagna', 'Quesadilla' ], <span class="parameter">returnAllEntries: true</span> }); </code>
+			<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], <span class="parameter">returnEntries: true</span> }); </code>
+			<code><span class="comment">=> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ]</span></code>
+			<code
+				>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Pizza', 'Lasagna', 'Quesadilla' ], <span class="parameter">returnDetails: true</span>,
+				<span class="parameter">returnEntries: true</span> });
+			</code>
 			<code class="comment">=> [ { entry: 'Pizza', min: 0, max: 120, deg: 208, data: 120, isWinner: false },</code>
 			<code class="comment">&nbsp;&nbsp; { entry: 'Lasagna', min: 120, max: 240, deg: 208, data: 120, isWinner: true },</code>
 			<code class="comment">&nbsp;&nbsp; { entry: 'Quesadilla', min: 240, max: 360, deg: 208, data:120, isWinner: false } ]</code>
 		</div>
 		<h4>Options</h4>
 		<div class="code">
-			<code>entries: <span class="comment">Sets inputs for spinner. It must be an array. Default is ['Cherry', 'Apple', 'Grape'].</span></code>
+			<code>entries: <span class="comment">Sets inputs for spinner. It must be an array.</span></code>
 			<code
-				>returnAllEntries: <span class="comment">Sets whether the method returns all entry objects. It must be an boolean. Default is <i>false</i>.</span></code
+				>returnDetails: <span class="comment">Sets whether the method returns details of the entry/entries. It must be a boolean. Default is <i>false</i>.</span></code
+			>
+			<code
+				>returnEntries: <span class="comment">Sets whether the method returns all entries. It must be a boolean. Default is <i>false</i>.</span></code
 			>
 		</div>
 	</div>
