@@ -26,7 +26,7 @@ const spin = () => {
 	window.chart.options.rotation = -90 * (Math.PI / 180);
 	window.chart.update();
 	output.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
-	let luckyEntry = random.spinner({ entries });
+	let luckyEntry = random.spinner({ entries, returnDetails: true });
 	const deg = luckyEntry.deg;
 	spinCount += 1;
 	window.chart.options.rotation = Math.PI * -0.5 - (deg / 180) * Math.PI - Math.PI * 12 * spinCount;
@@ -55,7 +55,7 @@ const spin = () => {
 const deleteEntryItem = (i) => {
 	myData = [];
 	entries.splice(i, 1);
-	let singleData = random.spinner({ entries }).data;
+	let singleData = random.spinner({ entries, returnDetails: true }).data;
 	for (let entry of entries) {
 		myData.push(singleData);
 	}
@@ -84,7 +84,7 @@ const addEntryItem = () => {
 	myData = [];
 	if (input.value) {
 		entries.push(input.value);
-		let singleData = random.spinner({ entries }).data;
+		let singleData = random.spinner({ entries, returnDetails: true }).data;
 		for (let entry of entries) {
 			myData.push(singleData);
 		}
