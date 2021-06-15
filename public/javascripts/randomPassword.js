@@ -16,6 +16,7 @@ const randomLengthButton = document.querySelector("#random-length-button");
 const lengthDiv = document.querySelector("#length-div");
 const randomLengthDiv = document.querySelector("#random-length-div");
 let symbolPool = document.querySelector("#symbol-pool");
+const excludeSimilar = document.querySelector("#exclude-similar");
 
 button.addEventListener("click", () => {
 	if (!symbolPool.value) document.querySelector("#symbol-pool").value = "~!@#$%&*-+=?/";
@@ -38,6 +39,7 @@ button.addEventListener("click", () => {
 			minLength: +minLength.value,
 			maxLength: +maxLength.value,
 			symbolPool: symbolPool.value,
+			excludeSimilar: excludeSimilar.checked,
 		});
 	} else {
 		output.innerHTML = random.password({
@@ -47,6 +49,7 @@ button.addEventListener("click", () => {
 			symbol: symbol.checked,
 			length: +length.value,
 			symbolPool: symbolPool.value,
+			excludeSimilar: excludeSimilar.checked,
 		});
 	}
 });
@@ -200,8 +203,8 @@ symbol.addEventListener("click", () => {
 	} else {
 		button.disabled = false;
 	}
-	if (symbol.checked) symbolPool.style.display = "flex";
-	else symbolPool.style.display = "none";
+	if (symbol.checked) symbolPool.parentElement.style.display = "flex";
+	else symbolPool.parentElement.style.display = "none";
 });
 
 symbolPool.addEventListener("change", () => {
