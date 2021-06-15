@@ -91,10 +91,11 @@
 		</div>
 		<h4>Examples</h4>
 		<div class="code">
-			<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false</span> }); <span class="comment">=> buab5pr7dy5jsoxy2wsu</span></code>
-			<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false, symbol: true</span> }); <span class="comment">=> e%zpsj3c/7z%bfw#ga5u</span></code>
-			<code>random.<span class="method">password</span>({ <span class="parameter">number: false</span> }); <span class="comment">=> xdiixWRHipNaqcaFHNeb</span></code>
+			<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false</span> }); <span class="comment">=> buab5r7dy5jsoy2wsu</span></code>
+			<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false, symbol: true</span> }); <span class="comment">=> e%zpsj3c/7z%bfw#gas5u</span></code>
 			<code>random.<span class="method">password</span>({ <span class="parameter">length: 12</span> }); <span class="comment">=> KVgp6piIu3Ap</span></code>
+			<code>random.<span class="method">password</span>({ <span class="parameter">minLength: 6</span>, <span class="parameter">maxLength: 10</span> }); <span class="comment">=> QTvKn52sP</span></code>
+			<code>random.<span class="method">password</span>({ <span class="parameter">symbol: true, symbolPool:</span> '#&'); <span class="comment">=> A#Ii9Ir2s8#Eq43EP3&Sw</span></code>
 		</div>
 		<h4>Options</h4>
 		<div class="code">
@@ -111,6 +112,17 @@
 				>symbol: <span class="comment">Sets whether password will contain symbols. It must be a boolean. Default is <i>false</i>.</span></code
 			>
 			<code>length: <span class="comment">Sets length of password. It must be a natural number. Default is 20.</span></code>
+			<code>minLength: <span class="comment">Sets minimum value for length of password. It must be a natural number. Default is 16.</span></code>
+			<code>maxLength: <span class="comment">Sets maximum value for length of password. It must be a natural number. Default is 24.</span></code>
+			<code>symbolPool: <span class="comment">Sets which symbols password will contain. It must be a string. Default is '~!@#$%&*-+=?/'.</span></code>
+			<code
+				>excludeSimilar: <span class="comment">Sets whether password will contain similar characters. It must be boolean. Default is <i>false</i>.</span></code
+			>
+		</div>
+		<h4>Notes</h4>
+		<div class="code">
+			<code>- If length option is selected, minLength and maxLength options will not work.</code>
+			<code>- MinLength and maxLength are inclusive, so they are included in the range.</code>
 		</div>
 	</div>
 
