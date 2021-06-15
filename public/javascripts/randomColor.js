@@ -65,7 +65,6 @@ button.addEventListener("click", () => {
 	}
 
 	let colorCodes = random.color({ format: "all", syntax: "all", values: [formats[index], ...lockedValues] });
-	console.log(formats[index]);
 	const colorCodesList = colorCodes.list;
 	colorCodes = colorCodes.normal;
 
