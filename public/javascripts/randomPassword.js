@@ -15,8 +15,11 @@ const maxLength = document.querySelector("#max");
 const randomLengthButton = document.querySelector("#random-length-button");
 const lengthDiv = document.querySelector("#length-div");
 const randomLengthDiv = document.querySelector("#random-length-div");
+let symbolPool = document.querySelector("#symbol-pool");
 
 button.addEventListener("click", () => {
+	if (!symbolPool.value) document.querySelector("#symbol-pool").value = "~!@#$%&*-+=?/";
+
 	let min = +minLength.value;
 	let max = +maxLength.value;
 	if (min > max) {
@@ -34,6 +37,7 @@ button.addEventListener("click", () => {
 			symbol: symbol.checked,
 			minLength: +minLength.value,
 			maxLength: +maxLength.value,
+			symbolPool: symbolPool.value,
 		});
 	} else {
 		output.innerHTML = random.password({
@@ -42,6 +46,7 @@ button.addEventListener("click", () => {
 			number: number.checked,
 			symbol: symbol.checked,
 			length: +length.value,
+			symbolPool: symbolPool.value,
 		});
 	}
 });
@@ -195,4 +200,10 @@ symbol.addEventListener("click", () => {
 	} else {
 		button.disabled = false;
 	}
+	if (symbol.checked) symbolPool.style.display = "flex";
+	else symbolPool.style.display = "none";
+});
+
+symbolPool.addEventListener("change", () => {
+	if (!symbolPool.value) document.querySelector("#symbol-pool").value = "~!@#$%&*-+=?/";
 });
