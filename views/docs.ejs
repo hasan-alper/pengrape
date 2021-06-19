@@ -204,4 +204,30 @@
 			<code>- The unit of length value will be sentences if type value is 'paragraph'.</code>
 		</div>
 	</div>
+
+	<div class="method-section">
+		<h3>Date</h3>
+
+		<div class="code">
+			<code><span class="keyword">const</span> date = random.<span class="method">date</span>(); </code>
+			<code>console.<span class="method">log</span>(date);<span class="comment"> => 2021-04-29</span> </code>
+		</div>
+		<h4>Examples</h4>
+		<div class="code">
+			<code>random.<span class="method">date</span>({ <span class="parameter">dateStart: </span>[2021, 1, 1], <span class="parameter"> dateEnd: </span>[2021, 6, 17] });<span class="comment"> => 2021-02-23 </span> </code>
+			<code
+				>random.<span class="method">date</span>({ <span class="parameter">dateStart: </span>[1874, 4, 21], <span class="parameter"> dateEnd: </span>[1878, 11, 30], <span class="parameter"> format: </span> 'dd/mm/yyyy' });<span
+					class="comment"
+				>
+					=> 29/12/1877
+				</span>
+			</code>
+		</div>
+		<h4>Options</h4>
+		<div class="code">
+			<code>dateStart: <span class="comment">Sets min value to generate random date. It must be an array. Default is [2021, 1, 1].</span></code>
+			<code>dateEnd: <span class="comment">Sets max value to generate random date. It must be an array. Default is [2022, 1, 1].</span></code>
+			<code>format: <span class="comment">Sets a custom date format. It must be a string. Default is "yyyy-mm-dd".</span></code>
+		</div>
+	</div>
 </section>
