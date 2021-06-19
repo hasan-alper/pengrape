@@ -11,11 +11,13 @@ const startDayInput = document.querySelector("#start-day-input");
 const endYearInput = document.querySelector("#end-year-input");
 const endMonthInput = document.querySelector("#end-month-input");
 const endDayInput = document.querySelector("#end-day-input");
+const customFormatInput = document.querySelector("#custom-format-input");
 
 button.addEventListener("click", () => {
 	const dateStart = [+startYearInput.value, +startMonthInput.value, +startDayInput.value];
 	const dateEnd = [+endYearInput.value, +endMonthInput.value, +endDayInput.value];
-	output.innerHTML = random.date({ dateStart: dateStart, dateEnd: dateEnd });
+	const format = customFormatInput.value ? customFormatInput.value : "yyyy-mm-dd";
+	output.innerHTML = random.date({ dateStart: dateStart, dateEnd: dateEnd, format: format });
 });
 
 startYearInput.addEventListener("input", () => {

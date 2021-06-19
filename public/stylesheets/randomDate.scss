@@ -42,7 +42,8 @@ body {
 	grid-area: options;
 }
 
-#option-1 {
+#option-1,
+#option-2 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -51,7 +52,8 @@ body {
 	box-shadow: $box-shadow;
 }
 
-#option-1-div {
+#option-1-div,
+#option-2-div {
 	width: 330px;
 }
 
@@ -93,7 +95,8 @@ input[type="number"] {
 		min-height: 300px;
 	}
 
-	#option-1-div {
+	#option-1-div,
+	#option-2-div {
 		width: 330px;
 	}
 }
@@ -120,7 +123,8 @@ input[type="number"] {
 		font-size: 1.5rem;
 	}
 
-	#option-1-div {
+	#option-1-div,
+	#option-2-div {
 		width: 270px;
 	}
 }
