@@ -1,0 +1,43 @@
+<% layout("layouts/boilerplate") %>
+
+<nav id="navbar">
+	<a href="/" class="logo">pengrape</a>
+	<span id="title">Random Date</span>
+	<a class="logo fake">pengrape</a>
+</nav>
+
+<section id="results-section">
+	<div id="results-div">
+		<div id="results-buttons">
+			<button class="btn btn-secondary btn-sm fake"><i class="far fa-copy"></i></button>
+			<input type="button" id="button" class="btn btn-primary" value="Generate" />
+			<button id="copy-button" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
+		</div>
+		<div id="results-output">
+			<span id="output"></span>
+		</div>
+	</div>
+</section>
+
+<section id="options-section">
+	<div id="option-1">
+		<div id="option-1-div">
+			<div class="row">
+				<label for="start-year-input" class="form-label">Start Date</label>
+			</div>
+			<div class="row flex-row">
+				<input type="number" class="form-control" id="start-year-input" value="2021" />
+				<input type="number" class="form-control" id="start-month-input" value="1" />
+				<input type="number" class="form-control" id="start-day-input" value="1" />
+			</div>
+			<div class="row">
+				<label for="end-year-input" class="form-label">End Date</label>
+			</div>
+			<div class="row flex-row">
+				<input type="number" class="form-control" id="end-year-input" value="2022" />
+				<input type="number" class="form-control" id="end-month-input" value="1" />
+				<input type="number" class="form-control" id="end-day-input" value="1" />
+			</div>
+		</div>
+	</div>
+</section>

@@ -21,12 +21,11 @@
 		"ejs-mate": "^3.0.0",
 		"express": "^4.17.1",
 		"mini-css-extract-plugin": "^1.6.0",
-		"node-sass": "^5.0.0",
-		"optimize-css-assets-webpack-plugin": "^6.0.0",
-		"pengrape": "^1.1.11",
-		"sass-loader": "^11.1.1",
+		"pengrape": "^1.1.15",
+		"sass": "1.32",
+		"sass-loader": "^7.3.1",
 		"style-loader": "^2.0.0",
-		"webpack": "^5.38.1",
+		"webpack": "^5.39.1",
 		"webpack-cli": "^4.7.2"
 	}
 }

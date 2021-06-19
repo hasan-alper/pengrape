@@ -21,3 +21,7 @@ module.exports.diceRoller = (req, res) => {
 module.exports.randomText = (req, res) => {
 	res.render("utilities/randomText", { title: "Random Text - Pengrape", scriptRoute: "randomText" });
 };
+
+module.exports.randomDate = (req, res) => {
+	res.render("utilities/randomDate", { title: "Random Date - Pengrape", scriptRoute: "randomDate" });
+};

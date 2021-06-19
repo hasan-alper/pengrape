@@ -1,0 +1,126 @@
+@import "./main";
+
+body {
+	display: grid;
+	grid-template-columns: auto 300px;
+	grid-template-rows: 60px auto;
+	grid-template-areas: "navbar navbar" "results options";
+	gap: 1.5rem;
+}
+
+#results-section {
+	grid-area: results;
+}
+
+#results-div {
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+}
+
+#results-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+}
+
+#results-output {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 1rem 1rem;
+	min-height: 400px;
+	word-break: break-all;
+}
+
+#output {
+	color: $darker-color;
+	font-size: 2.5rem;
+}
+
+#options-section {
+	grid-area: options;
+}
+
+#option-1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1.5rem;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+}
+
+#option-1-div {
+	width: 330px;
+}
+
+input[type="number"] {
+	width: 64px;
+	text-align: center;
+}
+
+#start-year-input,
+#end-year-input {
+	width: 84px;
+}
+
+.row:first-child {
+	padding: 2rem 2rem 0.5rem;
+}
+
+.row {
+	padding: 0.5rem 2rem 0.5rem;
+}
+
+.row:last-child {
+	padding: 0.5rem 2rem 2rem;
+}
+
+.flex-row {
+	display: flex;
+	justify-content: space-between;
+}
+
+@media only screen and (max-width: 800px) {
+	body {
+		grid-template-columns: auto;
+		grid-template-rows: 60px auto;
+		grid-template-areas: "navbar" "results" "options";
+	}
+
+	#results-output {
+		min-height: 300px;
+	}
+
+	#option-1-div {
+		width: 330px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.logo {
+		padding: 0 0.5rem 0px;
+	}
+	.fake {
+		display: none;
+	}
+
+	#title {
+		font-size: 1rem;
+		padding: 0 0.5rem 0;
+	}
+
+	#results-output {
+		min-height: 200px;
+		justify-content: start;
+	}
+
+	#output {
+		font-size: 1.5rem;
+	}
+
+	#option-1-div {
+		width: 270px;
+	}
+}

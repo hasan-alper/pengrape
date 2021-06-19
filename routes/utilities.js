@@ -15,4 +15,6 @@ router.get("/dice-roller", utilities.diceRoller);
 
 router.get("/random-text", utilities.randomText);
 
+router.get("/random-date", utilities.randomDate);
+
 module.exports = router;

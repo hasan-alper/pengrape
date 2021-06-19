@@ -1,6 +1,5 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
 	mode: "production",
@@ -13,6 +12,7 @@ module.exports = {
 		spinner: "./public/javascripts/spinner.js",
 		diceRoller: "./public/javascripts/diceRoller.js",
 		randomText: "./public/javascripts/randomText.js",
+		randomDate: "./public/javascripts/randomDate.js",
 	},
 	output: {
 		filename: "javascripts/[name].js",
@@ -26,5 +26,5 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [new MiniCssExtractPlugin({ filename: "stylesheets/[name].css" }), new OptimizeCssAssetsPlugin()],
+	plugins: [new MiniCssExtractPlugin({ filename: "stylesheets/[name].css" })],
 };
