@@ -1,36 +1,26 @@
 @import "./variables";
 
-$primary: #e87477;
-$secondary: #ff9d8d;
-$dark: #808080;
-$darker: #404040;
-
-$font-size: 16px;
+$primary: $primary-color;
 
 //INPUTS
-$input-padding-y: 8.5px;
-$input-padding-x: 20px;
+$input-padding-y: 11px;
+$input-padding-x: 14.5px;
 $input-font-family: $font-family;
-$input-font-size: $font-size;
-$input-color: $darker-color;
-$input-border-color: $dark-color;
-$input-border-width: 2px;
-$input-border-radius: 30px;
-$input-focus-border-color: $dark-color;
+$input-font-size: 1rem;
+$input-color: $dark-2;
+$input-border-color: $dark-3;
+$input-border-width: 1px;
+$input-border-radius: $border-radius;
+$input-focus-border-color: $dark-2;
 $input-focus-box-shadow: none;
 
-//LABELS
-$form-label-margin-bottom: 0;
-$form-label-font-size: $font-size;
-$form-label-font-style: null;
-$form-label-font-weight: 400;
-$form-label-color: $dark-color;
+//BUTTONS
+$btn-transition: none;
 
-// RANGE
-$form-range-thumb-width: 1.1rem;
-$form-range-thumb-height: $form-range-thumb-width;
-$form-range-thumb-bg: $secondary;
-
+// // RANGE
+// $form-range-thumb-width: 1.1rem;
+// $form-range-thumb-height: $form-range-thumb-width;
+// $form-range-thumb-bg: $secondary;
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/variables";
@@ -38,232 +28,157 @@ $form-range-thumb-bg: $secondary;
 @import "../../node_modules/bootstrap/scss/forms";
 @import "../../node_modules/bootstrap/scss/card";
 
-.btn-outline-primary {
-	color: $primary;
-	background-color: white;
-	font-size: $font-size;
-	font-family: $font-family;
-	box-shadow: $box-shadow;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 45px;
-	width: 90px;
-	border-radius: 30px;
-	border-width: 2px;
-	transition: ease 0.2s;
-	&:hover {
-		color: white;
-		background-color: $primary;
-	}
-	.btn-check:checked + &,
-	.btn-check:active + &,
-	&:active,
-	&.active,
-	&.dropdown-toggle.show {
-		color: white;
-		background-color: $primary;
-		box-shadow: none;
-		transform: translateY(1px);
-		transition: ease 0.2s;
-	}
-	.btn-check:focus + &,
-	&:focus {
-		box-shadow: none;
-	}
-}
-
-.btn-outline-secondary {
-	color: $secondary;
-	background-color: white;
-	font-size: $font-size;
-	font-family: $font-family;
-	box-shadow: $box-shadow;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 45px;
-	width: 70px;
-	border-radius: 30px;
-	border-width: 2px;
-	transition: ease 0.2s;
-	&:hover {
-		color: white;
-		background-color: $secondary;
-	}
-	.btn-check:checked + &,
-	.btn-check:active + &,
-	&:active {
-		color: white;
-		background-color: $secondary;
-		box-shadow: none;
-		transform: translateY(1px);
-		transition: ease 0.2s;
-	}
-	.btn-check:focus + &,
-	&:focus {
-		box-shadow: none;
-	}
-}
-
-.btn-outline-light {
-	color: $dark;
-	background-color: white;
-	font-size: $font-size;
-	font-family: $font-family;
-	box-shadow: $box-shadow;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 45px;
-	width: 70px;
-	border-radius: 30px;
-	border-width: 2px;
-	border-color: $dark;
-	transition: ease 0.2s;
-	&:hover {
-		color: white;
-		border-color: $dark;
-		background-color: $dark;
-	}
-	.btn-check:checked + &,
-	.btn-check:active + &,
-	&:active {
-		color: white;
-		background-color: $dark;
-		border-color: $dark;
-		box-shadow: none;
-		transform: translateY(1px);
-		transition: ease 0.2s;
-	}
-	.btn-check:focus + &,
-	&:focus {
-		box-shadow: none;
-	}
-}
-
-.btn-outline-dark {
-	color: $dark;
-	background-color: white;
-	font-size: $font-size;
-	font-family: $font-family;
-	box-shadow: $box-shadow;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 45px;
-	width: 90px;
-	border-radius: 30px;
-	border-width: 2px;
-	transition: ease 0.1s;
-	&:hover {
-		color: $dark;
-		background-color: white;
-	}
-	.btn-check:checked + &,
-	.btn-check:active + &,
-	&:active,
-	&.active,
-	&.dropdown-toggle.show {
-		color: $dark;
-		background-color: white;
-		box-shadow: none;
-		transform: translateY(1px);
-		transition: ease 0.1s;
-	}
-	.btn-check:focus + &,
-	&:focus {
-		box-shadow: $box-shadow;
-		color: $dark;
-		background-color: white;
-	}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:active:focus:not(:disabled):not(.disabled),
+.btn:focus,
+.btn:active,
+.btn:hover {
+	box-shadow: none !important;
+	outline: 0;
 }
 
 .btn-primary {
-	color: white;
+	color: $light-1;
 	background-color: $primary;
-	font-size: $font-size;
-	font-family: $font-family;
-	box-shadow: $box-shadow;
+	border: 1px solid $primary;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 50px;
-	width: 100px;
-	border-radius: 30px;
-	border-width: 2px;
-	transition: ease 0.1s;
+	height: 3rem;
+	box-shadow: none;
+	font-family: $font-family;
 	&:hover {
-		color: white;
+		color: $light-1;
 		background-color: $primary;
+		border: 1px solid $primary;
+		box-shadow: none;
 	}
 	.btn-check:checked + &,
 	.btn-check:active + &,
 	&:active,
 	&.active,
 	&.dropdown-toggle.show {
-		color: white;
+		color: $light-1;
 		background-color: $primary;
+		border: 1px solid $primary;
 		box-shadow: none;
-		transform: translateY(1px);
-		transition: ease 0.1s;
 	}
 	.btn-check:focus + &,
 	&:focus {
-		box-shadow: $box-shadow;
-		color: white;
+		color: $light-1;
 		background-color: $primary;
+		border: 1px solid $primary;
+		box-shadow: none;
 	}
 }
 
-.btn-secondary {
-	color: white;
-	background-color: $secondary;
-	font-size: $font-size;
-	font-family: $font-family;
-	box-shadow: $box-shadow;
+.btn-outline-primary {
+	color: $dark-2;
+	background-color: $light-1;
+	border: $border-section;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 45px;
-	width: 90px;
-	border-radius: 30px;
-	border-width: 2px;
-	transition: ease 0.1s;
+	height: 3rem;
 	&:hover {
-		color: white;
-		background-color: $secondary;
+		color: $dark-2;
+		background-color: $light-1;
+		border: $border-section;
 	}
 	.btn-check:checked + &,
 	.btn-check:active + &,
 	&:active,
 	&.active,
 	&.dropdown-toggle.show {
-		color: white;
-		background-color: $secondary;
-		box-shadow: none;
-		transform: translateY(1px);
-		transition: ease 0.1s;
+		color: $light-1;
+		background-color: $primary;
+		border: 1px solid $primary;
 	}
 	.btn-check:focus + &,
 	&:focus {
-		box-shadow: $box-shadow;
-		color: white;
-		background-color: $secondary;
+		box-shadow: none;
 	}
+}
+
+.btn-light {
+	color: $dark-2;
+	background-color: $light-1;
+	border: $border-section;
+	&:hover {
+		color: $dark-2;
+		background-color: $light-1;
+		border: $border-section;
+	}
+	.btn-check:active + &,
+	&:active,
+	&.active,
+	&.dropdown-toggle.show,
+	.btn-check:focus + &,
+	&:focus {
+		color: $dark-2;
+		background-color: $light-1;
+		border: $border-section;
+	}
+	.btn-check:checked + & {
+		color: $dark-2;
+		background-color: $light-1;
+		border: $border-section;
+	}
+}
+
+.btn-link {
+	color: $dark-2;
+	text-decoration: none;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	&:hover {
+		color: $dark-2;
+	}
+	.btn-check:active + &,
+	&:active,
+	&.active,
+	&.dropdown-toggle.show {
+		color: $dark-2;
+	}
+	.btn-check:focus + &,
+	&:focus {
+		box-shadow: none;
+	}
+	.btn-check:checked + & {
+		color: $dark-1;
+	}
+}
+
+.labels-tabs {
+	.btn-check:checked + & {
+		border-bottom: 2px solid $primary;
+	}
+}
+
+.btn-xs {
+	font-size: 1.1rem;
+	border-radius: $border-radius;
+	height: 3rem;
+	width: 3rem;
 }
 
 .btn-sm {
-	height: 45px;
-	width: 45px;
+	font-size: 1rem;
+	border-radius: $border-radius;
+	width: 80px;
 }
 
 .btn-md {
-	height: 45px;
-	width: 90px;
+	font-size: 1rem;
+	border-radius: $border-radius;
+	width: 96px;
 }
 
 .btn-lg {
-	height: 45px;
-	width: 266px;
+	font-size: 1rem;
+	border-radius: $border-radius;
+	width: 112px;
 }

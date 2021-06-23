@@ -2,38 +2,37 @@ require("../stylesheets/randomNumber.scss");
 
 const random = require("pengrape");
 
-const button = document.querySelector("#button");
-const output = document.querySelector("#output");
-const typeOpts = document.querySelectorAll('input[name="type"]');
-const parityOpts = document.querySelectorAll('input[name="parity"]');
-const copyButton = document.querySelector("#copy-button");
-const integerButton = document.querySelector("#integer");
-const noneButton = document.querySelector("#none");
-const oddButton = document.querySelector("#odd");
-const evenButton = document.querySelector("#even");
-const decimalButton = document.querySelector("#decimal");
-const precisionInput = document.querySelector("#precision");
-const minInput = document.querySelector("#min-input");
-const maxInput = document.querySelector("#max-input");
+const resultContent = document.querySelector("#result-content");
+const parityContent = document.querySelector("#parity-content");
+const precisionContent = document.querySelector("#precision-content");
+const buttonGenerate = document.querySelector("#button-generate");
+const buttonCopy = document.querySelector("#button-copy");
+const inputMin = document.querySelector("#input-min");
+const inputMax = document.querySelector("#input-max");
+const buttonInteger = document.querySelector("#button-integer");
+const radioParity = document.querySelectorAll('input[name="parity"]');
+const radioType = document.querySelectorAll('input[name="type"]');
+const buttonDecimal = document.querySelector("#button-decimal");
+const inputPrecision = document.querySelector("#input-precision");
 
-button.addEventListener("click", () => {
+buttonGenerate.addEventListener("click", () => {
 	let selectedType;
-	for (const typeOpt of typeOpts) {
+	for (const typeOpt of radioType) {
 		if (typeOpt.checked) {
 			selectedType = typeOpt.value;
 			break;
 		}
 	}
 	let selectedParity;
-	for (const parityOpt of parityOpts) {
+	for (const parityOpt of radioParity) {
 		if (parityOpt.checked) {
 			selectedParity = parityOpt.value;
 			break;
 		}
 	}
-	let min = parseInt(minInput.value);
-	let max = parseInt(maxInput.value);
-	const precision = parseInt(precisionInput.value);
+	let min = parseInt(inputMin.value);
+	let max = parseInt(inputMax.value);
+	const precision = parseInt(inputPrecision.value);
 
 	if (min > max) {
 		max = max + min;
@@ -41,59 +40,53 @@ button.addEventListener("click", () => {
 		max = max - min;
 	}
 
-	document.querySelector("#min-input").value = min;
-	document.querySelector("#max-input").value = max;
-	precisionInput.value = precision;
+	document.querySelector("#input-min").value = min;
+	document.querySelector("#input-max").value = max;
+	inputPrecision.value = precision;
 
-	output.innerHTML = random.number({ min: min, max: max, type: selectedType, precision: precision, parity: selectedParity });
+	resultContent.innerHTML = random.number({ min: min, max: max, type: selectedType, precision: precision, parity: selectedParity });
 });
 
-integerButton.addEventListener("click", () => {
-	noneButton.disabled = false;
-	oddButton.disabled = false;
-	evenButton.disabled = false;
-	precisionInput.disabled = true;
-	precisionInput.value = 4;
-	if (parseInt(minInput.value) !== parseInt(maxInput.value) && minInput.value && maxInput.value && minInput.value <= 9999999999 && maxInput.value <= 9999999999) {
-		button.disabled = false;
+buttonInteger.addEventListener("click", () => {
+	parityContent.style.display = "flex";
+	precisionContent.style.display = "none";
+	if (parseInt(inputMin.value) !== parseInt(inputMax.value) && inputMin.value && inputMax.value && inputMin.value <= 9999999999 && inputMax.value <= 9999999999) {
+		buttonGenerate.disabled = false;
 	}
 });
 
-decimalButton.addEventListener("click", () => {
-	noneButton.disabled = true;
-	oddButton.disabled = true;
-	evenButton.disabled = true;
-	precisionInput.disabled = false;
-	noneButton.checked = true;
-	if (parseInt(minInput.value) !== parseInt(maxInput.value) && minInput.value && maxInput.value && minInput.value <= 9999999999 && maxInput.value <= 9999999999) {
-		button.disabled = false;
+buttonDecimal.addEventListener("click", () => {
+	parityContent.style.display = "none";
+	precisionContent.style.display = "flex";
+	if (parseInt(inputMin.value) !== parseInt(inputMax.value) && inputMin.value && inputMax.value && inputMin.value <= 9999999999 && inputMax.value <= 9999999999) {
+		buttonGenerate.disabled = false;
 	}
 });
 
-precisionInput.addEventListener("input", () => {
-	if (precisionInput.value > 999 || precisionInput.value < 1) {
-		button.disabled = true;
+inputPrecision.addEventListener("input", () => {
+	if (inputPrecision.value > 999 || inputPrecision.value < 1) {
+		buttonGenerate.disabled = true;
 	} else {
-		button.disabled = false;
+		buttonGenerate.disabled = false;
 	}
 });
 
-minInput.addEventListener("input", () => {
-	if (parseInt(minInput.value) === parseInt(maxInput.value) || !minInput.value || minInput.value > 9999999999) {
-		button.disabled = true;
+inputMin.addEventListener("input", () => {
+	if (parseInt(inputMin.value) === parseInt(inputMax.value) || !inputMin.value || inputMin.value > 9999999999) {
+		buttonGenerate.disabled = true;
 	} else {
-		button.disabled = false;
+		buttonGenerate.disabled = false;
 	}
 });
 
-maxInput.addEventListener("input", () => {
-	if (parseInt(minInput.value) == parseInt(maxInput.value) || !maxInput.value || maxInput.value > 9999999999) {
-		button.disabled = true;
+inputMax.addEventListener("input", () => {
+	if (parseInt(inputMin.value) == parseInt(inputMax.value) || !inputMax.value || inputMax.value > 9999999999) {
+		buttonGenerate.disabled = true;
 	} else {
-		button.disabled = false;
+		buttonGenerate.disabled = false;
 	}
 });
 
-copyButton.addEventListener("click", () => {
-	window.navigator.clipboard.writeText(output.innerText);
+buttonCopy.addEventListener("click", () => {
+	window.navigator.clipboard.writeText(resultContent.innerText);
 });

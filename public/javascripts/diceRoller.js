@@ -39,7 +39,7 @@ decreaseSide.addEventListener("click", () => {
 button.addEventListener("click", () => {
 	deleteResults();
 	const output = random.dice({ notation: `${amountValue}d${sideValue}` });
-	showResults(output.results, output.total);
+	showResults(output.output, output.total);
 });
 
 const showResults = (results, total) => {

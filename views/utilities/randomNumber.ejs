@@ -1,70 +1,73 @@
-<% layout("layouts/boilerplate") %>
-
-<nav id="navbar">
-	<a href="/" class="logo">pengrape</a>
-	<span id="title">Random Number</span>
-	<a class="logo fake">pengrape</a>
-</nav>
-
-<section id="results-section">
-	<div id="results-div">
-		<div id="results-buttons">
-			<button class="btn btn-secondary btn-sm fake"><i class="far fa-copy"></i></button>
-			<input type="button" id="button" class="btn btn-primary" value="Generate" />
-			<button id="copy-button" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
+<%- contentFor('option1') %>
+<section id="option-1-content">
+	<div id="option-1-1-content">
+		<div class="header-contents">
+			<p class="header">Type</p>
+			<p class="description">Choose type of the result to generate.</p>
 		</div>
-		<div id="results-output">
-			<span id="output"></span>
+
+		<div class="input-contents">
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-integer" name="type" value="integer" checked />
+				<label for="button-integer" class="btn btn-outline-primary btn-md">Integer</label>
+			</div>
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-decimal" name="type" value="decimal" />
+				<label for="button-decimal" class="btn btn-outline-primary btn-md">Decimal</label>
+			</div>
+		</div>
+	</div>
+	<div id="option-1-2-content">
+		<div id="parity-content">
+			<div class="header-contents">
+				<p class="header">Parity</p>
+				<p class="description">Set whether the result is going to be odd or even.</p>
+			</div>
+			<div class="input-contents">
+				<div class="input-content">
+					<input type="radio" class="btn-check" id="button-none" name="parity" value="none" checked />
+					<label for="button-none" class="btn btn-outline-primary btn-sm"><i class="fas fa-times"></i></label>
+				</div>
+				<div class="input-content">
+					<input type="radio" class="btn-check" id="button-odd" name="parity" value="odd" />
+					<label for="button-odd" class="btn btn-outline-primary btn-sm">Odd</label>
+				</div>
+				<div class="input-content">
+					<input type="radio" class="btn-check" id="button-even" name="parity" value="even" />
+					<label for="button-even" class="btn btn-outline-primary btn-sm">Even</label>
+				</div>
+			</div>
+		</div>
+		<div id="precision-content">
+			<div class="header-contents">
+				<p class="header">Precision</p>
+				<p class="description">Set the number of digits following the decimal point.</p>
+			</div>
+			<div class="input-contents">
+				<div class="input-content">
+					<input type="number" id="input-precision" class="form-control" value="4" />
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
 
-<section id="options-section">
-	<div id="option-1">
-		<div id="option-1-div">
-			<div id="min-input-option">
-				<label for="min-input" class="form-label label">Min</label>
-				<input type="number" class="form-control" id="min-input" value="0" />
-			</div>
-			<div id="max-input-option">
-				<label for="max-input" class="form-label label">Max</label>
-				<input type="number" class="form-control" id="max-input" value="20" />
-			</div>
-		</div>
-	</div>
-	<div id="option-2">
-		<div id="option-2-div">
-			<div class="row" id="row1">
-				<input type="radio" class="btn-check" id="integer" name="type" value="integer" checked />
-				<label for="integer" class="btn btn-outline-primary">Integer</label>
-			</div>
-			<div class="row" id="row2">
-				<div id="none-button">
-					<input type="radio" class="btn-check" id="none" name="parity" value="none" checked />
-					<label for="none" class="btn btn-outline-secondary btn-sm"><i class="fas fa-times"></i></label>
-				</div>
-				<div id="odd-button">
-					<input type="radio" class="btn-check" id="odd" name="parity" value="odd" />
-					<label for="odd" class="btn btn-outline-secondary">Odd</label>
-				</div>
+<%- contentFor('sidebar1') %>
+<p class="header">Random Number</p>
+<p class="description">Generate random number between the two numbers that you chose.</p>
 
-				<div id="even-button">
-					<input type="radio" class="btn-check" id="even" name="parity" value="even" />
-					<label for="even" class="btn btn-outline-secondary">Even</label>
-				</div>
-			</div>
-			<div class="row" id="row3">
-				<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" />
-				<label for="decimal" class="btn btn-outline-primary">Decimal</label>
-			</div>
-			<div class="row" id="row4">
-				<label for="precision" class="form-label">Precision</label>
-			</div>
-
-			<div class="row" id="row5">
-				<input type="number" id="precision" class="form-control" value="4" disabled />
-				<input type="radio" class="btn-check" id="decimal" name="type" value="decimal" />
-			</div>
-		</div>
+<%- contentFor('sidebar2') %>
+<p class="header">Range</p>
+<p class="description">Set lower and upper limit of the result.</p>
+<div class="input-contents">
+	<div class="input-content min-max-content">
+		<label for="input-min">Min</label>
+		<input type="number" class="form-control" id="input-min" value="0" />
 	</div>
-</section>
+	<div class="input-content min-max-content">
+		<label for="input-max">Max</label>
+		<input type="number" class="form-control" id="input-max" value="20" />
+	</div>
+</div>
+
+<%- contentFor('option2') %> <%- contentFor('option3') %><%- contentFor('result') %>

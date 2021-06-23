@@ -6,6 +6,7 @@ module.exports = {
 	entry: {
 		home: "./public/javascripts/home.js",
 		docs: "./public/javascripts/docs.js",
+		layout: "./public/javascripts/layout.js",
 		randomNumber: "./public/javascripts/randomNumber.js",
 		randomColor: "./public/javascripts/randomColor.js",
 		randomPassword: "./public/javascripts/randomPassword.js",

@@ -1,151 +1,52 @@
-@import "./main";
-
-body {
-	display: grid;
-	grid-template-columns: auto 300px;
-	grid-template-rows: 60px auto;
-	grid-template-areas: "navbar navbar" "results options";
-	gap: 1.5rem;
-}
-
-#results-section {
-	grid-area: results;
-}
-
-#results-div {
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
-}
-
-#results-buttons {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem;
-}
-
-#results-output {
+#result-content {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 1rem 1rem;
-	min-height: 400px;
-	word-break: break-all;
+	font-size: 4rem;
 }
 
-#output {
-	color: $darker-color;
-	font-size: 2.5rem;
-}
-
-#options-section {
-	grid-area: options;
-}
-
-#option-1 {
+#parity-content {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 1.5rem;
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
+	flex-direction: column;
 }
 
-#min-input-option {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 2rem 2rem 1rem;
-}
-
-#max-input-option {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 1rem 2rem 2rem;
-}
-
-.label {
-	width: 60px;
+#precision-content {
+	display: none;
+	flex-direction: column;
 }
 
 #option-2 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
+	border: none;
 }
 
-#option-2-div {
-	width: 330px;
+#button-undo {
+	display: none;
 }
 
-.row:first-child {
-	padding: 2rem 2rem 0.5rem;
-}
-
-.row {
-	padding: 0.5rem 2rem 0.5rem;
-}
-
-.row:last-child {
-	padding: 0.5rem 2rem 2rem;
-}
-
-#row2 {
-	display: flex;
-	justify-content: space-between;
-	padding: 0.5rem 2rem 2rem;
-}
-
-@media only screen and (max-width: 800px) {
-	body {
-		grid-template-columns: auto;
-		grid-template-rows: 60px auto;
-		grid-template-areas: "navbar" "results" "options";
+@media only screen and (max-width: 700px) {
+	#option-1 {
+		border: none;
 	}
 
-	#results-output {
-		min-height: 300px;
-	}
-
-	#option-1-div {
-		width: 330px;
-	}
-
-	#option-2-div {
-		width: 330px;
-	}
-}
-
-@media only screen and (max-width: 600px) {
-	.logo {
-		padding: 0 0.5rem 0px;
-	}
-	.fake {
+	#option-2,
+	#option-3 {
 		display: none;
 	}
 
-	#title {
-		font-size: 1rem;
-		padding: 0 0.5rem 0;
+	#result-content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 2.5rem;
 	}
 
-	#results-output {
-		min-height: 200px;
-		justify-content: start;
+	#parity-content {
+		flex-direction: row;
+		width: 100%;
 	}
 
-	#output {
-		font-size: 1.5rem;
-	}
-
-	#option-1-div {
-		width: 270px;
-	}
-
-	#option-2-div {
-		width: 270px;
+	#precision-content {
+		flex-direction: row;
+		width: 100%;
 	}
 }

@@ -1,0 +1,52 @@
+<% layout("layouts/boilerplate") %>
+
+<section id="tabs">
+	<div id="tabs-content">
+		<div id="tabs-left-content">
+			<div class="btn-group">
+				<input type="radio" class="buttons-tabs btn-check" name="buttons-tabs" id="button-tabs-generate" checked />
+				<label class="labels-tabs btn btn-link" for="button-tabs-generate"><i class="fas fa-wrench"></i> Generate</label>
+				<input type="radio" class="buttons-tabs btn-check" name="buttons-tabs" id="button-tabs-construct" />
+				<label class="labels-tabs btn btn-link" for="button-tabs-construct"><i class="fas fa-tools"></i> Construct</label>
+			</div>
+		</div>
+		<div id="tabs-right-content">
+			<input type="checkbox" class="btn-check" id="button-options" />
+			<label class="btn btn-link" for="button-options"><i class="fas fa-cog"></i> Advanced Options</label>
+		</div>
+	</div>
+</section>
+
+<section id="options">
+	<div id="options-content">
+		<div id="options-header">
+			<div id="options-header-content">Advanced Options</div>
+		</div>
+		<div id="option-1"><%- option1 %></div>
+		<div id="option-2"><%- option2 %></div>
+		<div id="option-3"><%- option3 %></div>
+	</div>
+</section>
+
+<section id="main">
+	<div id="main-content">
+		<div id="main-header">
+			<div id="main-header-content">
+				<button id="button-undo" class="btn btn-light btn-xs"><i class="fas fa-undo"></i></button>
+				<button id="button-copy" class="btn btn-light btn-xs"><i class="fas fa-copy"></i></button>
+				<button id="button-generate" class="btn btn-primary btn-lg">Generate</button>
+			</div>
+		</div>
+		<div id="result">
+			<div id="result-content"><%- result %></div>
+		</div>
+		<div id="sidebar">
+			<div id="sidebar-1">
+				<div id="sidebar-1-content"><%- sidebar1 %></div>
+			</div>
+			<div id="sidebar-2">
+				<div id="sidebar-2-content"><%- sidebar2 %></div>
+			</div>
+		</div>
+	</div>
+</section>

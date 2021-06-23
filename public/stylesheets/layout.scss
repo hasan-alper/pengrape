@@ -1,0 +1,375 @@
+@import "./main";
+
+// **************** BODY **************** //
+
+body {
+	color: $dark-1;
+	font-size: 16px;
+	font-family: $font-family;
+	user-select: none;
+	height: 100%;
+}
+
+.header {
+	font-weight: 500;
+	padding: 1rem 0 0.5rem;
+}
+
+.description {
+	color: $dark-2;
+	font-weight: 300;
+	word-break: break-word;
+}
+
+// .header-contents {}
+
+.input-contents {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: start;
+	align-items: center;
+	padding: 0.5rem 0;
+}
+
+.input-content {
+	margin-bottom: 0.5rem;
+}
+
+.input-content:not(:last-child) {
+	margin-right: 0.5rem;
+}
+.min-max-content {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+
+.min-max-content label {
+	color: $dark-2;
+	width: 40px;
+}
+
+.min-max-content input {
+	color: $dark-2;
+	width: 200px;
+}
+
+#dnone {
+	display: none;
+}
+
+// **************** NAVBAR **************** //
+
+#navbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 4rem;
+	background-color: $dark-1;
+}
+
+#navbar-content {
+	width: 1248px;
+	height: 100%;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	margin: 0 1rem;
+}
+
+#button-logo {
+	color: $light-1;
+	font-size: 2rem;
+	font-family: $font-family-logo;
+	text-decoration: none;
+}
+
+#button-docs {
+	color: $light-1;
+	text-decoration: none;
+	margin-left: auto;
+}
+
+// **************** TABS **************** //
+
+#tabs {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 5rem;
+	background-color: $light-1;
+	border: $border-section;
+}
+
+#tabs-content {
+	width: 1248px;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 1rem;
+}
+
+#tabs-left-content {
+	display: flex;
+	justify-content: start;
+	align-items: flex-end;
+	height: 100%;
+}
+
+#tabs-right-content {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	height: 100%;
+}
+
+.labels-tabs {
+	height: 2.5rem;
+	width: 7.5rem;
+	padding-top: 0.75rem;
+}
+
+// **************** OPTIONS **************** //
+
+#options {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	padding: 3rem 0;
+}
+
+#options-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 4rem auto;
+	grid-template-areas: "options-header options-header options-header" "option-1 option-2 option-3";
+	width: 1248px;
+	height: 100%;
+	margin: 0 1rem;
+	border: $border-section;
+	border-radius: $border-radius;
+}
+
+#options-header {
+	grid-area: options-header;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	background-color: $light-1;
+	border-bottom: $border-section;
+	border-top-right-radius: $border-radius;
+	border-top-left-radius: $border-radius;
+}
+
+#option-1 {
+	min-height: 18rem;
+	grid-area: option-1;
+	border-right: $border-section;
+}
+
+#option-2 {
+	min-height: 18rem;
+	grid-area: option-2;
+	border-right: $border-section;
+}
+
+#option-3 {
+	min-height: 18rem;
+	grid-area: option-3;
+}
+
+#options-header-content {
+	margin: 0 1rem;
+}
+
+#option-1-content {
+	padding: 0 1rem;
+}
+
+#option-2-content {
+	padding: 0 1rem;
+}
+
+#option-3-content {
+	padding: 0 1rem;
+}
+
+#option-1-1-content {
+	border-bottom: $border-section;
+}
+
+// #option-1-2-content {}
+
+#option-2-1-content {
+	border-bottom: $border-section;
+}
+
+// #option-2-2-content {}
+
+#option-3-1-content {
+	border-bottom: $border-section;
+}
+
+// #option-3-2-content {}
+
+// **************** MAIN **************** //
+
+#main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3rem 0;
+}
+
+#main-content {
+	display: grid;
+	grid-template-columns: auto 21rem;
+	grid-template-rows: 3rem auto;
+	grid-template-areas: "main-header sidebar" "result sidebar";
+	gap: 1rem;
+	width: 1248px;
+	height: 100%;
+	margin: 0 1rem;
+}
+
+#main-header {
+	grid-area: main-header;
+}
+
+#result {
+	grid-area: result;
+	min-height: 32rem;
+	padding: 1rem;
+	background-color: $light-1;
+	border-radius: $border-radius;
+	border: $border-section;
+}
+
+#result-content {
+	word-break: break-all;
+}
+
+#sidebar {
+	grid-area: sidebar;
+}
+
+#main-header-content {
+	height: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#main-header-content > button:not(:last-child) {
+	margin-right: 0.5rem;
+}
+
+#result-content {
+	height: 100%;
+	width: 100%;
+}
+
+#sidebar-1 {
+	padding-bottom: 1rem;
+	border-bottom: $border-section;
+}
+
+#sidebar-1 .header {
+	padding-top: 0;
+}
+
+// **************** MEDIA **************** //
+
+@media only screen and (max-width: 900px) {
+	#main-content {
+		grid-template-columns: auto 16rem;
+	}
+
+	#options .input-contents {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: start;
+		align-items: flex-start;
+	}
+
+	#options .input-content {
+		padding: 0.5rem 0;
+		margin: 0;
+		width: 100%;
+	}
+
+	#options .input-content:not(:last-child) {
+		margin-right: 0;
+	}
+
+	#options .btn {
+		width: auto;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	#tabs {
+		height: 7rem;
+	}
+
+	#tabs-content {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: center;
+		align-items: stretch;
+	}
+
+	#tabs-right-content {
+		align-items: flex-end;
+		margin-left: auto;
+	}
+
+	#options-content {
+		grid-template-columns: auto;
+		grid-template-rows: 4rem max-content max-content max-content;
+		grid-template-areas: "options-header" "option-1" "option-2" "option-3";
+	}
+
+	#option-1 {
+		border-right: none;
+		border-bottom: $border-section;
+	}
+
+	#options .header-contents {
+		width: 50%;
+	}
+
+	#options .input-contents {
+		margin: 0 1rem;
+		width: 50%;
+	}
+
+	#options .description {
+		margin-bottom: 1rem;
+	}
+
+	#option-2,
+	#option-3 {
+		border-top: $border-section;
+	}
+
+	#option-1-1-content,
+	#option-1-2-content,
+	#option-2-1-content,
+	#option-2-2-content,
+	#option-3-1-content,
+	#option-3-2-content {
+		display: flex;
+	}
+
+	#main-content {
+		grid-template-columns: auto;
+		grid-template-rows: 3rem auto auto;
+		grid-template-areas: "main-header" "result" "sidebar";
+	}
+
+	#result {
+		min-height: 24rem;
+	}
+}

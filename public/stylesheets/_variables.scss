@@ -1,16 +1,25 @@
 $primary-color: #e87477;
 $secondary-color: #ff9d8d;
+$dark-1: #24292e;
+$dark-2: #586069;
+$dark-3: #99a2ad;
+$light-3: #e1e4e8;
+$light-2: #f5f8fa;
+$light-1: #fafbfc;
+
 $dark-color: #808080;
 $darker-color: #404040;
 
 $font-family: "Poppins", sans-serif;
-$font-family-special: "Lobster", sans-serif;
+$font-family-logo: "Lobster", sans-serif;
 
-$border-radius: 30px;
-$box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$border-section: 1px solid $light-3;
+$border-radius: 1rem;
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
