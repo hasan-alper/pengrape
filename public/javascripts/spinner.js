@@ -2,17 +2,17 @@ require("../stylesheets/spinner.scss");
 
 const random = require("pengrape");
 
-const button = document.querySelector("#button");
-const output = document.querySelector("#output");
-const input = document.querySelector("#input");
-const add = document.querySelector("#add");
+const buttonGenerate = document.querySelector("#button-generate");
+const outputContent = document.querySelector("#output-content");
+const inputEntry = document.querySelector("#input-entry");
+const buttonAdd = document.querySelector("#button-add");
 const chartLegends = document.getElementById("chart-legends");
-const spinnerColors = ["#FFC1C1", "#C6FFC1", "#C1E5FF", "#FFFDC1", "#FFC1FD", "#FFDFC1"];
+const spinnerColors = ["#e87477", "#73e8ab", "#73a9e8", "#e88473", "#e873b3", "#dae873"];
 let entries = ["Cherry", "Apple", "Grape"];
 let myData = [];
 let spinCount = 0;
 
-output.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
+outputContent.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
 
 const allSpinnerColors = () => {
 	let arr = spinnerColors;
@@ -25,7 +25,7 @@ const allSpinnerColors = () => {
 const spin = () => {
 	window.chart.options.rotation = -90 * (Math.PI / 180);
 	window.chart.update();
-	output.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
+	outputContent.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
 	let luckyEntry = random.spinner({ entries, returnDetails: true });
 	const deg = luckyEntry.deg;
 	spinCount += 1;
@@ -33,20 +33,20 @@ const spin = () => {
 	window.chart.options.animation.duration = 8000;
 	window.chart.update();
 
-	button.disabled = true;
-	add.disabled = true;
-	input.disabled = true;
-	input.value = "";
-	document.querySelectorAll(".delete-button").forEach((item) => {
+	buttonGenerate.disabled = true;
+	buttonAdd.disabled = true;
+	inputEntry.disabled = true;
+	inputEntry.value = "";
+	document.querySelectorAll(".buttons-delete").forEach((item) => {
 		item.classList.add("disabled");
 	});
 
 	setTimeout(() => {
-		output.innerHTML = luckyEntry.entry;
-		button.disabled = false;
-		add.disabled = false;
-		input.disabled = false;
-		document.querySelectorAll(".delete-button").forEach((item) => {
+		outputContent.innerHTML = luckyEntry.entry;
+		buttonGenerate.disabled = false;
+		buttonAdd.disabled = false;
+		inputEntry.disabled = false;
+		document.querySelectorAll(".buttons-delete").forEach((item) => {
 			item.classList.remove("disabled");
 		});
 	}, 7000);
@@ -70,11 +70,11 @@ const updateData = () => {
 	bindChartEvents();
 	window.chart.update();
 	if (entries[0]) {
-		button.disabled = false;
-		output.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
+		buttonGenerate.disabled = false;
+		outputContent.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
 	} else {
-		button.disabled = true;
-		output.innerHTML = "";
+		buttonGenerate.disabled = true;
+		outputContent.innerHTML = "";
 		window.chart.options.rotation = -90 * (Math.PI / 180);
 		spinCount = 0;
 	}
@@ -82,25 +82,25 @@ const updateData = () => {
 
 const addEntryItem = () => {
 	myData = [];
-	if (input.value) {
-		entries.push(input.value);
+	if (inputEntry.value) {
+		entries.push(inputEntry.value);
 		let singleData = random.spinner({ entries, returnDetails: true }).data;
 		for (let entry of entries) {
 			myData.push(singleData);
 		}
 
 		updateData();
-		input.value = "";
+		inputEntry.value = "";
 	} else {
 		return;
 	}
 };
 
-add.addEventListener("click", addEntryItem);
+buttonAdd.addEventListener("click", addEntryItem);
 
-button.addEventListener("click", spin);
+buttonGenerate.addEventListener("click", spin);
 
-const ctx = document.getElementById("chart").getContext("2d");
+const ctx = document.querySelector("#chart").getContext("2d");
 
 window.chart = new Chart(ctx, {
 	type: "pie",
@@ -111,7 +111,8 @@ window.chart = new Chart(ctx, {
 			{
 				data: [120, 120, 120],
 				backgroundColor: allSpinnerColors(),
-				borderColor: "#808080",
+				borderColor: "#fafbfc",
+				borderWidth: 1.5,
 			},
 		],
 	},
@@ -120,7 +121,6 @@ window.chart = new Chart(ctx, {
 		title: {
 			display: false,
 		},
-
 		legend: {
 			position: "bottom",
 			display: false,
@@ -134,7 +134,7 @@ window.chart = new Chart(ctx, {
 							`
 					  		<div id="legend-${i}-item" class="legend-item">
 							<span style="background-color:${data.datasets[0].backgroundColor[i]}" class="item-label"></span>
-							${data.labels[i] && `<span class="item-title">${data.labels[i]}<span class="delete-button"><i class="fas fa-times"></i></span></span>`}
+							${data.labels[i] && `<span class="item-title">${data.labels[i]}<span class="buttons-delete"><i class="fas fa-times"></i></span></span>`}
 					 		 </div>
 				 			`
 					)
@@ -151,7 +151,7 @@ window.chart = new Chart(ctx, {
 });
 
 const bindChartEvents = () => {
-	const legendItems = [...document.querySelectorAll(".delete-button")];
+	const legendItems = [...document.querySelectorAll(".buttons-delete")];
 	legendItems.forEach((item, i) => {
 		item.addEventListener("click", () => {
 			deleteEntryItem(i);

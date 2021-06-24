@@ -1,3 +1,5 @@
+@import "./main";
+
 #result-content {
 	display: flex;
 	justify-content: center;
@@ -13,6 +15,10 @@
 #precision-content {
 	display: none;
 	flex-direction: column;
+}
+
+#option-1-1-content {
+	border-bottom: $border-section;
 }
 
 #option-2 {
@@ -34,9 +40,6 @@
 	}
 
 	#result-content {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		font-size: 2.5rem;
 	}
 
@@ -48,5 +51,15 @@
 	#precision-content {
 		flex-direction: row;
 		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	#parity-content {
+		flex-direction: column;
+	}
+
+	#precision-content {
+		flex-direction: column;
 	}
 }

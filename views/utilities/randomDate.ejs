@@ -1,53 +1,38 @@
-<% layout("layouts/boilerplate") %>
-
-<nav id="navbar">
-	<a href="/" class="logo">pengrape</a>
-	<span id="title">Random Date</span>
-	<a class="logo fake">pengrape</a>
-</nav>
-
-<section id="results-section">
-	<div id="results-div">
-		<div id="results-buttons">
-			<button class="btn btn-secondary btn-sm fake"><i class="far fa-copy"></i></button>
-			<input type="button" id="button" class="btn btn-primary" value="Generate" />
-			<button id="copy-button" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
+<%- contentFor('option1') %>
+<section id="option-1-content">
+	<div id="option-1-1-content">
+		<div class="header-contents">
+			<p class="header">Format</p>
+			<p class="description">Set a date format.</p>
 		</div>
-		<div id="results-output">
-			<span id="output"></span>
+		<div class="input-contents">
+			<div class="input-content">
+				<input type="text" id="input-custom-format" class="form-control" placeholder="yyyy-mm-dd" />
+			</div>
 		</div>
 	</div>
 </section>
 
-<section id="options-section">
-	<div id="option-1">
-		<div id="option-1-div">
-			<div class="row">
-				<label for="start-year-input" class="form-label">Start Date</label>
-			</div>
-			<div class="row flex-row">
-				<input type="number" class="form-control" id="start-year-input" value="2021" />
-				<input type="number" class="form-control" id="start-month-input" value="1" />
-				<input type="number" class="form-control" id="start-day-input" value="1" />
-			</div>
-			<div class="row">
-				<label for="end-year-input" class="form-label">End Date</label>
-			</div>
-			<div class="row flex-row">
-				<input type="number" class="form-control" id="end-year-input" value="2022" />
-				<input type="number" class="form-control" id="end-month-input" value="1" />
-				<input type="number" class="form-control" id="end-day-input" value="1" />
-			</div>
-		</div>
+<%- contentFor('sidebar1') %>
+<p class="header">Random Date</p>
+<p class="description">Generate a date between the two dates that you chose.</p>
+
+<%- contentFor('sidebar2') %>
+<p class="header">Range</p>
+<p class="description">Enter start date and end date.</p>
+<div class="input-contents">
+	<div class="input-content min-max-content">
+		<label>Start</label>
+		<input type="number" class="form-control" id="input-start-year" value="2021" />
+		<input type="number" class="form-control" id="input-start-month" value="1" />
+		<input type="number" class="form-control" id="input-start-day" value="1" />
 	</div>
-	<div id="option-2">
-		<div id="option-2-div">
-			<div class="row">
-				<label for="custom-format" class="form-label">Custom format</label>
-			</div>
-			<div class="row">
-				<input type="text" id="custom-format-input" class="form-control" placeholder="yyyy-mm-dd" />
-			</div>
-		</div>
+	<div class="input-content min-max-content">
+		<label>End</label>
+		<input type="number" class="form-control" id="input-end-year" value="2022" />
+		<input type="number" class="form-control" id="input-end-month" value="1" />
+		<input type="number" class="form-control" id="input-end-day" value="1" />
 	</div>
-</section>
+</div>
+
+<%- contentFor('option2') %> <%- contentFor('option3') %><%- contentFor('result') %>

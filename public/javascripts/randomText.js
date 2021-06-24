@@ -2,97 +2,115 @@ require("../stylesheets/randomText.scss");
 
 const random = require("pengrape");
 
-const button = document.querySelector("#button");
-const output = document.querySelector("#output");
-const unitOutput = document.querySelector("#unit-output");
-const lengthInput = document.querySelector("#length-input");
-const types = document.querySelectorAll('input[name="type"]');
-const letterButton = document.querySelector("#letter");
-const syllableButton = document.querySelector("#syllable");
-const wordButton = document.querySelector("#word");
-const sentenceButton = document.querySelector("#sentence");
-const paragraphButton = document.querySelector("#paragraph");
-const copyButton = document.querySelector("#copy-button");
+const buttonGenerate = document.querySelector("#button-generate");
+const resultContent = document.querySelector("#result-content");
+const fixedContent = document.querySelector("#fixed-content");
+const option11Content = document.querySelector("#option-1-1-content");
+const outputUnit = document.querySelector("#output-unit");
+const inputLength = document.querySelector("#input-length");
+const radioTypes = document.querySelectorAll('input[name="type"]');
+const radioLengthTypes = document.querySelectorAll('input[name="length-type"]');
+const buttonLetter = document.querySelector("#button-letter");
+const buttonSyllable = document.querySelector("#button-syllable");
+const buttonWord = document.querySelector("#button-word");
+const buttonSentence = document.querySelector("#button-sentence");
+const buttonParagraph = document.querySelector("#button-paragraph");
+const buttonCopy = document.querySelector("#button-copy");
 let selected;
 
-lengthInput.addEventListener("input", () => {
-	if (syllableButton.checked) {
-		if (lengthInput.value > 4 || lengthInput.value < 2) {
-			button.disabled = true;
+inputLength.addEventListener("input", () => {
+	if (buttonSyllable.checked) {
+		if (inputLength.value > 4 || inputLength.value < 2) {
+			buttonGenerate.disabled = true;
 		} else {
-			button.disabled = false;
+			buttonGenerate.disabled = false;
 		}
 	} else {
-		if (lengthInput.value > 12 || lengthInput.value < 2) {
-			button.disabled = true;
+		if (inputLength.value > 12 || inputLength.value < 2) {
+			buttonGenerate.disabled = true;
 		} else {
-			button.disabled = false;
+			buttonGenerate.disabled = false;
 		}
 	}
 });
 
-letterButton.addEventListener("click", () => {
-	unitOutput.innerHTML = "";
-	lengthInput.disabled = true;
-	button.disabled = false;
-	lengthInput.value = "";
+buttonLetter.addEventListener("click", () => {
+	outputUnit.innerHTML = "";
+	inputLength.disabled = true;
+	buttonGenerate.disabled = false;
+	inputLength.value = "";
 });
 
-syllableButton.addEventListener("click", () => {
-	unitOutput.innerHTML = "";
-	lengthInput.disabled = true;
-	button.disabled = false;
-	lengthInput.value = "";
+buttonSyllable.addEventListener("click", () => {
+	outputUnit.innerHTML = "";
+	inputLength.disabled = true;
+	buttonGenerate.disabled = false;
+	inputLength.value = "";
 });
 
-wordButton.addEventListener("click", () => {
-	unitOutput.innerHTML = "letters";
-	lengthInput.disabled = false;
-	if (lengthInput.value > 12 || lengthInput.value < 2) {
-		if (lengthInput.value) {
-			lengthInput.value = 4;
-			button.disabled = false;
-		}
-	} else {
-		button.disabled = false;
-	}
-});
-
-sentenceButton.addEventListener("click", () => {
-	unitOutput.innerHTML = "words";
-	lengthInput.disabled = false;
-	if (lengthInput.value > 12 || lengthInput.value < 2) {
-		if (lengthInput.value) {
-			lengthInput.value = 4;
-			button.disabled = false;
+buttonWord.addEventListener("click", () => {
+	outputUnit.innerHTML = "letters";
+	inputLength.disabled = false;
+	if (inputLength.value > 12 || inputLength.value < 2) {
+		if (inputLength.value) {
+			inputLength.value = 4;
+			buttonGenerate.disabled = false;
 		}
 	} else {
-		button.disabled = false;
+		buttonGenerate.disabled = false;
 	}
 });
 
-paragraphButton.addEventListener("click", () => {
-	unitOutput.innerHTML = "sentences";
-	lengthInput.disabled = false;
-	if (lengthInput.value > 12 || lengthInput.value < 2) {
-		if (lengthInput.value) {
-			lengthInput.value = 4;
-			button.disabled = false;
+buttonSentence.addEventListener("click", () => {
+	outputUnit.innerHTML = "words";
+	inputLength.disabled = false;
+	if (inputLength.value > 12 || inputLength.value < 2) {
+		if (inputLength.value) {
+			inputLength.value = 4;
+			buttonGenerate.disabled = false;
 		}
 	} else {
-		button.disabled = false;
+		buttonGenerate.disabled = false;
 	}
 });
 
-copyButton.addEventListener("click", () => {
-	window.navigator.clipboard.writeText(output.innerText);
+buttonParagraph.addEventListener("click", () => {
+	outputUnit.innerHTML = "sentences";
+	inputLength.disabled = false;
+	if (inputLength.value > 12 || inputLength.value < 2) {
+		if (inputLength.value) {
+			inputLength.value = 4;
+			buttonGenerate.disabled = false;
+		}
+	} else {
+		buttonGenerate.disabled = false;
+	}
 });
 
-button.addEventListener("click", () => {
-	for (let type of types) {
+buttonCopy.addEventListener("click", () => {
+	window.navigator.clipboard.writeText(resultContent.innerText);
+});
+
+buttonGenerate.addEventListener("click", () => {
+	for (let type of radioTypes) {
 		if (type.checked) {
-			selected = type.id;
+			selected = type.value;
 		}
 	}
-	output.innerHTML = random.text({ type: selected, length: parseInt(lengthInput.value) });
+
+	let textLength = inputLength.value;
+
+	if (radioLengthTypes[0].checked) textLength = null;
+
+	resultContent.innerHTML = random.text({ type: selected, length: parseInt(textLength) });
+});
+
+radioLengthTypes[0].addEventListener("click", () => {
+	fixedContent.style.display = "none";
+	option11Content.style.borderBottom = "none";
+});
+
+radioLengthTypes[1].addEventListener("click", () => {
+	fixedContent.style.display = "flex";
+	option11Content.style.borderBottom = "1px solid #e1e4e8";
 });

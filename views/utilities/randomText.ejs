@@ -1,6 +1,78 @@
-<% layout("layouts/boilerplate") %>
+<%- contentFor('option1') %>
+<section id="option-1-content">
+	<div id="option-1-1-content">
+		<div class="header-contents">
+			<p class="header">Length Type</p>
+			<p class="description">Choose whether text length will be a fixed or random value.</p>
+		</div>
+		<div class="input-contents">
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-random" name="length-type" value="decimal" checked />
+				<label for="button-random" class="btn btn-outline-primary btn-md">Random</label>
+			</div>
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-fixed" name="length-type" value="integer" />
+				<label for="button-fixed" class="btn btn-outline-primary btn-md">Fixed</label>
+			</div>
+		</div>
+	</div>
+	<div id="option-1-2-content">
+		<div id="fixed-content">
+			<div class="header-contents">
+				<p class="header">Length</p>
+				<p class="description">Set length of the text that will be generated.</p>
+			</div>
+			<div class="input-contents">
+				<div class="input-content">
+					<input type="number" id="input-length" class="form-control" />
+				</div>
+				<div class="input-content">
+					<span id="output-unit">words</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<nav id="navbar">
+<%- contentFor('option2') %>
+<section id="option-2-content">
+	<div id="option-2-1-content">
+		<div class="header-contents">
+			<p class="header">Type</p>
+			<p class="description">Choose what type of text will be generated.</p>
+		</div>
+		<div class="input-contents">
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-letter" name="type" value="letter" />
+				<label for="button-letter" class="btn btn-outline-primary btn-lg">Letter</label>
+			</div>
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-syllable" name="type" value="syllable" />
+				<label for="button-syllable" class="btn btn-outline-primary btn-lg">Syllable</label>
+			</div>
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-word" name="type" value="word" />
+				<label for="button-word" class="btn btn-outline-primary btn-lg">Word</label>
+			</div>
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-sentence" name="type" checked value="sentence" />
+				<label for="button-sentence" class="btn btn-outline-primary btn-lg">Sentence</label>
+			</div>
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-paragraph" name="type" value="paragraph" />
+				<label for="button-paragraph" class="btn btn-outline-primary btn-lg">Paragraph</label>
+			</div>
+		</div>
+	</div>
+</section>
+
+<%- contentFor('sidebar1') %>
+<p class="header">Random Text</p>
+<p class="description">Get a random letter, syllable, word, sentence or paragraph.</p>
+
+<%- contentFor('option3') %> <%- contentFor('sidebar2') %><%- contentFor('result') %>
+
+<!-- <nav id="navbar">
 	<a href="/" class="logo">pengrape</a>
 	<span id="title">Random Text</span>
 	<a class="logo fake">pengrape</a>
@@ -58,4 +130,4 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->

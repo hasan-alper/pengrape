@@ -1,160 +1,50 @@
 @import "./main";
 
-body {
-	display: grid;
-	grid-template-columns: auto 300px;
-	grid-template-rows: 60px auto;
-	grid-template-areas: "navbar navbar" "results options";
-	gap: 1.5rem;
-}
-
-#results-section {
-	grid-area: results;
-}
-
-#results-div {
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
-}
-
-#results-buttons {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem;
-}
-
-#undo-button {
-	margin: 0 1rem 0px auto;
-}
-
-#button {
-	margin-left: auto;
-}
-
-#results-output {
+#result-content {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 1rem 1rem;
-	min-height: 400px;
+	font-size: 3rem;
 }
 
-#output {
-	color: $darker-color;
-	font-size: 2.5rem;
-}
-
-#options-section {
-	grid-area: options;
-}
-
-#option-1 {
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
+#range-content {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 1.5rem;
+	flex-direction: column;
+	width: 100%;
 }
 
-#option-1-div {
-	width: 300px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 2em;
-}
-
-#option-2 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
-}
-
-#option-2-div {
-	width: 330px;
-}
-
-.row:first-child {
-	padding: 2rem 2rem 0;
+#range-content > div {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-}
-
-.row {
-	padding: 0 2rem 0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.row:last-child {
-	padding: 0 2rem 2rem;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
 }
 
 .range-label {
-	width: 130px;
+	width: 30%;
+	margin-bottom: 0;
 }
 
 .range-output {
-	width: 37px;
-	margin-right: auto;
-	text-align: right;
+	margin-right: 40%;
+	width: 60%;
+	margin-bottom: 0;
+	text-align: end;
 }
 
 .form-range {
-	width: 167px;
+	width: 60%;
+	margin-right: 1rem;
 }
 
-@media only screen and (max-width: 800px) {
-	body {
-		grid-template-columns: auto;
-		grid-template-rows: 60px auto;
-		grid-template-areas: "navbar" "results" "options";
+@media only screen and (max-width: 700px) {
+	#option-2 {
+		border: none;
 	}
 
-	#results-output {
-		min-height: 300px;
-	}
-
-	#option-2-div {
-		width: 300px;
-	}
-}
-
-@media only screen and (max-width: 600px) {
-	.logo {
-		padding: 0 0.5rem 0px;
-	}
-	.fake {
+	#option-3 {
 		display: none;
 	}
 
-	#title {
-		font-size: 1rem;
-		padding: 0 0.5rem 0;
-	}
-
-	#button {
-		margin: 0;
-	}
-
-	#results-output {
-		min-height: 200px;
-	}
-
-	#output {
-		font-size: 1.5rem;
-	}
-
-	#results-output {
-		justify-content: start;
+	#result-content {
+		font-size: 2.5rem;
 	}
 }

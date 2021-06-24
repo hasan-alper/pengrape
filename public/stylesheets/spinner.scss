@@ -1,87 +1,39 @@
 @import "./main";
 
-body {
-	display: grid;
-	grid-template-columns: auto 300px;
-	grid-template-rows: 60px auto;
-	grid-template-areas: "navbar navbar" "results options";
-	gap: 1.5rem;
+#tabs-right-content,
+#button-undo,
+#button-copy {
+	display: none;
 }
 
-#results-section {
-	grid-area: results;
-}
-
-#results-div {
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
-}
-
-#results-buttons {
+#result-content {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 1rem;
+}
+
+#output-content {
+	color: $dark-1;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+#chart-content {
+	max-width: 440px;
+	width: 80%;
 }
 
 #arrow {
-	color: $dark-color;
+	color: $dark-2;
 }
 
-#results-output {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 0 1rem 2rem;
+#sidebar .input-contents {
+	padding: 0;
 }
 
-#chart-container {
-	width: 60%;
-}
-
-#output {
-	color: $darker-color;
-	font-size: 2rem;
-}
-
-#options-section {
-	grid-area: options;
-}
-
-#option-1 {
-	margin-bottom: 1.5rem;
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
-}
-
-.row:first-child {
-	padding: 2rem 2rem 0.5rem;
-}
-
-.row {
-	padding: 0.5rem 2rem 0.5rem;
-	display: flex;
-	justify-content: space-between;
-}
-
-.row:last-child {
-	padding: 0.5rem 2rem 2rem;
-}
-
-#input {
-	margin-right: 0.5rem;
-}
-
-#add {
-	padding: 1rem;
-}
-
-#chart-legends {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
+#sidebar .input-contents:first-of-type {
+	padding-top: 0.5rem;
 }
 
 .legend-item {
@@ -92,37 +44,37 @@ body {
 }
 
 .item-label {
-	width: 45px;
-	height: 45px;
-	border-radius: 50%;
-	border: 2px $dark-color solid;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1rem;
+	border: 1px solid $dark-3;
 	margin-right: 0.5rem;
 }
 
 .item-title {
-	border: 2px $dark-color solid;
+	border: 1px solid $dark-3;
 	border-radius: $border-radius;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 183px;
-	height: 45px;
+	width: 200px;
+	height: 3rem;
 	padding: 0 1rem;
-	color: $dark-color;
+	color: $dark-2;
 }
 
-.delete-button {
-	color: $dark-color;
+.buttons-delete {
+	color: $dark-2;
 	text-decoration: none;
 }
 
-.delete-button:hover {
-	color: $darker-color;
+.buttons-delete:hover {
+	color: $dark-2;
 	cursor: pointer;
 }
 
 .disabled {
-	color: $dark-color;
+	color: $dark-3;
 	opacity: 0.6;
 	pointer-events: none;
 }
@@ -133,42 +85,24 @@ body {
 	pointer-events: none;
 }
 
-@media only screen and (max-width: 800px) {
-	body {
-		grid-template-columns: auto;
-		grid-template-rows: 60px auto;
-		grid-template-areas: "navbar" "results" "options";
-	}
-
-	#option-1 {
-		width: 100%;
-		margin-bottom: 0;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.row {
-		width: 300px;
+@media only screen and (max-width: 900px) {
+	#chart-content {
+		width: 80%;
+		min-width: 360px;
 	}
 }
 
-@media only screen and (max-width: 600px) {
-	.logo {
-		padding: 0 0.5rem 0px;
+@media only screen and (max-width: 700px) {
+	#chart-content {
+		max-width: 360px;
+		width: 80%;
+		min-width: 330px;
 	}
-	.fake {
-		display: none;
-	}
+}
 
-	#output {
-		color: $darker-color;
-		font-size: 1.5rem;
-	}
-
-	#title {
-		font-size: 1rem;
-		padding: 0 0.5rem 0;
+@media only screen and (max-width: 450px) {
+	#chart-content {
+		width: 99%;
+		min-width: 100px;
 	}
 }

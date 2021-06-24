@@ -1,40 +1,26 @@
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<%- contentFor('sidebar1') %>
+<p class="header">Spinner</p>
+<p class="description">Enter names and spin the wheel to pick a random winner.</p>
 
-<% layout("layouts/boilerplate") %>
-
-<nav id="navbar">
-	<a href="/" class="logo">pengrape</a>
-	<span id="title">Spinner</span>
-	<a class="logo fake">pengrape</a>
-</nav>
-
-<section id="results-section">
-	<div id="results-div">
-		<div id="results-buttons">
-			<input type="button" id="button" class="btn btn-primary" value="Spin" />
-		</div>
-		<div id="results-output">
-			<div id="output"></div>
-			<div id="chart-container">
-				<canvas id="chart"></canvas>
-			</div>
-		</div>
+<%- contentFor('sidebar2') %>
+<p class="header">Entries</p>
+<p class="description">Enter names to randomly choose one of them.</p>
+<div class="input-contents">
+	<div class="input-content">
+		<input type="text" class="form-control" id="input-entry" />
 	</div>
-</section>
-
-<section id="options-section">
-	<div id="option-1">
-		<div class="row">
-			<label for="add" class="form-label">Entries</label>
-		</div>
-
-		<div class="row">
-			<input type="text" class="form-control" id="input" autocomplete="off" />
-			<button id="add" class="btn btn-outline-dark btn-sm"><i class="fas fa-plus"></i></button>
-		</div>
-
-		<div class="row">
-			<div id="chart-legends"></div>
-		</div>
+	<div class="input-content">
+		<button id="button-add" class="btn btn-light btn-xs"><i class="fas fa-plus"></i></button>
 	</div>
-</section>
+</div>
+<div class="input-contents">
+	<div id="chart-legends"></div>
+</div>
+
+<%- contentFor('result') %>
+<div id="output-content"></div>
+<div id="chart-content">
+	<canvas id="chart"></canvas>
+</div>
+
+<%- contentFor('option1') %> <%- contentFor('option2') %> <%- contentFor('option3') %>

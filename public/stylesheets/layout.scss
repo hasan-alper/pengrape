@@ -21,8 +21,6 @@ body {
 	word-break: break-word;
 }
 
-// .header-contents {}
-
 .input-contents {
 	display: flex;
 	flex-wrap: wrap;
@@ -125,7 +123,7 @@ body {
 }
 
 .labels-tabs {
-	height: 2.5rem;
+	height: 2rem;
 	width: 7.5rem;
 	padding-top: 0.75rem;
 }
@@ -163,19 +161,17 @@ body {
 }
 
 #option-1 {
-	min-height: 18rem;
+	min-height: 20rem;
 	grid-area: option-1;
 	border-right: $border-section;
 }
 
 #option-2 {
-	min-height: 18rem;
 	grid-area: option-2;
 	border-right: $border-section;
 }
 
 #option-3 {
-	min-height: 18rem;
 	grid-area: option-3;
 }
 
@@ -194,24 +190,6 @@ body {
 #option-3-content {
 	padding: 0 1rem;
 }
-
-#option-1-1-content {
-	border-bottom: $border-section;
-}
-
-// #option-1-2-content {}
-
-#option-2-1-content {
-	border-bottom: $border-section;
-}
-
-// #option-2-2-content {}
-
-#option-3-1-content {
-	border-bottom: $border-section;
-}
-
-// #option-3-2-content {}
 
 // **************** MAIN **************** //
 
@@ -239,7 +217,7 @@ body {
 
 #result {
 	grid-area: result;
-	min-height: 32rem;
+	min-height: 33rem;
 	padding: 1rem;
 	background-color: $light-1;
 	border-radius: $border-radius;
@@ -303,14 +281,14 @@ body {
 		margin-right: 0;
 	}
 
-	#options .btn {
+	#options .btn:not(.btn-xs) {
 		width: auto;
 	}
 }
 
 @media only screen and (max-width: 700px) {
 	#tabs {
-		height: 7rem;
+		height: 7em;
 	}
 
 	#tabs-content {
@@ -363,6 +341,10 @@ body {
 		display: flex;
 	}
 
+	#option-1 {
+		min-height: 4rem;
+	}
+
 	#main-content {
 		grid-template-columns: auto;
 		grid-template-rows: 3rem auto auto;
@@ -371,5 +353,25 @@ body {
 
 	#result {
 		min-height: 24rem;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	#options .header-contents {
+		width: 100%;
+	}
+
+	#options .input-contents {
+		width: 100%;
+		margin: 0;
+	}
+
+	#option-1-1-content,
+	#option-1-2-content,
+	#option-2-1-content,
+	#option-2-2-content,
+	#option-3-1-content,
+	#option-3-2-content {
+		flex-direction: column;
 	}
 }

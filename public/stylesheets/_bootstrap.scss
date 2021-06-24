@@ -17,10 +17,6 @@ $input-focus-box-shadow: none;
 //BUTTONS
 $btn-transition: none;
 
-// // RANGE
-// $form-range-thumb-width: 1.1rem;
-// $form-range-thumb-height: $form-range-thumb-width;
-// $form-range-thumb-bg: $secondary;
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/variables";
@@ -106,6 +102,9 @@ $btn-transition: none;
 	color: $dark-2;
 	background-color: $light-1;
 	border: $border-section;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	&:hover {
 		color: $dark-2;
 		background-color: $light-1;
@@ -124,6 +123,35 @@ $btn-transition: none;
 	.btn-check:checked + & {
 		color: $dark-2;
 		background-color: $light-1;
+		border: $border-section;
+	}
+}
+
+.btn-outline-light {
+	color: $dark-2;
+	background-color: $light-1;
+	border: $border-section;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&:hover {
+		color: $dark-2;
+		background-color: $light-1;
+		border: $border-section;
+	}
+	.btn-check:active + &,
+	&:active,
+	&.active,
+	&.dropdown-toggle.show,
+	.btn-check:focus + &,
+	&:focus {
+		color: $dark-2;
+		background-color: $light-1;
+		border: $border-section;
+	}
+	.btn-check:checked + & {
+		color: $light-1;
+		background-color: $dark-2;
 		border: $border-section;
 	}
 }
@@ -166,19 +194,25 @@ $btn-transition: none;
 }
 
 .btn-sm {
+	line-height: 18px;
 	font-size: 1rem;
 	border-radius: $border-radius;
+	height: 3rem;
 	width: 80px;
 }
 
 .btn-md {
+	line-height: 18px;
 	font-size: 1rem;
 	border-radius: $border-radius;
+	height: 3rem;
 	width: 96px;
 }
 
 .btn-lg {
+	line-height: 18px;
 	font-size: 1rem;
 	border-radius: $border-radius;
+	height: 3rem;
 	width: 112px;
 }

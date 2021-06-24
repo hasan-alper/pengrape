@@ -1,72 +1,70 @@
-<% layout("layouts/boilerplate") %>
-
-<nav id="navbar">
-	<a href="/" class="logo">pengrape</a>
-	<span id="title">Random Color</span>
-	<a class="logo fake">pengrape</a>
-</nav>
-
-<section id="results-section">
-	<div id="results-div">
-		<div id="results-buttons">
-			<button class="btn btn-secondary btn-sm fake"><i class="far fa-copy"></i></button>
-			<button class="btn btn-secondary btn-sm fake"><i class="far fa-copy"></i></button>
-			<input type="button" id="button" class="btn btn-primary" value="Generate" />
-			<button id="undo-button" class="btn btn-secondary btn-sm" disabled><i class="fas fa-undo"></i></button>
-			<button id="copy-button" class="btn btn-secondary btn-sm"><i class="far fa-copy"></i></button>
+<%- contentFor('option1') %>
+<section id="option-1-content">
+	<div id="option-1-1-content">
+		<div class="header-contents">
+			<p class="header">Format</p>
+			<p class="description">Choose format of the color code.</p>
 		</div>
-		<div id="results-output">
-			<span id="output"></span>
-		</div>
-	</div>
-</section>
-
-<section id="options-section">
-	<div id="option-1">
-		<div id="option-1-div">
-			<div>
-				<input type="radio" class="btn-check" id="hex" name="format" value="hex" checked />
-				<label for="hex" class="btn btn-outline-secondary">HEX</label>
+		<div class="input-contents">
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-hex" name="format" value="hex" checked />
+				<label for="button-hex" class="btn btn-outline-primary btn-sm">HEX</label>
 			</div>
-			<div>
-				<input type="radio" class="btn-check" id="rgb" name="format" value="rgb" />
-				<label for="rgb" class="btn btn-outline-secondary">RGB</label>
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-rgb" name="format" value="rgb" />
+				<label for="button-rgb" class="btn btn-outline-primary btn-sm">RGB</label>
 			</div>
-			<div>
-				<input type="radio" class="btn-check" id="hsl" name="format" value="hsl" />
-				<label for="hsl" class="btn btn-outline-secondary">HSL</label>
-			</div>
-		</div>
-	</div>
-	<div id="option-2">
-		<div id="option-2-div">
-			<div class="row">
-				<label for="range1" class="form-label range-label">Red:</label>
-				<label class="form-label range-output">00</label>
-			</div>
-			<div class="row">
-				<input type="range" class="form-range" min="0" max="255" id="range1" value="0" />
-				<input type="checkbox" id="lock-button-1" class="btn-check" />
-				<label class="btn btn-outline-light btn-sm" for="lock-button-1"><i class="fas fa-lock"></i></label>
-			</div>
-			<div class="row">
-				<label for="range2" class="form-label range-label">Green:</label>
-				<label class="form-label range-output">00</label>
-			</div>
-			<div class="row">
-				<input type="range" class="form-range" min="0" max="255" id="range2" value="0" />
-				<input type="checkbox" id="lock-button-2" class="btn-check" />
-				<label class="btn btn-outline-light btn-sm" for="lock-button-2"><i class="fas fa-lock"></i></label>
-			</div>
-			<div class="row">
-				<label for="range3" class="form-label range-label">Blue:</label>
-				<label class="form-label range-output">00</label>
-			</div>
-			<div class="row">
-				<input type="range" class="form-range" min="0" max="255" id="range3" value="0" />
-				<input type="checkbox" id="lock-button-3" class="btn-check" />
-				<label class="btn btn-outline-light btn-sm" for="lock-button-3"><i class="fas fa-lock"></i></label>
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-hsl" name="format" value="hsl" />
+				<label for="button-hsl" class="btn btn-outline-primary btn-sm">HSL</label>
 			</div>
 		</div>
 	</div>
 </section>
+
+<%- contentFor('option2') %>
+<section id="option-2-content">
+	<div id="option-2-1-content">
+		<div class="header-contents">
+			<p class="header">Color Values</p>
+			<p class="description">Customize the result by fixing color code values.</p>
+		</div>
+		<div class="input-contents">
+			<div id="range-content">
+				<div>
+					<label for="range-1" class="form-label range-label">Red:</label>
+					<label class="form-label range-output">00</label>
+				</div>
+				<div>
+					<input type="range" class="form-range" min="0" max="255" id="range-1" value="0" />
+					<input type="checkbox" id="button-lock-1" class="btn-check" />
+					<label class="btn btn-outline-light btn-xs" for="button-lock-1"><i class="fas fa-lock"></i></label>
+				</div>
+				<div>
+					<label for="range-2" class="form-label range-label">Green:</label>
+					<label class="form-label range-output">00</label>
+				</div>
+				<div>
+					<input type="range" class="form-range" min="0" max="255" id="range-2" value="0" />
+					<input type="checkbox" id="button-lock-2" class="btn-check" />
+					<label class="btn btn-outline-light btn-xs" for="button-lock-2"><i class="fas fa-lock"></i></label>
+				</div>
+				<div>
+					<label for="range-3" class="form-label range-label">Blue:</label>
+					<label class="form-label range-output">00</label>
+				</div>
+				<div>
+					<input type="range" class="form-range" min="0" max="255" id="range-3" value="0" />
+					<input type="checkbox" id="button-lock-3" class="btn-check" />
+					<label class="btn btn-outline-light btn-xs" for="button-lock-3"><i class="fas fa-lock"></i></label>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<%- contentFor('sidebar1') %>
+<p class="header">Random Color</p>
+<p class="description">Generate HEX, RGB or HSL color code.</p>
+
+<%- contentFor('sidebar2') %> <%- contentFor('option3') %><%- contentFor('result') %>

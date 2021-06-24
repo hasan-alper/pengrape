@@ -2,211 +2,209 @@ require("../stylesheets/randomPassword.scss");
 
 const random = require("pengrape");
 
-const button = document.querySelector("#button");
-const output = document.querySelector("#output");
-const lowercase = document.querySelector("#lowercase");
-const uppercase = document.querySelector("#uppercase");
-const number = document.querySelector("#number");
-const symbol = document.querySelector("#symbol");
-const length = document.querySelector("#length");
-const copyButton = document.querySelector("#copy-button");
-const minLength = document.querySelector("#min");
-const maxLength = document.querySelector("#max");
-const randomLengthButton = document.querySelector("#random-length-button");
-const lengthDiv = document.querySelector("#length-div");
-const randomLengthDiv = document.querySelector("#random-length-div");
-let symbolPool = document.querySelector("#symbol-pool");
-const excludeSimilar = document.querySelector("#exclude-similar");
+const buttonGenerate = document.querySelector("#button-generate");
+const resultContent = document.querySelector("#result-content");
+const fixedContent = document.querySelector("#fixed-content");
+const randomContent = document.querySelector("#random-content");
+const option21Content = document.querySelector("#option-2-1-content");
+const symbolPoolContent = document.querySelector("#symbol-pool-content");
+const buttonLowercase = document.querySelector("#button-lowercase");
+const buttonUppercase = document.querySelector("#button-uppercase");
+const buttonNumbers = document.querySelector("#button-numbers");
+const buttonSymbols = document.querySelector("#button-symbols");
+const inputLength = document.querySelector("#input-length");
+const buttonCopy = document.querySelector("#button-copy");
+const inputMin = document.querySelector("#input-min");
+const inputMax = document.querySelector("#input-max");
+const radioLengthType = document.querySelectorAll('input[name="length-type"]');
+let inputSymbolPool = document.querySelector("#input-symbol-pool");
+const buttonExcludeSimilar = document.querySelector("#button-exclude-similar");
 
-button.addEventListener("click", () => {
-	if (!symbolPool.value) document.querySelector("#symbol-pool").value = "~!@#$%&*-+=?/";
+buttonGenerate.addEventListener("click", () => {
+	if (!inputSymbolPool.value) document.querySelector("#symbol-pool").value = "~!@#$%&*-+=?/";
 
-	let min = +minLength.value;
-	let max = +maxLength.value;
+	let min = +inputMin.value;
+	let max = +inputMax.value;
 	if (min > max) {
 		max = max + min;
 		min = max - min;
 		max = max - min;
 	}
-	document.querySelector("#min").value = min;
-	document.querySelector("#max").value = max;
-	if (randomLengthButton.checked) {
-		output.innerHTML = random.password({
-			lowercase: lowercase.checked,
-			uppercase: uppercase.checked,
-			number: number.checked,
-			symbol: symbol.checked,
-			minLength: +minLength.value,
-			maxLength: +maxLength.value,
-			symbolPool: symbolPool.value,
-			excludeSimilar: excludeSimilar.checked,
+	document.querySelector("#input-min").value = min;
+	document.querySelector("#input-max").value = max;
+	if (radioLengthType[1].checked) {
+		resultContent.innerHTML = random.password({
+			lowercase: buttonLowercase.checked,
+			uppercase: buttonUppercase.checked,
+			number: buttonNumbers.checked,
+			symbol: buttonSymbols.checked,
+			minLength: +inputMin.value,
+			maxLength: +inputMax.value,
+			symbolPool: inputSymbolPool.value,
+			excludeSimilar: buttonExcludeSimilar.checked,
 		});
 	} else {
-		output.innerHTML = random.password({
-			lowercase: lowercase.checked,
-			uppercase: uppercase.checked,
-			number: number.checked,
-			symbol: symbol.checked,
-			length: +length.value,
-			symbolPool: symbolPool.value,
-			excludeSimilar: excludeSimilar.checked,
+		resultContent.innerHTML = random.password({
+			lowercase: buttonLowercase.checked,
+			uppercase: buttonUppercase.checked,
+			number: buttonNumbers.checked,
+			symbol: buttonSymbols.checked,
+			length: +inputLength.value,
+			symbolPool: inputSymbolPool.value,
+			excludeSimilar: buttonExcludeSimilar.checked,
 		});
 	}
 });
 
-copyButton.addEventListener("click", () => {
-	window.navigator.clipboard.writeText(output.innerText);
+buttonCopy.addEventListener("click", () => {
+	window.navigator.clipboard.writeText(resultContent.innerText);
 });
 
-randomLengthButton.addEventListener("click", () => {
-	if (randomLengthButton.checked) {
-		lengthDiv.style.display = "none";
-		randomLengthDiv.style.display = "flex";
-		length.value = 20;
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
+inputLength.addEventListener("input", () => {
+	if (inputLength.value > 64 || inputLength.value < 4) {
+		buttonGenerate.disabled = true;
+	} else {
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
+		}
+	}
+});
+
+inputLength.addEventListener("change", () => {
+	if (inputLength.value > 64) {
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
+		}
+		inputLength.value = 64;
+	} else if (inputLength.value < 4) {
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
+		}
+		inputLength.value = 4;
+	} else if (inputLength.value <= 64 || inputLength.value >= 4) {
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
 		}
 	} else {
-		minLength.value = 16;
-		maxLength.value = 24;
-		lengthDiv.style.display = "flex";
-		randomLengthDiv.style.display = "none";
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
-		}
+		buttonGenerate.disabled = true;
 	}
 });
 
-length.addEventListener("input", () => {
-	if (length.value > 64 || length.value < 4) {
-		button.disabled = true;
+inputMin.addEventListener("input", () => {
+	if (parseInt(inputMin.value) === parseInt(inputMax.value) || !inputMin.value || inputMin.value > 64 || inputMin.value < 4) {
+		buttonGenerate.disabled = true;
 	} else {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
 		}
 	}
 });
 
-length.addEventListener("change", () => {
-	if (length.value > 64) {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
-		}
-		length.value = 64;
-	} else if (length.value < 4) {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
-		}
-		length.value = 4;
-	} else if (length.value <= 64 || length.value >= 4) {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
-		}
+inputMax.addEventListener("input", () => {
+	if (parseInt(inputMin.value) == parseInt(inputMax.value) || !inputMax.value || inputMax.value > 64 || inputMax.value < 4) {
+		buttonGenerate.disabled = true;
 	} else {
-		button.disabled = true;
-	}
-});
-
-minLength.addEventListener("input", () => {
-	if (parseInt(minLength.value) === parseInt(maxLength.value) || !minLength.value || minLength.value > 64 || minLength.value < 4) {
-		button.disabled = true;
-	} else {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
 		}
 	}
 });
 
-maxLength.addEventListener("input", () => {
-	if (parseInt(minLength.value) == parseInt(maxLength.value) || !maxLength.value || maxLength.value > 64 || maxLength.value < 4) {
-		button.disabled = true;
-	} else {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
+inputMin.addEventListener("change", () => {
+	if (inputMin.value > 64) {
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
 		}
-	}
-});
-
-minLength.addEventListener("change", () => {
-	if (minLength.value > 64) {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
+		inputMin.value = 63;
+	} else if (inputMin.value < 4) {
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
 		}
-		minLength.value = 63;
-	} else if (minLength.value < 4) {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
-		}
-		minLength.value = 4;
-	} else if (minLength.value <= 64 || minLength.value >= 4) {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
+		inputMin.value = 4;
+	} else if (inputMin.value <= 64 || inputMin.value >= 4) {
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
 		}
 	} else {
-		button.disabled = true;
+		buttonGenerate.disabled = true;
 	}
-	if (parseInt(minLength.value) == parseInt(maxLength.value)) {
-		button.disabled = true;
+	if (parseInt(inputMin.value) == parseInt(inputMax.value)) {
+		buttonGenerate.disabled = true;
 	}
 });
 
-maxLength.addEventListener("change", () => {
-	if (maxLength.value > 64) {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
+inputMax.addEventListener("change", () => {
+	if (inputMax.value > 64) {
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
 		}
-		maxLength.value = 64;
-	} else if (maxLength.value < 4) {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
+		inputMax.value = 64;
+	} else if (inputMax.value < 4) {
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
 		}
-		maxLength.value = 5;
-	} else if (maxLength.value <= 64 || maxLength.value >= 4) {
-		if (lowercase.checked || uppercase.checked || number.checked || symbol.checked) {
-			button.disabled = false;
+		inputMax.value = 5;
+	} else if (inputMax.value <= 64 || inputMax.value >= 4) {
+		if (buttonLowercase.checked || buttonUppercase.checked || buttonNumbers.checked || buttonSymbols.checked) {
+			buttonGenerate.disabled = false;
 		}
 	} else {
-		button.disabled = true;
+		buttonGenerate.disabled = true;
 	}
-	if (parseInt(minLength.value) == parseInt(maxLength.value)) {
-		button.disabled = true;
+	if (parseInt(inputMin.value) == parseInt(inputMax.value)) {
+		buttonGenerate.disabled = true;
 	}
 });
 
-lowercase.addEventListener("click", () => {
-	if ((!lowercase.checked && !uppercase.checked && !number.checked && !symbol.checked && length.value <= 64 && length.value >= 4) || minLength.value === maxLength.value) {
-		button.disabled = true;
+buttonLowercase.addEventListener("click", () => {
+	if ((!buttonLowercase.checked && !buttonUppercase.checked && !buttonNumbers.checked && !buttonSymbols.checked && inputLength.value <= 64 && inputLength.value >= 4) || inputMin.value === inputMax.value) {
+		buttonGenerate.disabled = true;
 	} else {
-		button.disabled = false;
+		buttonGenerate.disabled = false;
 	}
 });
 
-uppercase.addEventListener("click", () => {
-	if ((!lowercase.checked && !uppercase.checked && !number.checked && !symbol.checked && length.value <= 64 && length.value >= 4) || minLength.value === maxLength.value) {
-		button.disabled = true;
+buttonUppercase.addEventListener("click", () => {
+	if ((!buttonLowercase.checked && !buttonUppercase.checked && !buttonNumbers.checked && !buttonSymbols.checked && inputLength.value <= 64 && inputLength.value >= 4) || inputMin.value === inputMax.value) {
+		buttonGenerate.disabled = true;
 	} else {
-		button.disabled = false;
+		buttonGenerate.disabled = false;
 	}
 });
 
-number.addEventListener("click", () => {
-	if ((!lowercase.checked && !uppercase.checked && !number.checked && !symbol.checked && length.value <= 64 && length.value >= 4) || minLength.value === maxLength.value) {
-		button.disabled = true;
+buttonNumbers.addEventListener("click", () => {
+	if ((!buttonLowercase.checked && !buttonUppercase.checked && !buttonNumbers.checked && !buttonSymbols.checked && inputLength.value <= 64 && inputLength.value >= 4) || inputMin.value === inputMax.value) {
+		buttonGenerate.disabled = true;
 	} else {
-		button.disabled = false;
+		buttonGenerate.disabled = false;
 	}
 });
 
-symbol.addEventListener("click", () => {
-	if ((!lowercase.checked && !uppercase.checked && !number.checked && !symbol.checked && length.value <= 64 && length.value >= 4) || minLength.value === maxLength.value) {
-		button.disabled = true;
+buttonSymbols.addEventListener("click", () => {
+	if ((!buttonLowercase.checked && !buttonUppercase.checked && !buttonNumbers.checked && !buttonSymbols.checked && inputLength.value <= 64 && inputLength.value >= 4) || inputMin.value === inputMax.value) {
+		buttonGenerate.disabled = true;
 	} else {
-		button.disabled = false;
+		buttonGenerate.disabled = false;
 	}
-	if (symbol.checked) symbolPool.parentElement.style.display = "flex";
-	else symbolPool.parentElement.style.display = "none";
+	if (buttonSymbols.checked) {
+		symbolPoolContent.style.display = "flex";
+		option21Content.style.borderBottom = "1px solid #e1e4e8";
+	} else {
+		symbolPoolContent.style.display = "none";
+		option21Content.style.borderBottom = "none";
+	}
 });
 
-symbolPool.addEventListener("change", () => {
-	if (!symbolPool.value) document.querySelector("#symbol-pool").value = "~!@#$%&*-+=?/";
+inputSymbolPool.addEventListener("change", () => {
+	if (!inputSymbolPool.value) document.querySelector("#symbol-pool").value = "~!@#$%&*-+=?/";
+});
+
+radioLengthType[0].addEventListener("click", () => {
+	fixedContent.style.display = "flex";
+	randomContent.style.display = "none";
+});
+
+radioLengthType[1].addEventListener("click", () => {
+	fixedContent.style.display = "none";
+	randomContent.style.display = "flex";
 });

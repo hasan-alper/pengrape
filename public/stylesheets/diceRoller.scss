@@ -1,85 +1,36 @@
 @import "./main";
 
-body {
-	display: grid;
-	grid-template-columns: auto 300px;
-	grid-template-rows: 60px auto;
-	grid-template-areas: "navbar navbar" "results options";
-	gap: 1.5rem;
+#button-undo,
+#button-copy {
+	display: none;
 }
 
-#results-section {
-	grid-area: results;
+#option-2,
+#option-3 {
+	border: none;
 }
 
-#results-div {
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
-}
-
-#results-buttons {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 1rem;
-}
-
-#results-output {
-	display: flex;
+.input-contents {
 	flex-direction: column;
-	justify-content: start;
-	align-items: stretch;
-	padding: 0 1rem 1rem;
-	min-height: 400px;
-	word-break: break-all;
-}
-#total-output {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: $darker-color;
-	font-size: 2rem;
-	height: 50px;
+	align-items: flex-start;
 }
 
-#output {
-	display: grid;
-	grid-gap: 1rem;
-	grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
-	justify-content: center;
-	color: $dark-color;
-	font-size: 2rem;
-	padding: 1rem;
+.input-content {
+	width: 256px;
 }
 
-.col {
-	display: flex;
-	justify-content: center;
-}
-
-#options-section {
-	grid-area: options;
-}
-
-#option-1 {
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
-}
-
-#row1 {
+#row-1 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 2rem 2rem 1rem;
 }
 
-#row2 {
+#row-2 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 0 2rem;
 	font-size: 2rem;
-	border: 2px solid $dark-color;
+	border: 1px solid $dark-3;
 	border-radius: $border-radius;
 }
 
@@ -89,102 +40,56 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 80px;
-	width: 90px;
+	height: 5rem;
+	width: 6rem;
 }
 
 #d-span {
 	width: 30px;
 }
 
-#side-output {
-	height: 80px;
-}
-
-#row3 {
+#row-3 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1rem 2rem 1rem;
 }
 
-#row4 {
+#total-content {
 	display: flex;
-	justify-content: left;
+	justify-content: center;
 	align-items: center;
-	padding: 1rem 2rem 2rem;
+	color: $dark-1;
+	font-size: 2rem;
+	height: 50px;
 }
 
-@media only screen and (max-width: 800px) {
-	body {
-		grid-template-columns: auto;
-		grid-template-rows: 60px auto;
-		grid-template-areas: "navbar" "results" "options";
-	}
+#output-content {
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
+	justify-content: center;
+	color: $dark-2;
+	font-size: 2rem;
+}
 
-	#results-output {
-		min-height: 300px;
-	}
+.col {
+	display: flex;
+	justify-content: center;
+}
 
+@media only screen and (max-width: 700px) {
 	#option-1 {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+		border: none;
 	}
 
-	.row {
-		width: 300px;
-	}
-
-	#row2 {
-		width: 236px;
-	}
-}
-
-@media only screen and (max-width: 600px) {
-	.logo {
-		padding: 0 0.5rem 0px;
-	}
-	.fake {
+	#option-2,
+	#option-3 {
 		display: none;
 	}
 
-	#title {
-		font-size: 1rem;
-		padding: 0 0.5rem 0;
-	}
-
-	#results-output {
-		min-height: 200px;
-	}
-
-	#output {
-		font-size: 1.5rem;
-	}
-
-	#results-buttons {
-		justify-content: start;
-	}
-
-	#total-output {
-		justify-content: start;
-		padding-left: 0.5rem;
-	}
-
-	#output {
-		grid-template-columns: repeat(auto-fit, minmax(40px, max-content));
-		justify-content: start;
-		padding: 1rem 0;
-	}
-
-	#options-section {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	#option-1 {
-		width: 100%;
+	#output-content {
+		grid-gap: 0.75rem;
+		grid-template-columns: repeat(auto-fit, minmax(64px, max-content));
+		font-size: 1.75rem;
 	}
 }

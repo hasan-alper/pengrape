@@ -1,41 +1,43 @@
-<% layout("layouts/boilerplate") %>
-
-<nav id="navbar">
-	<a href="/" class="logo">pengrape</a>
-	<span id="title">Dice Roller</span>
-	<a class="logo fake">pengrape</a>
-</nav>
-
-<section id="results-section">
-	<div id="results-div">
-		<div id="results-buttons">
-			<input type="button" id="button" class="btn btn-primary" value="Roll" />
+<%- contentFor('option1') %>
+<section id="option-1-content">
+	<div id="option-1-1-content">
+		<div class="header-contents">
+			<p class="header">Total</p>
+			<p class="description">Show total of the results.</p>
 		</div>
-		<div id="results-output">
-			<div id="total-output"></div>
-			<div id="output"></div>
+		<div class="input-contents">
+			<div class="input-content">
+				<input type="checkbox" id="button-total" class="btn-check" />
+				<label class="btn btn-outline-primary btn-lg" for="button-total">Total</label>
+			</div>
 		</div>
 	</div>
 </section>
 
-<section id="options-section">
-	<div id="option-1">
-		<div class="row" id="row1">
-			<button class="btn btn-outline-dark" id="increase-amount"><i class="fas fa-chevron-up"></i></button>
-			<button class="btn btn-outline-dark" id="increase-side"><i class="fas fa-chevron-up"></i></button>
-		</div>
-		<div class="row" id="row2">
-			<span id="amount-output">1</span>
-			<span id="d-span">d</span>
-			<span id="side-output">6</span>
-		</div>
-		<div class="row" id="row3">
-			<button class="btn btn-outline-dark" id="decrease-amount"><i class="fas fa-chevron-down"></i></button>
-			<button class="btn btn-outline-dark" id="decrease-side"><i class="fas fa-chevron-down"></i></button>
-		</div>
-		<div class="row" id="row4">
-			<input type="checkbox" id="total-button" class="btn-check" />
-			<label class="btn btn-outline-secondary btn-md" for="total-button">Total</label>
-		</div>
+<%- contentFor('sidebar1') %>
+<p class="header">Dice Roller</p>
+<p class="description">Roll virtual dice.</p>
+
+<%- contentFor('sidebar2') %>
+<p class="header">Notation</p>
+<p class="description">Enter a dice notation.</p>
+<div class="input-contents">
+	<div class="input-content" id="row-1">
+		<button class="btn btn-light btn-md" id="button-increase-amount"><i class="fas fa-chevron-up"></i></button>
+		<button class="btn btn-light btn-md" id="button-increase-side"><i class="fas fa-chevron-up"></i></button>
 	</div>
-</section>
+	<div class="input-content" id="row-2">
+		<span id="amount-output">1</span>
+		<span id="d-span">d</span>
+		<span id="side-output">6</span>
+	</div>
+	<div class="input-content" id="row-3">
+		<button class="btn btn-light btn-md" id="button-decrease-amount"><i class="fas fa-chevron-down"></i></button>
+		<button class="btn btn-light btn-md" id="button-decrease-side"><i class="fas fa-chevron-down"></i></button>
+	</div>
+</div>
+<%- contentFor('result') %>
+<div id="total-content"></div>
+<div id="output-content"></div>
+
+<%- contentFor('option2') %> <%- contentFor('option3') %>
