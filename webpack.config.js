@@ -25,6 +25,17 @@ module.exports = {
 				test: /\.s[ac]ss$/i,
 				use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
 			},
+			{
+				test: /\.svg$/i,
+				use: [
+					{
+						loader: "url-loader",
+						options: {
+							limit: 8192,
+						},
+					},
+				],
+			},
 		],
 	},
 	plugins: [new MiniCssExtractPlugin({ filename: "stylesheets/[name].css" })],
