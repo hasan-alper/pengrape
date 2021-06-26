@@ -1,233 +1,234 @@
-<% layout("layouts/boilerplate") %>
-
-<nav id="navbar">
-	<a href="/" class="logo">pengrape</a>
-	<span id="title">Docs</span>
-	<a class="logo fake">pengrape</a>
-</nav>
-
-<section id="docs">
-	<h2>Installation</h2>
-
-	<div class="method-section">
-		<div class="code">
-			<code>$ npm install pengrape </code>
+<section id="installation">
+	<div id="installation-content">
+		<h2>Installation</h2>
+		<div class="method-section">
+			<div class="code">
+				<code><span class="no-select">$ </span>npm install pengrape</code>
+			</div>
 		</div>
 	</div>
+</section>
 
-	<h2>Usage</h2>
-
-	<div class="method-section">
-		<div class="code">
-			<code><span class="keyword">const</span> random = <span class="method">require</span>('pengrape'); </code>
+<section id="usage">
+	<div id="usage-content">
+		<h2>Usage</h2>
+		<h3>Generate a result</h3>
+		<p>You can use the methods listed down here to generate a random result according to your preferences.</p>
+		<div class="method-section">
+			<div class="code">
+				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'hex' }); <span class="comment">=> #37988f</span></code>
+			</div>
 		</div>
-	</div>
-
-	<div class="method-section">
-		<h3>Number</h3>
-
-		<div class="code">
-			<code><span class="keyword">const</span> number = random.<span class="method">number</span>();</code>
-			<code>console.<span class="method">log</span>(number);<span class="comment"> => 12</span></code>
-		</div>
-		<h4>Examples</h4>
-		<div class="code">
-			<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12</span> }); <span class="comment">=> 6</span></code>
-			<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, type:</span> 'decimal' }); <span class="comment">=> 5.1734</span></code>
-			<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, type:</span> 'decimal', <span class="parameter">precision: 6</span>}); <span class="comment">=> 11.129582</span></code>
-			<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, parity:</span> 'odd' }); <span class="comment">=> 7</span></code>
-		</div>
-		<h4>Options</h4>
-		<div class="code">
-			<code>min: <span class="comment">Sets minimum value. It must be an integer. Default is 0.</span></code>
-			<code>max: <span class="comment">Sets maximum value. It must be an integer. Default is 20.</span></code>
-			<code>type: <span class="comment">Sets type of the result. It can be 'integer' or 'decimal'. Default is 'integer'.</span></code>
-			<code>parity: <span class="comment">Sets parity of the result. It can be 'none', 'odd' or 'even'. Default is 'none'.</span></code>
-			<code>precision: <span class="comment">Sets the number of digits after the point. It must be a natural number. Default is 4.</span></code>
-		</div>
-		<h4>Notes</h4>
-		<div class="code">
-			<code>- To use parity, type value must be selected as 'integer'.</code>
-			<code>- To use precision, type value must be selected as 'decimal'.</code>
-			<code>- Min and max are inclusive, so they are included in the range.</code>
-		</div>
-	</div>
-
-	<div class="method-section">
-		<h3>Color</h3>
-
-		<div class="code">
-			<code><span class="keyword">const</span> color = random.<span class="method">color</span>();</code>
-			<code>console.<span class="method">log</span>(color);<span class="comment"> => #f28e51</span></code>
-		</div>
-		<h4>Examples</h4>
-		<div class="code">
-			<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb' }); <span class="comment">=> rgb(124, 97, 124)</span></code>
-			<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">syntax:</span> 'list' }); <span class="comment">=> [ 46, 106, 45 ]</span></code>
-			<code
-				>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">values:</span> [ <span class="parameter">null</span>, <span class="parameter">null</span>, '77' ] });
-				<span class="comment">=> rgb(23, 148, 77)</span></code
-			>
-			<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'all' }); <span class="comment">=> [ '#bee82c', 'rgb(190, 232, 44)', 'hsl(73, 80%, 54%)' ]</span></code>
-			<code
-				>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'all', <span class="parameter">values:</span> [ 'hex', <span class="parameter">null</span>, 'b3',<span class="parameter"> null</span> ] });
-				<span class="comment">=> [ '#c6b3f9' , 'rgb(198, 179, 249)', 'hsl(256, 85, 84)' ]</span></code
-			>
-		</div>
-		<h4>Options</h4>
-		<div class="code">
-			<code>format: <span class="comment">Sets format of the color code. It can be 'hex', 'rgb', 'hsl' or 'all'. Default is 'hex'.</span></code>
-			<code>syntax: <span class="comment">Sets syntax of the color code. It can be 'normal', 'list' or 'all'. Default is 'normal'.</span></code>
-			<code>values: <span class="comment">Sets fixed color values. It must be an array containing three or four values. Default is [null, null, null]. </span></code>
-		</div>
-	</div>
-
-	<div class="method-section">
-		<h3>Password</h3>
-
-		<div class="code">
-			<code><span class="keyword">const</span> password = random.<span class="method">password</span>(); </code>
-			<code>console.<span class="method">log</span>(password);<span class="comment"> => W7q0Va5RY53L63o7U0it</span> </code>
-		</div>
-		<h4>Examples</h4>
-		<div class="code">
-			<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false</span> }); <span class="comment">=> buab5r7dy5jsoy2wsu</span></code>
-			<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false, symbol: true</span> }); <span class="comment">=> e%zpsj3c/7z%bfw#gas5u</span></code>
-			<code>random.<span class="method">password</span>({ <span class="parameter">length: 12</span> }); <span class="comment">=> KVgp6piIu3Ap</span></code>
-			<code>random.<span class="method">password</span>({ <span class="parameter">minLength: 6</span>, <span class="parameter">maxLength: 10</span> }); <span class="comment">=> QTvKn52sP</span></code>
-			<code>random.<span class="method">password</span>({ <span class="parameter">symbol: true, symbolPool:</span> '#&'); <span class="comment">=> A#Ii9Ir2s8#Eq43EP3&Sw</span></code>
-		</div>
-		<h4>Options</h4>
-		<div class="code">
-			<code
-				>lowercase: <span class="comment">Sets whether password will contain lowercase letters. It must be a boolean. Default is <i>true</i>.</span></code
-			>
-			<code
-				>uppercase: <span class="comment">Sets whether password will contain uppercase letters. It must be a boolean. Default is <i>true</i>.</span></code
-			>
-			<code
-				>number: <span class="comment">Sets whether password will contain numbers. It must be a boolean. Default is <i>true</i>.</span></code
-			>
-			<code
-				>symbol: <span class="comment">Sets whether password will contain symbols. It must be a boolean. Default is <i>false</i>.</span></code
-			>
-			<code>length: <span class="comment">Sets length of password. It must be a natural number. Default is 20.</span></code>
-			<code>minLength: <span class="comment">Sets minimum value for length of password. It must be a natural number. Default is 16.</span></code>
-			<code>maxLength: <span class="comment">Sets maximum value for length of password. It must be a natural number. Default is 24.</span></code>
-			<code>symbolPool: <span class="comment">Sets which symbols password will contain. It must be a string. Default is '~!@#$%&*-+=?/'.</span></code>
-			<code
-				>excludeSimilar: <span class="comment">Sets whether password will contain similar characters. It must be boolean. Default is <i>false</i>.</span></code
-			>
-		</div>
-		<h4>Notes</h4>
-		<div class="code">
-			<code>- If length option is selected, minLength and maxLength options will not work.</code>
-			<code>- MinLength and maxLength are inclusive, so they are included in the range.</code>
-		</div>
-	</div>
-
-	<div class="method-section">
-		<h3>Spinner</h3>
-
-		<div class="code">
-			<code><span class="keyword">const</span> spinner = random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Cherry', 'Apple', 'Grape' ] }); </code>
-			<code>console.<span class="method">log</span>(spinner); <span class="comment">=> Grape</span></code>
-		</div>
-		<h4>Examples</h4>
-		<div class="code">
-			<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], <span class="parameter">returnDetails: true</span> }); </code>
-			<code><span class="comment">=> { entry: 'St. Bernard', min: 180, max: 270, deg: 237, data: 90, isWinner: true }</span></code>
-			<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], <span class="parameter">returnEntries: true</span> }); </code>
-			<code><span class="comment">=> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ]</span></code>
-			<code
-				>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Pizza', 'Lasagna', 'Quesadilla' ], <span class="parameter">returnDetails: true</span>,
-				<span class="parameter">returnEntries: true</span> });
-			</code>
-			<code class="comment">=> [ { entry: 'Pizza', min: 0, max: 120, deg: 208, data: 120, isWinner: false },</code>
-			<code class="comment">&nbsp;&nbsp; { entry: 'Lasagna', min: 120, max: 240, deg: 208, data: 120, isWinner: true },</code>
-			<code class="comment">&nbsp;&nbsp; { entry: 'Quesadilla', min: 240, max: 360, deg: 208, data:120, isWinner: false } ]</code>
-		</div>
-		<h4>Options</h4>
-		<div class="code">
-			<code>entries: <span class="comment">Sets inputs for spinner. It must be an array.</span></code>
-			<code
-				>returnDetails: <span class="comment">Sets whether the method returns details of the entry/entries. It must be a boolean. Default is <i>false</i>.</span></code
-			>
-			<code
-				>returnEntries: <span class="comment">Sets whether the method returns all entries. It must be a boolean. Default is <i>false</i>.</span></code
-			>
-		</div>
-	</div>
-
-	<div class="method-section">
-		<h3>Dice</h3>
-
-		<div class="code">
-			<code><span class="keyword">const</span> dice = random.<span class="method">dice</span>(); </code>
-			<code>console.<span class="method">log</span>(dice);<span class="comment"> => { results: [ 2 ], total: 2 }</span> </code>
-		</div>
-		<h4>Examples</h4>
-		<div class="code">
-			<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> '2d10' });<span class="comment"> => { results: [ 4, 10 ], total: 14 }</span> </code>
-			<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> 'd20' });<span class="comment"> => { results: [ 15 ], total: 15 }</span> </code>
-			<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> '6d20' });<span class="comment"> => { results: [ 6, 20, 15, 19, 2, 2 ], total: 64 }</span> </code>
-		</div>
-		<h4>Options</h4>
-		<div class="code">
-			<code>notation: <span class="comment">Sets notation for dice. It must be a string which should look like 'AdX' (A: amount, X: sides). Default is 'd6'.</span></code>
-		</div>
-	</div>
-
-	<div class="method-section">
-		<h3>Text</h3>
-
-		<div class="code">
-			<code><span class="keyword">const</span> text = random.<span class="method">text</span>(); </code>
-			<code>console.<span class="method">log</span>(text);<span class="comment"> => Daklwobzahga orlkevpzon neuytakjagab laeves hegg ugleesxaq.</span> </code>
-		</div>
-		<h4>Examples</h4>
-		<div class="code">
-			<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'letter' });<span class="comment"> => p</span> </code>
-			<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'word' });<span class="comment"> => luswepisa</span> </code>
-			<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'sentence', <span class="parameter">length: 4</span> });<span class="comment"> => Neidva gejtaqxozuja diq cierl.</span> </code>
-		</div>
-		<h4>Options</h4>
-		<div class="code">
-			<code>type: <span class="comment">Sets type of the text. It can be 'letter', 'syllable', 'word', 'sentence' or 'paragraph'. Default is 'sentence'.</span></code>
-			<code>length: <span class="comment">Sets length of the text. It must be a natural number. Default is a random number between 2 and 12.</span></code>
-		</div>
-		<h4>Notes</h4>
-		<div class="code">
-			<code>- Length value will not work if type value is 'letter' or 'syllable'.</code>
-			<code>- The unit of length value will be letters if type value is 'word'.</code>
-			<code>- The unit of length value will be words if type value is 'sentence'.</code>
-			<code>- The unit of length value will be sentences if type value is 'paragraph'.</code>
-		</div>
-	</div>
-
-	<div class="method-section">
-		<h3>Date</h3>
-
-		<div class="code">
-			<code><span class="keyword">const</span> date = random.<span class="method">date</span>(); </code>
-			<code>console.<span class="method">log</span>(date);<span class="comment"> => 2021-04-29</span> </code>
-		</div>
-		<h4>Examples</h4>
-		<div class="code">
-			<code>random.<span class="method">date</span>({ <span class="parameter">dateStart: </span>[2021, 1, 1], <span class="parameter"> dateEnd: </span>[2021, 6, 17] });<span class="comment"> => 2021-02-23 </span> </code>
-			<code
-				>random.<span class="method">date</span>({ <span class="parameter">dateStart: </span>[1874, 4, 21], <span class="parameter"> dateEnd: </span>[1878, 11, 30], <span class="parameter"> format: </span> 'dd/mm/yyyy' });<span
-					class="comment"
+		<h3>Construct results</h3>
+		<p>To generate multiple results, you can use the construct option in any methods you want.</p>
+		<div class="method-section">
+			<div class="code">
+				<code
+					>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'hex', <span class="parameter">construct:</span> 4 });
+					<span class="comment">=> [ "#1c5f15" , "#33168c" , "#7533f5" , "#08e4b3" ]</span></code
 				>
-					=> 29/12/1877
-				</span>
-			</code>
+			</div>
 		</div>
-		<h4>Options</h4>
-		<div class="code">
-			<code>dateStart: <span class="comment">Sets min value to generate random date. It must be an array. Default is [2021, 1, 1].</span></code>
-			<code>dateEnd: <span class="comment">Sets max value to generate random date. It must be an array. Default is [2022, 1, 1].</span></code>
-			<code>format: <span class="comment">Sets a custom date format. It must be a string. Default is "yyyy-mm-dd".</span></code>
+	</div>
+</section>
+
+<section id="methods">
+	<div id="methods-content">
+		<h2>Methods</h2>
+		<div class="method-section">
+			<h3>Number</h3>
+			<div class="code">
+				<code><span class="keyword">const</span> number = random.<span class="method">number</span>();</code>
+				<code>console.<span class="method">log</span>(number);<span class="comment"> => 12</span></code>
+			</div>
+			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<div class="code">
+				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12</span> }); <span class="comment">=> 6</span></code>
+				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, type:</span> 'decimal' }); <span class="comment">=> 5.1734</span></code>
+				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, type:</span> 'decimal', <span class="parameter">precision: 6</span> }); <span class="comment">=> 11.129582</span></code>
+				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, parity:</span> 'odd' }); <span class="comment">=> 7</span></code>
+			</div>
+			<h4><i class="fas fa-cog"></i> Options</h4>
+			<div class="code">
+				<code>min: <span class="comment">Sets minimum value. It must be an integer. Default is 0.</span></code>
+				<code>max: <span class="comment">Sets maximum value. It must be an integer. Default is 20.</span></code>
+				<code>type: <span class="comment">Sets type of the result. It can be 'integer' or 'decimal'. Default is 'integer'.</span></code>
+				<code>parity: <span class="comment">Sets parity of the result. It can be 'none', 'odd' or 'even'. Default is 'none'.</span></code>
+				<code>precision: <span class="comment">Sets the number of digits after the point. It must be a natural number. Default is 4.</span></code>
+			</div>
+			<h4><i class="fas fa-star"></i> Notes</h4>
+			<div class="code">
+				<code>- To use parity, type value must be selected as 'integer'.</code>
+				<code>- To use precision, type value must be selected as 'decimal'.</code>
+				<code>- Min and max are inclusive, so they are included in the range.</code>
+			</div>
+		</div>
+		<div class="method-section">
+			<h3>Color</h3>
+
+			<div class="code">
+				<code><span class="keyword">const</span> color = random.<span class="method">color</span>();</code>
+				<code>console.<span class="method">log</span>(color);<span class="comment"> => #f28e51</span></code>
+			</div>
+			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<div class="code">
+				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb' }); <span class="comment">=> rgb(124, 97, 124)</span></code>
+				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">syntax:</span> 'list' }); <span class="comment">=> [ 46, 106, 45 ]</span></code>
+				<code
+					>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">values:</span> [ <span class="parameter">null</span>, <span class="parameter">null</span>, '77' ] });
+					<span class="comment">=> rgb(23, 148, 77)</span></code
+				>
+				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'all' }); <span class="comment">=> [ '#bee82c', 'rgb(190, 232, 44)', 'hsl(73, 80%, 54%)' ]</span></code>
+				<code
+					>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'all', <span class="parameter">values:</span> [ 'hex', <span class="parameter">null</span>, 'b3',<span class="parameter"> null</span> ]
+					}); <span class="comment">=> [ '#c6b3f9' , 'rgb(198, 179, 249)', 'hsl(256, 85, 84)' ]</span></code
+				>
+			</div>
+			<h4><i class="fas fa-cog"></i> Options</h4>
+			<div class="code">
+				<code>format: <span class="comment">Sets format of the color code. It can be 'hex', 'rgb', 'hsl' or 'all'. Default is 'hex'.</span></code>
+				<code>syntax: <span class="comment">Sets syntax of the color code. It can be 'normal', 'list' or 'all'. Default is 'normal'.</span></code>
+				<code>values: <span class="comment">Sets fixed color values. It must be an array containing three or four values. Default is [null, null, null]. </span></code>
+			</div>
+		</div>
+		<div class="method-section">
+			<h3>Password</h3>
+			<div class="code">
+				<code><span class="keyword">const</span> password = random.<span class="method">password</span>(); </code>
+				<code>console.<span class="method">log</span>(password);<span class="comment"> => W7q0Va5RY53L63o7U0it</span> </code>
+			</div>
+			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<div class="code">
+				<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false</span> }); <span class="comment">=> buab5r7dy5jsoy2wsu</span></code>
+				<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false, symbol: true</span> }); <span class="comment">=> e%zpsj3c/7z%bfw#gas5u</span></code>
+				<code>random.<span class="method">password</span>({ <span class="parameter">length: 12</span> }); <span class="comment">=> KVgp6piIu3Ap</span></code>
+				<code>random.<span class="method">password</span>({ <span class="parameter">minLength: 6</span>, <span class="parameter">maxLength: 10</span> }); <span class="comment">=> QTvKn52sP</span></code>
+				<code>random.<span class="method">password</span>({ <span class="parameter">symbol: true, symbolPool:</span> '#&'); <span class="comment">=> A#Ii9Ir2s8#Eq43EP3&Sw</span></code>
+			</div>
+			<h4><i class="fas fa-cog"></i> Options</h4>
+			<div class="code">
+				<code
+					>lowercase: <span class="comment">Sets whether password will contain lowercase letters. It must be a boolean. Default is <i>true</i>.</span></code
+				>
+				<code
+					>uppercase: <span class="comment">Sets whether password will contain uppercase letters. It must be a boolean. Default is <i>true</i>.</span></code
+				>
+				<code
+					>number: <span class="comment">Sets whether password will contain numbers. It must be a boolean. Default is <i>true</i>.</span></code
+				>
+				<code
+					>symbol: <span class="comment">Sets whether password will contain symbols. It must be a boolean. Default is <i>false</i>.</span></code
+				>
+				<code>length: <span class="comment">Sets length of password. It must be a natural number. Default is 20.</span></code>
+				<code>minLength: <span class="comment">Sets minimum value for length of password. It must be a natural number. Default is 16.</span></code>
+				<code>maxLength: <span class="comment">Sets maximum value for length of password. It must be a natural number. Default is 24.</span></code>
+				<code>symbolPool: <span class="comment">Sets which symbols password will contain. It must be a string. Default is '~!@#$%&*-+=?/'.</span></code>
+				<code
+					>excludeSimilar: <span class="comment">Sets whether password will contain similar characters. It must be boolean. Default is <i>false</i>.</span></code
+				>
+			</div>
+			<h4><i class="fas fa-star"></i> Notes</h4>
+			<div class="code">
+				<code>- If length option is selected, minLength and maxLength options will not work.</code>
+				<code>- MinLength and maxLength are inclusive, so they are included in the range.</code>
+			</div>
+		</div>
+		<div class="method-section">
+			<h3>Spinner</h3>
+			<div class="code">
+				<code><span class="keyword">const</span> spinner = random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Cherry', 'Apple', 'Grape' ] }); </code>
+				<code>console.<span class="method">log</span>(spinner); <span class="comment">=> Grape</span></code>
+			</div>
+			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<div class="code">
+				<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], <span class="parameter">returnDetails: true</span> }); </code>
+				<code><span class="comment">=> { entry: 'St. Bernard', min: 180, max: 270, deg: 237, data: 90, isWinner: true }</span></code>
+				<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], <span class="parameter">returnEntries: true</span> }); </code>
+				<code><span class="comment">=> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ]</span></code>
+				<code
+					>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Pizza', 'Lasagna', 'Quesadilla' ], <span class="parameter">returnDetails: true</span>,
+					<span class="parameter">returnEntries: true</span> });
+				</code>
+				<code class="comment">=> [ { entry: 'Pizza', min: 0, max: 120, deg: 208, data: 120, isWinner: false },</code>
+				<code class="comment">&nbsp;&nbsp; { entry: 'Lasagna', min: 120, max: 240, deg: 208, data: 120, isWinner: true },</code>
+				<code class="comment">&nbsp;&nbsp; { entry: 'Quesadilla', min: 240, max: 360, deg: 208, data:120, isWinner: false } ]</code>
+			</div>
+			<h4><i class="fas fa-cog"></i> Options</h4>
+			<div class="code">
+				<code>entries: <span class="comment">Sets inputs for spinner. It must be an array.</span></code>
+				<code
+					>returnDetails: <span class="comment">Sets whether the method returns details of the entry/entries. It must be a boolean. Default is <i>false</i>.</span></code
+				>
+				<code
+					>returnEntries: <span class="comment">Sets whether the method returns all entries. It must be a boolean. Default is <i>false</i>.</span></code
+				>
+			</div>
+		</div>
+		<div class="method-section">
+			<h3>Dice</h3>
+			<div class="code">
+				<code><span class="keyword">const</span> dice = random.<span class="method">dice</span>(); </code>
+				<code>console.<span class="method">log</span>(dice);<span class="comment"> => { results: [ 2 ], total: 2 }</span> </code>
+			</div>
+			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<div class="code">
+				<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> '2d10' });<span class="comment"> => { results: [ 4, 10 ], total: 14 }</span> </code>
+				<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> 'd20' });<span class="comment"> => { results: [ 15 ], total: 15 }</span> </code>
+				<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> '6d20' });<span class="comment"> => { results: [ 6, 20, 15, 19, 2, 2 ], total: 64 }</span> </code>
+			</div>
+			<h4><i class="fas fa-cog"></i> Options</h4>
+			<div class="code">
+				<code>notation: <span class="comment">Sets notation for dice. It must be a string which should look like 'AdX' (A: amount, X: sides). Default is 'd6'.</span></code>
+			</div>
+		</div>
+		<div class="method-section">
+			<h3>Text</h3>
+			<div class="code">
+				<code><span class="keyword">const</span> text = random.<span class="method">text</span>(); </code>
+				<code>console.<span class="method">log</span>(text);<span class="comment"> => Daklwobzahga orlkevpzon neuytakjagab laeves hegg ugleesxaq.</span> </code>
+			</div>
+			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<div class="code">
+				<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'letter' });<span class="comment"> => p</span> </code>
+				<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'word' });<span class="comment"> => luswepisa</span> </code>
+				<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'sentence', <span class="parameter">length: 4</span> });<span class="comment"> => Neidva gejtaqxozuja diq cierl.</span> </code>
+			</div>
+			<h4><i class="fas fa-cog"></i> Options</h4>
+			<div class="code">
+				<code>type: <span class="comment">Sets type of the text. It can be 'letter', 'syllable', 'word', 'sentence' or 'paragraph'. Default is 'sentence'.</span></code>
+				<code>length: <span class="comment">Sets length of the text. It must be a natural number. Default is a random number between 2 and 12.</span></code>
+			</div>
+			<h4><i class="fas fa-star"></i> Notes</h4>
+			<div class="code">
+				<code>- Length value will not work if type value is 'letter' or 'syllable'.</code>
+				<code>- The unit of length value will be letters if type value is 'word'.</code>
+				<code>- The unit of length value will be words if type value is 'sentence'.</code>
+				<code>- The unit of length value will be sentences if type value is 'paragraph'.</code>
+			</div>
+		</div>
+		<div class="method-section">
+			<h3>Date</h3>
+			<div class="code">
+				<code><span class="keyword">const</span> date = random.<span class="method">date</span>(); </code>
+				<code>console.<span class="method">log</span>(date);<span class="comment"> => 2021-04-29</span> </code>
+			</div>
+			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<div class="code">
+				<code>random.<span class="method">date</span>({ <span class="parameter">dateStart: </span>[2021, 1, 1], <span class="parameter"> dateEnd: </span>[2021, 6, 17] });<span class="comment"> => 2021-02-23 </span> </code>
+				<code
+					>random.<span class="method">date</span>({ <span class="parameter">dateStart: </span>[1874, 4, 21], <span class="parameter"> dateEnd: </span>[1878, 11, 30], <span class="parameter"> format: </span> 'dd/mm/yyyy' });<span
+						class="comment"
+					>
+						=> 29/12/1877
+					</span>
+				</code>
+			</div>
+			<h4><i class="fas fa-cog"></i> Options</h4>
+			<div class="code">
+				<code>dateStart: <span class="comment">Sets min value to generate random date. It must be an array. Default is [2021, 1, 1].</span></code>
+				<code>dateEnd: <span class="comment">Sets max value to generate random date. It must be an array. Default is [2022, 1, 1].</span></code>
+				<code>format: <span class="comment">Sets a custom date format. It must be a string. Default is "yyyy-mm-dd".</span></code>
+			</div>
 		</div>
 	</div>
 </section>

@@ -1,29 +1,69 @@
 @import "./main";
 
 body {
-	display: grid;
-	grid-template-columns: auto;
-	grid-template-rows: 60px auto;
-	grid-template-areas: "navbar navbar" "docs docs";
-	gap: 1.5rem;
 	user-select: auto;
-	color: $darker-color;
 }
 
-#docs {
-	grid-area: docs;
-	border-radius: $border-radius;
-	box-shadow: $box-shadow;
-	padding: 1.5rem;
+#navbar {
+	user-select: none;
+}
+
+#installation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#installation-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: flex-start;
+	width: 1248px;
+	padding-top: 2rem;
+	margin: 0 1rem;
+}
+
+#usage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#usage-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: flex-start;
+	width: 1248px;
+	padding: 2rem 0;
+	margin: 0 1rem;
+}
+
+#methods {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#methods-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: flex-start;
+	width: 1248px;
+	padding: 2rem 0;
+	margin: 0 1rem;
 }
 
 .method-section {
-	padding: 1rem 0px;
+	padding: 1rem 0;
+	width: 100%;
 }
 
 code {
-	color: $darker-color;
-	padding: 0.5rem;
+	color: $dark-1;
+	padding: 1rem;
 	width: 41px;
 }
 
@@ -32,28 +72,34 @@ code {
 	flex-direction: column;
 	overflow: auto;
 	white-space: nowrap;
-	padding: 0.5rem;
-	background-color: #f4f4f4;
-	border-left: rgba($color: $primary-color, $alpha: 0.6) 3px solid;
+	background-color: $light-1;
+	border-radius: $border-radius;
+	border: $border-section;
 }
 
-pre {
-	white-space: pre-wrap;
+.no-select {
+	user-select: none;
 }
 
-h3,
-h4 {
+h2 {
+	font-size: 2.5rem;
+	font-weight: 500;
+	user-select: none;
+}
+
+h3 {
+	font-size: 1.5rem;
+	font-weight: 400;
 	padding: 0.5rem 0;
+	user-select: none;
 }
 
 h4 {
-	font-weight: 300;
-	color: $dark-color;
-	padding-top: 1rem;
-}
-
-a {
-	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 400;
+	color: $dark-2;
+	padding: 1.5rem 0 0.5rem;
+	user-select: none;
 }
 
 .keyword {
@@ -69,23 +115,12 @@ a {
 }
 
 .comment {
-	color: $dark-color;
+	color: $dark-2;
+	padding-right: 1rem;
 }
 
-@media only screen and (max-width: 600px) {
-	.logo {
-		padding: 0 0.5rem 0px;
-	}
-	.fake {
-		display: none;
-	}
-
-	.code {
-		padding-left: 0;
-	}
-
-	#title {
-		font-size: 1rem;
-		padding: 0 0.5rem 0;
+@media only screen and (max-width: 450px) {
+	h2 {
+		font-size: 2rem;
 	}
 }
