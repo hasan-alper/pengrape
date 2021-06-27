@@ -2,8 +2,13 @@ require("../stylesheets/randomText.scss");
 
 const random = require("pengrape");
 
-const buttonGenerate = document.querySelector("#button-generate");
+const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
+const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
 const resultContent = document.querySelector("#result-content");
+const constructContent = document.querySelector("#construct-content");
+const constructedResultsContent = document.querySelector("#constructed-results-content");
+const inputQuantity = document.querySelector("#input-quantity");
+const buttonGenerate = document.querySelector("#button-generate");
 const fixedContent = document.querySelector("#fixed-content");
 const option11Content = document.querySelector("#option-1-1-content");
 const outputUnit = document.querySelector("#output-unit");
@@ -17,6 +22,8 @@ const buttonSentence = document.querySelector("#button-sentence");
 const buttonParagraph = document.querySelector("#button-paragraph");
 const buttonCopy = document.querySelector("#button-copy");
 let selected;
+let mode = "generate";
+let constructedResults = [];
 
 inputLength.addEventListener("input", () => {
 	if (buttonSyllable.checked) {
@@ -87,10 +94,6 @@ buttonParagraph.addEventListener("click", () => {
 	}
 });
 
-buttonCopy.addEventListener("click", () => {
-	window.navigator.clipboard.writeText(resultContent.innerText);
-});
-
 buttonGenerate.addEventListener("click", () => {
 	for (let type of radioTypes) {
 		if (type.checked) {
@@ -102,7 +105,13 @@ buttonGenerate.addEventListener("click", () => {
 
 	if (radioLengthTypes[0].checked) textLength = null;
 
-	resultContent.innerHTML = random.text({ type: selected, length: parseInt(textLength) });
+	if (mode === "generate") resultContent.innerHTML = random.text({ type: selected, length: parseInt(textLength) });
+	else if (mode === "construct") {
+		if (+inputQuantity.value < 1 || typeof +inputQuantity.value != "number") inputQuantity.value = 4;
+		deleteResults();
+		constructedResults = random.text({ type: selected, length: parseInt(textLength), construct: +inputQuantity.value });
+		construct(constructedResults);
+	}
 });
 
 radioLengthTypes[0].addEventListener("click", () => {
@@ -114,3 +123,35 @@ radioLengthTypes[1].addEventListener("click", () => {
 	fixedContent.style.display = "flex";
 	option11Content.style.borderBottom = "1px solid #e1e4e8";
 });
+
+buttonCopy.addEventListener("click", () => {
+	if (mode === "generate") window.navigator.clipboard.writeText(resultContent.innerText);
+	else if (mode === "construct") window.navigator.clipboard.writeText(constructedResults);
+});
+
+buttonTabsGenerate.addEventListener("click", () => {
+	mode = "generate";
+	buttonGenerate.innerText = "Generate";
+	resultContent.style.display = "flex";
+	constructContent.style.display = "none";
+});
+
+buttonTabsConstruct.addEventListener("click", () => {
+	mode = "construct";
+	buttonGenerate.innerText = "Construct";
+	resultContent.style.display = "none";
+	constructContent.style.display = "flex";
+});
+
+const construct = (results) => {
+	for (let result of results) {
+		const allResults = document.createElement("div");
+		allResults.className = "col";
+		allResults.innerHTML = result;
+		constructedResultsContent.appendChild(allResults);
+	}
+};
+
+const deleteResults = () => {
+	constructedResultsContent.innerHTML = "";
+};

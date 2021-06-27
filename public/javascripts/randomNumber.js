@@ -2,7 +2,12 @@ require("../stylesheets/randomNumber.scss");
 
 const random = require("pengrape");
 
+const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
+const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
 const resultContent = document.querySelector("#result-content");
+const constructContent = document.querySelector("#construct-content");
+const constructedResultsContent = document.querySelector("#constructed-results-content");
+const inputQuantity = document.querySelector("#input-quantity");
 const parityContent = document.querySelector("#parity-content");
 const precisionContent = document.querySelector("#precision-content");
 const buttonGenerate = document.querySelector("#button-generate");
@@ -14,6 +19,8 @@ const radioParity = document.querySelectorAll('input[name="parity"]');
 const radioType = document.querySelectorAll('input[name="type"]');
 const buttonDecimal = document.querySelector("#button-decimal");
 const inputPrecision = document.querySelector("#input-precision");
+let mode = "generate";
+let constructedResults = [];
 
 buttonGenerate.addEventListener("click", () => {
 	let selectedType;
@@ -44,7 +51,13 @@ buttonGenerate.addEventListener("click", () => {
 	document.querySelector("#input-max").value = max;
 	inputPrecision.value = precision;
 
-	resultContent.innerHTML = random.number({ min: min, max: max, type: selectedType, precision: precision, parity: selectedParity });
+	if (mode === "generate") resultContent.innerHTML = random.number({ min: min, max: max, type: selectedType, precision: precision, parity: selectedParity });
+	else if (mode === "construct") {
+		if (+inputQuantity.value < 1 || typeof +inputQuantity.value != "number") inputQuantity.value = 4;
+		deleteResults();
+		constructedResults = random.number({ min: min, max: max, type: selectedType, precision: precision, parity: selectedParity, construct: +inputQuantity.value });
+		construct(constructedResults);
+	}
 });
 
 buttonInteger.addEventListener("click", () => {
@@ -88,5 +101,33 @@ inputMax.addEventListener("input", () => {
 });
 
 buttonCopy.addEventListener("click", () => {
-	window.navigator.clipboard.writeText(resultContent.innerText);
+	if (mode === "generate") window.navigator.clipboard.writeText(resultContent.innerText);
+	else if (mode === "construct") window.navigator.clipboard.writeText(constructedResults);
 });
+
+buttonTabsGenerate.addEventListener("click", () => {
+	mode = "generate";
+	buttonGenerate.innerText = "Generate";
+	resultContent.style.display = "flex";
+	constructContent.style.display = "none";
+});
+
+buttonTabsConstruct.addEventListener("click", () => {
+	mode = "construct";
+	buttonGenerate.innerText = "Construct";
+	resultContent.style.display = "none";
+	constructContent.style.display = "flex";
+});
+
+const construct = (results) => {
+	for (let result of results) {
+		const allResults = document.createElement("div");
+		allResults.className = "col";
+		allResults.innerHTML = result;
+		constructedResultsContent.appendChild(allResults);
+	}
+};
+
+const deleteResults = () => {
+	constructedResultsContent.innerHTML = "";
+};

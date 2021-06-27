@@ -2,7 +2,14 @@ require("../stylesheets/spinner.scss");
 
 const random = require("pengrape");
 
+const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
+const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
+const resultContent = document.querySelector("#result-content");
+const constructContent = document.querySelector("#construct-content");
+const constructedResultsContent = document.querySelector("#constructed-results-content");
+const inputQuantity = document.querySelector("#input-quantity");
 const buttonGenerate = document.querySelector("#button-generate");
+const buttonCopy = document.querySelector("#button-copy");
 const outputContent = document.querySelector("#output-content");
 const inputEntry = document.querySelector("#input-entry");
 const buttonAdd = document.querySelector("#button-add");
@@ -11,6 +18,8 @@ const spinnerColors = ["#e87477", "#73e8ab", "#73a9e8", "#e88473", "#e873b3", "#
 let entries = ["Cherry", "Apple", "Grape"];
 let myData = [];
 let spinCount = 0;
+let mode = "generate";
+let constructedResults = [];
 
 outputContent.innerHTML = '<i id="arrow" class="fas fa-caret-down"></i>';
 
@@ -98,7 +107,15 @@ const addEntryItem = () => {
 
 buttonAdd.addEventListener("click", addEntryItem);
 
-buttonGenerate.addEventListener("click", spin);
+buttonGenerate.addEventListener("click", () => {
+	if (mode === "generate") spin();
+	else if (mode === "construct") {
+		if (+inputQuantity.value < 1 || typeof +inputQuantity.value != "number") inputQuantity.value = 4;
+		deleteResults();
+		constructedResults = random.spinner({ entries, construct: +inputQuantity.value });
+		construct(constructedResults);
+	}
+});
 
 const ctx = document.querySelector("#chart").getContext("2d");
 
@@ -163,3 +180,37 @@ const bindChartEvents = () => {
 
 chartLegends.innerHTML = window.chart.generateLegend();
 bindChartEvents();
+
+buttonCopy.addEventListener("click", () => {
+	if (mode === "generate") window.navigator.clipboard.writeText(resultContent.innerText);
+	else if (mode === "construct") window.navigator.clipboard.writeText(constructedResults);
+});
+
+buttonTabsGenerate.addEventListener("click", () => {
+	buttonCopy.style.display = "none";
+	mode = "generate";
+	buttonGenerate.innerText = "Generate";
+	resultContent.style.display = "flex";
+	constructContent.style.display = "none";
+});
+
+buttonTabsConstruct.addEventListener("click", () => {
+	buttonCopy.style.display = "flex";
+	mode = "construct";
+	buttonGenerate.innerText = "Construct";
+	resultContent.style.display = "none";
+	constructContent.style.display = "flex";
+});
+
+const construct = (results) => {
+	for (let result of results) {
+		const allResults = document.createElement("div");
+		allResults.className = "col";
+		allResults.innerHTML = result;
+		constructedResultsContent.appendChild(allResults);
+	}
+};
+
+const deleteResults = () => {
+	constructedResultsContent.innerHTML = "";
+};

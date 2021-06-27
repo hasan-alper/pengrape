@@ -1,7 +1,6 @@
 @import "./main";
 
-#button-undo,
-#button-copy {
+#button-undo {
 	display: none;
 }
 
@@ -72,7 +71,7 @@
 	font-size: 2rem;
 }
 
-.col {
+.results-item {
 	display: flex;
 	justify-content: center;
 }

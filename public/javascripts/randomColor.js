@@ -2,13 +2,18 @@ require("../stylesheets/randomColor.scss");
 
 const random = require("pengrape");
 
-const buttonGenerate = document.querySelector("#button-generate");
+const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
+const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
 const resultContent = document.querySelector("#result-content");
+const constructContent = document.querySelector("#construct-content");
+const constructedResultsContent = document.querySelector("#constructed-results-content");
+const inputQuantity = document.querySelector("#input-quantity");
+const buttonGenerate = document.querySelector("#button-generate");
 const buttonHex = document.querySelector("#button-hex");
 const buttonRgb = document.querySelector("#button-rgb");
 const buttonHsl = document.querySelector("#button-hsl");
 const radioColor = document.querySelectorAll('input[name="format"]');
-const buttonColor = document.querySelector("#button-copy");
+const buttonCopy = document.querySelector("#button-copy");
 const buttonUndo = document.querySelector("#button-undo");
 const sectionResult = document.querySelector("#result");
 const rangeLabels = document.querySelectorAll(".range-label");
@@ -22,6 +27,8 @@ const buttonLock3 = document.querySelector("#button-lock-3");
 
 let index;
 let history = [];
+let mode = "generate";
+let constructedResults = [];
 const formats = ["hex", "rgb", "hsl"];
 const lockedValues = [null, null, null];
 const rgbLabels = ["Red:", "Green:", "Blue:"];
@@ -66,6 +73,18 @@ buttonGenerate.addEventListener("click", () => {
 		lockedValues[2] = null;
 	}
 
+	if (mode === "construct") {
+		let colorFormat;
+		if (index === 0) colorFormat = "hex";
+		else if (index === 1) colorFormat = "rgb";
+		else if (index === 2) colorFormat = "hsl";
+		if (+inputQuantity.value < 1 || typeof +inputQuantity.value != "number") inputQuantity.value = 4;
+		deleteResults();
+		constructedResults = random.color({ format: colorFormat, syntax: "normal", values: [...lockedValues], construct: +inputQuantity.value });
+		construct(constructedResults);
+		return;
+	}
+
 	let colorCodes = random.color({ format: "all", syntax: "all", values: [formats[index], ...lockedValues] });
 	const colorCodesList = colorCodes.list;
 	colorCodes = colorCodes.normal;
@@ -94,44 +113,46 @@ buttonGenerate.addEventListener("click", () => {
 	range3.value = history[history.length - 1][4 + index][2];
 
 	buttonHex.addEventListener("click", () => {
-		resultContent.innerHTML = history[history.length - 1][0];
-		sectionResult.style.backgroundColor = history[history.length - 1][0];
-		rangeOutputs.forEach((rangeOutput, i) => {
-			rangeOutput.innerHTML = history[history.length - 1][4][i];
-		});
-		range1.value = history[history.length - 1][5][0];
-		range2.value = history[history.length - 1][5][1];
-		range3.value = history[history.length - 1][5][2];
+		if (mode === "generate") {
+			resultContent.innerHTML = history[history.length - 1][0];
+			sectionResult.style.backgroundColor = history[history.length - 1][0];
+			rangeOutputs.forEach((rangeOutput, i) => {
+				rangeOutput.innerHTML = history[history.length - 1][4][i];
+			});
+			range1.value = history[history.length - 1][5][0];
+			range2.value = history[history.length - 1][5][1];
+			range3.value = history[history.length - 1][5][2];
+		}
 	});
 	buttonRgb.addEventListener("click", () => {
-		resultContent.innerHTML = history[history.length - 1][1];
-		sectionResult.style.backgroundColor = history[history.length - 1][1];
-		rangeOutputs.forEach((rangeOutput, i) => {
-			rangeOutput.innerHTML = history[history.length - 1][5][i];
-		});
-		range1.value = history[history.length - 1][5][0];
-		range2.value = history[history.length - 1][5][1];
-		range3.value = history[history.length - 1][5][2];
+		if (mode === "generate") {
+			resultContent.innerHTML = history[history.length - 1][1];
+			sectionResult.style.backgroundColor = history[history.length - 1][1];
+			rangeOutputs.forEach((rangeOutput, i) => {
+				rangeOutput.innerHTML = history[history.length - 1][5][i];
+			});
+			range1.value = history[history.length - 1][5][0];
+			range2.value = history[history.length - 1][5][1];
+			range3.value = history[history.length - 1][5][2];
+		}
 	});
 	buttonHsl.addEventListener("click", () => {
-		resultContent.innerHTML = history[history.length - 1][2];
-		sectionResult.style.backgroundColor = history[history.length - 1][2];
-		rangeOutputs.forEach((rangeOutput, i) => {
-			rangeOutput.innerHTML = history[history.length - 1][6][i];
-		});
-		range1.value = history[history.length - 1][6][0];
-		range2.value = history[history.length - 1][6][1];
-		range3.value = history[history.length - 1][6][2];
+		if (mode === "generate") {
+			resultContent.innerHTML = history[history.length - 1][2];
+			sectionResult.style.backgroundColor = history[history.length - 1][2];
+			rangeOutputs.forEach((rangeOutput, i) => {
+				rangeOutput.innerHTML = history[history.length - 1][6][i];
+			});
+			range1.value = history[history.length - 1][6][0];
+			range2.value = history[history.length - 1][6][1];
+			range3.value = history[history.length - 1][6][2];
+		}
 	});
 	if (history.length === 1) {
 		buttonUndo.disabled = true;
 	} else {
 		buttonUndo.disabled = false;
 	}
-});
-
-buttonColor.addEventListener("click", () => {
-	window.navigator.clipboard.writeText(resultContent.innerText);
 });
 
 buttonUndo.addEventListener("click", () => {
@@ -245,3 +266,50 @@ buttonLock2.addEventListener("click", () => {
 buttonLock3.addEventListener("click", () => {
 	buttonLock3.checked ? (range3.disabled = true) : (range3.disabled = false);
 });
+
+buttonCopy.addEventListener("click", () => {
+	if (mode === "generate") window.navigator.clipboard.writeText(resultContent.innerText);
+	else if (mode === "construct") window.navigator.clipboard.writeText(constructedResults);
+});
+
+buttonTabsGenerate.addEventListener("click", () => {
+	if (history.length > 0) {
+		resultContent.style.color = history[history.length - 1][3];
+		sectionResult.style.backgroundColor = history[history.length - 1][0];
+	} else {
+		sectionResult.style.backgroundColor = "#fafbfc";
+		resultContent.innerHTML = "";
+	}
+	if (history.length === 1) {
+		buttonUndo.disabled = true;
+	} else {
+		buttonUndo.disabled = false;
+	}
+	mode = "generate";
+	buttonGenerate.innerText = "Generate";
+	resultContent.style.display = "flex";
+	constructContent.style.display = "none";
+});
+
+buttonTabsConstruct.addEventListener("click", () => {
+	resultContent.style.color = "#24292e";
+	sectionResult.style.backgroundColor = "#fafbfc";
+	buttonUndo.disabled = true;
+	mode = "construct";
+	buttonGenerate.innerText = "Construct";
+	resultContent.style.display = "none";
+	constructContent.style.display = "flex";
+});
+
+const construct = (results) => {
+	for (let result of results) {
+		const allResults = document.createElement("div");
+		allResults.className = "col";
+		allResults.innerHTML = result;
+		constructedResultsContent.appendChild(allResults);
+	}
+};
+
+const deleteResults = () => {
+	constructedResultsContent.innerHTML = "";
+};

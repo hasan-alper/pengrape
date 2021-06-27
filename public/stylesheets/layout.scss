@@ -228,6 +228,38 @@ body {
 	word-break: break-all;
 }
 
+#construct-content {
+	display: none;
+	flex-direction: column;
+}
+
+#quantity-content {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+#quantity-content input {
+	width: 7rem;
+	margin-left: 1rem;
+}
+
+#constructed-results-content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: start;
+	align-items: flex-start;
+	font-size: 2rem;
+}
+
+.col {
+	min-width: 1rem;
+	margin: 0 1rem 1rem 0;
+	text-align: left;
+	word-break: break-all;
+}
+
 #sidebar {
 	grid-area: sidebar;
 }
@@ -373,5 +405,13 @@ body {
 	#option-3-1-content,
 	#option-3-2-content {
 		flex-direction: column;
+	}
+
+	#construct-content {
+		justify-content: center;
+	}
+
+	#quantity-content input {
+		width: 5rem;
 	}
 }
