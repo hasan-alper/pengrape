@@ -6,6 +6,10 @@ module.exports.randomColor = (req, res) => {
 	res.render("utilities/randomColor", { title: "Random Color - Pengrape", scriptRoute: "randomColor", layout: "layouts/utilities" });
 };
 
+module.exports.randomPalette = (req, res) => {
+	res.render("utilities/randomPalette", { title: "Random Palette - Pengrape", scriptRoute: "randomPalette", layout: "layouts/utilities" });
+};
+
 module.exports.randomPassword = (req, res) => {
 	res.render("utilities/randomPassword", { title: "Random Password - Pengrape", scriptRoute: "randomPassword", layout: "layouts/utilities" });
 };

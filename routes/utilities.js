@@ -7,6 +7,8 @@ router.get("/random-number", utilities.randomNumber);
 
 router.get("/random-color", utilities.randomColor);
 
+router.get("/random-palette", utilities.randomPalette);
+
 router.get("/random-password", utilities.randomPassword);
 
 router.get("/spinner", utilities.spinner);

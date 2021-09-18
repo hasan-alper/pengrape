@@ -1,0 +1,48 @@
+@import "./main";
+
+#tabs-right-content,
+#button-undo {
+	display: none;
+}
+
+#result {
+	padding: 0;
+}
+
+#result-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.8rem;
+}
+
+#result-content > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 20%;
+	width: 100%;
+}
+
+#result-content > div:first-child {
+	border-top-left-radius: $border-radius;
+	border-top-right-radius: $border-radius;
+}
+
+#result-content > div:last-child {
+	border-bottom-left-radius: $border-radius;
+	border-bottom-right-radius: $border-radius;
+}
+
+@media only screen and (max-width: 700px) {
+	#result-content {
+		font-size: 1.5rem;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	#result-content {
+		font-size: 1.2rem;
+	}
+}

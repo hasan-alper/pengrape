@@ -9,6 +9,7 @@ module.exports = {
 		layout: "./public/javascripts/layout.js",
 		randomNumber: "./public/javascripts/randomNumber.js",
 		randomColor: "./public/javascripts/randomColor.js",
+		randomPalette: "./public/javascripts/randomPalette.js",
 		randomPassword: "./public/javascripts/randomPassword.js",
 		spinner: "./public/javascripts/spinner.js",
 		diceRoller: "./public/javascripts/diceRoller.js",
