@@ -1,8 +1,12 @@
 @import "./main";
 
-#tabs-right-content,
 #button-undo {
 	display: none;
+}
+
+#option-2,
+#option-3 {
+	border: none;
 }
 
 #result {
@@ -39,10 +43,19 @@
 	#result-content {
 		font-size: 1.5rem;
 	}
+
+	#option-1 {
+		border: none;
+	}
+
+	#option-2,
+	#option-3 {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 450px) {
 	#result-content {
-		font-size: 1.2rem;
+		font-size: 1.25rem;
 	}
 }

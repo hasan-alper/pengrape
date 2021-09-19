@@ -1,3 +1,27 @@
+<%- contentFor('option1') %>
+<section id="option-1-content">
+	<div id="option-1-1-content">
+		<div class="header-contents">
+			<p class="header">Format</p>
+			<p class="description">Choose format of the color code.</p>
+		</div>
+		<div class="input-contents">
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-hex" name="format" value="hex" checked />
+				<label for="button-hex" class="btn btn-outline-primary btn-sm">HEX</label>
+			</div>
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-rgb" name="format" value="rgb" />
+				<label for="button-rgb" class="btn btn-outline-primary btn-sm">RGB</label>
+			</div>
+			<div class="input-content">
+				<input type="radio" class="btn-check" id="button-hsl" name="format" value="hsl" />
+				<label for="button-hsl" class="btn btn-outline-primary btn-sm">HSL</label>
+			</div>
+		</div>
+	</div>
+</section>
+
 <%- contentFor('sidebar1') %>
 <p class="header">Random Palette</p>
 <p class="description">Generate beautiful color combinations.</p>
@@ -9,4 +33,4 @@
 <div id="color-4"></div>
 <div id="color-5"></div>
 
-<%- contentFor('option1') %> <%- contentFor('option2') %><%- contentFor('sidebar2') %> <%- contentFor('option3') %>
+<%- contentFor('option2') %><%- contentFor('sidebar2') %> <%- contentFor('option3') %>
