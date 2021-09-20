@@ -33,4 +33,30 @@
 <div id="color-4"></div>
 <div id="color-5"></div>
 
-<%- contentFor('option2') %><%- contentFor('sidebar2') %> <%- contentFor('option3') %>
+<%- contentFor('sidebar2') %>
+<p class="header">Harmony</p>
+<p class="description">Set a harmonic balance of colors.</p>
+<div class="input-contents">
+	<div class="input-content">
+		<input type="radio" name="harmony" id="button-analogous" class="btn-check" checked />
+		<label for="button-analogous" class="btn btn-outline-primary btn-lg">Analogous</label>
+	</div>
+	<div class="input-content">
+		<input type="radio" name="harmony" id="button-monochromatic" class="btn-check" />
+		<label for="button-monochromatic" class="btn btn-outline-primary btn-lg">Monochromatic</label>
+	</div>
+	<div class="input-content">
+		<input type="radio" name="harmony" id="button-triad" class="btn-check" />
+		<label for="button-triad" class="btn btn-outline-primary btn-lg">Triad</label>
+	</div>
+	<div class="input-content">
+		<input type="radio" name="harmony" id="button-complementary" class="btn-check" />
+		<label for="button-complementary" class="btn btn-outline-primary btn-lg">Complementary</label>
+	</div>
+	<div class="input-content">
+		<input type="radio" name="harmony" id="button-shades" class="btn-check" />
+		<label for="button-shades" class="btn btn-outline-primary btn-lg">Shades</label>
+	</div>
+</div>
+
+<%- contentFor('option2') %><%- contentFor('option3') %>

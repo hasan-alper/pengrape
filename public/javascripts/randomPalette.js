@@ -16,6 +16,7 @@ const buttonHex = document.querySelector("#button-hex");
 const buttonRgb = document.querySelector("#button-rgb");
 const buttonHsl = document.querySelector("#button-hsl");
 const radioColor = document.querySelectorAll('input[name="format"]');
+const radioHarmony = document.querySelectorAll('input[name="harmony"]');
 const color1 = document.querySelector("#color-1");
 const color2 = document.querySelector("#color-2");
 const color3 = document.querySelector("#color-3");
@@ -23,16 +24,24 @@ const color4 = document.querySelector("#color-4");
 const color5 = document.querySelector("#color-5");
 
 let index;
+let harmony;
 let history = [];
 let color_list = [];
 let mode = "generate";
 let constructedResults = [];
 buttonUndo.disabled = true;
+const harmonies = ["analogous", "monochromatic", "triad", "complementary", "shades"];
 
 buttonGenerate.addEventListener("click", () => {
 	radioColor.forEach((colorOpt, i) => {
 		if (colorOpt.checked) {
 			index = i;
+		}
+	});
+
+	radioHarmony.forEach((harmonyOpt, i) => {
+		if (harmonyOpt.checked) {
+			harmony = harmonies[i];
 		}
 	});
 
@@ -43,12 +52,12 @@ buttonGenerate.addEventListener("click", () => {
 		else if (index === 2) colorFormat = "hsl";
 		if (+inputQuantity.value < 1 || typeof +inputQuantity.value != "number") inputQuantity.value = 4;
 		deleteResults();
-		constructedResults = random.palette({ format: colorFormat, syntax: "normal", construct: +inputQuantity.value });
+		constructedResults = random.palette({ harmony: harmony, format: colorFormat, syntax: "normal", construct: +inputQuantity.value });
 		construct(constructedResults);
 		return;
 	}
 
-	color_list = random.palette({ format: "all", syntax: "all" });
+	color_list = random.palette({ harmony: harmony, format: "all", syntax: "all" });
 
 	history.push(color_list);
 

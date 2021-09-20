@@ -64,6 +64,17 @@
 	}
 }
 
+.input-content {
+	padding: 0.5rem 0;
+	margin: 0rem !important;
+	width: 100%;
+}
+
+.input-content .btn {
+	width: auto;
+	max-width: 330px;
+}
+
 @media only screen and (max-width: 450px) {
 	#result-content {
 		font-size: 1.25rem;
