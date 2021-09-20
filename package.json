@@ -22,7 +22,7 @@
 		"express": "^4.17.1",
 		"express-ejs-layouts": "^2.5.1",
 		"mini-css-extract-plugin": "^1.6.0",
-		"pengrape": "^1.2.4",
+		"pengrape": "^1.2.5",
 		"sass": "1.32",
 		"sass-loader": "^7.3.1",
 		"style-loader": "^2.0.0",

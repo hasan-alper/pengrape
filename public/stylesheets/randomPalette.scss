@@ -35,6 +35,16 @@
 	border-bottom-right-radius: $border-radius;
 }
 
+#quantity-content {
+	margin: 1rem;
+}
+
+.col {
+	margin-left: 1rem;
+	font-size: 1.5rem;
+	word-break: normal;
+}
+
 @media only screen and (max-width: 700px) {
 	#result-content {
 		font-size: 1.5rem;
@@ -48,10 +58,18 @@
 	#option-3 {
 		display: none;
 	}
+
+	.col {
+		font-size: 1.3rem;
+	}
 }
 
 @media only screen and (max-width: 450px) {
 	#result-content {
 		font-size: 1.25rem;
+	}
+
+	.col {
+		font-size: 1rem;
 	}
 }
