@@ -25,7 +25,7 @@
 			<div class="code">
 				<code
 					>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'hex', <span class="parameter">construct:</span> 4 });
-					<span class="comment">=> [ "#1c5f15" , "#33168c" , "#7533f5" , "#08e4b3" ]</span></code
+					<span class="comment">=> [ '#1c5f15' , '#33168c' , '#7533f5' , '#08e4b3' ]</span></code
 				>
 			</div>
 		</div>
@@ -41,22 +41,57 @@
 				<code><span class="keyword">const</span> number = random.<span class="method">number</span>();</code>
 				<code>console.<span class="method">log</span>(number);<span class="comment"> => 12</span></code>
 			</div>
-			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<h4>Examples</h4>
 			<div class="code">
 				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12</span> }); <span class="comment">=> 6</span></code>
 				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, type:</span> 'decimal' }); <span class="comment">=> 5.1734</span></code>
 				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, type:</span> 'decimal', <span class="parameter">precision: 6</span> }); <span class="comment">=> 11.129582</span></code>
 				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, parity:</span> 'odd' }); <span class="comment">=> 7</span></code>
 			</div>
-			<h4><i class="fas fa-cog"></i> Options</h4>
-			<div class="code">
-				<code>min: <span class="comment">Sets minimum value. It must be an integer. Default is 0.</span></code>
-				<code>max: <span class="comment">Sets maximum value. It must be an integer. Default is 20.</span></code>
-				<code>type: <span class="comment">Sets type of the result. It can be 'integer' or 'decimal'. Default is 'integer'.</span></code>
-				<code>parity: <span class="comment">Sets parity of the result. It can be 'none', 'odd' or 'even'. Default is 'none'.</span></code>
-				<code>precision: <span class="comment">Sets the number of digits after the point. It must be a natural number. Default is 4.</span></code>
+			<h4>Options</h4>
+			<div class="options-section">
+				<div class="table-section">
+					<table>
+						<tr>
+							<th>Option</th>
+							<th>Description</th>
+							<th>Value</th>
+							<th>Default</th>
+						</tr>
+						<tr>
+							<td>min</td>
+							<td>Minimum value.</td>
+							<td>Any integer</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>max</td>
+							<td>Maximum value.</td>
+							<td>Any integer</td>
+							<td>20</td>
+						</tr>
+						<tr>
+							<td>type</td>
+							<td>Indicates whether the number is integer or decimal.</td>
+							<td>'integer' or 'decimal'.</td>
+							<td>'integer'</td>
+						</tr>
+						<tr>
+							<td>parity</td>
+							<td>Indicates whether the number is even or odd.</td>
+							<td>'none', 'odd' or 'even'</td>
+							<td>'none'</td>
+						</tr>
+						<tr>
+							<td>precision</td>
+							<td>The number of digits after the point.</td>
+							<td>Any positive integer</td>
+							<td>4</td>
+						</tr>
+					</table>
+				</div>
 			</div>
-			<h4><i class="fas fa-star"></i> Notes</h4>
+			<h4>Notes</h4>
 			<div class="code">
 				<code>- To use parity, type value must be selected as 'integer'.</code>
 				<code>- To use precision, type value must be selected as 'decimal'.</code>
@@ -70,7 +105,7 @@
 				<code><span class="keyword">const</span> color = random.<span class="method">color</span>();</code>
 				<code>console.<span class="method">log</span>(color);<span class="comment"> => #f28e51</span></code>
 			</div>
-			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<h4>Examples</h4>
 			<div class="code">
 				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb' }); <span class="comment">=> rgb(124, 97, 124)</span></code>
 				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">syntax:</span> 'list' }); <span class="comment">=> [ 46, 106, 45 ]</span></code>
@@ -84,11 +119,36 @@
 					}); <span class="comment">=> [ '#c6b3f9' , 'rgb(198, 179, 249)', 'hsl(256, 85, 84)' ]</span></code
 				>
 			</div>
-			<h4><i class="fas fa-cog"></i> Options</h4>
-			<div class="code">
-				<code>format: <span class="comment">Sets format of the color code. It can be 'hex', 'rgb', 'hsl' or 'all'. Default is 'hex'.</span></code>
-				<code>syntax: <span class="comment">Sets syntax of the color code. It can be 'normal', 'list' or 'all'. Default is 'normal'.</span></code>
-				<code>values: <span class="comment">Sets fixed color values. It must be an array containing three or four values. Default is [null, null, null]. </span></code>
+			<h4>Options</h4>
+			<div class="options-section">
+				<div class="table-section">
+					<table>
+						<tr>
+							<th>Option</th>
+							<th>Description</th>
+							<th>Value</th>
+							<th>Default</th>
+						</tr>
+						<tr>
+							<td>format</td>
+							<td>Format of the color code.</td>
+							<td>'hex', 'rgb', 'hsl' or 'all'</td>
+							<td>'hex'</td>
+						</tr>
+						<tr>
+							<td>syntax</td>
+							<td>Syntax of the color code.</td>
+							<td>'normal', 'list' or 'all'</td>
+							<td>'normal'</td>
+						</tr>
+						<tr>
+							<td>values</td>
+							<td>Fixed color values for each channel.</td>
+							<td>An array with three items</td>
+							<td>[null, null, null]</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="method-section">
@@ -97,7 +157,7 @@
 				<code><span class="keyword">const</span> password = random.<span class="method">password</span>(); </code>
 				<code>console.<span class="method">log</span>(password);<span class="comment"> => W7q0Va5RY53L63o7U0it</span> </code>
 			</div>
-			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<h4>Examples</h4>
 			<div class="code">
 				<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false</span> }); <span class="comment">=> buab5r7dy5jsoy2wsu</span></code>
 				<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false, symbol: true</span> }); <span class="comment">=> e%zpsj3c/7z%bfw#gas5u</span></code>
@@ -105,29 +165,74 @@
 				<code>random.<span class="method">password</span>({ <span class="parameter">minLength: 6</span>, <span class="parameter">maxLength: 10</span> }); <span class="comment">=> QTvKn52sP</span></code>
 				<code>random.<span class="method">password</span>({ <span class="parameter">symbol: true, symbolPool:</span> '#&'); <span class="comment">=> A#Ii9Ir2s8#Eq43EP3&Sw</span></code>
 			</div>
-			<h4><i class="fas fa-cog"></i> Options</h4>
-			<div class="code">
-				<code
-					>lowercase: <span class="comment">Sets whether password will contain lowercase letters. It must be a boolean. Default is <i>true</i>.</span></code
-				>
-				<code
-					>uppercase: <span class="comment">Sets whether password will contain uppercase letters. It must be a boolean. Default is <i>true</i>.</span></code
-				>
-				<code
-					>number: <span class="comment">Sets whether password will contain numbers. It must be a boolean. Default is <i>true</i>.</span></code
-				>
-				<code
-					>symbol: <span class="comment">Sets whether password will contain symbols. It must be a boolean. Default is <i>false</i>.</span></code
-				>
-				<code>length: <span class="comment">Sets length of password. It must be a natural number. Default is 20.</span></code>
-				<code>minLength: <span class="comment">Sets minimum value for length of password. It must be a natural number. Default is 16.</span></code>
-				<code>maxLength: <span class="comment">Sets maximum value for length of password. It must be a natural number. Default is 24.</span></code>
-				<code>symbolPool: <span class="comment">Sets which symbols password will contain. It must be a string. Default is '~!@#$%&*-+=?/'.</span></code>
-				<code
-					>excludeSimilar: <span class="comment">Sets whether password will contain similar characters. It must be boolean. Default is <i>false</i>.</span></code
-				>
+			<h4>Options</h4>
+			<div class="options-section">
+				<div class="table-section">
+					<table>
+						<tr>
+							<th>Option</th>
+							<th>Description</th>
+							<th>Value</th>
+							<th>Default</th>
+						</tr>
+						<tr>
+							<td>lowercase</td>
+							<td>Indicates whether the password contains lowercase letters.</td>
+							<td>A boolean</td>
+							<td>true</td>
+						</tr>
+						<tr>
+							<td>uppercase</td>
+							<td>Indicates whether the password contains uppercase letters.</td>
+							<td>A boolean</td>
+							<td>true</td>
+						</tr>
+						<tr>
+							<td>number</td>
+							<td>Indicates whether the password contains numbers.</td>
+							<td>A boolean</td>
+							<td>true</td>
+						</tr>
+						<tr>
+							<td>symbol</td>
+							<td>Indicates whether the password contains symbols.</td>
+							<td>A boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>length</td>
+							<td>Length of the password.</td>
+							<td>Any positive number</td>
+							<td>20</td>
+						</tr>
+						<tr>
+							<td>minLength</td>
+							<td>Minimum value for length of the password.</td>
+							<td>Any positive number</td>
+							<td>16</td>
+						</tr>
+						<tr>
+							<td>maxLength</td>
+							<td>Maximum value for length of the password.</td>
+							<td>Any positive number</td>
+							<td>24</td>
+						</tr>
+						<tr>
+							<td>symbolPool</td>
+							<td>Indicates which symbols the password contains.</td>
+							<td>A string</td>
+							<td>'~!@#$%&*-+=?/'</td>
+						</tr>
+						<tr>
+							<td>excludeSimilar</td>
+							<td>Indicates whether the password contains similar characters.</td>
+							<td>A boolean</td>
+							<td>false</td>
+						</tr>
+					</table>
+				</div>
 			</div>
-			<h4><i class="fas fa-star"></i> Notes</h4>
+			<h4>Notes</h4>
 			<div class="code">
 				<code>- If length option is selected, minLength and maxLength options will not work.</code>
 				<code>- MinLength and maxLength are inclusive, so they are included in the range.</code>
@@ -139,7 +244,7 @@
 				<code><span class="keyword">const</span> spinner = random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Cherry', 'Apple', 'Grape' ] }); </code>
 				<code>console.<span class="method">log</span>(spinner); <span class="comment">=> Grape</span></code>
 			</div>
-			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<h4>Examples</h4>
 			<div class="code">
 				<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], <span class="parameter">returnDetails: true</span> }); </code>
 				<code><span class="comment">=> { entry: 'St. Bernard', min: 180, max: 270, deg: 237, data: 90, isWinner: true }</span></code>
@@ -153,15 +258,36 @@
 				<code class="comment">&nbsp;&nbsp; { entry: 'Lasagna', min: 120, max: 240, deg: 208, data: 120, isWinner: true },</code>
 				<code class="comment">&nbsp;&nbsp; { entry: 'Quesadilla', min: 240, max: 360, deg: 208, data:120, isWinner: false } ]</code>
 			</div>
-			<h4><i class="fas fa-cog"></i> Options</h4>
-			<div class="code">
-				<code>entries: <span class="comment">Sets inputs for spinner. It must be an array.</span></code>
-				<code
-					>returnDetails: <span class="comment">Sets whether the method returns details of the entry/entries. It must be a boolean. Default is <i>false</i>.</span></code
-				>
-				<code
-					>returnEntries: <span class="comment">Sets whether the method returns all entries. It must be a boolean. Default is <i>false</i>.</span></code
-				>
+			<h4>Options</h4>
+			<div class="options-section">
+				<div class="table-section">
+					<table>
+						<tr>
+							<th>Option</th>
+							<th>Description</th>
+							<th>Value</th>
+							<th>Default</th>
+						</tr>
+						<tr>
+							<td>entries</td>
+							<td>Inputs for spinner.</td>
+							<td>An array</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>returnDetails</td>
+							<td>Indicates whether the method returns details of the entry/entries.</td>
+							<td>A boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>returnEntries</td>
+							<td>Indicates whether the method returns all entries.</td>
+							<td>A boolean</td>
+							<td>false</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="method-section">
@@ -170,15 +296,30 @@
 				<code><span class="keyword">const</span> dice = random.<span class="method">dice</span>(); </code>
 				<code>console.<span class="method">log</span>(dice);<span class="comment"> => { results: [ 2 ], total: 2 }</span> </code>
 			</div>
-			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<h4>Examples</h4>
 			<div class="code">
 				<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> '2d10' });<span class="comment"> => { results: [ 4, 10 ], total: 14 }</span> </code>
 				<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> 'd20' });<span class="comment"> => { results: [ 15 ], total: 15 }</span> </code>
 				<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> '6d20' });<span class="comment"> => { results: [ 6, 20, 15, 19, 2, 2 ], total: 64 }</span> </code>
 			</div>
-			<h4><i class="fas fa-cog"></i> Options</h4>
-			<div class="code">
-				<code>notation: <span class="comment">Sets notation for dice. It must be a string which should look like 'AdX' (A: amount, X: sides). Default is 'd6'.</span></code>
+			<h4>Options</h4>
+			<div class="options-section">
+				<div class="table-section">
+					<table>
+						<tr>
+							<th>Option</th>
+							<th>Description</th>
+							<th>Value</th>
+							<th>Default</th>
+						</tr>
+						<tr>
+							<td>notation</td>
+							<td>Dice notation. It should look like 'AdX'. (A: amount, X: sides)</td>
+							<td>A string</td>
+							<td>'d6'</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="method-section">
@@ -187,18 +328,38 @@
 				<code><span class="keyword">const</span> text = random.<span class="method">text</span>(); </code>
 				<code>console.<span class="method">log</span>(text);<span class="comment"> => Daklwobzahga orlkevpzon neuytakjagab laeves hegg ugleesxaq.</span> </code>
 			</div>
-			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<h4>Examples</h4>
 			<div class="code">
 				<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'letter' });<span class="comment"> => p</span> </code>
 				<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'word' });<span class="comment"> => luswepisa</span> </code>
 				<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'sentence', <span class="parameter">length: 4</span> });<span class="comment"> => Neidva gejtaqxozuja diq cierl.</span> </code>
 			</div>
-			<h4><i class="fas fa-cog"></i> Options</h4>
-			<div class="code">
-				<code>type: <span class="comment">Sets type of the text. It can be 'letter', 'syllable', 'word', 'sentence' or 'paragraph'. Default is 'sentence'.</span></code>
-				<code>length: <span class="comment">Sets length of the text. It must be a natural number. Default is a random number between 2 and 12.</span></code>
+			<h4>Options</h4>
+			<div class="options-section">
+				<div class="table-section">
+					<table>
+						<tr>
+							<th>Option</th>
+							<th>Description</th>
+							<th>Value</th>
+							<th>Default</th>
+						</tr>
+						<tr>
+							<td>type</td>
+							<td>Type of the text.</td>
+							<td>'letter', 'syllable', 'word', 'sentence' or 'paragraph'</td>
+							<td>'sentence'</td>
+						</tr>
+						<tr>
+							<td>length</td>
+							<td>Length of the text.</td>
+							<td>Any positive number</td>
+							<td>A number between 2 and 12</td>
+						</tr>
+					</table>
+				</div>
 			</div>
-			<h4><i class="fas fa-star"></i> Notes</h4>
+			<h4>Notes</h4>
 			<div class="code">
 				<code>- Length value will not work if type value is 'letter' or 'syllable'.</code>
 				<code>- The unit of length value will be letters if type value is 'word'.</code>
@@ -212,7 +373,7 @@
 				<code><span class="keyword">const</span> date = random.<span class="method">date</span>(); </code>
 				<code>console.<span class="method">log</span>(date);<span class="comment"> => 2021-04-29</span> </code>
 			</div>
-			<h4><i class="fas fa-list-ul"></i> Examples</h4>
+			<h4>Examples</h4>
 			<div class="code">
 				<code>random.<span class="method">date</span>({ <span class="parameter">dateStart: </span>[2021, 1, 1], <span class="parameter"> dateEnd: </span>[2021, 6, 17] });<span class="comment"> => 2021-02-23 </span> </code>
 				<code
@@ -223,11 +384,36 @@
 					</span>
 				</code>
 			</div>
-			<h4><i class="fas fa-cog"></i> Options</h4>
-			<div class="code">
-				<code>dateStart: <span class="comment">Sets min value to generate random date. It must be an array. Default is [2021, 1, 1].</span></code>
-				<code>dateEnd: <span class="comment">Sets max value to generate random date. It must be an array. Default is [2022, 1, 1].</span></code>
-				<code>format: <span class="comment">Sets a custom date format. It must be a string. Default is "yyyy-mm-dd".</span></code>
+			<h4>Options</h4>
+			<div class="options-section">
+				<div class="table-section">
+					<table>
+						<tr>
+							<th>Option</th>
+							<th>Description</th>
+							<th>Value</th>
+							<th>Default</th>
+						</tr>
+						<tr>
+							<td>dateStart</td>
+							<td>Start date.</td>
+							<td>An array with three items</td>
+							<td>[2021, 1, 1]</td>
+						</tr>
+						<tr>
+							<td>dateEnd</td>
+							<td>End date.</td>
+							<td>An array with three items</td>
+							<td>[2022, 1, 1]</td>
+						</tr>
+						<tr>
+							<td>format</td>
+							<td>A custom date format.</td>
+							<td>A string</td>
+							<td>'yyyy-mm-dd'</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
