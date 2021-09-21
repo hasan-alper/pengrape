@@ -100,7 +100,6 @@
 		</div>
 		<div class="method-section">
 			<h3>Color</h3>
-
 			<div class="code">
 				<code><span class="keyword">const</span> color = random.<span class="method">color</span>();</code>
 				<code>console.<span class="method">log</span>(color);<span class="comment"> => #f28e51</span></code>
@@ -146,6 +145,57 @@
 							<td>Fixed color values for each channel.</td>
 							<td>An array with three items</td>
 							<td>[null, null, null]</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="method-section">
+			<h3>Palette</h3>
+
+			<div class="code">
+				<code><span class="keyword">const</span> palette = random.<span class="method">palette</span>();</code>
+				<code>console.<span class="method">log</span>(palette);<span class="comment"> => ['#e41bc9' , '#c51adb' , '#9d2adf' , '#641adb' , '#361be4' ]</span></code>
+			</div>
+			<h4>Examples</h4>
+			<div class="code">
+				<code>random.<span class="method">palette</span>({ <span class="parameter">harmony:</span> 'complementary' }); <span class="comment">=> ['#29af04' , '#49e01f' , '#41ed12' , '#8a04af' , '#be12ed' </span></code>
+				<code
+					>random.<span class="method">palette</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">harmony:</span> 'monochromatic' });
+					<span class="comment">=> ['rgb(34, 111, 1)' , 'rgb(91, 210, 40)' , 'rgb(73, 237, 2)' , 'rgb(41, 94, 18)' , 'rgb(59, 192, 2)' ]</span></code
+				>
+				<code
+					>random.<span class="method">palette</span>({ <span class="parameter">syntax:</span> 'list' });
+					<span class="comment">=> [['4e', 'b1', '6c'], ['4b', 'aa', '4f'], ['6c', 'ae', '5b'], ['76', 'aa', '4b'], ['93', 'b1', '4e']]</span></code
+				>
+			</div>
+			<h4>Options</h4>
+			<div class="options-section">
+				<div class="table-section">
+					<table>
+						<tr>
+							<th>Option</th>
+							<th>Description</th>
+							<th>Value</th>
+							<th>Default</th>
+						</tr>
+						<tr>
+							<td>harmony</td>
+							<td>Harmonic balance of colors.</td>
+							<td>'analogous', 'monochromatic', 'triad', 'complementary', 'shades'</td>
+							<td>'analogous'</td>
+						</tr>
+						<tr>
+							<td>format</td>
+							<td>Format of the color codes.</td>
+							<td>'hex', 'rgb', 'hsl' or 'all'</td>
+							<td>'hex'</td>
+						</tr>
+						<tr>
+							<td>syntax</td>
+							<td>Syntax of the color codes.</td>
+							<td>'normal', 'list' or 'all'</td>
+							<td>'normal'</td>
 						</tr>
 					</table>
 				</div>
