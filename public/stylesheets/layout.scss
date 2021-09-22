@@ -226,6 +226,7 @@ body {
 
 #result-content {
 	word-break: break-all;
+	font-family: "Inconsolata", monospace;
 }
 
 #construct-content {
@@ -238,6 +239,8 @@ body {
 	justify-content: start;
 	align-items: center;
 	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: $border-section;
 }
 
 #quantity-content input {
@@ -251,6 +254,7 @@ body {
 	justify-content: start;
 	align-items: flex-start;
 	font-size: 2rem;
+	font-family: "Inconsolata", monospace;
 }
 
 .col {

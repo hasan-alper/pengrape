@@ -92,7 +92,7 @@ table th {
 }
 
 td:first-of-type {
-	font-family: monospace;
+	font-family: "Inconsolata", monospace;
 }
 
 .method-section {
@@ -104,6 +104,7 @@ code {
 	color: $dark-1;
 	padding: 1rem;
 	width: 41px;
+	font-family: "Inconsolata", monospace;
 }
 
 .code {
