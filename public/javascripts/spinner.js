@@ -14,10 +14,12 @@ const outputContent = document.querySelector("#output-content");
 const inputEntry = document.querySelector("#input-entry");
 const buttonAdd = document.querySelector("#button-add");
 const chartLegends = document.getElementById("chart-legends");
+const resultsSection = document.getElementById("results");
 const spinnerColors = ["#e87477", "#73e8ab", "#73a9e8", "#e88473", "#e873b3", "#dae873"];
 let entries = ["Cherry", "Apple", "Grape"];
 let myData = [];
 let spinCount = 0;
+let resultCount = 0;
 let mode = "generate";
 let constructedResults = [];
 
@@ -58,6 +60,7 @@ const spin = () => {
 		document.querySelectorAll(".buttons-delete").forEach((item) => {
 			item.classList.remove("disabled");
 		});
+		addToResults(luckyEntry.entry);
 	}, 7000);
 };
 
@@ -213,4 +216,12 @@ const construct = (results) => {
 
 const deleteResults = () => {
 	constructedResultsContent.innerHTML = "";
+};
+
+const addToResults = (r) => {
+	resultCount++;
+	const resultItem = document.createElement("div");
+	resultItem.className = "results-item";
+	resultItem.innerHTML = `<span>${resultCount}.</span> <span>${r}</span>`;
+	resultsSection.appendChild(resultItem);
 };

@@ -85,6 +85,22 @@
 	pointer-events: none;
 }
 
+#chart-legends {
+	padding-bottom: 0.5rem;
+}
+
+#results .header {
+	border-top: $border-section;
+}
+
+#results .description {
+	padding-bottom: 0.5rem;
+}
+
+.results-item span:last-child {
+	color: $dark-2;
+}
+
 @media only screen and (max-width: 900px) {
 	#chart-content {
 		width: 80%;
