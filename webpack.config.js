@@ -1,5 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
 	mode: "production",
@@ -19,25 +20,19 @@ module.exports = {
 	output: {
 		filename: "javascripts/[name].js",
 		path: path.resolve(__dirname, "public/dist"),
+		clean: true,
 	},
 	module: {
 		rules: [
 			{
-				test: /\.s[ac]ss$/i,
+				test: /\.scss$/,
 				use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-			},
-			{
-				test: /\.svg$/i,
-				use: [
-					{
-						loader: "url-loader",
-						options: {
-							limit: 8192,
-						},
-					},
-				],
 			},
 		],
 	},
 	plugins: [new MiniCssExtractPlugin({ filename: "stylesheets/[name].css" })],
+	optimization: {
+		minimize: true,
+		minimizer: [new TerserPlugin()],
+	},
 };

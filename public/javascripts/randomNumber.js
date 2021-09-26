@@ -4,105 +4,75 @@ const random = require("pengrape");
 
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
+
+const radioType = document.querySelectorAll('input[name="type"]');
+const buttonInteger = document.querySelector("#button-integer");
+const buttonDecimal = document.querySelector("#button-decimal");
+
+const parityContent = document.querySelector("#parity-content");
+const radioParity = document.querySelectorAll('input[name="parity"]');
+
+const precisionContent = document.querySelector("#precision-content");
+const inputPrecision = document.querySelector("#input-precision");
+
+const buttonGenerate = document.querySelector("#button-generate");
+const buttonCopy = document.querySelector("#button-copy");
+
 const resultContent = document.querySelector("#result-content");
 const constructContent = document.querySelector("#construct-content");
 const constructedResultsContent = document.querySelector("#constructed-results-content");
 const inputQuantity = document.querySelector("#input-quantity");
-const parityContent = document.querySelector("#parity-content");
-const precisionContent = document.querySelector("#precision-content");
-const buttonGenerate = document.querySelector("#button-generate");
-const buttonCopy = document.querySelector("#button-copy");
+
 const inputMin = document.querySelector("#input-min");
 const inputMax = document.querySelector("#input-max");
-const buttonInteger = document.querySelector("#button-integer");
-const radioParity = document.querySelectorAll('input[name="parity"]');
-const radioType = document.querySelectorAll('input[name="type"]');
-const buttonDecimal = document.querySelector("#button-decimal");
-const inputPrecision = document.querySelector("#input-precision");
+
 let mode = "generate";
 let constructedResults = [];
 
 buttonGenerate.addEventListener("click", () => {
-	let selectedType;
+	let type;
 	for (const typeOpt of radioType) {
 		if (typeOpt.checked) {
-			selectedType = typeOpt.value;
+			type = typeOpt.value;
 			break;
 		}
 	}
-	let selectedParity;
+
+	let parity;
 	for (const parityOpt of radioParity) {
 		if (parityOpt.checked) {
-			selectedParity = parityOpt.value;
+			parity = parityOpt.value;
 			break;
 		}
 	}
-	let min = parseInt(inputMin.value);
-	let max = parseInt(inputMax.value);
-	const precision = parseInt(inputPrecision.value);
 
-	if (min > max) {
-		max = max + min;
-		min = max - min;
-		max = max - min;
-	}
+	const min = +inputMin.value;
+	const max = +inputMax.value;
+	const precision = +inputPrecision.value;
+	const construct = +inputQuantity.value;
 
-	document.querySelector("#input-min").value = min;
-	document.querySelector("#input-max").value = max;
-	inputPrecision.value = precision;
-
-	if (mode === "generate") resultContent.innerHTML = random.number({ min: min, max: max, type: selectedType, precision: precision, parity: selectedParity });
-	else if (mode === "construct") {
-		if (+inputQuantity.value < 1 || typeof +inputQuantity.value != "number") inputQuantity.value = 4;
-		deleteResults();
-		constructedResults = random.number({ min: min, max: max, type: selectedType, precision: precision, parity: selectedParity, construct: +inputQuantity.value });
-		construct(constructedResults);
+	switch (mode) {
+		case "generate":
+			resultContent.innerHTML = random.number({ min, max, type, precision, parity });
+			break;
+		case "construct":
+			constructedResultsContent.innerHTML = "";
+			constructedResults = random.number({ min, max, type, precision, parity, construct });
+			constructor(constructedResults);
+			break;
 	}
 });
 
 buttonInteger.addEventListener("click", () => {
 	parityContent.style.display = "flex";
 	precisionContent.style.display = "none";
-	if (parseInt(inputMin.value) !== parseInt(inputMax.value) && inputMin.value && inputMax.value && inputMin.value <= 9999999999 && inputMax.value <= 9999999999) {
-		buttonGenerate.disabled = false;
-	}
+	inputPrecision.value = 4;
+	validate();
 });
 
 buttonDecimal.addEventListener("click", () => {
 	parityContent.style.display = "none";
 	precisionContent.style.display = "flex";
-	if (parseInt(inputMin.value) !== parseInt(inputMax.value) && inputMin.value && inputMax.value && inputMin.value <= 9999999999 && inputMax.value <= 9999999999) {
-		buttonGenerate.disabled = false;
-	}
-});
-
-inputPrecision.addEventListener("input", () => {
-	if (inputPrecision.value > 999 || inputPrecision.value < 1) {
-		buttonGenerate.disabled = true;
-	} else {
-		buttonGenerate.disabled = false;
-	}
-});
-
-inputMin.addEventListener("input", () => {
-	if (parseInt(inputMin.value) === parseInt(inputMax.value) || !inputMin.value || inputMin.value > 9999999999) {
-		buttonGenerate.disabled = true;
-	} else {
-		buttonGenerate.disabled = false;
-	}
-});
-
-inputMax.addEventListener("input", () => {
-	if (parseInt(inputMin.value) == parseInt(inputMax.value) || !inputMax.value || inputMax.value > 9999999999) {
-		buttonGenerate.disabled = true;
-	} else {
-		buttonGenerate.disabled = false;
-	}
-});
-
-buttonCopy.addEventListener("click", () => {
-	if (mode === "generate") window.navigator.clipboard.writeText(resultContent.innerText);
-	else if (mode === "construct") window.navigator.clipboard.writeText(constructedResults);
 });
 
 buttonTabsGenerate.addEventListener("click", () => {
@@ -110,6 +80,8 @@ buttonTabsGenerate.addEventListener("click", () => {
 	buttonGenerate.innerText = "Generate";
 	resultContent.style.display = "flex";
 	constructContent.style.display = "none";
+	inputQuantity.value = 4;
+	validate();
 });
 
 buttonTabsConstruct.addEventListener("click", () => {
@@ -119,7 +91,18 @@ buttonTabsConstruct.addEventListener("click", () => {
 	constructContent.style.display = "flex";
 });
 
-const construct = (results) => {
+buttonCopy.addEventListener("click", () => {
+	switch (mode) {
+		case "generate":
+			window.navigator.clipboard.writeText(resultContent.innerText);
+			break;
+		case "construct":
+			window.navigator.clipboard.writeText(constructedResults);
+			break;
+	}
+});
+
+const constructor = (results) => {
 	for (let result of results) {
 		const allResults = document.createElement("div");
 		allResults.className = "col";
@@ -128,6 +111,33 @@ const construct = (results) => {
 	}
 };
 
-const deleteResults = () => {
-	constructedResultsContent.innerHTML = "";
+const condition = () => {
+	let condition = [];
+	const min = +inputMin.value;
+	const max = +inputMax.value;
+	const precision = +inputPrecision.value;
+	const construct = +inputQuantity.value;
+
+	if (inputMin.value && Number.isInteger(min) && Math.abs(min) < 1000000000) condition[0] = true;
+	else condition[0] = false;
+	if (inputMax.value && Number.isInteger(max) && Math.abs(max) < 1000000000) condition[1] = true;
+	else condition[1] = false;
+	if (min < max) condition[2] = true;
+	else condition[2] = false;
+	if (Number.isInteger(precision) && 0 < precision && precision < 1000) condition[3] = true;
+	else condition[3] = false;
+	if (Number.isInteger(construct) && 0 < construct && construct < 10000) condition[4] = true;
+	else condition[4] = false;
+
+	return condition;
 };
+
+const validate = () => {
+	if (condition().includes(false)) buttonGenerate.disabled = true;
+	else buttonGenerate.disabled = false;
+};
+
+inputMin.addEventListener("input", validate);
+inputMax.addEventListener("input", validate);
+inputPrecision.addEventListener("input", validate);
+inputQuantity.addEventListener("input", validate);

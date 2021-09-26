@@ -5,6 +5,11 @@
 	border: none;
 }
 
+#options .input-content {
+	width: 5rem;
+	padding-right: 0.5rem;
+}
+
 #result {
 	padding: 0;
 }
@@ -43,6 +48,13 @@
 	margin-left: 1rem;
 	font-size: 1.5rem;
 	word-break: normal;
+}
+
+@media only screen and (max-width: 900px) {
+	#options .input-content {
+		width: 100%;
+		padding-right: 0rem;
+	}
 }
 
 @media only screen and (max-width: 700px) {

@@ -4,19 +4,31 @@ const random = require("pengrape");
 
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
+
+const inputCustomFormat = document.querySelector("#input-custom-format");
+
 const resultContent = document.querySelector("#result-content");
 const constructContent = document.querySelector("#construct-content");
 const constructedResultsContent = document.querySelector("#constructed-results-content");
 const inputQuantity = document.querySelector("#input-quantity");
+
 const buttonGenerate = document.querySelector("#button-generate");
 const buttonCopy = document.querySelector("#button-copy");
+
 const inputStartYear = document.querySelector("#input-start-year");
 const inputStartMonth = document.querySelector("#input-start-month");
 const inputStartDay = document.querySelector("#input-start-day");
 const inputEndYear = document.querySelector("#input-end-year");
 const inputEndMonth = document.querySelector("#input-end-month");
 const inputEndDay = document.querySelector("#input-end-day");
-const inputCustomFormat = document.querySelector("#input-custom-format");
+
+inputStartYear.value = new Date().getFullYear();
+inputStartMonth.value = new Date().getMonth() + 1;
+inputStartDay.value = new Date().getDate();
+inputEndYear.value = new Date().getFullYear() + 1;
+inputEndMonth.value = 1;
+inputEndDay.value = 1;
+
 let mode = "generate";
 let constructedResults = [];
 
@@ -25,88 +37,18 @@ buttonGenerate.addEventListener("click", () => {
 	const dateEnd = [+inputEndYear.value, +inputEndMonth.value, +inputEndDay.value];
 	const format = inputCustomFormat.value ? inputCustomFormat.value : "yyyy-mm-dd";
 
-	if (mode === "generate") resultContent.innerHTML = random.date({ dateStart: dateStart, dateEnd: dateEnd, format: format });
-	else if (mode === "construct") {
-		if (+inputQuantity.value < 1 || typeof +inputQuantity.value != "number") inputQuantity.value = 4;
-		deleteResults();
-		constructedResults = random.date({ dateStart: dateStart, dateEnd: dateEnd, format: format, construct: +inputQuantity.value });
-		construct(constructedResults);
+	const construct = +inputQuantity.value;
+
+	switch (mode) {
+		case "generate":
+			resultContent.innerHTML = random.date({ dateStart, dateEnd, format });
+			break;
+		case "construct":
+			constructedResultsContent.innerHTML = "";
+			constructedResults = random.date({ dateStart, dateEnd, format, construct });
+			constructor(constructedResults);
+			break;
 	}
-});
-
-inputStartYear.addEventListener("input", () => {
-	if (condition().includes(false)) {
-		buttonGenerate.disabled = true;
-	} else {
-		buttonGenerate.disabled = false;
-	}
-});
-
-inputStartMonth.addEventListener("input", () => {
-	if (condition().includes(false)) {
-		buttonGenerate.disabled = true;
-	} else {
-		buttonGenerate.disabled = false;
-	}
-});
-
-inputStartDay.addEventListener("input", () => {
-	if (condition().includes(false)) {
-		buttonGenerate.disabled = true;
-	} else {
-		buttonGenerate.disabled = false;
-	}
-});
-
-inputEndYear.addEventListener("input", () => {
-	if (condition().includes(false)) {
-		buttonGenerate.disabled = true;
-	} else {
-		buttonGenerate.disabled = false;
-	}
-});
-
-inputEndMonth.addEventListener("input", () => {
-	if (condition().includes(false)) {
-		buttonGenerate.disabled = true;
-	} else {
-		buttonGenerate.disabled = false;
-	}
-});
-
-inputEndDay.addEventListener("input", () => {
-	if (condition().includes(false)) {
-		buttonGenerate.disabled = true;
-	} else {
-		buttonGenerate.disabled = false;
-	}
-});
-
-function condition() {
-	let condition = [];
-	const dateStart = [+inputStartYear.value, +inputStartMonth.value, +inputStartDay.value];
-	const dateEnd = [+inputEndYear.value, +inputEndMonth.value, +inputEndDay.value];
-	const test = random.date({ dateStart: dateStart, dateEnd: dateEnd });
-	if (!inputStartYear.value || inputStartYear.value > 3000 || inputStartYear.value < 1000) condition[0] = false;
-	else condition[0] = true;
-	if (!inputStartMonth.value || inputStartMonth.value > 12 || inputStartMonth.value < 1) condition[1] = false;
-	else condition[1] = true;
-	if (!inputStartDay.value || inputStartDay.value > 31 || inputStartDay.value < 1) condition[2] = false;
-	else condition[2] = true;
-	if (!inputEndYear.value || inputEndYear.value > 3000 || inputEndYear.value < 1000) condition[3] = false;
-	else condition[3] = true;
-	if (!inputEndMonth.value || inputEndMonth.value > 12 || inputEndMonth.value < 1) condition[4] = false;
-	else condition[4] = true;
-	if (!inputEndDay.value || inputEndDay.value > 31 || inputEndDay.value < 1) condition[5] = false;
-	else condition[5] = true;
-	if (test.includes("Invalid")) condition[6] = false;
-	else condition[6] = true;
-	return condition;
-}
-
-buttonCopy.addEventListener("click", () => {
-	if (mode === "generate") window.navigator.clipboard.writeText(resultContent.innerText);
-	else if (mode === "construct") window.navigator.clipboard.writeText(constructedResults);
 });
 
 buttonTabsGenerate.addEventListener("click", () => {
@@ -114,6 +56,8 @@ buttonTabsGenerate.addEventListener("click", () => {
 	buttonGenerate.innerText = "Generate";
 	resultContent.style.display = "flex";
 	constructContent.style.display = "none";
+	inputQuantity.value = 4;
+	validate();
 });
 
 buttonTabsConstruct.addEventListener("click", () => {
@@ -123,7 +67,18 @@ buttonTabsConstruct.addEventListener("click", () => {
 	constructContent.style.display = "flex";
 });
 
-const construct = (results) => {
+buttonCopy.addEventListener("click", () => {
+	switch (mode) {
+		case "generate":
+			window.navigator.clipboard.writeText(resultContent.innerText);
+			break;
+		case "construct":
+			window.navigator.clipboard.writeText(constructedResults);
+			break;
+	}
+});
+
+const constructor = (results) => {
 	for (let result of results) {
 		const allResults = document.createElement("div");
 		allResults.className = "col";
@@ -132,6 +87,51 @@ const construct = (results) => {
 	}
 };
 
-const deleteResults = () => {
-	constructedResultsContent.innerHTML = "";
+const condition = () => {
+	let condition = [];
+	const startYear = +inputStartYear.value;
+	const startMonth = +inputStartMonth.value;
+	const startDay = +inputStartDay.value;
+	const endYear = +inputEndYear.value;
+	const endMonth = +inputEndMonth.value;
+	const endDay = +inputEndDay.value;
+	const construct = +inputQuantity.value;
+	const dateStart = [startYear, startMonth, startDay];
+	const dateEnd = [endYear, endMonth, endDay];
+
+	if (999 < startYear && startYear < 3000) condition[0] = true;
+	else condition[0] = false;
+	if (0 < startMonth && startMonth < 13) condition[1] = true;
+	else condition[1] = false;
+	if (0 < startDay && startDay < 32) condition[2] = true;
+	else condition[2] = false;
+	if (999 < endYear && endYear < 3000) condition[3] = true;
+	else condition[3] = false;
+	if (0 < endMonth && endMonth < 13) condition[4] = true;
+	else condition[4] = false;
+	if (0 < endDay && endDay < 32) condition[5] = true;
+	else condition[5] = false;
+	if (Number.isInteger(construct) && 0 < construct && construct < 10000) condition[6] = true;
+	else condition[6] = false;
+	try {
+		random.date({ dateStart, dateEnd });
+		condition[7] = true;
+	} catch (err) {
+		condition[7] = false;
+	}
+
+	return condition;
 };
+
+const validate = () => {
+	if (condition().includes(false)) buttonGenerate.disabled = true;
+	else buttonGenerate.disabled = false;
+};
+
+inputStartYear.addEventListener("input", validate);
+inputStartMonth.addEventListener("input", validate);
+inputStartDay.addEventListener("input", validate);
+inputEndYear.addEventListener("input", validate);
+inputEndMonth.addEventListener("input", validate);
+inputEndDay.addEventListener("input", validate);
+inputQuantity.addEventListener("input", validate);

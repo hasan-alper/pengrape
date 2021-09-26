@@ -4,129 +4,85 @@ const random = require("pengrape");
 
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
+
+const sectionLength = document.querySelector("#option-1-1-content");
+const radioLengthTypes = document.querySelectorAll('input[name="length-type"]');
+
 const resultContent = document.querySelector("#result-content");
 const constructContent = document.querySelector("#construct-content");
 const constructedResultsContent = document.querySelector("#constructed-results-content");
 const inputQuantity = document.querySelector("#input-quantity");
-const buttonGenerate = document.querySelector("#button-generate");
+
 const fixedContent = document.querySelector("#fixed-content");
-const option11Content = document.querySelector("#option-1-1-content");
 const outputUnit = document.querySelector("#output-unit");
 const inputLength = document.querySelector("#input-length");
+
+const buttonGenerate = document.querySelector("#button-generate");
+const buttonCopy = document.querySelector("#button-copy");
+
 const radioTypes = document.querySelectorAll('input[name="type"]');
-const radioLengthTypes = document.querySelectorAll('input[name="length-type"]');
 const buttonLetter = document.querySelector("#button-letter");
 const buttonSyllable = document.querySelector("#button-syllable");
 const buttonWord = document.querySelector("#button-word");
 const buttonSentence = document.querySelector("#button-sentence");
 const buttonParagraph = document.querySelector("#button-paragraph");
-const buttonCopy = document.querySelector("#button-copy");
-let selected;
+
 let mode = "generate";
 let constructedResults = [];
 
-inputLength.addEventListener("input", () => {
-	if (buttonSyllable.checked) {
-		if (inputLength.value > 4 || inputLength.value < 2) {
-			buttonGenerate.disabled = true;
-		} else {
-			buttonGenerate.disabled = false;
-		}
-	} else {
-		if (inputLength.value > 12 || inputLength.value < 2) {
-			buttonGenerate.disabled = true;
-		} else {
-			buttonGenerate.disabled = false;
-		}
-	}
-});
-
-buttonLetter.addEventListener("click", () => {
-	outputUnit.innerHTML = "";
-	inputLength.disabled = true;
-	buttonGenerate.disabled = false;
-	inputLength.value = "";
-});
-
-buttonSyllable.addEventListener("click", () => {
-	outputUnit.innerHTML = "";
-	inputLength.disabled = true;
-	buttonGenerate.disabled = false;
-	inputLength.value = "";
-});
-
 buttonWord.addEventListener("click", () => {
 	outputUnit.innerHTML = "letters";
-	inputLength.disabled = false;
-	if (inputLength.value > 12 || inputLength.value < 2) {
-		if (inputLength.value) {
-			inputLength.value = 4;
-			buttonGenerate.disabled = false;
-		}
-	} else {
-		buttonGenerate.disabled = false;
-	}
 });
 
 buttonSentence.addEventListener("click", () => {
 	outputUnit.innerHTML = "words";
-	inputLength.disabled = false;
-	if (inputLength.value > 12 || inputLength.value < 2) {
-		if (inputLength.value) {
-			inputLength.value = 4;
-			buttonGenerate.disabled = false;
-		}
-	} else {
-		buttonGenerate.disabled = false;
-	}
 });
 
 buttonParagraph.addEventListener("click", () => {
 	outputUnit.innerHTML = "sentences";
-	inputLength.disabled = false;
-	if (inputLength.value > 12 || inputLength.value < 2) {
-		if (inputLength.value) {
-			inputLength.value = 4;
-			buttonGenerate.disabled = false;
-		}
-	} else {
-		buttonGenerate.disabled = false;
-	}
 });
 
 buttonGenerate.addEventListener("click", () => {
-	for (let type of radioTypes) {
-		if (type.checked) {
-			selected = type.value;
+	let type;
+	for (let radioType of radioTypes) {
+		if (radioType.checked) {
+			type = radioType.value;
 		}
 	}
 
-	let textLength = inputLength.value;
+	let length = +inputLength.value;
+	const construct = +inputQuantity.value;
 
-	if (radioLengthTypes[0].checked) textLength = null;
+	if (radioLengthTypes[0].checked) length = undefined;
 
-	if (mode === "generate") resultContent.innerHTML = random.text({ type: selected, length: parseInt(textLength) });
-	else if (mode === "construct") {
-		if (+inputQuantity.value < 1 || typeof +inputQuantity.value != "number") inputQuantity.value = 4;
-		deleteResults();
-		constructedResults = random.text({ type: selected, length: parseInt(textLength), construct: +inputQuantity.value });
-		construct(constructedResults);
+	switch (mode) {
+		case "generate":
+			resultContent.innerHTML = random.text({ type, length });
+			break;
+		case "construct":
+			constructedResultsContent.innerHTML = "";
+			constructedResults = random.text({ type, length, construct });
+			constructor(constructedResults);
+			break;
 	}
 });
 
 radioLengthTypes[0].addEventListener("click", () => {
+	buttonLetter.disabled = false;
+	buttonSyllable.disabled = false;
+	inputLength.value = 6;
 	fixedContent.style.display = "none";
-	option11Content.style.borderBottom = "none";
+	sectionLength.style.borderBottom = "none";
+	validate();
 });
 
 radioLengthTypes[1].addEventListener("click", () => {
+	if (buttonLetter.checked || buttonSyllable.checked) buttonWord.checked = true;
+	buttonLetter.disabled = true;
+	buttonSyllable.disabled = true;
 	fixedContent.style.display = "flex";
-	option11Content.style.borderBottom = "1px solid #e1e4e8";
-});
-
-buttonCopy.addEventListener("click", () => {
-	if (mode === "generate") window.navigator.clipboard.writeText(resultContent.innerText);
-	else if (mode === "construct") window.navigator.clipboard.writeText(constructedResults);
+	sectionLength.style.borderBottom = "1px solid #e1e4e8";
+	validate();
 });
 
 buttonTabsGenerate.addEventListener("click", () => {
@@ -134,6 +90,8 @@ buttonTabsGenerate.addEventListener("click", () => {
 	buttonGenerate.innerText = "Generate";
 	resultContent.style.display = "flex";
 	constructContent.style.display = "none";
+	inputQuantity.value = 4;
+	validate();
 });
 
 buttonTabsConstruct.addEventListener("click", () => {
@@ -143,7 +101,18 @@ buttonTabsConstruct.addEventListener("click", () => {
 	constructContent.style.display = "flex";
 });
 
-const construct = (results) => {
+buttonCopy.addEventListener("click", () => {
+	switch (mode) {
+		case "generate":
+			window.navigator.clipboard.writeText(resultContent.innerText);
+			break;
+		case "construct":
+			window.navigator.clipboard.writeText(constructedResults);
+			break;
+	}
+});
+
+const constructor = (results) => {
 	for (let result of results) {
 		const allResults = document.createElement("div");
 		allResults.className = "col";
@@ -152,6 +121,23 @@ const construct = (results) => {
 	}
 };
 
-const deleteResults = () => {
-	constructedResultsContent.innerHTML = "";
+const condition = () => {
+	let condition = [];
+	const length = +inputLength.value;
+	const construct = +inputQuantity.value;
+
+	if (radioLengthTypes[0].checked || (Number.isInteger(length) && 1 < length && length < 13)) condition[0] = true;
+	else condition[0] = false;
+	if (Number.isInteger(construct) && 0 < construct && construct < 10000) condition[1] = true;
+	else condition[1] = false;
+
+	return condition;
 };
+
+const validate = () => {
+	if (condition().includes(false)) buttonGenerate.disabled = true;
+	else buttonGenerate.disabled = false;
+};
+
+inputQuantity.addEventListener("input", validate);
+inputLength.addEventListener("input", validate);

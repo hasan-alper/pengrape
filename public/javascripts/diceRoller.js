@@ -4,62 +4,48 @@ const random = require("pengrape");
 
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
+
+const buttonTotal = document.querySelector("#button-total");
+
 const resultContent = document.querySelector("#result-content");
 const constructContent = document.querySelector("#construct-content");
 const constructedResultsContent = document.querySelector("#constructed-results-content");
 const inputQuantity = document.querySelector("#input-quantity");
 const outputContent = document.querySelector("#output-content");
 const totalContent = document.querySelector("#total-content");
+
 const buttonGenerate = document.querySelector("#button-generate");
 const buttonCopy = document.querySelector("#button-copy");
-const buttonTotal = document.querySelector("#button-total");
+
 const ButtonIncreaseAmount = document.querySelector("#button-increase-amount");
 const ButtonDecreaseAmount = document.querySelector("#button-decrease-amount");
 const ButtonIncreaseSide = document.querySelector("#button-increase-side");
 const ButtonDecreaseSide = document.querySelector("#button-decrease-side");
 const amountOutput = document.querySelector("#amount-output");
 const sideOutput = document.querySelector("#side-output");
+
+let amountValue = 1;
+let sideValue = 6;
+
 let mode = "generate";
 let generatedResults = [];
 let constructedResults = [];
 let constructedResultsOnlyTotal = [];
-let amountValue = 1;
-let sideValue = 6;
-
-ButtonIncreaseAmount.addEventListener("click", () => {
-	amountValue++;
-	amountOutput.innerHTML = amountValue;
-});
-ButtonDecreaseAmount.addEventListener("click", () => {
-	if (amountValue > 1) {
-		amountValue--;
-		amountOutput.innerHTML = amountValue;
-	}
-});
-ButtonIncreaseSide.addEventListener("click", () => {
-	sideValue++;
-	sideOutput.innerHTML = sideValue;
-});
-ButtonDecreaseSide.addEventListener("click", () => {
-	if (sideValue > 2) {
-		sideValue--;
-		sideOutput.innerHTML = sideValue;
-	}
-});
 
 buttonGenerate.addEventListener("click", () => {
+	constructedResultsOnlyTotal = [];
+	const construct = +inputQuantity.value;
+
 	if (mode === "construct") {
-		constructedResultsOnlyTotal = [];
-		if (+inputQuantity.value < 1 || typeof +inputQuantity.value != "number") inputQuantity.value = 4;
-		deleteResults();
-		constructedResults = random.dice({ notation: `${amountValue}d${sideValue}`, construct: +inputQuantity.value });
+		constructedResultsContent.innerHTML = "";
+		constructedResults = random.dice({ notation: `${amountValue}d${sideValue}`, construct });
 		for (let result of constructedResults) {
 			constructedResultsOnlyTotal.push(result.total);
 		}
-		construct(constructedResultsOnlyTotal);
+		constructor(constructedResultsOnlyTotal);
 		return;
 	}
-	deleteGeneratedResults();
+	outputContent.innerHTML = "";
 	const output = random.dice({ notation: `${amountValue}d${sideValue}` });
 	generatedResults = output.output;
 	showResults(output.output, output.total);
@@ -75,13 +61,28 @@ const showResults = (results, total) => {
 	}
 };
 
-const deleteGeneratedResults = () => {
-	outputContent.innerHTML = "";
-};
+ButtonIncreaseAmount.addEventListener("click", () => {
+	amountValue++;
+	amountOutput.innerHTML = amountValue;
+});
 
-buttonCopy.addEventListener("click", () => {
-	if (mode === "generate") window.navigator.clipboard.writeText(generatedResults);
-	else if (mode === "construct") window.navigator.clipboard.writeText(constructedResultsOnlyTotal);
+ButtonDecreaseAmount.addEventListener("click", () => {
+	if (amountValue > 1) {
+		amountValue--;
+		amountOutput.innerHTML = amountValue;
+	}
+});
+
+ButtonIncreaseSide.addEventListener("click", () => {
+	sideValue++;
+	sideOutput.innerHTML = sideValue;
+});
+
+ButtonDecreaseSide.addEventListener("click", () => {
+	if (sideValue > 2) {
+		sideValue--;
+		sideOutput.innerHTML = sideValue;
+	}
 });
 
 buttonTabsGenerate.addEventListener("click", () => {
@@ -89,6 +90,8 @@ buttonTabsGenerate.addEventListener("click", () => {
 	buttonGenerate.innerText = "Generate";
 	resultContent.style.display = "block";
 	constructContent.style.display = "none";
+	inputQuantity.value = 4;
+	validate();
 });
 
 buttonTabsConstruct.addEventListener("click", () => {
@@ -98,7 +101,18 @@ buttonTabsConstruct.addEventListener("click", () => {
 	constructContent.style.display = "flex";
 });
 
-const construct = (results) => {
+buttonCopy.addEventListener("click", () => {
+	switch (mode) {
+		case "generate":
+			window.navigator.clipboard.writeText(generatedResults);
+			break;
+		case "construct":
+			window.navigator.clipboard.writeText(constructedResultsOnlyTotal);
+			break;
+	}
+});
+
+const constructor = (results) => {
 	for (let result of results) {
 		const allResults = document.createElement("div");
 		allResults.className = "col";
@@ -107,6 +121,19 @@ const construct = (results) => {
 	}
 };
 
-const deleteResults = () => {
-	constructedResultsContent.innerHTML = "";
+const condition = () => {
+	let condition = [];
+	const construct = +inputQuantity.value;
+
+	if (Number.isInteger(construct) && 0 < construct && construct < 10000) condition[0] = true;
+	else condition[0] = false;
+
+	return condition;
 };
+
+const validate = () => {
+	if (condition().includes(false)) buttonGenerate.disabled = true;
+	else buttonGenerate.disabled = false;
+};
+
+inputQuantity.addEventListener("input", validate);

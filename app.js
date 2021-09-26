@@ -21,7 +21,7 @@ app.use("/utilities", utilitiesRoute);
 app.get("/", (req, res) => {
 	res.render("home", {
 		title: "Home - Pengrape",
-		description: "Pengrape is a web service to generate anything random. It has a good number of utilities which has been designed to be lightweight, fast and easy to use.",
+		description: "Pengrape is a website to generate anything random. It has a good number of utilities which has been designed to be lightweight, fast and easy to use.",
 		keywords: "random, generate, number, color, palette, password, spinner, dice, text, date",
 		scriptRoute: "home",
 		layout: "layouts/boilerplate",
