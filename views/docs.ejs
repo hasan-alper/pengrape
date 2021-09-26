@@ -1,3 +1,44 @@
+<section id="contents">
+	<div id="toc-container">
+		<h2>Contents</h2>
+		<ul id="toc-list">
+			<li id="toc-overview">
+				<a href="#overview">1 Overview</a>
+			</li>
+			<li id="toc-installation">
+				<a href="#installation">2 Installation</a>
+			</li>
+			<li id="toc-usage">
+				<a href="#usage">3 Usage</a>
+				<ul>
+					<li><a href="#generating">3.1 Generate a result</a></li>
+					<li><a href="#constructing">3.2 Construct results</a></li>
+				</ul>
+			</li>
+			<li id="toc-utilities">
+				<a href="#utilities">4 Utilities</a>
+				<ul>
+					<li><a href="#number">4.1 Number</a></li>
+					<li><a href="#color">4.2 Color</a></li>
+					<li><a href="#palette">4.3 Palette</a></li>
+					<li><a href="#password">4.4 Password</a></li>
+					<li><a href="#spinner">4.5 Spinner</a></li>
+					<li><a href="#dice">4.6 Dice</a></li>
+					<li><a href="#text">4.7 Text</a></li>
+					<li><a href="#date">4.8 Date</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<section id="overview">
+	<section id="overview-content">
+		<h2>Overview</h2>
+		<p>Pengrape provides 8 different utilities which include generating random number, color, palette, password, spinner, dice, text and date. Their behavior can be customized by providing different arguments.</p>
+	</section>
+</section>
+
 <section id="installation">
 	<div id="installation-content">
 		<h2>Installation</h2>
@@ -12,14 +53,14 @@
 <section id="usage">
 	<div id="usage-content">
 		<h2>Usage</h2>
-		<h3>Generate a result</h3>
+		<h3 id="generating">Generate a result</h3>
 		<p>You can use the methods listed down here to generate a random result according to your preferences.</p>
 		<div class="method-section">
 			<div class="code">
 				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'hex' }); <span class="comment">=> #37988f</span></code>
 			</div>
 		</div>
-		<h3>Construct results</h3>
+		<h3 id="constructing">Construct results</h3>
 		<p>To generate multiple results, you can use the construct option in any methods you want.</p>
 		<div class="method-section">
 			<div class="code">
@@ -34,9 +75,9 @@
 
 <section id="methods">
 	<div id="methods-content">
-		<h2>Methods</h2>
+		<h2 id="utilities">Utilities</h2>
 		<div class="method-section">
-			<h3>Number</h3>
+			<h3 id="number">Number</h3>
 			<div class="code">
 				<code><span class="keyword">const</span> number = random.<span class="method">number</span>();</code>
 				<code>console.<span class="method">log</span>(number);<span class="comment"> => 12</span></code>
@@ -99,7 +140,7 @@
 			</div>
 		</div>
 		<div class="method-section">
-			<h3>Color</h3>
+			<h3 id="color">Color</h3>
 			<div class="code">
 				<code><span class="keyword">const</span> color = random.<span class="method">color</span>();</code>
 				<code>console.<span class="method">log</span>(color);<span class="comment"> => #f28e51</span></code>
@@ -151,7 +192,7 @@
 			</div>
 		</div>
 		<div class="method-section">
-			<h3>Palette</h3>
+			<h3 id="palette">Palette</h3>
 
 			<div class="code">
 				<code><span class="keyword">const</span> palette = random.<span class="method">palette</span>();</code>
@@ -202,7 +243,7 @@
 			</div>
 		</div>
 		<div class="method-section">
-			<h3>Password</h3>
+			<h3 id="password">Password</h3>
 			<div class="code">
 				<code><span class="keyword">const</span> password = random.<span class="method">password</span>(); </code>
 				<code>console.<span class="method">log</span>(password);<span class="comment"> => W7q0Va5RY53L63o7U0it</span> </code>
@@ -253,7 +294,7 @@
 							<td>length</td>
 							<td>Length of the password.</td>
 							<td>Any positive number</td>
-							<td>20</td>
+							<td>-</td>
 						</tr>
 						<tr>
 							<td>minLength</td>
@@ -289,7 +330,7 @@
 			</div>
 		</div>
 		<div class="method-section">
-			<h3>Spinner</h3>
+			<h3 id="spinner">Spinner</h3>
 			<div class="code">
 				<code><span class="keyword">const</span> spinner = random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Cherry', 'Apple', 'Grape' ] }); </code>
 				<code>console.<span class="method">log</span>(spinner); <span class="comment">=> Grape</span></code>
@@ -341,7 +382,7 @@
 			</div>
 		</div>
 		<div class="method-section">
-			<h3>Dice</h3>
+			<h3 id="dice">Dice</h3>
 			<div class="code">
 				<code><span class="keyword">const</span> dice = random.<span class="method">dice</span>(); </code>
 				<code>console.<span class="method">log</span>(dice);<span class="comment"> => { results: [ 2 ], total: 2 }</span> </code>
@@ -373,7 +414,7 @@
 			</div>
 		</div>
 		<div class="method-section">
-			<h3>Text</h3>
+			<h3 id="text">Text</h3>
 			<div class="code">
 				<code><span class="keyword">const</span> text = random.<span class="method">text</span>(); </code>
 				<code>console.<span class="method">log</span>(text);<span class="comment"> => Daklwobzahga orlkevpzon neuytakjagab laeves hegg ugleesxaq.</span> </code>
@@ -418,7 +459,7 @@
 			</div>
 		</div>
 		<div class="method-section">
-			<h3>Date</h3>
+			<h3 id="date">Date</h3>
 			<div class="code">
 				<code><span class="keyword">const</span> date = random.<span class="method">date</span>(); </code>
 				<code>console.<span class="method">log</span>(date);<span class="comment"> => 2021-04-29</span> </code>
@@ -448,13 +489,13 @@
 							<td>dateStart</td>
 							<td>Start date.</td>
 							<td>An array with three items</td>
-							<td>[2021, 1, 1]</td>
+							<td>today</td>
 						</tr>
 						<tr>
 							<td>dateEnd</td>
 							<td>End date.</td>
 							<td>An array with three items</td>
-							<td>[2022, 1, 1]</td>
+							<td>end of the year</td>
 						</tr>
 						<tr>
 							<td>format</td>
