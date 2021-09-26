@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="/static/dist/stylesheets/prism.css" />
+<script type="module" src="/static/dist/javascripts/prism.js"></script>
+
 <section id="contents">
 	<div id="toc-container">
 		<h2>Contents</h2>
@@ -43,9 +46,9 @@
 	<div id="installation-content">
 		<h2>Installation</h2>
 		<div class="method-section">
-			<div class="code">
-				<code><span class="no-select">$ </span>npm install pengrape</code>
-			</div>
+			<pre>
+				<code class="language-js">$ npm install pengrape</code>
+			</pre>
 		</div>
 	</div>
 </section>
@@ -56,19 +59,16 @@
 		<h3 id="generating">Generate a result</h3>
 		<p>You can use the methods listed down here to generate a random result according to your preferences.</p>
 		<div class="method-section">
-			<div class="code">
-				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'hex' }); <span class="comment">=> #37988f</span></code>
-			</div>
+			<pre>
+				<code class="language-js">random.color({ format: 'hex' }); // #37988f</code>
+			</pre>
 		</div>
 		<h3 id="constructing">Construct results</h3>
 		<p>To generate multiple results, you can use the construct option in any methods you want.</p>
 		<div class="method-section">
-			<div class="code">
-				<code
-					>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'hex', <span class="parameter">construct:</span> 4 });
-					<span class="comment">=> [ '#1c5f15' , '#33168c' , '#7533f5' , '#08e4b3' ]</span></code
-				>
-			</div>
+			<pre>
+				<code class="language-js">random.color({ format: 'hex', construct: 4 }); // [ '#1c5f15' , '#33168c' , '#7533f5' , '#08e4b3' ]</code>
+			</pre>
 		</div>
 	</div>
 </section>
@@ -78,17 +78,16 @@
 		<h2 id="utilities">Utilities</h2>
 		<div class="method-section">
 			<h3 id="number">Number</h3>
-			<div class="code">
-				<code><span class="keyword">const</span> number = random.<span class="method">number</span>();</code>
-				<code>console.<span class="method">log</span>(number);<span class="comment"> => 12</span></code>
-			</div>
+			<pre><code class="language-js">const number = random.number();
+console.log(number); // 12</code>
+			</pre>
 			<h4>Examples</h4>
-			<div class="code">
-				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12</span> }); <span class="comment">=> 6</span></code>
-				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, type:</span> 'decimal' }); <span class="comment">=> 5.1734</span></code>
-				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, type:</span> 'decimal', <span class="parameter">precision: 6</span> }); <span class="comment">=> 11.129582</span></code>
-				<code>random.<span class="method">number</span>({ <span class="parameter">min: 4, max: 12, parity:</span> 'odd' }); <span class="comment">=> 7</span></code>
-			</div>
+			<pre>
+				<code class="language-js">random.number({ min: 4, max: 12 }); // 6
+random.number({ min: 4, max: 12, type: 'decimal' }); // 5.1734
+random.number({ min: 4, max: 12, type: 'decimal', precision: 6 }); // 11.129582
+random.number({ min: 4, max: 12, parity: 'odd' }); // 7</code>
+			</pre>
 			<h4>Options</h4>
 			<div class="options-section">
 				<div class="table-section">
@@ -133,32 +132,26 @@
 				</div>
 			</div>
 			<h4>Notes</h4>
-			<div class="code">
-				<code>- To use parity, type value must be selected as 'integer'.</code>
-				<code>- To use precision, type value must be selected as 'decimal'.</code>
-				<code>- Min and max are inclusive, so they are included in the range.</code>
-			</div>
+			<ul class="notes">
+				<li>To use parity, type value must be selected as 'integer'.</li>
+				<li>To use precision, type value must be selected as 'decimal'.</li>
+				<li>Min and max are inclusive, so they are included in the range.</li>
+			</ul>
 		</div>
 		<div class="method-section">
 			<h3 id="color">Color</h3>
-			<div class="code">
-				<code><span class="keyword">const</span> color = random.<span class="method">color</span>();</code>
-				<code>console.<span class="method">log</span>(color);<span class="comment"> => #f28e51</span></code>
-			</div>
+			<pre>
+				<code class="language-js">const color = random.color();
+console.log(color); // #f28e51</code>
+			</pre>
 			<h4>Examples</h4>
-			<div class="code">
-				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb' }); <span class="comment">=> rgb(124, 97, 124)</span></code>
-				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">syntax:</span> 'list' }); <span class="comment">=> [ 46, 106, 45 ]</span></code>
-				<code
-					>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">values:</span> [ <span class="parameter">null</span>, <span class="parameter">null</span>, '77' ] });
-					<span class="comment">=> rgb(23, 148, 77)</span></code
-				>
-				<code>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'all' }); <span class="comment">=> [ '#bee82c', 'rgb(190, 232, 44)', 'hsl(73, 80%, 54%)' ]</span></code>
-				<code
-					>random.<span class="method">color</span>({ <span class="parameter">format:</span> 'all', <span class="parameter">values:</span> [ 'hex', <span class="parameter">null</span>, 'b3',<span class="parameter"> null</span> ]
-					}); <span class="comment">=> [ '#c6b3f9' , 'rgb(198, 179, 249)', 'hsl(256, 85, 84)' ]</span></code
-				>
-			</div>
+			<pre>
+				<code class="language-js">random.color({ format: 'rgb' }); // rgb(124, 97, 124)
+random.color({ format: 'rgb', syntax: 'list' }); // [ 46, 106, 45 ]
+random.color({ format: 'rgb', values: [ null, null, '77' ] }); // rgb(23, 148, 77)
+random.color({ format: 'all' }); // [ '#bee82c', 'rgb(190, 232, 44)', 'hsl(73, 80%, 54%)' ]
+random.color({ format: 'all', values: [ 'hex', null, 'b3', null ] }); // [ '#c6b3f9' , 'rgb(198, 179, 249)', 'hsl(256, 85, 84)' ]</code>
+			</pre>
 			<h4>Options</h4>
 			<div class="options-section">
 				<div class="table-section">
@@ -194,22 +187,16 @@
 		<div class="method-section">
 			<h3 id="palette">Palette</h3>
 
-			<div class="code">
-				<code><span class="keyword">const</span> palette = random.<span class="method">palette</span>();</code>
-				<code>console.<span class="method">log</span>(palette);<span class="comment"> => ['#e41bc9' , '#c51adb' , '#9d2adf' , '#641adb' , '#361be4' ]</span></code>
-			</div>
+			<pre>
+				<code class="language-js">const palette = random.palette();
+console.log(palette); // ['#e41bc9' , '#c51adb' , '#9d2adf' , '#641adb' , '#361be4' ]</code>
+			</pre>
 			<h4>Examples</h4>
-			<div class="code">
-				<code>random.<span class="method">palette</span>({ <span class="parameter">harmony:</span> 'complementary' }); <span class="comment">=> ['#29af04' , '#49e01f' , '#41ed12' , '#8a04af' , '#be12ed' </span></code>
-				<code
-					>random.<span class="method">palette</span>({ <span class="parameter">format:</span> 'rgb', <span class="parameter">harmony:</span> 'monochromatic' });
-					<span class="comment">=> ['rgb(34, 111, 1)' , 'rgb(91, 210, 40)' , 'rgb(73, 237, 2)' , 'rgb(41, 94, 18)' , 'rgb(59, 192, 2)' ]</span></code
-				>
-				<code
-					>random.<span class="method">palette</span>({ <span class="parameter">syntax:</span> 'list' });
-					<span class="comment">=> [['4e', 'b1', '6c'], ['4b', 'aa', '4f'], ['6c', 'ae', '5b'], ['76', 'aa', '4b'], ['93', 'b1', '4e']]</span></code
-				>
-			</div>
+			<pre>
+				<code class="language-js">random.palette({ harmony: 'complementary' }); // ['#29af04' , '#49e01f' , '#41ed12' , '#8a04af' , '#be12ed'
+random.palette({ format: 'rgb', harmony: 'monochromatic' }); // ['rgb(34, 111, 1)' , 'rgb(91, 210, 40)' , 'rgb(73, 237, 2)' , 'rgb(41, 94, 18)' , 'rgb(59, 192, 2)' ]
+random.palette({ syntax: 'list' }); // [['4e', 'b1', '6c'], ['4b', 'aa', '4f'], ['6c', 'ae', '5b'], ['76', 'aa', '4b'], ['93', 'b1', '4e']]</code>
+			</pre>
 			<h4>Options</h4>
 			<div class="options-section">
 				<div class="table-section">
@@ -244,18 +231,18 @@
 		</div>
 		<div class="method-section">
 			<h3 id="password">Password</h3>
-			<div class="code">
-				<code><span class="keyword">const</span> password = random.<span class="method">password</span>(); </code>
-				<code>console.<span class="method">log</span>(password);<span class="comment"> => W7q0Va5RY53L63o7U0it</span> </code>
-			</div>
+			<pre>
+				<code class="language-js">const password = random.password();
+console.log(password); // W7q0Va5RY53L63o7U0it</code>
+			</pre>
 			<h4>Examples</h4>
-			<div class="code">
-				<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false</span> }); <span class="comment">=> buab5r7dy5jsoy2wsu</span></code>
-				<code>random.<span class="method">password</span>({ <span class="parameter">lowercase: true, uppercase: false, symbol: true</span> }); <span class="comment">=> e%zpsj3c/7z%bfw#gas5u</span></code>
-				<code>random.<span class="method">password</span>({ <span class="parameter">length: 12</span> }); <span class="comment">=> KVgp6piIu3Ap</span></code>
-				<code>random.<span class="method">password</span>({ <span class="parameter">minLength: 6</span>, <span class="parameter">maxLength: 10</span> }); <span class="comment">=> QTvKn52sP</span></code>
-				<code>random.<span class="method">password</span>({ <span class="parameter">symbol: true, symbolPool:</span> '#&'); <span class="comment">=> A#Ii9Ir2s8#Eq43EP3&Sw</span></code>
-			</div>
+			<pre>
+				<code class="language-js">random.password({ lowercase: true, uppercase: false }); // buab5r7dy5jsoy2wsu
+random.password({ lowercase: true, uppercase: false, symbol: true }); // e%zpsj3c/7z%bfw#gas5u
+random.password({ length: 12 }); // KVgp6piIu3Ap
+random.password({ minLength: 6, maxLength: 10 }); // QTvKn52sP
+random.password({ symbol: true, symbolPool: '#&'); // A#Ii9Ir2s8#Eq43EP3&Sw</code>
+			</pre>
 			<h4>Options</h4>
 			<div class="options-section">
 				<div class="table-section">
@@ -324,31 +311,28 @@
 				</div>
 			</div>
 			<h4>Notes</h4>
-			<div class="code">
-				<code>- If length option is selected, minLength and maxLength options will not work.</code>
-				<code>- MinLength and maxLength are inclusive, so they are included in the range.</code>
-			</div>
+			<ul class="notes">
+				<li>If length option is selected, minLength and maxLength options will not work.</li>
+				<li>MinLength and maxLength are inclusive, so they are included in the range..</li>
+			</ul>
 		</div>
 		<div class="method-section">
 			<h3 id="spinner">Spinner</h3>
-			<div class="code">
-				<code><span class="keyword">const</span> spinner = random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Cherry', 'Apple', 'Grape' ] }); </code>
-				<code>console.<span class="method">log</span>(spinner); <span class="comment">=> Grape</span></code>
-			</div>
+			<pre>
+				<code class="language-js">const spinner = random.spinner({ entries: [ 'Cherry', 'Apple', 'Grape' ] });
+console.log(spinner); // Grape</code>
+			</pre>
 			<h4>Examples</h4>
-			<div class="code">
-				<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], <span class="parameter">returnDetails: true</span> }); </code>
-				<code><span class="comment">=> { entry: 'St. Bernard', min: 180, max: 270, deg: 237, data: 90, isWinner: true }</span></code>
-				<code>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], <span class="parameter">returnEntries: true</span> }); </code>
-				<code><span class="comment">=> [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ]</span></code>
-				<code
-					>random.<span class="method">spinner</span>({ <span class="parameter">entries:</span> [ 'Pizza', 'Lasagna', 'Quesadilla' ], <span class="parameter">returnDetails: true</span>,
-					<span class="parameter">returnEntries: true</span> });
-				</code>
-				<code class="comment">=> [ { entry: 'Pizza', min: 0, max: 120, deg: 208, data: 120, isWinner: false },</code>
-				<code class="comment">&nbsp;&nbsp; { entry: 'Lasagna', min: 120, max: 240, deg: 208, data: 120, isWinner: true },</code>
-				<code class="comment">&nbsp;&nbsp; { entry: 'Quesadilla', min: 240, max: 360, deg: 208, data:120, isWinner: false } ]</code>
-			</div>
+			<pre>
+				<code class="language-js">random.spinner({ entries: [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], returnDetails: true });
+// { entry: 'St. Bernard', min: 180, max: 270, deg: 237, data: 90, isWinner: true }
+random.spinner({ entries: [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], returnEntries: true });
+// [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ]
+random.spinner({ entries: [ 'Pizza', 'Lasagna', 'Quesadilla' ], returnDetails: true, returnEntries: true });
+// [ { entry: 'Pizza', min: 0, max: 120, deg: 208, data: 120, isWinner: false },
+// { entry: 'Lasagna', min: 120, max: 240, deg: 208, data: 120, isWinner: true },
+// { entry: 'Quesadilla', min: 240, max: 360, deg: 208, data:120, isWinner: false } ]</code>
+			</pre>
 			<h4>Options</h4>
 			<div class="options-section">
 				<div class="table-section">
@@ -383,16 +367,16 @@
 		</div>
 		<div class="method-section">
 			<h3 id="dice">Dice</h3>
-			<div class="code">
-				<code><span class="keyword">const</span> dice = random.<span class="method">dice</span>(); </code>
-				<code>console.<span class="method">log</span>(dice);<span class="comment"> => { results: [ 2 ], total: 2 }</span> </code>
-			</div>
+			<pre>
+				<code class="language-js">const dice = random.dice();
+console.log(dice); // { results: [ 2 ], total: 2 }</code>
+			</pre>
 			<h4>Examples</h4>
-			<div class="code">
-				<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> '2d10' });<span class="comment"> => { results: [ 4, 10 ], total: 14 }</span> </code>
-				<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> 'd20' });<span class="comment"> => { results: [ 15 ], total: 15 }</span> </code>
-				<code>random.<span class="method">dice</span>({ <span class="parameter">notation:</span> '6d20' });<span class="comment"> => { results: [ 6, 20, 15, 19, 2, 2 ], total: 64 }</span> </code>
-			</div>
+			<pre>
+				<code class="language-js">random.dice({ notation: '2d10' }); // { results: [ 4, 10 ], total: 14 }
+random.dice({ notation: 'd20' }); // { results: [ 15 ], total: 15 }
+random.dice({ notation: '6d20' }); // { results: [ 6, 20, 15, 19, 2, 2 ], total: 64 }</code>
+			</pre>
 			<h4>Options</h4>
 			<div class="options-section">
 				<div class="table-section">
@@ -415,16 +399,16 @@
 		</div>
 		<div class="method-section">
 			<h3 id="text">Text</h3>
-			<div class="code">
-				<code><span class="keyword">const</span> text = random.<span class="method">text</span>(); </code>
-				<code>console.<span class="method">log</span>(text);<span class="comment"> => Daklwobzahga orlkevpzon neuytakjagab laeves hegg ugleesxaq.</span> </code>
-			</div>
+			<pre>
+				<code class="language-js">const text = random.text();
+console.log(text); // Daklwobzahga orlkevpzon neuytakjagab laeves hegg ugleesxaq.</code>
+			</pre>
 			<h4>Examples</h4>
-			<div class="code">
-				<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'letter' });<span class="comment"> => p</span> </code>
-				<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'word' });<span class="comment"> => luswepisa</span> </code>
-				<code>random.<span class="method">text</span>({ <span class="parameter">type:</span> 'sentence', <span class="parameter">length: 4</span> });<span class="comment"> => Neidva gejtaqxozuja diq cierl.</span> </code>
-			</div>
+			<pre>
+				<code class="language-js">random.text({ type: 'letter' }); // p
+random.text({ type: 'word' }); // luswepisa
+random.text({ type: 'sentence', length: 4 }); // Neidva gejtaqxozuja diq cierl.</code>
+			</pre>
 			<h4>Options</h4>
 			<div class="options-section">
 				<div class="table-section">
@@ -451,30 +435,24 @@
 				</div>
 			</div>
 			<h4>Notes</h4>
-			<div class="code">
-				<code>- Length value will not work if type value is 'letter' or 'syllable'.</code>
-				<code>- The unit of length value will be letters if type value is 'word'.</code>
-				<code>- The unit of length value will be words if type value is 'sentence'.</code>
-				<code>- The unit of length value will be sentences if type value is 'paragraph'.</code>
-			</div>
+			<ul class="notes">
+				<li>Length value will not work if type value is 'letter' or 'syllable'.</li>
+				<li>The unit of length value will be letters if type value is 'word'.</li>
+				<li>The unit of length value will be words if type value is 'sentence'.</li>
+				<li>The unit of length value will be sentences if type value is 'paragraph'.</li>
+			</ul>
 		</div>
 		<div class="method-section">
 			<h3 id="date">Date</h3>
-			<div class="code">
-				<code><span class="keyword">const</span> date = random.<span class="method">date</span>(); </code>
-				<code>console.<span class="method">log</span>(date);<span class="comment"> => 2021-04-29</span> </code>
-			</div>
+			<pre>
+				<code class="language-js">const date = random.date();
+console.log(date); // 2021-04-29</code>
+			</pre>
 			<h4>Examples</h4>
-			<div class="code">
-				<code>random.<span class="method">date</span>({ <span class="parameter">dateStart: </span>[2021, 1, 1], <span class="parameter"> dateEnd: </span>[2021, 6, 17] });<span class="comment"> => 2021-02-23 </span> </code>
-				<code
-					>random.<span class="method">date</span>({ <span class="parameter">dateStart: </span>[1874, 4, 21], <span class="parameter"> dateEnd: </span>[1878, 11, 30], <span class="parameter"> format: </span> 'dd/mm/yyyy' });<span
-						class="comment"
-					>
-						=> 29/12/1877
-					</span>
-				</code>
-			</div>
+			<pre>
+				<code class="language-js">random.date({ dateStart: [2021, 1, 1], dateEnd: [2021, 6, 17] }); // 2021-02-23
+random.date({ dateStart: [1874, 4, 21], dateEnd: [1878, 11, 30], format: 'dd/mm/yyyy' }); // 29/12/1877</code>
+			</pre>
 			<h4>Options</h4>
 			<div class="options-section">
 				<div class="table-section">

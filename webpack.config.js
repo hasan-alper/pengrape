@@ -16,6 +16,7 @@ module.exports = {
 		diceRoller: "./public/javascripts/diceRoller.js",
 		randomText: "./public/javascripts/randomText.js",
 		randomDate: "./public/javascripts/randomDate.js",
+		prism: "./public/javascripts/prism.js",
 	},
 	output: {
 		filename: "javascripts/[name].js",

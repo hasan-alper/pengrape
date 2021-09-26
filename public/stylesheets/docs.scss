@@ -157,20 +157,6 @@ code {
 	font-family: "Inconsolata", monospace;
 }
 
-.code {
-	display: flex;
-	flex-direction: column;
-	overflow: auto;
-	white-space: nowrap;
-	background-color: $light-1;
-	border-radius: $border-radius;
-	border: $border-section;
-}
-
-.no-select {
-	user-select: none;
-}
-
 h2 {
 	font-size: 2.5rem;
 	font-weight: 500;
@@ -192,21 +178,8 @@ h4 {
 	user-select: none;
 }
 
-.keyword {
-	color: $primary-color;
-}
-
-.method {
-	color: #6f42c1;
-}
-
-.parameter {
-	color: #005cc5;
-}
-
-.comment {
-	color: $dark-2;
-	padding-right: 1rem;
+.notes {
+	margin: 1rem;
 }
 
 @media only screen and (max-width: 1000px) {
