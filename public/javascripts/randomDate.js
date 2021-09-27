@@ -2,6 +2,11 @@ require("../stylesheets/randomDate.scss");
 
 const random = require("pengrape");
 
+const colorPrimary = "#e87477";
+const colorBlack = "#24292e";
+const colorDark = "#586069";
+const colorGray = "#99a2ad";
+
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
 
@@ -124,8 +129,70 @@ const condition = () => {
 };
 
 const validate = () => {
-	if (condition().includes(false)) buttonGenerate.disabled = true;
+	const conditions = condition();
+	if (conditions.includes(false)) buttonGenerate.disabled = true;
 	else buttonGenerate.disabled = false;
+	if (!conditions[0]) {
+		inputStartYear.style.color = colorPrimary;
+		inputStartYear.style.borderColor = colorPrimary;
+	} else {
+		inputStartYear.style.color = colorDark;
+		inputStartYear.style.borderColor = colorGray;
+	}
+	if (!conditions[1]) {
+		inputStartMonth.style.color = colorPrimary;
+		inputStartMonth.style.borderColor = colorPrimary;
+	} else {
+		inputStartMonth.style.color = colorDark;
+		inputStartMonth.style.borderColor = colorGray;
+	}
+	if (!conditions[2]) {
+		inputStartDay.style.color = colorPrimary;
+		inputStartDay.style.borderColor = colorPrimary;
+	} else {
+		inputStartDay.style.color = colorDark;
+		inputStartDay.style.borderColor = colorGray;
+	}
+	if (!conditions[3]) {
+		inputEndYear.style.color = colorPrimary;
+		inputEndYear.style.borderColor = colorPrimary;
+	} else {
+		inputEndYear.style.color = colorDark;
+		inputEndYear.style.borderColor = colorGray;
+	}
+	if (!conditions[4]) {
+		inputEndMonth.style.color = colorPrimary;
+		inputEndMonth.style.borderColor = colorPrimary;
+	} else {
+		inputEndMonth.style.color = colorDark;
+		inputEndMonth.style.borderColor = colorGray;
+	}
+	if (!conditions[5]) {
+		inputEndDay.style.color = colorPrimary;
+		inputEndDay.style.borderColor = colorPrimary;
+	} else {
+		inputEndDay.style.color = colorDark;
+		inputEndDay.style.borderColor = colorGray;
+	}
+	if (!conditions[6]) {
+		inputQuantity.style.color = colorPrimary;
+		inputQuantity.style.borderColor = colorPrimary;
+	} else {
+		inputQuantity.style.color = colorDark;
+		inputQuantity.style.borderColor = colorGray;
+	}
+	if (!conditions[7]) {
+		if (!conditions[0] || !conditions[1] || !conditions[2] || !conditions[3] || !conditions[4] || !conditions[5]) {
+			document.querySelector("#start-label").style.color = colorDark;
+			document.querySelector("#end-label").style.color = colorDark;
+		} else {
+			document.querySelector("#start-label").style.color = colorPrimary;
+			document.querySelector("#end-label").style.color = colorPrimary;
+		}
+	} else {
+		document.querySelector("#start-label").style.color = colorDark;
+		document.querySelector("#end-label").style.color = colorDark;
+	}
 };
 
 inputStartYear.addEventListener("input", validate);

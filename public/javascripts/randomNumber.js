@@ -2,6 +2,11 @@ require("../stylesheets/randomNumber.scss");
 
 const random = require("pengrape");
 
+const colorPrimary = "#e87477";
+const colorBlack = "#24292e";
+const colorDark = "#586069";
+const colorGray = "#99a2ad";
+
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
 
@@ -133,8 +138,52 @@ const condition = () => {
 };
 
 const validate = () => {
-	if (condition().includes(false)) buttonGenerate.disabled = true;
+	const conditions = condition();
+	if (conditions.includes(false)) buttonGenerate.disabled = true;
 	else buttonGenerate.disabled = false;
+	if (!conditions[0]) {
+		inputMin.style.color = colorPrimary;
+		inputMin.style.borderColor = colorPrimary;
+	} else {
+		inputMin.style.color = colorDark;
+		inputMin.style.borderColor = colorGray;
+	}
+	if (!conditions[1]) {
+		inputMax.style.color = colorPrimary;
+		inputMax.style.borderColor = colorPrimary;
+	} else {
+		inputMax.style.color = colorDark;
+		inputMax.style.borderColor = colorGray;
+	}
+	if (!conditions[2]) {
+		inputMin.style.color = colorPrimary;
+		inputMin.style.borderColor = colorPrimary;
+		inputMax.style.color = colorPrimary;
+		inputMax.style.borderColor = colorPrimary;
+	} else {
+		if (conditions[0]) {
+			inputMin.style.color = colorDark;
+			inputMin.style.borderColor = colorGray;
+		}
+		if (conditions[1]) {
+			inputMax.style.color = colorDark;
+			inputMax.style.borderColor = colorGray;
+		}
+	}
+	if (!conditions[3]) {
+		inputPrecision.style.color = colorPrimary;
+		inputPrecision.style.borderColor = colorPrimary;
+	} else {
+		inputPrecision.style.color = colorDark;
+		inputPrecision.style.borderColor = colorGray;
+	}
+	if (!conditions[4]) {
+		inputQuantity.style.color = colorPrimary;
+		inputQuantity.style.borderColor = colorPrimary;
+	} else {
+		inputQuantity.style.color = colorDark;
+		inputQuantity.style.borderColor = colorGray;
+	}
 };
 
 inputMin.addEventListener("input", validate);

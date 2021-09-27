@@ -2,6 +2,11 @@ require("../stylesheets/randomPassword.scss");
 
 const random = require("pengrape");
 
+const colorPrimary = "#e87477";
+const colorBlack = "#24292e";
+const colorDark = "#586069";
+const colorGray = "#99a2ad";
+
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
 
@@ -159,8 +164,66 @@ const condition = () => {
 };
 
 const validate = () => {
-	if (condition().includes(false)) buttonGenerate.disabled = true;
+	const conditions = condition();
+	if (conditions.includes(false)) buttonGenerate.disabled = true;
 	else buttonGenerate.disabled = false;
+	if (!conditions[0]) {
+		inputMin.style.color = colorPrimary;
+		inputMin.style.borderColor = colorPrimary;
+	} else {
+		inputMin.style.color = colorDark;
+		inputMin.style.borderColor = colorGray;
+	}
+	if (!conditions[1]) {
+		inputMax.style.color = colorPrimary;
+		inputMax.style.borderColor = colorPrimary;
+	} else {
+		inputMax.style.color = colorDark;
+		inputMax.style.borderColor = colorGray;
+	}
+	if (!conditions[2]) {
+		inputMin.style.color = colorPrimary;
+		inputMin.style.borderColor = colorPrimary;
+		inputMax.style.color = colorPrimary;
+		inputMax.style.borderColor = colorPrimary;
+	} else {
+		if (conditions[0]) {
+			inputMin.style.color = colorDark;
+			inputMin.style.borderColor = colorGray;
+		}
+		if (conditions[1]) {
+			inputMax.style.color = colorDark;
+			inputMax.style.borderColor = colorGray;
+		}
+	}
+	if (!conditions[3]) {
+		inputLength.style.color = colorPrimary;
+		inputLength.style.borderColor = colorPrimary;
+	} else {
+		inputLength.style.color = colorDark;
+		inputLength.style.borderColor = colorGray;
+	}
+	if (!conditions[4]) {
+		document.querySelector("#option-2 .header").style.color = colorPrimary;
+		document.querySelector("#option-2 .description").style.color = colorPrimary;
+	} else {
+		document.querySelector("#option-2 .header").style.color = colorBlack;
+		document.querySelector("#option-2 .description").style.color = colorDark;
+	}
+	if (!conditions[5]) {
+		inputSymbolPool.style.color = colorPrimary;
+		inputSymbolPool.style.borderColor = colorPrimary;
+	} else {
+		inputSymbolPool.style.color = colorDark;
+		inputSymbolPool.style.borderColor = colorGray;
+	}
+	if (!conditions[6]) {
+		inputQuantity.style.color = colorPrimary;
+		inputQuantity.style.borderColor = colorPrimary;
+	} else {
+		inputQuantity.style.color = colorDark;
+		inputQuantity.style.borderColor = colorGray;
+	}
 };
 
 inputMin.addEventListener("input", validate);
