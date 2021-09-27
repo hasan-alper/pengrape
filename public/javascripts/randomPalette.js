@@ -2,10 +2,11 @@ require("../stylesheets/randomPalette.scss");
 
 const random = require("pengrape");
 
-const colorPrimary = "#e87477";
-const colorBlack = "#24292e";
-const colorDark = "#586069";
-const colorGray = "#99a2ad";
+const colorPrimary = "#eb4763";
+const colorBlack = "#202020";
+const colorDark = "#505050";
+const colorGray = "#a3a3a3";
+const colorWhite = "#fbfbfb";
 
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
@@ -70,7 +71,7 @@ buttonGenerate.addEventListener("click", () => {
 	for (let i = 0; i < 5; i++) {
 		sectionColors[i].style.backgroundColor = history[history.length - 1].normal[0][i];
 		sectionColors[i].innerHTML = history[history.length - 1].normal[colorFormatIndex][i];
-		sectionColors[i].style.color = history[history.length - 1].list[2][i][2] > 45 ? "black" : "white";
+		sectionColors[i].style.color = history[history.length - 1].list[2][i][2] > 45 ? colorBlack : "white";
 
 		buttonHex.addEventListener("click", () => {
 			sectionColors[i].innerHTML = history[history.length - 1].normal[0][i];
@@ -96,7 +97,7 @@ buttonUndo.addEventListener("click", () => {
 			for (let i = 0; i < 5; i++) {
 				sectionColors[i].style.backgroundColor = history[history.length - 1].normal[0][i];
 				sectionColors[i].innerHTML = history[history.length - 1].normal[colorFormatIndex][i];
-				sectionColors[i].style.color = history[history.length - 1].list[2][i][2] > 45 ? "black" : "white";
+				sectionColors[i].style.color = history[history.length - 1].list[2][i][2] > 45 ? colorBlack : "white";
 			}
 			colorFormatIndex = i;
 		}
@@ -114,14 +115,14 @@ buttonTabsGenerate.addEventListener("click", () => {
 				for (let i = 0; i < 5; i++) {
 					sectionColors[i].style.backgroundColor = history[history.length - 1].normal[0][i];
 					sectionColors[i].innerHTML = history[history.length - 1].normal[colorFormatIndex][i];
-					sectionColors[i].style.color = history[history.length - 1].list[2][i][2] > 45 ? "black" : "white";
+					sectionColors[i].style.color = history[history.length - 1].list[2][i][2] > 45 ? colorBlack : "white";
 				}
 				colorFormatIndex = i;
 			}
 		});
 	} else {
 		for (let i = 0; i < 5; i++) {
-			sectionColors[i].style.backgroundColor = "#fafbfc";
+			sectionColors[i].style.backgroundColor = colorWhite;
 			sectionColors[i].innerHTML = "";
 		}
 	}
@@ -137,8 +138,8 @@ buttonTabsGenerate.addEventListener("click", () => {
 });
 
 buttonTabsConstruct.addEventListener("click", () => {
-	resultContent.style.color = "#24292e";
-	sectionResult.style.backgroundColor = "#fafbfc";
+	resultContent.style.color = colorBlack;
+	sectionResult.style.backgroundColor = colorWhite;
 	buttonUndo.disabled = true;
 	mode = "construct";
 	buttonGenerate.innerText = "Construct";

@@ -62,8 +62,11 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 4rem;
+	height: 5rem;
 	background-color: $dark-1;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 8px;
+	position: relative;
+	z-index: 1;
 }
 
 #navbar-content {
@@ -76,16 +79,23 @@ body {
 }
 
 #button-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	color: $light-1;
-	font-size: 2rem;
-	font-family: $font-family-logo;
+	font-size: 1.25rem;
 	text-decoration: none;
+	margin-right: auto;
 }
 
-#button-docs {
+#logo-name {
+	margin-left: 0.5rem;
+}
+
+.navbar-links {
 	color: $light-1;
 	text-decoration: none;
-	margin-left: auto;
+	margin-left: 3rem;
 }
 
 // **************** TABS **************** //
@@ -253,11 +263,11 @@ body {
 	overflow-y: scroll;
 }
 
-::-webkit-scrollbar {
+#construct-content ::-webkit-scrollbar {
 	-webkit-appearance: none;
 	width: 7px;
 }
-::-webkit-scrollbar-thumb {
+#construct-content ::-webkit-scrollbar-thumb {
 	border-radius: 4px;
 	background-color: rgba(0, 0, 0, 0.5);
 }
@@ -337,6 +347,10 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+	#logo-name {
+		display: none;
+	}
+
 	#tabs {
 		height: 7em;
 	}
@@ -411,6 +425,9 @@ body {
 }
 
 @media only screen and (max-width: 450px) {
+	#utilities-link {
+		display: none;
+	}
 	#options .header-contents {
 		width: 100%;
 	}

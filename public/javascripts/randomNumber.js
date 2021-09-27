@@ -2,10 +2,10 @@ require("../stylesheets/randomNumber.scss");
 
 const random = require("pengrape");
 
-const colorPrimary = "#e87477";
-const colorBlack = "#24292e";
-const colorDark = "#586069";
-const colorGray = "#99a2ad";
+const colorPrimary = "#eb4763";
+const colorBlack = "#202020";
+const colorDark = "#505050";
+const colorGray = "#a3a3a3";
 
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");

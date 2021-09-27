@@ -2,10 +2,11 @@ require("../stylesheets/randomColor.scss");
 
 const random = require("pengrape");
 
-const colorPrimary = "#e87477";
-const colorBlack = "#24292e";
-const colorDark = "#586069";
-const colorGray = "#99a2ad";
+const colorPrimary = "#eb4763";
+const colorBlack = "#202020";
+const colorDark = "#505050";
+const colorGray = "#a3a3a3";
+const colorWhite = "#fbfbfb";
 
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
@@ -77,7 +78,7 @@ buttonGenerate.addEventListener("click", () => {
 
 	sectionResult.style.backgroundColor = history[history.length - 1].normal[0];
 	resultContent.innerHTML = history[history.length - 1].normal[colorFormatIndex];
-	resultContent.style.color = history[history.length - 1].list[2][2] > 45 ? "black" : "white";
+	resultContent.style.color = history[history.length - 1].list[2][2] > 45 ? colorBlack : "white";
 
 	rangeOutputs.forEach((rangeOutput, i) => {
 		rangeOutput.innerHTML = history[history.length - 1].list[colorFormatIndex][i];
@@ -140,7 +141,7 @@ buttonUndo.addEventListener("click", () => {
 		if (colorOpt.checked) {
 			sectionResult.style.backgroundColor = history[history.length - 1].normal[0];
 			resultContent.innerHTML = history[history.length - 1].normal[i];
-			resultContent.style.color = history[history.length - 1].list[2][2] > 45 ? "black" : "white";
+			resultContent.style.color = history[history.length - 1].list[2][2] > 45 ? colorBlack : "white";
 			colorFormatIndex = i;
 		}
 	});
@@ -232,9 +233,9 @@ for (let i = 0; i < 3; i++) {
 buttonTabsGenerate.addEventListener("click", () => {
 	if (history.length > 0) {
 		sectionResult.style.backgroundColor = history[history.length - 1].normal[0];
-		resultContent.style.color = history[history.length - 1].list[2][2] > 45 ? "black" : "white";
+		resultContent.style.color = history[history.length - 1].list[2][2] > 45 ? colorBlack : "white";
 	} else {
-		sectionResult.style.backgroundColor = "#fafbfc";
+		sectionResult.style.backgroundColor = colorWhite;
 		resultContent.innerHTML = "";
 	}
 	if (history.length === 1) buttonUndo.disabled = true;
@@ -248,8 +249,8 @@ buttonTabsGenerate.addEventListener("click", () => {
 });
 
 buttonTabsConstruct.addEventListener("click", () => {
-	resultContent.style.color = "#24292e";
-	sectionResult.style.backgroundColor = "#fafbfc";
+	resultContent.style.color = colorBlack;
+	sectionResult.style.backgroundColor = colorWhite;
 	buttonUndo.disabled = true;
 	mode = "construct";
 	buttonGenerate.innerText = "Construct";
