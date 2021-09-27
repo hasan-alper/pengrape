@@ -62,6 +62,11 @@
 	height: 50px;
 }
 
+#output-content-wrap {
+	height: 381px;
+	overflow-y: scroll;
+}
+
 #output-content {
 	display: grid;
 	grid-gap: 1rem;
@@ -84,6 +89,11 @@
 	#option-2,
 	#option-3 {
 		display: none;
+	}
+
+	#output-content-wrap {
+		height: 253px;
+		overflow-y: scroll;
 	}
 
 	#output-content {

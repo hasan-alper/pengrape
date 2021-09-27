@@ -217,7 +217,7 @@ body {
 
 #result {
 	grid-area: result;
-	min-height: 33rem;
+	min-height: 32rem;
 	padding: 1rem;
 	background-color: $light-1;
 	border-radius: $border-radius;
@@ -248,10 +248,24 @@ body {
 	margin-left: 1rem;
 }
 
+#constructed-results-wrap {
+	height: 381px;
+	overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
 #constructed-results-content {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: flex-start;
 	font-size: 2rem;
 	font-family: "Inconsolata", monospace;
@@ -389,6 +403,10 @@ body {
 
 	#result {
 		min-height: 24rem;
+	}
+
+	#constructed-results-wrap {
+		height: 253px;
 	}
 }
 
