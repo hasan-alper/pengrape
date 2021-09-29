@@ -1,7 +1,7 @@
 module.exports.randomNumber = (req, res) => {
 	res.render("utilities/randomNumber", {
 		title: "Random Number - Pengrape",
-		description: "Generate random number between the two numbers that you chose.",
+		description: "Generate a random number between the two numbers that you chose.",
 		keywords: "generate, random, number, integer, decimal, odd, even",
 		scriptRoute: "randomNumber",
 		layout: "layouts/utilities",
@@ -11,7 +11,7 @@ module.exports.randomNumber = (req, res) => {
 module.exports.randomColor = (req, res) => {
 	res.render("utilities/randomColor", {
 		title: "Random Color - Pengrape",
-		description: "Generate HEX, RGB or HSL color code.",
+		description: "Generate HEX, RGB or HSL color codes.",
 		keywords: "generate, random, color, hex, rgb, hsl",
 		scriptRoute: "randomColor",
 		layout: "layouts/utilities",
@@ -61,7 +61,7 @@ module.exports.diceRoller = (req, res) => {
 module.exports.randomText = (req, res) => {
 	res.render("utilities/randomText", {
 		title: "Random Text - Pengrape",
-		description: "Get a random letter, syllable, word, sentence or paragraph.",
+		description: "Get a random placeholder text.",
 		keywords: "generate, random, text, letter, syllable, word, sentence, paragraph",
 		scriptRoute: "randomText",
 		layout: "layouts/utilities",

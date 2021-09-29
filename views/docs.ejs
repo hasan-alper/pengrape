@@ -3,32 +3,52 @@
 
 <section id="contents">
 	<div id="toc-container">
-		<h2>Contents</h2>
+		<h1>Contents</h1>
 		<ul id="toc-list">
 			<li id="toc-overview">
-				<a href="#overview">1 Overview</a>
+				<a href="#overview"><span class="list-number">1</span>Overview</a>
 			</li>
 			<li id="toc-installation">
-				<a href="#installation">2 Installation</a>
+				<a href="#installation"><span class="list-number">2</span>Installation</a>
 			</li>
 			<li id="toc-usage">
-				<a href="#usage">3 Usage</a>
+				<a href="#usage"><span class="list-number">3</span>Usage</a>
 				<ul>
-					<li><a href="#generating">3.1 Generate a result</a></li>
-					<li><a href="#constructing">3.2 Construct results</a></li>
+					<li>
+						<a href="#generating"><span class="list-number">3.1</span>Generate a result</a>
+					</li>
+					<li>
+						<a href="#constructing"><span class="list-number">3.2</span>Construct results</a>
+					</li>
 				</ul>
 			</li>
 			<li id="toc-utilities">
-				<a href="#utilities">4 Utilities</a>
+				<a href="#utilities"><span class="list-number">4</span>Utilities</a>
 				<ul>
-					<li><a href="#number">4.1 Number</a></li>
-					<li><a href="#color">4.2 Color</a></li>
-					<li><a href="#palette">4.3 Palette</a></li>
-					<li><a href="#password">4.4 Password</a></li>
-					<li><a href="#spinner">4.5 Spinner</a></li>
-					<li><a href="#dice">4.6 Dice</a></li>
-					<li><a href="#text">4.7 Text</a></li>
-					<li><a href="#date">4.8 Date</a></li>
+					<li>
+						<a href="#number"><span class="list-number">4.1</span>Number</a>
+					</li>
+					<li>
+						<a href="#color"><span class="list-number">4.2</span>Color</a>
+					</li>
+					<li>
+						<a href="#palette"><span class="list-number">4.3</span>Palette</a>
+					</li>
+					<li>
+						<a href="#password"><span class="list-number">4.4</span>Password</a>
+					</li>
+					<li>
+						<a href="#spinner"><span class="list-number">4.5</span>Spinner</a>
+					</li>
+					<li>
+						<a href="#dice"><span class="list-number">4.6</span>Dice</a>
+					</li>
+					<li>
+						<a href="#text"><span class="list-number">4.7</span>Text</a>
+					</li>
+					<li>
+						<a href="#date"><span class="list-number">4.8</span>Date</a>
+					</li>
 				</ul>
 			</li>
 		</ul>
@@ -37,17 +57,19 @@
 
 <section id="overview">
 	<section id="overview-content">
-		<h2>Overview</h2>
-		<p>Pengrape provides 8 different utilities which include generating random number, color, palette, password, spinner, dice, text and date. Their behavior can be customized by providing different arguments.</p>
+		<h1>Overview</h1>
+		<p>Pengrape provides 8 different methods which include generating random number, color, palette, password, spinner, dice, text and date. Their behavior can be customized by providing different arguments.</p>
+		<p>Pengrape is loaded on this page so you can just open the console on your browser and play.</p>
 	</section>
 </section>
 
 <section id="installation">
 	<div id="installation-content">
-		<h2>Installation</h2>
+		<h1>Installation</h1>
+		<p>Install pengrape in your Node.js powered apps with the <a href="https://www.npmjs.com/package/pengrape">npm package</a>.</p>
 		<div class="method-section">
 			<pre>
-				<code class="language-js">$ npm install pengrape</code>
+				<code class='language-js'>$ npm install pengrape</code>
 			</pre>
 		</div>
 	</div>
@@ -55,19 +77,19 @@
 
 <section id="usage">
 	<div id="usage-content">
-		<h2>Usage</h2>
-		<h3 id="generating">Generate a result</h3>
+		<h1>Usage</h1>
+		<h2 id="generating">Generate a result</h2>
 		<p>You can use the methods listed down here to generate a random result according to your preferences.</p>
 		<div class="method-section">
 			<pre>
-				<code class="language-js">random.color({ format: 'hex' }); // #37988f</code>
+				<code class='language-js'>random.color({ format: 'hex' }); // #37988f</code>
 			</pre>
 		</div>
-		<h3 id="constructing">Construct results</h3>
+		<h2 id="constructing">Construct results</h2>
 		<p>To generate multiple results, you can use the construct option in any methods you want.</p>
 		<div class="method-section">
 			<pre>
-				<code class="language-js">random.color({ format: 'hex', construct: 4 }); // [ '#1c5f15' , '#33168c' , '#7533f5' , '#08e4b3' ]</code>
+				<code class='language-js'>random.color({ format: 'hex', construct: 4 }); // [ '#1c5f15' , '#33168c' , '#7533f5' , '#08e4b3' ]</code>
 			</pre>
 		</div>
 	</div>
@@ -75,20 +97,25 @@
 
 <section id="methods">
 	<div id="methods-content">
-		<h2 id="utilities">Utilities</h2>
+		<h1 id="utilities">Utilities</h1>
+		<p>
+			These methods generate random results. You can customize them by passing arguments as shown in the examples. Most of these arguments are optional. Keep in mind that each option requires specific value type or range. Otherwise
+			you will get an exception. For more information, see the options and examples of the method you are interested in.
+		</p>
 		<div class="method-section">
-			<h3 id="number">Number</h3>
-			<pre><code class="language-js">const number = random.number();
+			<h2 id="number">Number</h2>
+			<p>Generate a random number between the two numbers that you chose.</p>
+			<pre><code class='language-js'>const number = random.number();
 console.log(number); // 12</code>
 			</pre>
-			<h4>Examples</h4>
+			<h3>Examples</h3>
 			<pre>
-				<code class="language-js">random.number({ min: 4, max: 12 }); // 6
+				<code class='language-js'>random.number({ min: 4, max: 12 }); // 6
 random.number({ min: 4, max: 12, type: 'decimal' }); // 5.1734
 random.number({ min: 4, max: 12, type: 'decimal', precision: 6 }); // 11.129582
 random.number({ min: 4, max: 12, parity: 'odd' }); // 7</code>
 			</pre>
-			<h4>Options</h4>
+			<h3>Options</h3>
 			<div class="options-section">
 				<div class="table-section">
 					<table>
@@ -131,7 +158,7 @@ random.number({ min: 4, max: 12, parity: 'odd' }); // 7</code>
 					</table>
 				</div>
 			</div>
-			<h4>Notes</h4>
+			<h3>Notes</h3>
 			<ul class="notes">
 				<li>To use parity, type value must be selected as 'integer'.</li>
 				<li>To use precision, type value must be selected as 'decimal'.</li>
@@ -139,20 +166,21 @@ random.number({ min: 4, max: 12, parity: 'odd' }); // 7</code>
 			</ul>
 		</div>
 		<div class="method-section">
-			<h3 id="color">Color</h3>
+			<h2 id="color">Color</h2>
+			<p>Generate HEX, RGB or HSL color codes.</p>
 			<pre>
-				<code class="language-js">const color = random.color();
+				<code class='language-js'>const color = random.color();
 console.log(color); // #f28e51</code>
 			</pre>
-			<h4>Examples</h4>
+			<h3>Examples</h3>
 			<pre>
-				<code class="language-js">random.color({ format: 'rgb' }); // rgb(124, 97, 124)
+				<code class='language-js'>random.color({ format: 'rgb' }); // rgb(124, 97, 124)
 random.color({ format: 'rgb', syntax: 'list' }); // [ 46, 106, 45 ]
 random.color({ format: 'rgb', values: [ null, null, '77' ] }); // rgb(23, 148, 77)
 random.color({ format: 'all' }); // [ '#bee82c', 'rgb(190, 232, 44)', 'hsl(73, 80%, 54%)' ]
 random.color({ format: 'all', values: [ 'hex', null, 'b3', null ] }); // [ '#c6b3f9' , 'rgb(198, 179, 249)', 'hsl(256, 85, 84)' ]</code>
 			</pre>
-			<h4>Options</h4>
+			<h3>Options</h3>
 			<div class="options-section">
 				<div class="table-section">
 					<table>
@@ -185,19 +213,19 @@ random.color({ format: 'all', values: [ 'hex', null, 'b3', null ] }); // [ '#c6b
 			</div>
 		</div>
 		<div class="method-section">
-			<h3 id="palette">Palette</h3>
-
+			<h2 id="palette">Palette</h2>
+			<p>Generate beautiful color combinations.</p>
 			<pre>
-				<code class="language-js">const palette = random.palette();
+				<code class='language-js'>const palette = random.palette();
 console.log(palette); // ['#e41bc9' , '#c51adb' , '#9d2adf' , '#641adb' , '#361be4' ]</code>
 			</pre>
-			<h4>Examples</h4>
+			<h3>Examples</h3>
 			<pre>
-				<code class="language-js">random.palette({ harmony: 'complementary' }); // ['#29af04' , '#49e01f' , '#41ed12' , '#8a04af' , '#be12ed'
+				<code class='language-js'>random.palette({ harmony: 'complementary' }); // ['#29af04' , '#49e01f' , '#41ed12' , '#8a04af' , '#be12ed'
 random.palette({ format: 'rgb', harmony: 'monochromatic' }); // ['rgb(34, 111, 1)' , 'rgb(91, 210, 40)' , 'rgb(73, 237, 2)' , 'rgb(41, 94, 18)' , 'rgb(59, 192, 2)' ]
 random.palette({ syntax: 'list' }); // [['4e', 'b1', '6c'], ['4b', 'aa', '4f'], ['6c', 'ae', '5b'], ['76', 'aa', '4b'], ['93', 'b1', '4e']]</code>
 			</pre>
-			<h4>Options</h4>
+			<h3>Options</h3>
 			<div class="options-section">
 				<div class="table-section">
 					<table>
@@ -230,20 +258,21 @@ random.palette({ syntax: 'list' }); // [['4e', 'b1', '6c'], ['4b', 'aa', '4f'], 
 			</div>
 		</div>
 		<div class="method-section">
-			<h3 id="password">Password</h3>
+			<h2 id="password">Password</h2>
+			<p>Generate secure passwords based on guidelines that you set.</p>
 			<pre>
-				<code class="language-js">const password = random.password();
+				<code class='language-js'>const password = random.password();
 console.log(password); // W7q0Va5RY53L63o7U0it</code>
 			</pre>
-			<h4>Examples</h4>
+			<h3>Examples</h3>
 			<pre>
-				<code class="language-js">random.password({ lowercase: true, uppercase: false }); // buab5r7dy5jsoy2wsu
+				<code class='language-js'>random.password({ lowercase: true, uppercase: false }); // buab5r7dy5jsoy2wsu
 random.password({ lowercase: true, uppercase: false, symbol: true }); // e%zpsj3c/7z%bfw#gas5u
 random.password({ length: 12 }); // KVgp6piIu3Ap
 random.password({ minLength: 6, maxLength: 10 }); // QTvKn52sP
 random.password({ symbol: true, symbolPool: '#&'); // A#Ii9Ir2s8#Eq43EP3&Sw</code>
 			</pre>
-			<h4>Options</h4>
+			<h3>Options</h3>
 			<div class="options-section">
 				<div class="table-section">
 					<table>
@@ -310,21 +339,22 @@ random.password({ symbol: true, symbolPool: '#&'); // A#Ii9Ir2s8#Eq43EP3&Sw</cod
 					</table>
 				</div>
 			</div>
-			<h4>Notes</h4>
+			<h3>Notes</h3>
 			<ul class="notes">
 				<li>If length option is selected, minLength and maxLength options will not work.</li>
-				<li>MinLength and maxLength are inclusive, so they are included in the range..</li>
+				<li>MinLength and maxLength are inclusive, so they are included in the range.</li>
 			</ul>
 		</div>
 		<div class="method-section">
-			<h3 id="spinner">Spinner</h3>
+			<h2 id="spinner">Spinner</h2>
+			<p>Enter values to pick a random value.</p>
 			<pre>
-				<code class="language-js">const spinner = random.spinner({ entries: [ 'Cherry', 'Apple', 'Grape' ] });
+				<code class='language-js'>const spinner = random.spinner({ entries: [ 'Cherry', 'Apple', 'Grape' ] });
 console.log(spinner); // Grape</code>
 			</pre>
-			<h4>Examples</h4>
+			<h3>Examples</h3>
 			<pre>
-				<code class="language-js">random.spinner({ entries: [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], returnDetails: true });
+				<code class='language-js'>random.spinner({ entries: [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], returnDetails: true });
 // { entry: 'St. Bernard', min: 180, max: 270, deg: 237, data: 90, isWinner: true }
 random.spinner({ entries: [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ], returnEntries: true });
 // [ 'Beagle', 'Pomeranian', 'St. Bernard', 'Pembroke Welsh Corgi' ]
@@ -333,7 +363,7 @@ random.spinner({ entries: [ 'Pizza', 'Lasagna', 'Quesadilla' ], returnDetails: t
 // { entry: 'Lasagna', min: 120, max: 240, deg: 208, data: 120, isWinner: true },
 // { entry: 'Quesadilla', min: 240, max: 360, deg: 208, data:120, isWinner: false } ]</code>
 			</pre>
-			<h4>Options</h4>
+			<h3>Options</h3>
 			<div class="options-section">
 				<div class="table-section">
 					<table>
@@ -366,18 +396,19 @@ random.spinner({ entries: [ 'Pizza', 'Lasagna', 'Quesadilla' ], returnDetails: t
 			</div>
 		</div>
 		<div class="method-section">
-			<h3 id="dice">Dice</h3>
+			<h2 id="dice">Dice</h2>
+			<p>Roll virtual dice.</p>
 			<pre>
-				<code class="language-js">const dice = random.dice();
+				<code class='language-js'>const dice = random.dice();
 console.log(dice); // { results: [ 2 ], total: 2 }</code>
 			</pre>
-			<h4>Examples</h4>
+			<h3>Examples</h3>
 			<pre>
-				<code class="language-js">random.dice({ notation: '2d10' }); // { results: [ 4, 10 ], total: 14 }
+				<code class='language-js'>random.dice({ notation: '2d10' }); // { results: [ 4, 10 ], total: 14 }
 random.dice({ notation: 'd20' }); // { results: [ 15 ], total: 15 }
 random.dice({ notation: '6d20' }); // { results: [ 6, 20, 15, 19, 2, 2 ], total: 64 }</code>
 			</pre>
-			<h4>Options</h4>
+			<h3>Options</h3>
 			<div class="options-section">
 				<div class="table-section">
 					<table>
@@ -398,18 +429,19 @@ random.dice({ notation: '6d20' }); // { results: [ 6, 20, 15, 19, 2, 2 ], total:
 			</div>
 		</div>
 		<div class="method-section">
-			<h3 id="text">Text</h3>
+			<h2 id="text">Text</h2>
+			<p>Get a random placeholder text.</p>
 			<pre>
-				<code class="language-js">const text = random.text();
+				<code class='language-js'>const text = random.text();
 console.log(text); // Daklwobzahga orlkevpzon neuytakjagab laeves hegg ugleesxaq.</code>
 			</pre>
-			<h4>Examples</h4>
+			<h3>Examples</h3>
 			<pre>
-				<code class="language-js">random.text({ type: 'letter' }); // p
+				<code class='language-js'>random.text({ type: 'letter' }); // p
 random.text({ type: 'word' }); // luswepisa
 random.text({ type: 'sentence', length: 4 }); // Neidva gejtaqxozuja diq cierl.</code>
 			</pre>
-			<h4>Options</h4>
+			<h3>Options</h3>
 			<div class="options-section">
 				<div class="table-section">
 					<table>
@@ -434,7 +466,7 @@ random.text({ type: 'sentence', length: 4 }); // Neidva gejtaqxozuja diq cierl.<
 					</table>
 				</div>
 			</div>
-			<h4>Notes</h4>
+			<h3>Notes</h3>
 			<ul class="notes">
 				<li>Length value will not work if type value is 'letter' or 'syllable'.</li>
 				<li>The unit of length value will be letters if type value is 'word'.</li>
@@ -443,17 +475,18 @@ random.text({ type: 'sentence', length: 4 }); // Neidva gejtaqxozuja diq cierl.<
 			</ul>
 		</div>
 		<div class="method-section">
-			<h3 id="date">Date</h3>
+			<h2 id="date">Date</h2>
+			<p>Generate a date between the two dates that you chose.</p>
 			<pre>
-				<code class="language-js">const date = random.date();
+				<code class='language-js'>const date = random.date();
 console.log(date); // 2021-04-29</code>
 			</pre>
-			<h4>Examples</h4>
+			<h3>Examples</h3>
 			<pre>
-				<code class="language-js">random.date({ dateStart: [2021, 1, 1], dateEnd: [2021, 6, 17] }); // 2021-02-23
+				<code class='language-js'>random.date({ dateStart: [2021, 1, 1], dateEnd: [2021, 6, 17] }); // 2021-02-23
 random.date({ dateStart: [1874, 4, 21], dateEnd: [1878, 11, 30], format: 'dd/mm/yyyy' }); // 29/12/1877</code>
 			</pre>
-			<h4>Options</h4>
+			<h3>Options</h3>
 			<div class="options-section">
 				<div class="table-section">
 					<table>

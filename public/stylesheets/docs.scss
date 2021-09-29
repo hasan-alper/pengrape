@@ -4,6 +4,32 @@ body {
 	user-select: auto;
 }
 
+h1 {
+	font-size: 1.8rem;
+	font-weight: 400;
+	user-select: none;
+	margin-bottom: 1rem;
+}
+
+h2 {
+	font-size: 1.4rem;
+	font-weight: 400;
+	user-select: none;
+}
+
+h3 {
+	font-size: 1.1rem;
+	color: $dark-2;
+	font-weight: 400;
+	user-select: none;
+}
+
+p {
+	font-size: 1rem;
+	font-weight: 300;
+	user-select: none;
+}
+
 #navbar {
 	user-select: none;
 }
@@ -12,7 +38,8 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 1rem;
+	background-color: $dark-1;
+	user-select: none;
 }
 
 #toc-container {
@@ -21,25 +48,44 @@ body {
 	justify-content: start;
 	align-items: flex-start;
 	width: 1248px;
-	padding: 1rem;
-	margin: 1rem 1rem 0;
-	background-color: $light-1;
-	border: $border-section;
-	border-radius: $border-radius;
+	margin: 3rem 1rem;
+	background-color: $dark-1;
+}
+
+#toc-list {
+	border-left: 1px $light-1 solid;
+	padding-left: 0.5rem;
+}
+
+#toc-container h1 {
+	color: $light-1;
 }
 
 #toc-container ul {
 	list-style: none;
+	line-height: 200%;
 }
 
 #toc-container a {
 	text-decoration: none;
-	color: $dark-1;
+	color: $light-1;
 }
 
 #toc-usage li,
 #toc-utilities li {
-	margin-left: 1rem;
+	margin-left: 1.6rem;
+	line-height: 160%;
+}
+
+#toc-usage li .list-number,
+#toc-utilities li .list-number {
+	margin-right: 0.6rem;
+}
+
+#toc-container .list-number {
+	display: inline-block;
+	text-align: center;
+	width: 2rem;
 }
 
 #overview {
@@ -54,8 +100,12 @@ body {
 	justify-content: start;
 	align-items: flex-start;
 	width: 1248px;
-	padding-top: 2rem;
+	padding-top: 3rem;
 	margin: 0 1rem;
+}
+
+#overview-content p:first-of-type {
+	padding-bottom: 1rem;
 }
 
 #installation {
@@ -70,8 +120,17 @@ body {
 	justify-content: start;
 	align-items: flex-start;
 	width: 1248px;
-	padding-top: 2rem;
+	padding-top: 3rem;
 	margin: 0 1rem;
+}
+
+#installation-content .method-section {
+	padding: 1rem 0 0;
+}
+
+#installation-content a {
+	color: $primary-color;
+	text-decoration: none;
 }
 
 #usage {
@@ -86,8 +145,16 @@ body {
 	justify-content: start;
 	align-items: flex-start;
 	width: 1248px;
-	padding: 2rem 0;
+	padding: 3rem 0 0;
 	margin: 0 1rem;
+}
+
+#usage-content .method-section {
+	padding: 1rem 0;
+}
+
+#usage-content .method-section:last-child {
+	padding: 1rem 0 0;
 }
 
 #methods {
@@ -102,13 +169,35 @@ body {
 	justify-content: start;
 	align-items: flex-start;
 	width: 1248px;
-	padding: 2rem 0;
+	padding: 3rem 0;
 	margin: 0 1rem;
+}
+
+#methods-content p {
+	margin-bottom: 0.5rem;
+}
+
+#methods-content h3 {
+	margin: 1rem 0 0.5rem;
+}
+
+#methods-content .method-section:first-of-type {
+	margin-top: 2rem;
+}
+
+#methods-content .method-section {
+	margin-top: 3rem;
+}
+
+.method-section {
+	width: 100%;
 }
 
 .options-section {
 	overflow: auto;
 	white-space: nowrap;
+	border-radius: 1rem;
+	border: $border-section;
 }
 
 .table-section {
@@ -124,12 +213,19 @@ table {
 
 table td,
 table th {
-	border: $border-section;
 	padding: 0.5rem;
 }
 
 table tr:nth-child(even) {
-	background-color: $light-2;
+	background-color: $light-1;
+}
+
+table tr:not(:last-of-type) {
+	border-bottom: $border-section;
+}
+
+table td:not(:last-of-type) {
+	border-right: $border-section;
 }
 
 table th {
@@ -138,16 +234,11 @@ table th {
 	padding-bottom: 1rem;
 	text-align: left;
 	background-color: $primary-color;
-	color: white;
+	color: $light-1;
 }
 
 td:first-of-type {
 	font-family: "Inconsolata", monospace;
-}
-
-.method-section {
-	padding: 1rem 0;
-	width: 100%;
 }
 
 code {
@@ -157,29 +248,9 @@ code {
 	font-family: "Inconsolata", monospace;
 }
 
-h2 {
-	font-size: 2.5rem;
-	font-weight: 500;
-	user-select: none;
-}
-
-h3 {
-	font-size: 1.5rem;
-	font-weight: 400;
-	padding: 0.5rem 0;
-	user-select: none;
-}
-
-h4 {
-	font-size: 1rem;
-	font-weight: 400;
-	color: $dark-2;
-	padding: 1.5rem 0 0.5rem;
-	user-select: none;
-}
-
 .notes {
-	margin: 1rem;
+	list-style: inside;
+	color: $dark-1;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -192,8 +263,20 @@ h4 {
 	}
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 900px) {
+	h1 {
+		font-size: 1.4rem;
+	}
+
 	h2 {
-		font-size: 2rem;
+		font-size: 1.2rem;
+	}
+
+	h3 {
+		font-size: 1.1rem;
+	}
+
+	p {
+		font-size: 1rem;
 	}
 }
