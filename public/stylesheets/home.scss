@@ -3,21 +3,18 @@
 // **************** BODY **************** //
 
 h1 {
-	font-size: 4rem;
-	font-weight: 700;
+	font-size: 1.8rem;
+	font-weight: 400;
 }
 
 h2 {
-	font-size: 2rem;
-	font-weight: 500;
+	font-size: 1.4rem;
+	font-weight: 400;
 }
 
 p {
-	font-size: 1.5rem;
-}
-
-a {
-	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 300;
 }
 
 // **************** SECTION 1 **************** //
@@ -26,11 +23,8 @@ a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: calc(100vh - 4rem);
-	background-image: url(../svgs/background-1.svg);
-	background-position: top;
-	background-repeat: no-repeat;
-	background-size: cover;
+	min-height: 36rem;
+	background-color: $dark-1;
 }
 
 #section-1-content {
@@ -38,33 +32,46 @@ a {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	max-width: 1248px;
 	margin: 0 1rem;
 }
 
 #section-1 h1 {
-	margin-top: 5vh;
+	margin: 2rem 0;
 	color: $light-1;
-	max-width: 40rem;
 	text-align: center;
-	margin-bottom: 5vh;
 }
 
 #section-1 h2 {
 	color: $light-1;
-	margin-bottom: 2vh;
+	margin-bottom: 1rem;
 }
 
 #section-1 p {
 	color: $light-2;
-	width: 70%;
+	width: 60%;
 	text-align: center;
-	margin-bottom: 5vh;
+	margin-bottom: 2rem;
+}
+
+#main-logo {
+	margin-top: 2rem;
+	width: 70px;
+}
+
+#main-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 19rem;
+	margin-bottom: 2rem;
 }
 
 #section-1 a {
+	font-size: 15px;
 	color: $light-1;
-	font-weight: 500;
+	background-color: transparent;
+	width: 8rem;
+	height: 3rem;
 }
 
 // **************** SECTION 2 **************** //
@@ -73,36 +80,49 @@ a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 40rem;
-	background-image: url(../svgs/background-2.svg);
-	background-repeat: no-repeat;
-	background-size: cover;
+	background-color: $secondary-color;
 }
 
 #section-2-content {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: flex-start;
-	width: 100%;
+	align-items: center;
 	max-width: 1248px;
-	margin: 0 1rem;
+	margin: 4rem;
+	width: 100%;
+}
+
+.section-2-content {
+	width: 100%;
+	margin: 4rem 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.section-2-content-text {
+	max-width: 44rem;
+	margin: 0 4rem 0 0;
+}
+
+.section-2-content-image img {
+	width: 22rem;
+	background-color: $primary-color;
+	border-radius: 1rem;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 #section-2 h1 {
-	margin-top: 2rem;
-	color: $primary-color;
 	margin-bottom: 1rem;
 }
 
-#section-2 p {
-	color: $dark-1;
-	max-width: 40rem;
-	margin-bottom: 1rem;
+.section-2-content:nth-child(even) {
+	flex-direction: row-reverse;
 }
 
-#section-2 p:first-of-type {
-	margin-bottom: 2rem;
+.section-2-content:nth-child(even) .section-2-content-text {
+	margin: 0 0 0 4rem;
 }
 
 // **************** SECTION 3 **************** //
@@ -111,123 +131,187 @@ a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: url(../svgs/background-3.svg);
-	background-repeat: no-repeat;
-	background-size: cover;
+	background-color: $primary-color;
 }
 
 #section-3-content {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: center;
 	width: 100%;
 	max-width: 1248px;
 	margin: 0 1rem;
 }
 
 #utilities h1 {
-	margin-top: 4rem;
-	color: $light-1;
-	margin-bottom: 2rem;
-}
-
-#utilities h2 {
-	color: $light-1;
-	margin-bottom: 2rem;
+	font-size: 4rem;
+	padding: 4rem 0 2rem;
+	color: $secondary-color;
 }
 
 #utilities p:not(.card-text, .card-title) {
-	color: $light-2;
-	max-width: 40rem;
-	margin-bottom: 3rem;
-}
-
-#utilities a:not(.card-link) {
-	color: $light-1;
-	font-weight: 500;
+	color: $secondary-color;
+	text-align: center;
+	max-width: 24rem;
+	padding: 2rem 0;
+	border-top: 2px dashed $secondary-color;
 }
 
 #cards {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: start;
-	align-items: flex-start;
-	margin-bottom: 4rem;
+	display: grid;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fit, minmax(22rem, max-content));
+	grid-gap: 2rem;
+	width: 100%;
+	margin: 2rem 0 4rem;
 }
 
 #cards .card-body {
-	background-color: white;
-	border-radius: $border-radius;
+	background-color: $secondary-color;
+	border-radius: 1rem;
 	padding: 0;
+	border: 2px solid $brown;
+	transition: 200ms ease-out;
 }
 
 #cards .card-link {
 	display: flex;
 	text-decoration: none;
-	border-radius: $border-radius;
-	margin: 0 2rem 2rem 0;
-	width: 30rem;
-	min-height: 8.5rem;
+	border-radius: 1rem;
+	width: 22rem;
+	height: 13rem;
+	margin: 0;
+}
+
+#cards .card-body:hover {
+	background-color: $light-1;
+	transition: 200ms ease-out;
 }
 
 #cards .card-title {
 	display: flex;
-	justify-content: start;
+	justify-content: center;
 	align-items: center;
 	color: $dark-1;
-	padding: 1rem 2rem 0.5rem;
+	padding: 1.5rem 0;
+	border-bottom: 2px dashed $brown;
 	margin: 0;
-	background-color: $light-1;
-	border-top-left-radius: $border-radius;
-	border-top-right-radius: $border-radius;
-	border-bottom: $border-section;
 }
 
 #cards .card-text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 	font-size: 1rem;
 	padding: 0.5rem 2rem 1rem;
 	color: $dark-2;
+	height: 120px;
+}
+
+.empty-cards {
+	background-color: $primary-color;
+	border: 2px dashed $secondary-color;
 }
 
 @media only screen and (max-width: 900px) {
 	h1 {
-		font-size: 3rem;
+		font-size: 1.4rem;
 	}
 
-	#section-1 {
-		background-position: right;
+	h2 {
+		font-size: 1.2rem;
 	}
 
-	#section-1 h1 {
-		text-align: start;
+	p {
+		font-size: 1rem;
 	}
 
 	#section-1 p {
-		text-align: start;
+		width: 75%;
 	}
 
-	#section-1-content {
-		align-items: start;
+	#section-2-content {
+		margin: 2rem;
+	}
+
+	.section-2-content {
+		margin: 3rem 0;
+	}
+
+	.section-2-content-text {
+		margin: 0 2rem 0 0;
+		max-width: 28rem;
+	}
+
+	.section-2-content:nth-child(even) .section-2-content-text {
+		margin: 0 0 0 2rem;
+	}
+
+	.section-2-content-image img {
+		width: 18rem;
+		border: 2px solid $brown;
+		box-shadow: none;
 	}
 }
 
 @media only screen and (max-width: 700px) {
-	#cards .card-link {
-		width: 80%;
+	#section-1 p {
+		width: 100%;
+		max-width: 28rem;
+	}
+
+	#main-buttons {
+		width: 17.5rem;
+	}
+
+	.section-2-content {
+		flex-direction: column-reverse;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.section-2-content-text {
+		text-align: center;
+		margin: 2rem 0 0;
+	}
+
+	.section-2-content:nth-child(even) {
+		flex-direction: column-reverse;
+	}
+
+	.section-2-content:nth-child(even) .section-2-content-text {
+		margin: 2rem 0 0;
+	}
+
+	.empty-cards:not(.first-empty) {
+		display: none !important;
 	}
 }
 
 @media only screen and (max-width: 450px) {
-	#section-1 p {
-		width: 90%;
+	#main-buttons {
+		width: 16.5rem;
+	}
+
+	#section-1 a {
+		width: 7.5rem;
+	}
+
+	#section-2-content {
+		margin: 2rem;
+	}
+
+	.section-2-content {
+		margin: 2rem 0;
+	}
+
+	#cards {
+		grid-template-columns: auto;
 	}
 
 	#cards .card-link {
-		width: 90%;
-	}
-
-	#cards .card-text {
-		padding: 1rem 2rem;
+		width: 100%;
 	}
 }
