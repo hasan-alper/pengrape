@@ -77,7 +77,7 @@ buttonGenerate.addEventListener("click", () => {
 	history.push(colorCodes);
 
 	sectionResult.style.backgroundColor = history[history.length - 1].normal[0];
-	resultContent.innerHTML = history[history.length - 1].normal[colorFormatIndex];
+	resultContent.innerHTML = history[history.length - 1].normal[colorFormatIndex].replaceAll(" ", "");
 	resultContent.style.color = history[history.length - 1].list[2][2] > 45 ? colorBlack : "white";
 
 	rangeOutputs.forEach((rangeOutput, i) => {
@@ -92,7 +92,7 @@ buttonGenerate.addEventListener("click", () => {
 
 	buttonHex.addEventListener("click", () => {
 		if (mode === "generate") {
-			resultContent.innerHTML = history[history.length - 1].normal[0];
+			resultContent.innerHTML = history[history.length - 1].normal[0].replaceAll(" ", "");
 			sectionResult.style.backgroundColor = history[history.length - 1].normal[0];
 		}
 		rangeOutputs.forEach((rangeOutput, i) => {
@@ -105,7 +105,7 @@ buttonGenerate.addEventListener("click", () => {
 
 	buttonRgb.addEventListener("click", () => {
 		if (mode === "generate") {
-			resultContent.innerHTML = history[history.length - 1].normal[1];
+			resultContent.innerHTML = history[history.length - 1].normal[1].replaceAll(" ", "");
 			sectionResult.style.backgroundColor = history[history.length - 1].normal[0];
 		}
 		rangeOutputs.forEach((rangeOutput, i) => {
@@ -118,7 +118,7 @@ buttonGenerate.addEventListener("click", () => {
 
 	buttonHsl.addEventListener("click", () => {
 		if (mode === "generate") {
-			resultContent.innerHTML = history[history.length - 1].normal[2];
+			resultContent.innerHTML = history[history.length - 1].normal[2].replaceAll(" ", "");
 			sectionResult.style.backgroundColor = history[history.length - 1].normal[0];
 		}
 		rangeOutputs.forEach((rangeOutput, i) => {
@@ -140,7 +140,7 @@ buttonUndo.addEventListener("click", () => {
 	radioColor.forEach((colorOpt, i) => {
 		if (colorOpt.checked) {
 			sectionResult.style.backgroundColor = history[history.length - 1].normal[0];
-			resultContent.innerHTML = history[history.length - 1].normal[i];
+			resultContent.innerHTML = history[history.length - 1].normal[i].replaceAll(" ", "");
 			resultContent.style.color = history[history.length - 1].list[2][2] > 45 ? colorBlack : "white";
 			colorFormatIndex = i;
 		}
@@ -273,7 +273,7 @@ const constructor = (results) => {
 	for (let result of results) {
 		const allResults = document.createElement("div");
 		allResults.className = "col";
-		allResults.innerHTML = result;
+		allResults.innerHTML = result.replaceAll(" ", "");
 		constructedResultsContent.appendChild(allResults);
 	}
 };

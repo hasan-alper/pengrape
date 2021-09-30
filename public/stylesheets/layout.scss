@@ -107,6 +107,7 @@ body {
 	height: 5rem;
 	background-color: $light-1;
 	border: $border-section;
+	border-top: none;
 }
 
 #tabs-content {
@@ -133,8 +134,8 @@ body {
 }
 
 .labels-tabs {
-	height: 2rem;
-	width: 7.5rem;
+	height: 1.8rem;
+	width: 7rem;
 	padding-top: 0.75rem;
 }
 
@@ -254,7 +255,7 @@ body {
 }
 
 #quantity-content input {
-	width: 7rem;
+	width: 5rem;
 	margin-left: 1rem;
 }
 
@@ -267,6 +268,7 @@ body {
 	-webkit-appearance: none;
 	width: 7px;
 }
+
 #construct-content ::-webkit-scrollbar-thumb {
 	border-radius: 4px;
 	background-color: rgba(0, 0, 0, 0.5);
@@ -277,7 +279,7 @@ body {
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: flex-start;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-family: "Inconsolata", monospace;
 }
 

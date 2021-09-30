@@ -70,17 +70,17 @@ buttonGenerate.addEventListener("click", () => {
 
 	for (let i = 0; i < 5; i++) {
 		sectionColors[i].style.backgroundColor = history[history.length - 1].normal[0][i];
-		sectionColors[i].innerHTML = history[history.length - 1].normal[colorFormatIndex][i];
+		sectionColors[i].innerHTML = history[history.length - 1].normal[colorFormatIndex][i].replaceAll(" ", "");
 		sectionColors[i].style.color = history[history.length - 1].list[2][i][2] > 45 ? colorBlack : "white";
 
 		buttonHex.addEventListener("click", () => {
-			sectionColors[i].innerHTML = history[history.length - 1].normal[0][i];
+			sectionColors[i].innerHTML = history[history.length - 1].normal[0][i].replaceAll(" ", "");
 		});
 		buttonRgb.addEventListener("click", () => {
-			sectionColors[i].innerHTML = history[history.length - 1].normal[1][i];
+			sectionColors[i].innerHTML = history[history.length - 1].normal[1][i].replaceAll(" ", "");
 		});
 		buttonHsl.addEventListener("click", () => {
-			sectionColors[i].innerHTML = history[history.length - 1].normal[2][i];
+			sectionColors[i].innerHTML = history[history.length - 1].normal[2][i].replaceAll(" ", "");
 		});
 	}
 
@@ -92,14 +92,15 @@ buttonUndo.addEventListener("click", () => {
 	if (history.length > 1) {
 		history.pop();
 	}
+
 	radioColor.forEach((colorOpt, i) => {
 		if (colorOpt.checked) {
+			colorFormatIndex = i;
 			for (let i = 0; i < 5; i++) {
 				sectionColors[i].style.backgroundColor = history[history.length - 1].normal[0][i];
-				sectionColors[i].innerHTML = history[history.length - 1].normal[colorFormatIndex][i];
+				sectionColors[i].innerHTML = history[history.length - 1].normal[colorFormatIndex][i].replaceAll(" ", "");
 				sectionColors[i].style.color = history[history.length - 1].list[2][i][2] > 45 ? colorBlack : "white";
 			}
-			colorFormatIndex = i;
 		}
 	});
 
@@ -112,12 +113,12 @@ buttonTabsGenerate.addEventListener("click", () => {
 	if (history.length > 0) {
 		radioColor.forEach((colorOpt, i) => {
 			if (colorOpt.checked) {
+				colorFormatIndex = i;
 				for (let i = 0; i < 5; i++) {
 					sectionColors[i].style.backgroundColor = history[history.length - 1].normal[0][i];
-					sectionColors[i].innerHTML = history[history.length - 1].normal[colorFormatIndex][i];
+					sectionColors[i].innerHTML = history[history.length - 1].normal[colorFormatIndex][i].replaceAll(" ", "");
 					sectionColors[i].style.color = history[history.length - 1].list[2][i][2] > 45 ? colorBlack : "white";
 				}
-				colorFormatIndex = i;
 			}
 		});
 	} else {
@@ -164,8 +165,8 @@ const constructor = (results) => {
 		allResults.className = "col";
 		let prettyResult = [];
 		for (let item of result) {
-			prettyResult.push(" " + item);
-			if (item == result[0]) prettyResult[0] = item;
+			prettyResult.push(" " + item.replaceAll(" ", ""));
+			if (item == result[0]) prettyResult[0] = item.replaceAll(" ", "");
 		}
 		allResults.innerHTML = prettyResult;
 		constructedResultsContent.appendChild(allResults);

@@ -7,7 +7,7 @@ const colorBlack = "#202020";
 const colorDark = "#505050";
 const colorGray = "#a3a3a3";
 const colorWhite = "#fbfbfb";
-const spinnerColors = ["#e87477", "#73e8ab", "#73a9e8", "#e88473", "#e873b3", "#dae873"];
+const spinnerColors = ["#eb4763", "#009F44", "#4A78FF", "#ffcf21"];
 
 const buttonTabsGenerate = document.querySelector("#button-tabs-generate");
 const buttonTabsConstruct = document.querySelector("#button-tabs-construct");
