@@ -254,6 +254,10 @@ p {
 		border: 2px solid $brown;
 		box-shadow: none;
 	}
+
+	#utilities h1 {
+		font-size: 3rem;
+	}
 }
 
 @media only screen and (max-width: 700px) {
